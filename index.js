@@ -12,8 +12,14 @@ const openBrowser = (url) => {
 const app = express();
 const PORT = 3000;
 
-// Serve static files
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve static files with complete cache disabling (no-store, no-cache, etag false, maxAge 0) to prevent browser cache retention
+app.use(express.static(path.join(__dirname, 'public'), {
+    etag: false,
+    maxAge: 0,
+    setHeaders: (res, path) => {
+        res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+    }
+}));
 
 // Redirect root to launcher
 app.get('/', (req, res) => res.redirect('/launcher.html'));

@@ -210,6 +210,16 @@
         }
 
         @media (max-width: 768px) {
+            html, body {
+                height: auto !important;
+                max-height: none !important;
+                overflow: auto !important;
+                overflow-x: hidden !important;
+            }
+            .players-h2h-list {
+                overflow-y: visible !important;
+                height: auto !important;
+            }
             .container {
                 padding: 0.75rem;
                 height: auto;

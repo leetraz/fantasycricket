@@ -836,10 +836,11 @@
             const opponentInfo = matchData.teamsInfo ? matchData.teamsInfo.find(t => t.name !== teamName) : null;
             const opponentId = opponentInfo ? opponentInfo.id : "";
 
-            // Reverse the open array so the tabs end up in correct natural order from left to right (Player 1, Player 2, etc.)
-            const reversedPlayers = [...players].reverse();
-
-            reversedPlayers.forEach((p, i) => {
+            // Loop in the normal, chronological squad order (first player to last player)
+            // By utilizing a simulated link click (a.click()) instead of window.open(), Chrome and Firefox
+            // both treat this as a standard user link click and always append new tabs to the end of the tab bar.
+            // This guarantees that Player 1 opens first in time and remains the left-most tab closest to the dashboard!
+            players.forEach((p, i) => {
                 let url;
                 if (type === 'profile') {
                     url = `https://www.espncricinfo.com/cricketers/${p.name.toLowerCase().replace(/ /g, '-')}-${p.player_id}/matches`;
@@ -848,8 +849,14 @@
                 }
 
                 setTimeout(() => {
-                    window.open(url, '_blank');
-                }, i * 25); // Hyper fast opening (25ms delay)!
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }, i * 150); // 150ms delay to satisfy popup blockers and allow smooth sequential opening
             });
         }
 

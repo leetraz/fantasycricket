@@ -268,12 +268,43 @@
         @media (max-width: 768px) {
             .teams-container {
                 grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+            .team-card {
+                padding: 1.25rem;
+            }
+            .team-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+                border-bottom: 1px solid var(--border);
+                padding-bottom: 0.75rem;
+            }
+            .team-actions {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.4rem;
+            }
+            .team-actions button {
+                width: 100% !important;
+                margin-left: 0 !important;
+                font-size: 0.75rem;
+                padding: 0.5rem;
+                text-align: center;
             }
             .input-section {
                 flex-direction: column;
+                gap: 0.5rem;
+            }
+            .input-section button {
+                width: 100%;
             }
             h1 {
-                font-size: 2.5rem;
+                font-size: 1.8rem !important;
+            }
+            .subtitle {
+                font-size: 0.75rem !important;
             }
         }
     </style>

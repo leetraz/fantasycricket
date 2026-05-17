@@ -208,6 +208,51 @@
             transform: translateX(4px);
             background: rgba(17, 18, 29, 0.65);
         }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0.75rem;
+                height: auto;
+                max-height: none;
+            }
+            header {
+                margin-bottom: 0.75rem;
+            }
+            h1 {
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+            }
+            .subtitle {
+                font-size: 0.75rem;
+            }
+            .players-list-header {
+                display: none;
+            }
+            .player-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                padding: 0.6rem 0.75rem;
+            }
+            .player-row:hover {
+                transform: none;
+            }
+            /* Enable smooth horizontal scrolling for capsules on mobile touch screens */
+            .player-row > div:last-child {
+                width: 100%;
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 4px;
+                scrollbar-width: thin;
+                scrollbar-color: rgba(0, 242, 255, 0.15) transparent;
+            }
+            .player-row > div:last-child::-webkit-scrollbar {
+                height: 4px;
+            }
+            .player-row > div:last-child::-webkit-scrollbar-thumb {
+                background: rgba(0, 242, 255, 0.15);
+                border-radius: 2px;
+            }
+        }
     </style>
 </head>
 <body>

@@ -156,10 +156,40 @@
         .players-h2h-list {
             display: flex;
             flex-direction: column;
-            gap: 0.3rem;
+            gap: 0.25rem;
             flex-grow: 1;
             min-height: 0;
             overflow-y: auto;
+        }
+
+        .players-list-header {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 1rem;
+            padding: 0.2rem 0.75rem;
+            margin-bottom: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .player-row {
+            background: rgba(17, 18, 29, 0.4);
+            border: 1px solid var(--glass-border);
+            padding: 0.4rem 0.75rem;
+            border-radius: 8px;
+            font-family: 'Space Grotesk';
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: inset 0 0 10px rgba(0, 242, 255, 0.01);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .player-row:hover {
+            border-color: rgba(0, 242, 255, 0.4);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.08), inset 0 0 10px rgba(0, 242, 255, 0.02);
+            transform: translateX(4px);
+            background: rgba(17, 18, 29, 0.65);
         }
     </style>
 </head>
@@ -270,6 +300,20 @@
                 document.getElementById('progress-status').textContent = `Found ${squadPlayers.length} players. Initializing H2H query...`;
                 
                 const container = document.getElementById('players-list-container');
+                
+                // Append perfect symmetric column headers for dashboard
+                const headerRow = document.createElement('div');
+                headerRow.className = 'players-list-header';
+                headerRow.innerHTML = `
+                    <div style="font-family: 'Space Grotesk'; font-size: 0.7rem; text-transform: uppercase; font-weight: 700; color: rgba(255,255,255,0.25); letter-spacing: 1px;">
+                        Player Identity
+                    </div>
+                    <div style="font-family: 'Space Grotesk'; font-size: 0.7rem; text-transform: uppercase; font-weight: 700; color: rgba(255,255,255,0.25); letter-spacing: 1px;">
+                        Last 10 H2H Matches (Chronological ➔)
+                    </div>
+                `;
+                container.appendChild(headerRow);
+
                 const progressFill = document.getElementById('progress-fill');
                 const progressPercent = document.getElementById('progress-percent');
                 const progressStatus = document.getElementById('progress-status');
@@ -330,33 +374,48 @@
             const row = document.createElement('div');
             row.style.marginBottom = '0.35rem';
 
+            // Dynamic color coding indicator dot next to name based on Player Role
+            const getRoleColor = (role) => {
+                const r = (role || '').toLowerCase();
+                if (r.includes('bowl')) return 'var(--neon-rose)';
+                if (r.includes('allrounder') || r.includes('all rounder')) return 'var(--neon-purple)';
+                if (r.includes('keeper') || r.includes('wk')) return 'var(--amber)';
+                return 'var(--neon-green)'; // default Batter
+            };
+            const roleColor = getRoleColor(player.role);
+            const roleLight = `<span style="width: 6px; height: 6px; border-radius: 50%; background-color: ${roleColor}; box-shadow: 0 0 6px ${roleColor}; flex-shrink: 0;" title="${player.role}"></span>`;
+
             if (isError) {
+                row.className = 'player-row';
+                row.style.background = 'rgba(255, 0, 85, 0.015)';
+                row.style.borderColor = 'rgba(255, 0, 85, 0.15)';
                 row.innerHTML = `
-                    <div style="background: rgba(255, 0, 85, 0.02); border: 1px dashed rgba(255, 0, 85, 0.2); padding: 0.4rem 0.75rem; border-radius: 8px; font-family: 'Space Grotesk'; display: grid; grid-template-columns: 220px 1fr; align-items: center; gap: 1rem;">
-                        <div style="display: flex; align-items: center; gap: 0.75rem; min-width: 0;">
-                            <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" style="width: 28px; height: 28px; border-radius: 6px; border: 1.5px solid var(--neon-rose);" alt="${player.name}">
-                            <span style="color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${player.name}</span>
-                        </div>
-                        <div style="color: var(--neon-rose); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
-                            ⚠️ ERROR DECRYPTING NEURAL DATA
-                        </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; min-width: 0;">
+                        <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" style="width: 28px; height: 28px; border-radius: 6px; border: 1.5px solid var(--neon-rose);" alt="${player.name}">
+                        ${roleLight}
+                        <span style="color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${player.name}</span>
+                    </div>
+                    <div style="color: var(--neon-rose); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+                        ⚠️ ERROR DECRYPTING NEURAL DATA
                     </div>
                 `;
             } else if (matches.length === 0) {
+                row.className = 'player-row';
+                row.style.background = 'rgba(255, 0, 85, 0.01)';
+                row.style.borderColor = 'rgba(255, 0, 85, 0.08)';
                 row.innerHTML = `
-                    <div style="background: rgba(255, 0, 85, 0.015); border: 1px dashed rgba(255, 0, 85, 0.12); padding: 0.4rem 0.75rem; border-radius: 8px; font-family: 'Space Grotesk'; display: grid; grid-template-columns: 220px 1fr; align-items: center; gap: 1rem;">
-                        <div style="display: flex; align-items: center; gap: 0.75rem; min-width: 0;">
-                            <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" style="width: 28px; height: 28px; border-radius: 6px; border: 1.5px solid rgba(255, 0, 85, 0.25);" alt="${player.name}">
-                            <span style="color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${player.name}</span>
-                        </div>
-                        <div style="color: rgba(255, 255, 255, 0.2); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
-                            NO DIRECT MATCH DATA AGAINST ${opponent}
-                        </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; min-width: 0;">
+                        <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" style="width: 28px; height: 28px; border-radius: 6px; border: 1.5px solid rgba(255, 0, 85, 0.25);" alt="${player.name}">
+                        ${roleLight}
+                        <span style="color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${player.name}</span>
+                    </div>
+                    <div style="color: rgba(255, 255, 255, 0.2); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+                        NO DIRECT MATCH DATA AGAINST ${opponent}
                     </div>
                 `;
             } else {
-                // Reverse the matches array to display in oldest-to-newest chronological order
-                const chronologicalMatches = [...matches].reverse();
+                // Reverse and limit to the last 10 matches chronologically so it fits horizontally on all devices!
+                const chronologicalMatches = [...matches].reverse().slice(-10);
 
                 const perfList = chronologicalMatches.map(m => {
                     let text = '';
@@ -419,19 +478,17 @@
 
                 const finalPerfHTML = perfList.length > 0 ? perfList.join(' ') : '<span style="color: rgba(255,255,255,0.15);">DNB</span>';
 
+                row.className = 'player-row';
                 row.innerHTML = `
-                    <div style="background: rgba(17, 18, 29, 0.4); border: 1px solid var(--glass-border); padding: 0.4rem 0.75rem; border-radius: 8px; font-family: 'Space Grotesk'; display: grid; grid-template-columns: 220px 1fr; align-items: center; gap: 1rem; box-shadow: inset 0 0 10px rgba(0, 242, 255, 0.01); transition: all 0.2s;"
-                         onmouseover="this.style.borderColor='rgba(0, 242, 255, 0.3)'; this.style.boxShadow='inset 0 0 15px rgba(0, 242, 255, 0.03)';"
-                         onmouseout="this.style.borderColor='var(--glass-border)'; this.style.boxShadow='inset 0 0 10px rgba(0, 242, 255, 0.01)';">
-                        <!-- Player Column with Fixed Width 220px -->
-                        <div style="display: flex; align-items: center; gap: 0.75rem; min-width: 0;">
-                            <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" style="width: 28px; height: 28px; border-radius: 6px; border: 1.5px solid var(--neon-blue); box-shadow: 0 0 8px rgba(0, 242, 255, 0.1);" alt="${player.name}">
-                            <span style="color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${player.name}</span>
-                        </div>
-                        <!-- Match Capsules aligned horizontally -->
-                        <div style="display: flex; align-items: center; gap: 0.3rem; flex-wrap: nowrap; overflow-x: auto; min-width: 0;">
-                            ${finalPerfHTML}
-                        </div>
+                    <!-- Player Column with Fixed Width 220px -->
+                    <div style="display: flex; align-items: center; gap: 0.75rem; min-width: 0;">
+                        <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" style="width: 28px; height: 28px; border-radius: 6px; border: 1.5px solid var(--neon-blue); box-shadow: 0 0 8px rgba(0, 242, 255, 0.1);" alt="${player.name}">
+                        ${roleLight}
+                        <span style="color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${player.name}</span>
+                    </div>
+                    <!-- Match Capsules aligned horizontally -->
+                    <div style="display: flex; align-items: center; gap: 0.3rem; flex-wrap: nowrap; overflow-x: auto; min-width: 0;">
+                        ${finalPerfHTML}
                     </div>
                 `;
             }

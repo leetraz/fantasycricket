@@ -120,11 +120,22 @@ app.get('/api/list-matches', async (req, res) => {
                            json.props?.appPageProps?.matchScheduleData?.content?.matches || 
                            json.props?.pageProps?.matchScheduleData?.content?.matches || [];
 
-        const matches = matchesData.map(m => ({
+        const matches = matchesData.filter(m => {
+            const statusText = (m.statusText || '').toLowerCase();
+            const state = (m.state || '').toLowerCase();
+            
+            // Toss done: status contains toss / chose to / elected to / opted to
+            const tossDone = statusText.includes('toss') || statusText.includes('chose to') || statusText.includes('elected to') || statusText.includes('opted to');
+            
+            // Not playing yet / not live / not completed
+            const upcoming = state === 'pre' && !statusText.includes('match started') && !statusText.includes('won by') && !statusText.includes('abandoned');
+            
+            return tossDone && upcoming;
+        }).map(m => ({
             title: `${m.teams?.[0]?.team?.abbreviation || 'T1'} vs ${m.teams?.[1]?.team?.abbreviation || 'T2'}`,
             series: m.series?.name || "T20 Match",
             status: m.statusText || "Upcoming",
-            url: "https://www.espncricinfo.com" + (m.slug ? `/series/${m.series?.slug}-${m.series?.objectId}/${m.slug}-${m.objectId}/live-cricket-score` : ""),
+            url: "https://www.espncricinfo.com" + (m.slug ? `/series/${m.slug}-${m.series?.objectId}/${m.slug}-${m.objectId}/live-cricket-score` : ""),
             startTime: m.startTime
         })).filter(m => m.url.includes('match-'));
 
@@ -279,6 +290,12 @@ app.get('/api/player-profile', async (req, res) => {
                 const dateStr = idx.date !== -1 ? cols[idx.date] : "";
                 const oppStr = idx.opp !== -1 ? cols[idx.opp] : "";
                 if (!dateStr || dateStr === '0') return;
+
+                // Exclude matches played today or in the future to keep only completed matches
+                const matchDateObj = new Date(dateStr);
+                const todayObj = new Date();
+                todayObj.setHours(0,0,0,0);
+                if (matchDateObj >= todayObj) return; // skip live or upcoming matches
 
                 const date = new Date(dateStr).toLocaleDateString();
                 const key = `${oppStr.replace(/^v\s+/, '').trim()}|${date}`;

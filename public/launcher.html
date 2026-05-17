@@ -836,10 +836,7 @@
             const opponentInfo = matchData.teamsInfo ? matchData.teamsInfo.find(t => t.name !== teamName) : null;
             const opponentId = opponentInfo ? opponentInfo.id : "";
 
-            // Reverse order while opening to ensure tabs align naturally in browser
-            const reversedPlayers = [...players].reverse();
-
-            reversedPlayers.forEach((p, i) => {
+            players.forEach((p, i) => {
                 let url;
                 if (type === 'profile') {
                     url = `https://www.espncricinfo.com/cricketers/${p.name.toLowerCase().replace(/ /g, '-')}-${p.player_id}/matches`;

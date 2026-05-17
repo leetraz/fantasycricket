@@ -164,7 +164,7 @@
 
         .players-list-header {
             display: grid;
-            grid-template-columns: 220px 1fr;
+            grid-template-columns: 220px 1fr 1fr;
             gap: 1rem;
             padding: 0.2rem 0.75rem;
             margin-bottom: 0.2rem;
@@ -178,7 +178,7 @@
             border-radius: 8px;
             font-family: 'Space Grotesk';
             display: grid;
-            grid-template-columns: 220px 1fr;
+            grid-template-columns: 220px 1fr 1fr;
             align-items: center;
             gap: 1rem;
             box-shadow: inset 0 0 10px rgba(0, 242, 255, 0.01);
@@ -311,6 +311,9 @@
                     <div style="font-family: 'Space Grotesk'; font-size: 0.7rem; text-transform: uppercase; font-weight: 700; color: rgba(255,255,255,0.25); letter-spacing: 1px;">
                         Last 10 H2H Matches (Chronological ➔)
                     </div>
+                    <div style="font-family: 'Space Grotesk'; font-size: 0.7rem; text-transform: uppercase; font-weight: 700; color: rgba(255,255,255,0.25); letter-spacing: 1px;">
+                        Last 10 Overall Matches (All Formats)
+                    </div>
                 `;
                 container.appendChild(headerRow);
 
@@ -339,12 +342,13 @@
                             });
                         }
 
-                        renderPlayerCard(p, h2hMatches, container);
+                        const overallMatches = profileData.last10 || [];
+                        renderPlayerCard(p, h2hMatches, overallMatches, container);
 
                     } catch (err) {
                         console.error(`Failed to load profile for ${p.name}:`, err);
                         // Render card with fallback error
-                        renderPlayerCard(p, [], container, true);
+                        renderPlayerCard(p, [], [], container, true);
                     }
 
                     loadedCount++;
@@ -366,7 +370,7 @@
             }
         }
 
-        function renderPlayerCard(player, matches, parentContainer, isError = false) {
+        function renderPlayerCard(player, h2hMatches, overallMatches, parentContainer, isError = false) {
             const formattedName = player.name.toUpperCase();
             const avatarUrl = `https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320/lsci/db/PICTURES/CMS/${Math.floor(player.player_id/100)}/${player.player_id}.jpg`;
             const errorAvatarUrl = `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${player.name}&backgroundColor=00f2ff`;
@@ -385,39 +389,16 @@
             const roleColor = getRoleColor(player.role);
             const roleLight = `<span style="width: 6px; height: 6px; border-radius: 50%; background-color: ${roleColor}; box-shadow: 0 0 6px ${roleColor}; flex-shrink: 0;" title="${player.role}"></span>`;
 
-            if (isError) {
-                row.className = 'player-row';
-                row.style.background = 'rgba(255, 0, 85, 0.015)';
-                row.style.borderColor = 'rgba(255, 0, 85, 0.15)';
-                row.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 0.75rem; min-width: 0;">
-                        <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" style="width: 28px; height: 28px; border-radius: 6px; border: 1.5px solid var(--neon-rose);" alt="${player.name}">
-                        ${roleLight}
-                        <span style="color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${player.name}</span>
-                    </div>
-                    <div style="color: var(--neon-rose); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
-                        ⚠️ ERROR DECRYPTING NEURAL DATA
-                    </div>
-                `;
-            } else if (matches.length === 0) {
-                row.className = 'player-row';
-                row.style.background = 'rgba(255, 0, 85, 0.01)';
-                row.style.borderColor = 'rgba(255, 0, 85, 0.08)';
-                row.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 0.75rem; min-width: 0;">
-                        <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" style="width: 28px; height: 28px; border-radius: 6px; border: 1.5px solid rgba(255, 0, 85, 0.25);" alt="${player.name}">
-                        ${roleLight}
-                        <span style="color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${player.name}</span>
-                    </div>
-                    <div style="color: rgba(255, 255, 255, 0.2); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
-                        NO DIRECT MATCH DATA AGAINST ${opponent}
-                    </div>
-                `;
-            } else {
-                // Reverse and limit to the last 10 matches chronologically so it fits horizontally on all devices!
-                const chronologicalMatches = [...matches].reverse().slice(-10);
+            // Helper to generate chronological neon-graded performance capsules
+            const generateCapsules = (matchesList) => {
+                if (!matchesList || matchesList.length === 0) {
+                    return `<span style="color: rgba(255, 255, 255, 0.15); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">NO RECORD</span>`;
+                }
 
-                const perfList = chronologicalMatches.map(m => {
+                // Reverse to display oldest-to-newest chronological order, and limit to last 10 matches
+                const chronological = [...matchesList].reverse().slice(-10);
+
+                const perfList = chronological.map(m => {
                     let text = '';
                     let isBatHigh = false;
                     let colorObj = { bg: 'rgba(255,255,255,0.03)', border: 'var(--glass-border)', text: 'rgba(255,255,255,0.85)', shadow: 'none' };
@@ -428,7 +409,6 @@
                     if (hasBat) {
                         const runs = parseInt(m.bat.toString().replace('*', '')) || 0;
                         
-                        // Continuous batting color-scale: Green (best) -> Yellow -> Orange -> Red (poor)
                         if (runs >= 50) {
                             colorObj = { bg: 'rgba(57, 255, 20, 0.08)', border: 'var(--neon-green)', text: 'var(--neon-green)', shadow: '0 0 8px rgba(57, 255, 20, 0.35)' };
                         } else if (runs >= 30) {
@@ -441,7 +421,7 @@
                             colorObj = { bg: 'rgba(255, 0, 85, 0.04)', border: '#ff0055', text: '#ff0055', shadow: 'none' };
                         }
                         
-                        text = m.bat.toString(); // Raw runs only
+                        text = m.bat.toString();
                         isBatHigh = true;
                     }
                     
@@ -450,7 +430,6 @@
                         const bowlText = `${m.bowl}W`;
                         text = text ? `${text} ${bowlText}` : bowlText;
                         
-                        // Bowling overrides or merges on the Red-to-Green spectrum
                         if (!isBatHigh || wkts > 0) {
                             if (wkts >= 3) {
                                 colorObj = { bg: 'rgba(57, 255, 20, 0.08)', border: 'var(--neon-green)', text: 'var(--neon-green)', shadow: '0 0 8px rgba(57, 255, 20, 0.35)' };
@@ -476,8 +455,27 @@
                     return `<span style="display: inline-flex; align-items: center; justify-content: center; padding: 0 0.4rem; min-width: 44px; height: 26px; border-radius: 6px; font-family: 'Space Grotesk'; font-size: 0.85rem; font-weight: 700; ${styleString}">${text}</span>`;
                 });
 
-                const finalPerfHTML = perfList.length > 0 ? perfList.join(' ') : '<span style="color: rgba(255,255,255,0.15);">DNB</span>';
+                return `<div style="display: flex; align-items: center; gap: 0.3rem; flex-wrap: nowrap; overflow-x: auto; min-width: 0;">${perfList.join(' ')}</div>`;
+            };
 
+            if (isError) {
+                row.className = 'player-row';
+                row.style.background = 'rgba(255, 0, 85, 0.015)';
+                row.style.borderColor = 'rgba(255, 0, 85, 0.15)';
+                row.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 0.75rem; min-width: 0;">
+                        <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" style="width: 28px; height: 28px; border-radius: 6px; border: 1.5px solid var(--neon-rose);" alt="${player.name}">
+                        ${roleLight}
+                        <span style="color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${player.name}</span>
+                    </div>
+                    <div style="color: var(--neon-rose); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+                        ⚠️ ERROR SECURING H2H
+                    </div>
+                    <div style="color: var(--neon-rose); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+                        ⚠️ ERROR SECURING OVERALL
+                    </div>
+                `;
+            } else {
                 row.className = 'player-row';
                 row.innerHTML = `
                     <!-- Player Column with Fixed Width 220px -->
@@ -486,10 +484,10 @@
                         ${roleLight}
                         <span style="color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${player.name}</span>
                     </div>
-                    <!-- Match Capsules aligned horizontally -->
-                    <div style="display: flex; align-items: center; gap: 0.3rem; flex-wrap: nowrap; overflow-x: auto; min-width: 0;">
-                        ${finalPerfHTML}
-                    </div>
+                    <!-- Column 2: Last 10 H2H Matches -->
+                    ${generateCapsules(h2hMatches)}
+                    <!-- Column 3: Last 10 Overall Matches -->
+                    ${generateCapsules(overallMatches)}
                 `;
             }
 

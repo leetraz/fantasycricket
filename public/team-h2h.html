@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQUAD H2H ANALYSIS // CRICINFO PREVIEW</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #07080d;
+            --neon-blue: #00f2ff;
+            --neon-purple: #bc13fe;
+            --neon-green: #39ff14;
+            --neon-rose: #ff0055;
+            --amber: #ff9900;
+            --glass: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.5); }
+        ::-webkit-scrollbar-thumb { background: var(--neon-blue); border-radius: 10px; box-shadow: 0 0 10px var(--neon-blue); }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            overflow-y: auto;
+            min-height: 100vh;
+        }
+
+        /* Immersive Background Grid */
+        .cyber-grid {
+            position: fixed;
+            inset: 0;
+            background: 
+                linear-gradient(rgba(0, 242, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 242, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+        }
+
+        .neon-glow {
+            position: fixed;
+            width: 50vw; height: 50vw;
+            filter: blur(180px);
+            opacity: 0.08;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Navigation Header */
+        header {
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--glass-border);
+            padding: 0.5rem 1.25rem;
+            color: #fff;
+            text-transform: uppercase;
+            font-family: 'Space Grotesk';
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            background: var(--neon-blue);
+            color: #000;
+            box-shadow: 0 0 15px var(--neon-blue);
+            border-color: var(--neon-blue);
+        }
+
+        .title-section h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .title-section p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Loading / Progress Indicator */
+        .progress-container {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            font-family: 'Space Grotesk';
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .progress-bar-wrapper {
+            height: 6px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--neon-blue), var(--amber));
+            border-radius: 10px;
+            transition: width 0.4s ease;
+        }
+
+        /* Player Box / Cards List */
+        .players-h2h-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .player-h2h-card {
+            background: rgba(17, 18, 29, 0.45);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .player-h2h-card:hover {
+            border-color: rgba(0, 242, 255, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 242, 255, 0.05);
+        }
+
+        /* Card Header */
+        .player-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 1rem;
+        }
+
+        .player-identity {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .player-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            border: 2px solid var(--neon-blue);
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
+        }
+
+        .player-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .player-name-wrapper h2 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .player-role-badge {
+            font-family: 'Space Grotesk';
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--neon-purple);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 0.1rem;
+        }
+
+        /* Match table */
+        .matrix-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.04);
+            background: rgba(0,0,0,0.25);
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .matrix-table th {
+            background: rgba(255,255,255,0.02);
+            color: var(--neon-blue);
+            font-family: 'Space Grotesk';
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            padding: 0.9rem 1.2rem;
+            border-bottom: 2px solid var(--glass-border);
+        }
+
+        .matrix-table td {
+            padding: 0.9rem 1.2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            vertical-align: middle;
+        }
+
+        .matrix-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .date-cell {
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .opp-cell {
+            color: rgba(255,255,255,0.7);
+            font-weight: 500;
+        }
+
+        /* Status Pills */
+        .stat-value {
+            font-weight: 800;
+            font-family: 'Space Grotesk';
+            color: #fff;
+        }
+
+        .stat-sub {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            margin-left: 0.25rem;
+        }
+
+        /* DNB Badge */
+        .dnb-badge {
+            background: rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.4);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* Empty State */
+        .empty-h2h {
+            border: 1px dashed rgba(255, 0, 85, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-weight: 600;
+            font-size: 0.9rem;
+            background: rgba(255, 0, 85, 0.02);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-family: 'Space Grotesk';
+        }
+
+        .empty-h2h span {
+            color: var(--neon-rose);
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cyber-grid"></div>
+    <div class="neon-glow" style="background: var(--neon-blue); top: -20%; left: -20%;"></div>
+    <div class="neon-glow" style="background: var(--neon-purple); bottom: -20%; right: -20%;"></div>
+
+    <div class="container">
+
+        <header>
+            <div class="header-top">
+                <a href="/" class="back-btn">⚡ Back to Dashboard</a>
+            </div>
+            <div class="title-section">
+                <h1 id="squad-title">RCB // SQUAD H2H MATRIX</h1>
+                <p id="squad-subtitle">Loading complete squad historical matchups...</p>
+            </div>
+        </header>
+
+        <!-- Progress Indicator -->
+        <div class="progress-container" id="loading-indicator">
+            <div class="progress-header">
+                <span id="progress-status">Initializing sensors...</span>
+                <span id="progress-percent">0%</span>
+            </div>
+            <div class="progress-bar-wrapper">
+                <div class="progress-bar-fill" id="progress-fill"></div>
+            </div>
+        </div>
+
+        <!-- Render List -->
+        <div class="players-h2h-list" id="players-list-container">
+            <!-- Dynamic player H2H cards will be injected here -->
+        </div>
+
+    </div>
+
+    <script>
+        // High-Fidelity Canonical Team Matching Logic
+        const getCanonicalTeam = (teamName) => {
+            const name = teamName.toUpperCase().trim();
+            if (name.includes("PUNJAB") || name.includes("PBKS") || name.includes("KXIP") || name.includes("KINGS XI")) {
+                return "PBKS";
+            }
+            if (name.includes("CHENNAI") || name.includes("CSK") || name.includes("SUPER KINGS")) {
+                return "CSK";
+            }
+            if (name.includes("MUMBAI") || name.includes("MI") || name.includes("INDIANS")) {
+                return "MI";
+            }
+            if (name.includes("KOLKATA") || name.includes("KKR") || name.includes("KNIGHT RIDERS")) {
+                return "KKR";
+            }
+            if (name.includes("ROYAL CHALLENGERS") || name.includes("RCB") || name.includes("BANGALORE") || name.includes("BENGALURU")) {
+                return "RCB";
+            }
+            if (name.includes("DELHI") || name.includes("DC") || name.includes("DAREDEVILS") || name.includes("CAPITALS")) {
+                return "DC";
+            }
+            if (name.includes("RAJASTHAN") || name.includes("RR") || name.includes("ROYALS")) {
+                return "RR";
+            }
+            if (name.includes("SUNRISERS") || name.includes("SRH") || name.includes("HYDERABAD") || name.includes("DECCAN") || name.includes("CHARGERS")) {
+                return "SRH";
+            }
+            if (name.includes("GUJARAT") || name.includes("GT") || name.includes("TITANS")) {
+                return "GT";
+            }
+            if (name.includes("LUCKNOW") || name.includes("LSG") || name.includes("SUPER GIANTS")) {
+                return "LSG";
+            }
+            return name;
+        };
+
+        // Parse search query
+        const urlParams = new URLSearchParams(window.location.search);
+        const matchUrl = urlParams.get('url');
+        const teamIdx = parseInt(urlParams.get('teamIdx')) || 0;
+        const opponent = urlParams.get('opponent') || 'OPPONENT';
+        const teamName = urlParams.get('teamName') || 'SQUAD';
+
+        document.getElementById('squad-title').textContent = `${teamName} // H2H SQUAD MATRIX`;
+        document.getElementById('squad-subtitle').textContent = `Complete historical head-to-head data against ${opponent}`;
+
+        async function init() {
+            if (!matchUrl) {
+                document.getElementById('progress-status').textContent = "ERROR: NO MATCH URL SUPPLIED";
+                document.getElementById('progress-status').style.color = "var(--neon-rose)";
+                return;
+            }
+
+            try {
+                // Step 1: Load match details (squad players)
+                const res = await fetch(`/api/match-data?url=${encodeURIComponent(matchUrl)}`);
+                const matchData = await res.json();
+
+                if (matchData.error) throw new Error(matchData.error);
+
+                const activeTeamName = matchData.teams[teamIdx];
+                const squadPlayers = matchData.allPlayers.filter(p => p.team === activeTeamName);
+
+                if (squadPlayers.length === 0) {
+                    throw new Error("No players found in this squad.");
+                }
+
+                document.getElementById('progress-status').textContent = `Found ${squadPlayers.length} players. Initializing H2H query...`;
+                
+                const container = document.getElementById('players-list-container');
+                const progressFill = document.getElementById('progress-fill');
+                const progressPercent = document.getElementById('progress-percent');
+                const progressStatus = document.getElementById('progress-status');
+
+                // Step 2: Concurrently fetch player profiles (with slight delay to avoid server hammering)
+                let loadedCount = 0;
+                const targetCanonical = getCanonicalTeam(opponent);
+
+                for (let i = 0; i < squadPlayers.length; i++) {
+                    const p = squadPlayers[i];
+                    progressStatus.textContent = `Analyzing ${p.name}... (${i + 1}/${squadPlayers.length})`;
+                    
+                    try {
+                        const profileRes = await fetch(`/api/player-profile?pid=${p.player_id}&name=${encodeURIComponent(p.name)}&opponent=${encodeURIComponent(opponent)}`);
+                        const profileData = await profileRes.json();
+
+                        // Filter H2H matches against the opponent team exactly
+                        let h2hMatches = [];
+                        if (profileData.last10) {
+                            h2hMatches = profileData.last10.filter(m => {
+                                const oppClean = m.opp.replace(/^V\s+/, '').replace(/^v\s+/, '').trim();
+                                return getCanonicalTeam(oppClean) === targetCanonical;
+                            });
+                        }
+
+                        renderPlayerCard(p, h2hMatches, container);
+
+                    } catch (err) {
+                        console.error(`Failed to load profile for ${p.name}:`, err);
+                        // Render card with fallback error
+                        renderPlayerCard(p, [], container, true);
+                    }
+
+                    loadedCount++;
+                    const percent = Math.round((loadedCount / squadPlayers.length) * 100);
+                    progressFill.style.width = `${percent}%`;
+                    progressPercent.textContent = `${percent}%`;
+                }
+
+                progressStatus.textContent = "SQUAD ANALYSIS SECURED";
+                progressStatus.style.color = "var(--neon-green)";
+                setTimeout(() => {
+                    document.getElementById('loading-indicator').style.display = 'none';
+                }, 1000);
+
+            } catch (err) {
+                console.error(err);
+                document.getElementById('progress-status').textContent = "ERROR LOADING MATRIX: " + err.message;
+                document.getElementById('progress-status').style.color = "var(--neon-rose)";
+            }
+        }
+
+        function renderPlayerCard(player, matches, parentContainer, isError = false) {
+            const card = document.createElement('div');
+            card.className = 'player-h2h-card';
+
+            const formattedName = player.name.toUpperCase();
+            const avatarUrl = `https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320/lsci/db/PICTURES/CMS/${Math.floor(player.player_id/100)}/${player.player_id}.jpg`;
+            const errorAvatarUrl = `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${player.name}&backgroundColor=00f2ff`;
+
+            // HTML Structure of Player box
+            let contentHTML = `
+                <div class="player-header">
+                    <div class="player-identity">
+                        <div class="player-avatar">
+                            <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" alt="${player.name}">
+                        </div>
+                        <div class="player-name-wrapper">
+                            <h2>⚡ ${formattedName}</h2>
+                            <div class="player-role-badge">${player.role || 'Player'}</div>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}" 
+                           target="_blank" class="back-btn" style="padding: 0.35rem 0.75rem; font-size: 0.75rem; border-color: var(--neon-blue); color: var(--neon-blue);">
+                           Dedicated H2H ➔
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            if (isError) {
+                contentHTML += `<div class="empty-h2h"><span>⚠️ FAILED TO DECRYPT NEURAL PROFILE DATA.</span></div>`;
+            } else if (matches.length === 0) {
+                contentHTML += `<div class="empty-h2h">NO DIRECT H2H HISTORY FOUND AGAINST <span>${opponent}</span>.</div>`;
+            } else {
+                let rowsHTML = '';
+                matches.forEach(m => {
+                    const batVal = m.bat && m.bat !== '-' && m.bat !== 'DNB' && m.bat !== 'TDNB' && m.bat !== 'absent' 
+                        ? `<span class="stat-value">${m.bat}</span><span class="stat-sub">(${m.sr} SR)</span>` 
+                        : `<span class="dnb-badge">DNB</span>`;
+
+                    const bowlVal = m.bowl && m.bowl !== '-' && m.bowl !== 'DNB' && m.bowl !== '0'
+                        ? `<span class="stat-value">${m.bowl} Wkts</span><span class="stat-sub">(${m.econ} Econ)</span>`
+                        : `<span class="dnb-badge">DNB</span>`;
+
+                    rowsHTML += `
+                        <tr>
+                            <td class="date-cell">${m.date || '---'}</td>
+                            <td class="opp-cell">${m.opp || '---'}</td>
+                            <td>${batVal}</td>
+                            <td>${bowlVal}</td>
+                        </tr>
+                    `;
+                });
+
+                contentHTML += `
+                    <div class="matrix-table-wrapper">
+                        <table class="matrix-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Matchup</th>
+                                    <th>Batting Performance</th>
+                                    <th>Bowling Performance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${rowsHTML}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            }
+
+            card.innerHTML = contentHTML;
+            parentContainer.appendChild(card);
+        }
+
+        // Run initializer
+        init();
+    </script>
+</body>
+</html>

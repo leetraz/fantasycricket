@@ -172,6 +172,11 @@
             background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
         }
 
+        .btn-matrix {
+            background: linear-gradient(135deg, #ff0055, #ff9900);
+            box-shadow: 0 0 10px rgba(255, 102, 0, 0.4);
+        }
+
         .player-list {
             display: flex;
             flex-direction: column;
@@ -309,6 +314,7 @@
                     <div class="team-actions">
                         <button class="btn-sm" onclick="bulkOpen(0, 'profile')">Profiles</button>
                         <button class="btn-sm btn-h2h" onclick="bulkOpen(0, 'h2h')">H2H Stats</button>
+                        <button class="btn-sm btn-matrix" onclick="openSquadH2H(0)">Squad H2H</button>
                     </div>
                 </div>
                 <div class="player-list" id="team1List"></div>
@@ -321,6 +327,7 @@
                     <div class="team-actions">
                         <button class="btn-sm" onclick="bulkOpen(1, 'profile')">Profiles</button>
                         <button class="btn-sm btn-h2h" onclick="bulkOpen(1, 'h2h')">H2H Stats</button>
+                        <button class="btn-sm btn-matrix" onclick="openSquadH2H(1)">Squad H2H</button>
                     </div>
                 </div>
                 <div class="player-list" id="team2List"></div>
@@ -808,6 +815,15 @@
                     window.open(url, '_blank');
                 }, i * 25); // Hyper fast opening (25ms delay)!
             });
+        }
+
+        function openSquadH2H(teamIndex) {
+            if (!matchData) return;
+            const teamName = matchData.teams[teamIndex];
+            const opponent = matchData.teams.find(t => t !== teamName);
+            const url = document.getElementById('matchUrl').value.trim();
+            const targetUrl = `team-h2h.html?url=${encodeURIComponent(url)}&teamIdx=${teamIndex}&opponent=${encodeURIComponent(opponent)}&teamName=${encodeURIComponent(teamName)}`;
+            window.open(targetUrl, '_blank');
         }
     </script>
 </body>

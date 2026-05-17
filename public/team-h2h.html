@@ -332,30 +332,26 @@
 
             if (isError) {
                 row.innerHTML = `
-                    <div style="background: rgba(255, 0, 85, 0.02); border: 1px dashed rgba(255, 0, 85, 0.2); padding: 0.4rem 0.75rem; border-radius: 8px; font-family: 'Space Grotesk'; font-size: 0.9rem; display: flex; align-items: center; justify-content: space-between;">
-                        <div style="display: flex; align-items: center; gap: 0.75rem;">
-                            <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" style="width: 28px; height: 28px; border-radius: 6px; border: 1px solid var(--neon-rose);" alt="${player.name}">
-                            <div>
-                                <span style="color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; margin-right: 0.4rem;">${player.name}:</span>
-                                <span style="color: var(--neon-rose); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px;">⚠️ ERROR DECRYPTING</span>
-                            </div>
+                    <div style="background: rgba(255, 0, 85, 0.02); border: 1px dashed rgba(255, 0, 85, 0.2); padding: 0.4rem 0.75rem; border-radius: 8px; font-family: 'Space Grotesk'; display: grid; grid-template-columns: 220px 1fr; align-items: center; gap: 1rem;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; min-width: 0;">
+                            <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" style="width: 28px; height: 28px; border-radius: 6px; border: 1.5px solid var(--neon-rose);" alt="${player.name}">
+                            <span style="color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${player.name}</span>
+                        </div>
+                        <div style="color: var(--neon-rose); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+                            ⚠️ ERROR DECRYPTING NEURAL DATA
                         </div>
                     </div>
                 `;
             } else if (matches.length === 0) {
                 row.innerHTML = `
-                    <div style="background: rgba(255, 0, 85, 0.015); border: 1px dashed rgba(255, 0, 85, 0.12); padding: 0.4rem 0.75rem; border-radius: 8px; font-family: 'Space Grotesk'; font-size: 0.9rem; display: flex; align-items: center; justify-content: space-between;">
-                        <div style="display: flex; align-items: center; gap: 0.75rem;">
-                            <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" style="width: 28px; height: 28px; border-radius: 6px; border: 1px solid rgba(255, 0, 85, 0.25);" alt="${player.name}">
-                            <div>
-                                <span style="color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; margin-right: 0.4rem;">${player.name}:</span>
-                                <span style="color: rgba(255, 255, 255, 0.2); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px;">NO DIRECT DATA AGAINST ${opponent}</span>
-                            </div>
+                    <div style="background: rgba(255, 0, 85, 0.015); border: 1px dashed rgba(255, 0, 85, 0.12); padding: 0.4rem 0.75rem; border-radius: 8px; font-family: 'Space Grotesk'; display: grid; grid-template-columns: 220px 1fr; align-items: center; gap: 1rem;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; min-width: 0;">
+                            <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" style="width: 28px; height: 28px; border-radius: 6px; border: 1.5px solid rgba(255, 0, 85, 0.25);" alt="${player.name}">
+                            <span style="color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${player.name}</span>
                         </div>
-                        <a href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}" 
-                           target="_blank" class="back-btn" style="padding: 0.2rem 0.45rem; font-size: 0.7rem; border-color: rgba(255, 0, 85, 0.2); color: rgba(255, 0, 85, 0.4); background: transparent;">
-                           H2H ➔
-                        </a>
+                        <div style="color: rgba(255, 255, 255, 0.2); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+                            NO DIRECT MATCH DATA AGAINST ${opponent}
+                        </div>
                     </div>
                 `;
             } else {
@@ -364,70 +360,78 @@
 
                 const perfList = chronologicalMatches.map(m => {
                     let text = '';
-                    let isHighBat = false;
-                    let isMedBat = false;
-                    let isHighBowl = false;
-                    let isMedBowl = false;
+                    let isBatHigh = false;
+                    let colorObj = { bg: 'rgba(255,255,255,0.03)', border: 'var(--glass-border)', text: 'rgba(255,255,255,0.85)', shadow: 'none' };
                     
                     const hasBat = m.bat && m.bat !== '-' && m.bat !== 'DNB' && m.bat !== 'TDNB' && m.bat !== 'absent';
                     const hasBowl = m.bowl && m.bowl !== '-' && m.bowl !== 'DNB';
                     
                     if (hasBat) {
                         const runs = parseInt(m.bat.toString().replace('*', '')) || 0;
-                        if (runs >= 50) isHighBat = true;
-                        else if (runs >= 30) isMedBat = true;
                         
-                        text = m.bat.toString(); // runs only (e.g. "85" or "85*")
+                        // Continuous batting color-scale: Green (best) -> Yellow -> Orange -> Red (poor)
+                        if (runs >= 50) {
+                            colorObj = { bg: 'rgba(57, 255, 20, 0.08)', border: 'var(--neon-green)', text: 'var(--neon-green)', shadow: '0 0 8px rgba(57, 255, 20, 0.35)' };
+                        } else if (runs >= 30) {
+                            colorObj = { bg: 'rgba(166, 255, 0, 0.06)', border: '#a6ff00', text: '#a6ff00', shadow: 'none' };
+                        } else if (runs >= 20) {
+                            colorObj = { bg: 'rgba(255, 234, 0, 0.05)', border: '#ffea00', text: '#ffea00', shadow: 'none' };
+                        } else if (runs >= 10) {
+                            colorObj = { bg: 'rgba(255, 153, 0, 0.04)', border: '#ff9900', text: '#ff9900', shadow: 'none' };
+                        } else {
+                            colorObj = { bg: 'rgba(255, 0, 85, 0.04)', border: '#ff0055', text: '#ff0055', shadow: 'none' };
+                        }
+                        
+                        text = m.bat.toString(); // Raw runs only
+                        isBatHigh = true;
                     }
+                    
                     if (hasBowl) {
                         const wkts = parseInt(m.bowl) || 0;
-                        if (wkts >= 3) isHighBowl = true;
-                        else if (wkts >= 2) isMedBowl = true;
-                        
                         const bowlText = `${m.bowl}W`;
                         text = text ? `${text} ${bowlText}` : bowlText;
+                        
+                        // Bowling overrides or merges on the Red-to-Green spectrum
+                        if (!isBatHigh || wkts > 0) {
+                            if (wkts >= 3) {
+                                colorObj = { bg: 'rgba(57, 255, 20, 0.08)', border: 'var(--neon-green)', text: 'var(--neon-green)', shadow: '0 0 8px rgba(57, 255, 20, 0.35)' };
+                            } else if (wkts >= 2) {
+                                colorObj = { bg: 'rgba(166, 255, 0, 0.06)', border: '#a6ff00', text: '#a6ff00', shadow: 'none' };
+                            } else if (wkts >= 1) {
+                                colorObj = { bg: 'rgba(255, 234, 0, 0.05)', border: '#ffea00', text: '#ffea00', shadow: 'none' };
+                            } else {
+                                if (!isBatHigh) {
+                                    colorObj = { bg: 'rgba(255, 0, 85, 0.04)', border: '#ff0055', text: '#ff0055', shadow: 'none' };
+                                }
+                            }
+                        }
                     }
                     
                     if (!hasBat && !hasBowl) {
                         text = 'DNB';
+                        colorObj = { bg: 'rgba(255,255,255,0.01)', border: 'rgba(255,255,255,0.02)', text: 'rgba(255,255,255,0.15)', shadow: 'none' };
                     }
 
-                    // Choose styling for the square/rectangle match capsule
-                    let style = 'background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); color: rgba(255,255,255,0.85);';
-                    if (isHighBat) {
-                        style = 'background: rgba(57, 255, 20, 0.08); border: 1px solid var(--neon-green); color: var(--neon-green); box-shadow: 0 0 8px rgba(57, 255, 20, 0.35);';
-                    } else if (isMedBat) {
-                        style = 'background: rgba(57, 255, 20, 0.03); border: 1px solid #39ff14; color: #39ff14;';
-                    } else if (isHighBowl) {
-                        style = 'background: rgba(255, 0, 85, 0.08); border: 1px solid var(--neon-rose); color: var(--neon-rose); box-shadow: 0 0 8px rgba(255, 0, 85, 0.35);';
-                    } else if (isMedBowl) {
-                        style = 'background: rgba(255, 0, 85, 0.03); border: 1px solid #ff0055; color: #ff0055;';
-                    } else if (text === 'DNB') {
-                        style = 'background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.02); color: rgba(255,255,255,0.15);';
-                    }
+                    const styleString = `background: ${colorObj.bg}; border: 1px solid ${colorObj.border}; color: ${colorObj.text}; box-shadow: ${colorObj.shadow};`;
 
-                    return `<span style="display: inline-flex; align-items: center; justify-content: center; padding: 0 0.4rem; min-width: 44px; height: 26px; border-radius: 6px; font-family: 'Space Grotesk'; font-size: 0.85rem; font-weight: 700; ${style}">${text}</span>`;
+                    return `<span style="display: inline-flex; align-items: center; justify-content: center; padding: 0 0.4rem; min-width: 44px; height: 26px; border-radius: 6px; font-family: 'Space Grotesk'; font-size: 0.85rem; font-weight: 700; ${styleString}">${text}</span>`;
                 });
 
                 const finalPerfHTML = perfList.length > 0 ? perfList.join(' ') : '<span style="color: rgba(255,255,255,0.15);">DNB</span>';
 
                 row.innerHTML = `
-                    <div style="background: rgba(17, 18, 29, 0.4); border: 1px solid var(--glass-border); padding: 0.4rem 0.75rem; border-radius: 8px; font-family: 'Space Grotesk'; display: flex; align-items: center; justify-content: space-between; box-shadow: inset 0 0 10px rgba(0, 242, 255, 0.01); transition: all 0.2s;"
+                    <div style="background: rgba(17, 18, 29, 0.4); border: 1px solid var(--glass-border); padding: 0.4rem 0.75rem; border-radius: 8px; font-family: 'Space Grotesk'; display: grid; grid-template-columns: 220px 1fr; align-items: center; gap: 1rem; box-shadow: inset 0 0 10px rgba(0, 242, 255, 0.01); transition: all 0.2s;"
                          onmouseover="this.style.borderColor='rgba(0, 242, 255, 0.3)'; this.style.boxShadow='inset 0 0 15px rgba(0, 242, 255, 0.03)';"
                          onmouseout="this.style.borderColor='var(--glass-border)'; this.style.boxShadow='inset 0 0 10px rgba(0, 242, 255, 0.01)';">
-                        <div style="display: flex; align-items: center; gap: 0.75rem; flex-grow: 1; min-width: 0;">
+                        <!-- Player Column with Fixed Width 220px -->
+                        <div style="display: flex; align-items: center; gap: 0.75rem; min-width: 0;">
                             <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" style="width: 28px; height: 28px; border-radius: 6px; border: 1.5px solid var(--neon-blue); box-shadow: 0 0 8px rgba(0, 242, 255, 0.1);" alt="${player.name}">
-                            <div style="display: flex; align-items: center; min-width: 0; flex-wrap: nowrap; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                <span style="color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.95rem; margin-right: 0.5rem; letter-spacing: 0.5px; white-space: nowrap;">${player.name}:</span>
-                                <div style="display: inline-flex; flex-wrap: nowrap; gap: 0.25rem;">
-                                    ${finalPerfHTML}
-                                </div>
-                            </div>
+                            <span style="color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${player.name}</span>
                         </div>
-                        <a href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}" 
-                           target="_blank" class="back-btn" style="padding: 0.2rem 0.45rem; font-size: 0.7rem; border-color: var(--neon-blue); color: var(--neon-blue); background: transparent; flex-shrink: 0; margin-left: 0.5rem;">
-                           H2H ➔
-                        </a>
+                        <!-- Match Capsules aligned horizontally -->
+                        <div style="display: flex; align-items: center; gap: 0.3rem; flex-wrap: nowrap; overflow-x: auto; min-width: 0;">
+                            ${finalPerfHTML}
+                        </div>
                     </div>
                 `;
             }

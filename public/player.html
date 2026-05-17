@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEURAL_LINK // PLAYER_PROFILE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000;
+            --neon-blue: #00f2ff;
+            --neon-purple: #bc13fe;
+            --neon-green: #39ff14;
+            --neon-rose: #ff0055;
+            --glass: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: var(--neon-blue); border-radius: 10px; }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Immersive Background */
+        .cyber-grid {
+            position: fixed;
+            inset: 0;
+            background: 
+                linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 242, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            perspective: 1000px;
+            transform: rotateX(45deg);
+            z-index: -1;
+            animation: grid-scroll 30s linear infinite;
+        }
+
+        @keyframes grid-scroll {
+            from { background-position: 0 0; }
+            to { background-position: 0 1000px; }
+        }
+
+        .neon-glow {
+            position: fixed;
+            width: 50vw; height: 50vw;
+            filter: blur(150px);
+            opacity: 0.1;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0.25rem 1rem;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--glass-border);
+            margin-bottom: 1rem;
+        }
+
+        .view-toggle {
+            display: flex;
+            background: rgba(0,0,0,0.3);
+            padding: 4px;
+            border-radius: 8px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .toggle-btn {
+            padding: 0.5rem 1.5rem;
+            border: none;
+            background: transparent;
+            color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: 700;
+            font-family: 'Space Grotesk';
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .toggle-btn.active {
+            background: var(--neon-blue);
+            color: #000;
+            box-shadow: 0 0 15px var(--neon-blue);
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 0;
+            overflow: hidden;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Hero Glitch */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 0.25rem;
+            padding: 0.25rem 0;
+            flex-shrink: 0;
+        }
+
+        .hero-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-tag {
+            color: var(--neon-purple);
+            font-family: 'Space Grotesk';
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .glitch-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
+            line-height: 1;
+            position: relative;
+            background: linear-gradient(to bottom, #fff 40%, #555 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: title-entrance 1.2s cubic-bezier(0.23, 1, 0.32, 1) both;
+        }
+
+        @keyframes title-entrance {
+            from { opacity: 0; transform: scale(0.9) translateY(40px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .animated-name {
+            display: inline-block;
+            background: linear-gradient(90deg, #fff, var(--neon-blue), #fff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .profile-photo-container {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            border-radius: 50%;
+            padding: 5px;
+            background: var(--glass-border);
+        }
+
+        .profile-photo-inner {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-photo-inner img {
+            width: 110%;
+            height: 110%;
+            object-fit: cover;
+            filter: grayscale(0.5) contrast(1.2);
+        }
+
+        /* Dashboard Grid */
+        .cyber-grid-layout {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .module {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 0.6rem;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            opacity: 0;
+            animation: slideIn 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+            flex-grow: 1;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .module::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: -1px; width: 40px; height: 40px;
+            border-top: 2px solid var(--neon-blue);
+            border-left: 2px solid var(--neon-blue);
+        }
+
+        .module::after {
+            content: '';
+            position: absolute;
+            bottom: -1px; right: -1px; width: 40px; height: 40px;
+            border-bottom: 2px solid var(--neon-blue);
+            border-right: 2px solid var(--neon-blue);
+        }
+
+        .m-4 { grid-column: span 4; }
+        .m-8 { grid-column: span 8; }
+        .m-12 { grid-column: span 12; }
+
+        .module-header {
+            font-family: 'Space Grotesk';
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--neon-blue);
+            margin-bottom: 0.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .module-header span { opacity: 0.5; font-size: 0.6rem; }
+
+        /* Huge Metrics */
+        .data-point {
+            font-family: 'Space Grotesk';
+            font-size: 7rem;
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            text-shadow: 0 0 30px rgba(0, 242, 255, 0.4);
+            margin-bottom: 1rem;
+        }
+
+        .data-label {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Charts */
+        .matrix-table {
+    margin-bottom: 2rem;
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+            table-layout: fixed;
+        }
+
+        .matrix-row {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 38px;
+        }
+
+        .matrix-row:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: scale(1.01) translateX(5px);
+            border-color: var(--neon-blue);
+        }
+
+        .matrix-row.perf-good { 
+            border-left: 4px solid var(--neon-green); 
+            background: linear-gradient(90deg, rgba(57, 255, 20, 0.1) 0%, transparent 100%);
+            box-shadow: inset 0 0 20px rgba(57, 255, 20, 0.05);
+        }
+        .matrix-row.perf-bad { 
+            border-left: 4px solid var(--neon-rose); 
+            background: linear-gradient(90deg, rgba(255, 0, 85, 0.1) 0%, transparent 100%);
+            box-shadow: inset 0 0 20px rgba(255, 0, 85, 0.05);
+        }
+        .matrix-row.perf-mid { 
+            border-left: 4px solid var(--neon-blue); 
+            background: linear-gradient(90deg, rgba(0, 242, 255, 0.05) 0%, transparent 100%);
+        }
+
+        .matrix-cell {
+            padding: 0.2rem 0.6rem;
+            vertical-align: middle;
+        }
+
+        .cell-id { width: 60px; font-family: 'Space Grotesk'; opacity: 0.3; text-align: center; font-size: 0.6rem; letter-spacing: 1px; }
+        .cell-opp { width: 30%; color: #fff; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; font-size: 0.9rem; }
+        .cell-date { display: block; font-size: 0.65rem; color: var(--neon-blue); opacity: 0.6; font-weight: 400; font-family: 'Space Grotesk'; margin-top: 2px; }
+        .cell-val { text-align: right; width: 60%; padding-right: 1.5rem; }
+
+        .score-capsule {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 4px 8px;
+        }
+
+        .metric-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0,0,0,0.6);
+            padding: 6px 14px;
+            border-radius: 4px;
+            border: 1px solid var(--glass-border);
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        .badge-value-box {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 950;
+            border-radius: 4px;
+            background: #000;
+            border: 2px solid currentColor;
+            box-shadow: 0 0 10px currentColor;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .matrix-row:hover .badge-value-box {
+            transform: scale(1.15) rotate(2deg);
+            box-shadow: 0 0 35px currentColor;
+        }
+
+        .badge-label {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .badge-label .title {
+            font-size: 0.55rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.6;
+        }
+
+        .badge-label .sub {
+            font-size: 0.75rem;
+            font-weight: 700;
+            font-family: 'Space Grotesk';
+        }
+
+        .val-runs { color: var(--neon-blue); }
+        .val-wkts { color: var(--neon-green); }
+
+        .hidden { display: none !important; }
+
+        .matrix-table-wrapper {
+            overflow-y: auto;
+            flex-grow: 1;
+            scrollbar-width: none;
+        }
+        .matrix-table-wrapper::-webkit-scrollbar { display: none; }
+
+        /* Mini Cards */
+        .mini-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 0.8rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 15px rgba(255,255,255,0.01);
+            transition: all 0.3s;
+        }
+        
+        .mini-card:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .mini-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+        }
+        
+        .mini-card.batting::before { background: var(--neon-blue); }
+        .mini-card.bowling::before { background: var(--neon-green); }
+        
+        .mini-card-title {
+            font-family: 'Space Grotesk';
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.25rem;
+        }
+        
+        .mini-card-value {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.1;
+            font-family: 'Space Grotesk';
+        }
+        
+        .mini-card-sub {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: 0.25rem;
+        }
+
+        /* Scanline Overlay */
+        .scanline {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+            background-size: 100% 4px, 3px 100%;
+            z-index: 10;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-grid"></div>
+    <div class="neon-glow" style="top: -10%; left: -10%; background: var(--neon-blue);"></div>
+    <div class="neon-glow" style="bottom: -10%; right: -10%; background: var(--neon-purple);"></div>
+    <div class="scanline"></div>
+
+
+
+    <div class="container">
+        <header class="hero-section">
+            <div class="profile-photo-container">
+                <div class="profile-photo-inner">
+                    <img id="player-photo" src="" alt="Player Photo">
+                </div>
+            </div>
+            <div class="hero-info">
+                <span id="player-role" class="hero-tag">FETCHING_ROLE...</span>
+                <h1 id="player-name" class="glitch-name"><span class="animated-name">ACCESSING</span></h1>
+            </div>
+        </header>
+
+        <div class="cyber-grid-layout">
+
+            <div id="table-view" class="tab-content active" style="width: 100%; height: 100%; display: flex; flex-direction: column; overflow: hidden; min-height: 0;">
+                <div class="module m-12">
+                    <div class="matrix-table-wrapper">
+                        <table class="matrix-table">
+                            <tbody id="matrix-body">
+                                <!-- Matrix Rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const pid = urlParams.get('pid');
+        const objectId = urlParams.get('objectId');
+        const name = urlParams.get('name');
+        const role = urlParams.get('role');
+        const opponent = urlParams.get('opponent');
+
+
+
+        async function init() {
+            try {
+                const apiPath = `/api/player-profile?pid=${pid}&objectId=${objectId}&name=${encodeURIComponent(name)}&opponent=${encodeURIComponent(opponent)}`;
+                const res = await fetch(apiPath);
+                if (!res.ok) throw new Error("VAULT_ACCESS_DENIED");
+                const data = await res.json();
+                renderUI(data);
+            } catch (e) {
+                console.error(e);
+                document.getElementById('player-name').textContent = "ERROR: " + e.message;
+            }
+        }
+        
+        function renderUI(data) {
+            document.title = `${name || 'PLAYER'} // H2H ANALYSIS`;
+            document.getElementById('player-name').innerHTML = `<span class="animated-name">${name || 'UNKNOWN'}</span>`;
+            document.getElementById('player-role').textContent = role || 'DATA_GATHERING';
+            
+            const photoImg = document.getElementById('player-photo');
+            photoImg.src = `https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320/lsci/db/PICTURES/CMS/${Math.floor(pid/100)}/${pid}.jpg`;
+            document.querySelector('.profile-photo-container').style.width = '50px';
+            document.querySelector('.profile-photo-container').style.height = '50px';
+            photoImg.onerror = () => {
+                photoImg.src = `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${name}&backgroundColor=00f2ff`;
+            };
+
+            // Filter for pure H2H matches against the current opponent using high-fidelity canonical matching
+            let h2hMatches = data.last10 || [];
+            if (opponent) {
+                const getCanonicalTeam = (teamName) => {
+                    const name = teamName.toUpperCase().trim();
+                    if (name.includes("PUNJAB") || name.includes("PBKS") || name.includes("KXIP") || name.includes("KINGS XI")) {
+                        return "PBKS";
+                    }
+                    if (name.includes("CHENNAI") || name.includes("CSK") || name.includes("SUPER KINGS")) {
+                        return "CSK";
+                    }
+                    if (name.includes("MUMBAI") || name.includes("MI") || name.includes("INDIANS")) {
+                        return "MI";
+                    }
+                    if (name.includes("KOLKATA") || name.includes("KKR") || name.includes("KNIGHT RIDERS")) {
+                        return "KKR";
+                    }
+                    if (name.includes("ROYAL CHALLENGERS") || name.includes("RCB") || name.includes("BANGALORE") || name.includes("BENGALURU")) {
+                        return "RCB";
+                    }
+                    if (name.includes("DELHI") || name.includes("DC") || name.includes("DAREDEVILS") || name.includes("CAPITALS")) {
+                        return "DC";
+                    }
+                    if (name.includes("RAJASTHAN") || name.includes("RR") || name.includes("ROYALS")) {
+                        return "RR";
+                    }
+                    if (name.includes("SUNRISERS") || name.includes("SRH") || name.includes("HYDERABAD") || name.includes("DECCAN") || name.includes("CHARGERS")) {
+                        return "SRH";
+                    }
+                    if (name.includes("GUJARAT") || name.includes("GT") || name.includes("TITANS")) {
+                        return "GT";
+                    }
+                    if (name.includes("LUCKNOW") || name.includes("LSG") || name.includes("SUPER GIANTS")) {
+                        return "LSG";
+                    }
+                    return name;
+                };
+
+                const targetCanonical = getCanonicalTeam(opponent);
+                h2hMatches = data.last10.filter(m => {
+                    const oppClean = m.opp.replace(/^V\s+/, '').replace(/^v\s+/, '').trim();
+                    return getCanonicalTeam(oppClean) === targetCanonical;
+                });
+            }
+
+
+
+            const body = document.getElementById('matrix-body');
+            if (h2hMatches.length === 0) {
+                body.innerHTML = `
+                    <tr class="matrix-row perf-mid">
+                        <td colspan="3" style="text-align: center; padding: 3rem; color: var(--neon-rose); font-weight: 700; font-family: 'Space Grotesk'; font-size: 1.1rem; letter-spacing: 1px;">
+                            NO NEURAL H2H MATCH HISTORY FOUND AGAINST ${opponent || 'OPPONENT'}.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            const hasEverBatted = h2hMatches.some(s => s.bat && s.bat !== 'DNB' && s.bat !== 'TDNB' && s.bat !== 'absent');
+            const hasEverBowled = h2hMatches.some(s => s.bowl && s.bowl !== '0' && s.bowl !== '-');
+
+            body.innerHTML = h2hMatches.map((s, i) => {
+                const rRaw = (s.bat || '0').toString().replace('*', '');
+                const r = parseInt(rRaw) || 0;
+                const w = parseInt(s.bowl) || 0;
+                
+                let perfClass = 'perf-mid';
+                let scoreColor = 'var(--neon-blue)';
+                
+                // Enhanced performance logic
+                if (r >= 40 || w >= 3 || (r >= 30 && w >= 1)) {
+                    perfClass = 'perf-good';
+                    scoreColor = 'var(--neon-green)';
+                } else if (r <= 10 && w === 0 && s.bat !== 'DNB' && s.bat !== 'TDNB' && s.bat !== 'absent') {
+                    perfClass = 'perf-bad';
+                    scoreColor = 'var(--neon-rose)';
+                } else if (s.bat === 'DNB' || s.bat === 'TDNB' || s.bat === 'absent') {
+                    perfClass = 'perf-mid';
+                    scoreColor = 'rgba(255,255,255,0.2)';
+                }
+
+                return `
+                <tr class="matrix-row ${perfClass}">
+                    <td class="matrix-cell cell-id">${(i+1).toString().padStart(2, '0')}</td>
+                    <td class="matrix-cell cell-opp" style="color: var(--neon-purple); font-weight: 900;">
+                        ${s.opp || 'UNK'} <span style="font-size: 0.75rem; color: rgba(255,255,255,0.4); font-weight: 500;">🔥 (H2H)</span>
+                        <span class="cell-date">${s.date}</span>
+                    </td>
+                    <td class="matrix-cell cell-val">
+                        <div class="score-capsule">
+                            <div class="metric-badge val-runs ${!hasEverBatted && r === 0 ? 'hidden' : ''}" style="color: ${scoreColor}">
+                                <div class="badge-label">
+                                    <span class="title">Runs</span>
+                                    <span class="sub" style="color: #fff; opacity: 0.6;">${s.sr && s.sr !== '-' ? s.sr : '---'} SR</span>
+                                </div>
+                                <div class="badge-value-box" style="border-color: ${scoreColor}; box-shadow: 0 0 15px ${scoreColor}44;">${s.bat || '0'}</div>
+                            </div>
+                            <div class="metric-badge val-wkts ${!hasEverBowled && w === 0 ? 'hidden' : ''}" style="color: ${scoreColor}">
+                                <div class="badge-label">
+                                    <span class="title">Wkts</span>
+                                    <span class="sub" style="color: #fff; opacity: 0.6;">${s.econ && s.econ !== '-' ? s.econ : '---'} EC</span>
+                                </div>
+                                <div class="badge-value-box" style="border-color: ${scoreColor}; box-shadow: 0 0 15px ${scoreColor}44;">${s.bowl || '0'}</div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            `}).join('');
+        }
+
+        init();
+    </script>
+</body>
+</html>

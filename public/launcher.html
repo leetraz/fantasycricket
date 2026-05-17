@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricinfo Tab Launcher | Premium Utility</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030712;
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --neon-blue: #38bdf8;
+            --neon-pink: #f472b6;
+            --neon-purple: #a855f7;
+            --text: #f3f4f6;
+            --text-dim: #9ca3af;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(244, 114, 182, 0.05) 0%, transparent 40%);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            background: linear-gradient(to right, var(--neon-blue), var(--neon-purple), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .input-section {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            display: flex;
+            gap: 1rem;
+        }
+
+        input {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            color: white;
+            font-family: 'JetBrains+Mono', monospace;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+        }
+
+        button {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            color: white;
+            border: none;
+            border-radius: 1rem;
+            padding: 1rem 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(168, 85, 247, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .teams-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .teams-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .team-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .team-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .team-name {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--neon-blue);
+        }
+
+        .team-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            border-radius: 0.75rem;
+        }
+
+        .btn-h2h {
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+        }
+
+        .player-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .player-item {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 0.75rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .player-item:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .player-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .player-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .player-role {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .player-links {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .icon-link {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 1.2rem;
+        }
+
+        .icon-link:hover {
+            background: var(--neon-blue);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .icon-link.h2h:hover {
+            background: var(--neon-pink);
+        }
+
+        .loader {
+            display: none;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(56, 189, 248, 0.1);
+            border-left-color: var(--neon-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .teams-container {
+                grid-template-columns: 1fr;
+            }
+            .input-section {
+                flex-direction: column;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Tab Launcher</h1>
+            <p class="subtitle">PREMIUM CRICKET DATA AUTOMATION</p>
+        </header>
+
+        <div class="input-section">
+            <input type="text" id="matchUrl" placeholder="Paste Cricinfo Match URL (Scorecard/Live)..." autofocus>
+            <button onclick="fetchSquads()">Fetch Squads</button>
+        </div>
+
+        <div id="matchSelector" class="match-selector-section glass" style="margin-bottom: 3rem;">
+            <div class="team-header" style="border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+                <div class="team-name" style="font-size: 1.2rem; color: var(--neon-purple);">Upcoming T20 Matches</div>
+            </div>
+            <div id="upcomingMatchesList" class="h2h-match-grid">
+                <!-- Matches injected here -->
+                <p style="color: var(--text-dim); padding: 1rem;">Loading schedule...</p>
+            </div>
+        </div>
+
+        <div id="loader" class="loader">
+            <div class="spinner"></div>
+            <p style="margin-top: 1rem; color: var(--neon-blue); font-weight: 700;">FETCHING NEURAL DATA...</p>
+        </div>
+
+        <div id="teamsContainer" class="teams-container">
+            <!-- Team 1 -->
+            <div class="team-card" id="team1Card">
+                <div class="team-header">
+                    <div class="team-name" id="team1Name">TEAM 1</div>
+                    <div class="team-actions">
+                        <button class="btn-sm" onclick="bulkOpen(0, 'profile')">Profiles</button>
+                        <button class="btn-sm btn-h2h" onclick="bulkOpen(0, 'h2h')">H2H Stats</button>
+                    </div>
+                </div>
+                <div class="player-list" id="team1List"></div>
+            </div>
+
+            <!-- Team 2 -->
+            <div class="team-card" id="team2Card">
+                <div class="team-header">
+                    <div class="team-name" id="team2Name">TEAM 2</div>
+                    <div class="team-actions">
+                        <button class="btn-sm" onclick="bulkOpen(1, 'profile')">Profiles</button>
+                        <button class="btn-sm btn-h2h" onclick="bulkOpen(1, 'h2h')">H2H Stats</button>
+                    </div>
+                </div>
+                <div class="player-list" id="team2List"></div>
+            </div>
+        </div>
+
+        <!-- H2H Matches Section -->
+        <div id="h2hMatchContainer" class="h2h-match-section glass" style="display: none; margin-top: 3rem; opacity: 0; transition: all 0.5s ease;">
+            <div class="team-header" style="border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 2rem;">
+                <div class="team-name" style="color: var(--neon-pink);">Complete H2H Match History (Recent Encounters)</div>
+                <button class="btn-sm btn-h2h" onclick="bulkOpenH2HMatches()">Open All Scorecards</button>
+            </div>
+            <div class="h2h-table-wrapper" style="overflow-x: auto;">
+                <table class="h2h-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid var(--border); color: var(--neon-blue); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">
+                            <th style="padding: 1rem 0.5rem;">Date</th>
+                            <th style="padding: 1rem 0.5rem;">Matchup</th>
+                            <th style="padding: 1rem 0.5rem;">Score / Summary</th>
+                            <th style="padding: 1rem 0.5rem;">Ground</th>
+                            <th style="padding: 1rem 0.5rem; color: var(--neon-pink);">Result</th>
+                            <th style="padding: 1rem 0.5rem; text-align: right;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="h2hMatchTableBody">
+                        <!-- Matches injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Player Neural H2H Drawer Modal -->
+        <div id="playerModal" class="modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 1000; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease;">
+            <div class="modal-content glass" style="width: 90%; max-width: 750px; background: rgba(17, 24, 39, 0.98); border: 2px solid var(--neon-pink); border-radius: 1.5rem; padding: 2.5rem; position: relative; max-height: 85vh; overflow-y: auto; box-shadow: 0 0 35px rgba(244, 114, 182, 0.35);">
+                <button class="modal-close" onclick="closePlayerModal()" style="position: absolute; top: 1.5rem; right: 1.5rem; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: white; width: 40px; height: 40px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s;">✕</button>
+                
+                <div class="modal-header" style="display: flex; gap: 1.5rem; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem;">
+                    <div class="profile-photo-container" style="width: 80px; height: 80px; border-radius: 50%; padding: 4px; background: var(--border);">
+                        <div class="profile-photo-inner" style="width: 100%; height: 100%; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; background: black;">
+                            <img id="modalPlayerPhoto" src="" style="width: 110%; height: 110%; object-fit: cover;" alt="">
+                        </div>
+                    </div>
+                    <div>
+                        <span id="modalPlayerRole" style="color: var(--neon-blue); text-transform: uppercase; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px;">ALL-ROUNDER</span>
+                        <h2 id="modalPlayerName" style="font-size: 2.2rem; font-weight: 900; color: white; text-transform: uppercase;">VIRAT KOHLI</h2>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <div style="color: var(--neon-pink); font-size: 1.1rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 900;">Recent T20 Form & opposition matches</div>
+                    <div class="h2h-table-wrapper" style="overflow-x: auto;">
+                        <table class="h2h-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid var(--border); color: var(--neon-blue); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">
+                                    <th style="padding: 0.75rem 0.5rem;">Date</th>
+                                    <th style="padding: 0.75rem 0.5rem;">Opposition</th>
+                                    <th style="padding: 0.75rem 0.5rem;">Batting</th>
+                                    <th style="padding: 0.75rem 0.5rem;">Bowling</th>
+                                </tr>
+                            </thead>
+                            <tbody id="modalPlayerTableBody" style="font-size: 0.95rem;">
+                                <!-- Player match logs injected here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .match-selector-section {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            padding: 2rem;
+        }
+
+        .h2h-match-section {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .h2h-match-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .h2h-match-item {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .h2h-match-item:hover {
+            border-color: var(--neon-pink);
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .h2h-match-date {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .h2h-match-title {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: white;
+        }
+
+        .h2h-match-result {
+            font-size: 0.85rem;
+            color: var(--neon-blue);
+            font-weight: 700;
+        }
+
+        .h2h-match-meta {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+
+        .h2h-table th, .h2h-table td {
+            padding: 1rem 0.5rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .h2h-row {
+            transition: all 0.2s ease;
+        }
+
+        .h2h-row:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .h2h-score-capsule {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border);
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-family: 'JetBrains+Mono', monospace;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+    </style>
+
+    <script>
+        let matchData = null;
+        let h2hMatches = [];
+
+        // Initialization
+        window.onload = () => {
+            fetchUpcomingMatches();
+            const urlParams = new URLSearchParams(window.location.search);
+            const url = urlParams.get('url');
+            if (url) {
+                document.getElementById('matchUrl').value = url;
+                fetchSquads();
+            }
+        };
+
+        // Allow Enter key
+        document.getElementById('matchUrl').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') fetchSquads();
+        });
+
+        async function fetchUpcomingMatches() {
+            try {
+                const response = await fetch('/api/list-matches');
+                const matches = await response.json();
+                renderUpcomingMatches(matches);
+            } catch (err) {
+                console.error("Failed to fetch matches:", err);
+            }
+        }
+
+        function renderUpcomingMatches(matches) {
+            const list = document.getElementById('upcomingMatchesList');
+            if (!matches || matches.length === 0) {
+                list.innerHTML = '<p style="color: var(--neon-pink);">No upcoming T20 matches found.</p>';
+                return;
+            }
+            list.innerHTML = '';
+            matches.forEach(m => {
+                const item = document.createElement('div');
+                item.className = 'h2h-match-item';
+                item.onclick = () => {
+                    document.getElementById('matchUrl').value = m.url;
+                    fetchSquads();
+                };
+                
+                const dateStr = m.startTime ? new Date(m.startTime).toLocaleString(undefined, { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '';
+
+                item.innerHTML = `
+                    <div class="h2h-match-date">${dateStr}</div>
+                    <div style="font-size: 0.65rem; color: var(--neon-purple); font-weight: 800; letter-spacing: 1px;">${m.series}</div>
+                    <div class="h2h-match-title">${m.title}</div>
+                    <div class="h2h-match-result">${m.status}</div>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        async function fetchSquads() {
+            const url = document.getElementById('matchUrl').value.trim();
+            if (!url) return alert("Please provide a URL.");
+
+            const loader = document.getElementById('loader');
+            const container = document.getElementById('teamsContainer');
+            const h2hContainer = document.getElementById('h2hMatchContainer');
+            const matchSelector = document.getElementById('matchSelector');
+            
+            loader.style.display = 'block';
+            container.classList.remove('visible');
+            h2hContainer.style.display = 'none';
+            matchSelector.style.display = 'none';
+
+            try {
+                const response = await fetch(`/api/match-data?url=${encodeURIComponent(url)}`);
+                const data = await response.json();
+
+                if (data.error) throw new Error(data.error);
+
+                matchData = data;
+                renderSquads();
+                fetchH2HHistory();
+            } catch (err) {
+                alert("Error: " + err.message);
+                matchSelector.style.display = 'block';
+            } finally {
+                loader.style.display = 'none';
+            }
+        }
+
+        async function fetchH2HHistory() {
+            if (!matchData || !matchData.teamsInfo || matchData.teamsInfo.length < 2) return;
+            
+            try {
+                const response = await fetch(`/api/h2h-match-history?team1Id=${encodeURIComponent(matchData.teamsInfo[0].id)}&team2Id=${encodeURIComponent(matchData.teamsInfo[1].id)}`);
+                h2hMatches = await response.json();
+                renderH2HMatches();
+            } catch (err) {
+                console.error("Failed to fetch H2H history:", err);
+            }
+        }
+
+        function renderH2HMatches() {
+            const container = document.getElementById('h2hMatchContainer');
+            const tbody = document.getElementById('h2hMatchTableBody');
+            
+            if (!h2hMatches || h2hMatches.length === 0) {
+                container.style.display = 'none';
+                return;
+            }
+
+            tbody.innerHTML = '';
+            h2hMatches.forEach(m => {
+                const row = document.createElement('tr');
+                row.className = 'h2h-row';
+                
+                const resultColor = m.result.toLowerCase().includes('lost') ? '#f87171' : '#34d399';
+
+                row.innerHTML = `
+                    <td style="font-weight: 600; color: var(--text-dim);">${m.date}</td>
+                    <td style="font-weight: 800; font-size: 1.05rem; color: white;">${m.title}</td>
+                    <td><span class="h2h-score-capsule">${m.score}</span></td>
+                    <td style="color: var(--text-dim);">${m.ground}</td>
+                    <td style="font-weight: 800; color: ${resultColor};">${m.result}</td>
+                    <td style="text-align: right; padding-right: 1rem;">
+                        <a href="${m.url}" target="_blank" class="btn-sm btn-h2h" style="text-decoration: none; display: inline-block; padding: 0.4rem 0.8rem; font-weight: 800;">Scorecard ➔</a>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            container.style.display = 'block';
+            setTimeout(() => {
+                container.style.opacity = '1';
+            }, 50);
+        }
+
+        function bulkOpenH2HMatches() {
+            h2hMatches.forEach((m, i) => {
+                setTimeout(() => {
+                    window.open(m.url, '_blank');
+                }, i * 50); // Hyper fast scorecard opening!
+            });
+        }
+
+        function renderSquads() {
+            const container = document.getElementById('teamsContainer');
+            const t1Name = document.getElementById('team1Name');
+            const t2Name = document.getElementById('team2Name');
+            const t1List = document.getElementById('team1List');
+            const t2List = document.getElementById('team2List');
+
+            const teamNames = matchData.teams;
+            t1Name.innerText = teamNames[0];
+            t2Name.innerText = teamNames[1];
+
+            t1List.innerHTML = '';
+            t2List.innerHTML = '';
+
+            matchData.allPlayers.forEach(player => {
+                const item = document.createElement('div');
+                item.className = 'player-item';
+                
+                const opponent = teamNames.find(t => t !== player.team);
+                
+                // Profile URL: https://www.espncricinfo.com/cricketers/name-id/matches
+                const profileUrl = `https://www.espncricinfo.com/cricketers/${player.name.toLowerCase().replace(/ /g, '-')}-${player.player_id}/matches`;
+                
+                // Get dynamic opponent ID
+                const opponentInfo = matchData.teamsInfo ? matchData.teamsInfo.find(t => t.name !== player.team) : null;
+                const opponentId = opponentInfo ? opponentInfo.id : "";
+                
+                // H2H page URL
+                const h2hUrl = `player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}`;
+
+                item.innerHTML = `
+                    <div class="player-info">
+                        <span class="player-name">${player.name}</span>
+                        <span class="player-role">${player.role}</span>
+                    </div>
+                    <div class="player-links">
+                        <a href="${profileUrl}" target="_blank" class="icon-link" title="Cricinfo Profile">👤</a>
+                        <a href="${h2hUrl}" target="_blank" class="icon-link h2h" title="Neural H2H Pure Data">⚔️</a>
+                        <a href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}" target="_blank" class="icon-link" title="Neural Analysis">📊</a>
+                    </div>
+                `;
+
+                if (player.team === teamNames[0]) {
+                    t1List.appendChild(item);
+                } else {
+                    t2List.appendChild(item);
+                }
+            });
+
+            container.classList.add('visible');
+        }
+
+        async function openPlayerModal(playerId, name, role, opponent) {
+            const modal = document.getElementById('playerModal');
+            const nameEl = document.getElementById('modalPlayerName');
+            const roleEl = document.getElementById('modalPlayerRole');
+            const photoEl = document.getElementById('modalPlayerPhoto');
+            const tbody = document.getElementById('modalPlayerTableBody');
+
+            nameEl.innerText = name;
+            roleEl.innerText = role;
+            photoEl.src = `https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320/lsci/db/PICTURES/CMS/${Math.floor(playerId/100)}/${playerId}.jpg`;
+            photoEl.onerror = () => {
+                photoEl.src = `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${encodeURIComponent(name)}&backgroundColor=38bdf8`;
+            };
+
+            tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; padding: 2rem; color: var(--neon-blue); font-weight: 800;">LOADING NEURAL DATA...</td></tr>';
+            
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.style.opacity = '1';
+            }, 50);
+
+            try {
+                const res = await fetch(`/api/player-profile?pid=${playerId}&name=${encodeURIComponent(name)}&opponent=${encodeURIComponent(opponent)}`);
+                const data = await res.json();
+
+                if (!data.last10 || data.last10.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 2rem; color: var(--text-dim);">No recent match records found.</td></tr>`;
+                    return;
+                }
+
+                // Exclusively filter matches played against the current opponent using high-fidelity canonical matching
+                const getCanonicalTeam = (teamName) => {
+                    const name = teamName.toUpperCase().trim();
+                    if (name.includes("PUNJAB") || name.includes("PBKS") || name.includes("KXIP") || name.includes("KINGS XI")) {
+                        return "PBKS";
+                    }
+                    if (name.includes("CHENNAI") || name.includes("CSK") || name.includes("SUPER KINGS")) {
+                        return "CSK";
+                    }
+                    if (name.includes("MUMBAI") || name.includes("MI") || name.includes("INDIANS")) {
+                        return "MI";
+                    }
+                    if (name.includes("KOLKATA") || name.includes("KKR") || name.includes("KNIGHT RIDERS")) {
+                        return "KKR";
+                    }
+                    if (name.includes("ROYAL CHALLENGERS") || name.includes("RCB") || name.includes("BANGALORE") || name.includes("BENGALURU")) {
+                        return "RCB";
+                    }
+                    if (name.includes("DELHI") || name.includes("DC") || name.includes("DAREDEVILS") || name.includes("CAPITALS")) {
+                        return "DC";
+                    }
+                    if (name.includes("RAJASTHAN") || name.includes("RR") || name.includes("ROYALS")) {
+                        return "RR";
+                    }
+                    if (name.includes("SUNRISERS") || name.includes("SRH") || name.includes("HYDERABAD") || name.includes("DECCAN") || name.includes("CHARGERS")) {
+                        return "SRH";
+                    }
+                    if (name.includes("GUJARAT") || name.includes("GT") || name.includes("TITANS")) {
+                        return "GT";
+                    }
+                    if (name.includes("LUCKNOW") || name.includes("LSG") || name.includes("SUPER GIANTS")) {
+                        return "LSG";
+                    }
+                    return name;
+                };
+
+                const targetCanonical = getCanonicalTeam(opponent);
+                const h2hFiltered = data.last10.filter(m => {
+                    const oppClean = m.opp.replace(/^V\s+/, '').replace(/^v\s+/, '').trim();
+                    return getCanonicalTeam(oppClean) === targetCanonical;
+                });
+
+                if (h2hFiltered.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 2rem; color: var(--neon-pink); font-weight: 700;">No Head-to-Head match records found against ${opponent}.</td></tr>`;
+                    return;
+                }
+
+                tbody.innerHTML = '';
+                h2hFiltered.forEach(m => {
+                    const row = document.createElement('tr');
+                    row.className = 'h2h-row';
+                    row.style.background = 'rgba(244, 114, 182, 0.1)';
+                    row.style.borderLeft = '3px solid var(--neon-pink)';
+
+                    const batVal = m.bat && m.bat !== '-' && m.bat !== 'DNB' ? `${m.bat} (${m.sr} SR)` : 'DNB';
+                    const bowlVal = m.bowl && m.bowl !== '-' && m.bowl !== '0' ? `${m.bowl} Wkts (${m.econ} Econ)` : '-';
+
+                    row.innerHTML = `
+                        <td style="padding: 0.75rem 0.5rem; font-weight: 600; color: var(--text-dim);">${m.date}</td>
+                        <td style="padding: 0.75rem 0.5rem; font-weight: 800; color: var(--neon-pink);">${m.opp} 🔥 (H2H)</td>
+                        <td style="padding: 0.75rem 0.5rem; font-family: 'JetBrains+Mono', monospace; color: var(--neon-blue); font-weight: 700;">${batVal}</td>
+                        <td style="padding: 0.75rem 0.5rem; font-family: 'JetBrains+Mono', monospace; color: var(--neon-green); font-weight: 700;">${bowlVal}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            } catch (err) {
+                tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 2rem; color: #f87171;">ERROR: ${err.message}</td></tr>`;
+            }
+        }
+
+        function closePlayerModal() {
+            const modal = document.getElementById('playerModal');
+            modal.style.opacity = '0';
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+
+        function bulkOpen(teamIndex, type) {
+            if (!matchData) return;
+            const teamName = matchData.teams[teamIndex];
+            const players = matchData.allPlayers.filter(p => p.team === teamName);
+            const opponent = matchData.teams.find(t => t !== teamName);
+            const opponentInfo = matchData.teamsInfo ? matchData.teamsInfo.find(t => t.name !== teamName) : null;
+            const opponentId = opponentInfo ? opponentInfo.id : "";
+
+            players.forEach((p, i) => {
+                let url;
+                if (type === 'profile') {
+                    url = `https://www.espncricinfo.com/cricketers/${p.name.toLowerCase().replace(/ /g, '-')}-${p.player_id}/matches`;
+                } else {
+                    url = `player.html?pid=${p.player_id}&objectId=${p.object_id}&name=${encodeURIComponent(p.name)}&role=${encodeURIComponent(p.role)}&opponent=${encodeURIComponent(opponent)}`;
+                }
+
+                setTimeout(() => {
+                    window.open(url, '_blank');
+                }, i * 25); // Hyper fast opening (25ms delay)!
+            });
+        }
+    </script>
+</body>
+</html>

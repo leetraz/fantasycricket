@@ -1,0 +1,17 @@
+Server is running at http://localhost:3000
+FETCHING: https://www.espncricinfo.com/live-cricket-match-schedule-fixtures?quick_class_id=t20
+FETCHING: https://www.espncricinfo.com/live-cricket-match-schedule-fixtures?quick_class_id=t20
+FETCHING: https://www.espncricinfo.com/live-cricket-match-schedule-fixtures?quick_class_id=t20
+FETCHING: https://www.espncricinfo.com/series/ipl-2026-1510719/delhi-capitals-vs-rajasthan-royals-62nd-match-1529305/live-cricket-score
+FETCHING: https://www.espncricinfo.com/series/ipl-2026-1510719/kolkata-knight-riders-vs-gujarat-titans-60th-match-1529303/full-scorecard
+FETCHING: https://www.espncricinfo.com/live-cricket-match-schedule-fixtures?quick_class_id=t20
+FETCHING: https://www.espncricinfo.com/live-cricket-match-schedule-fixtures?quick_class_id=t20
+FETCHING: https://www.espncricinfo.com/live-cricket-match-schedule-fixtures?quick_class_id=t20
+FETCHING: file:///home/anon/Backup/cricinfo_fantasy/package.json
+SCRAPE_ERROR [file:///home/anon/Backup/cricinfo_fantasy/package.json]: protocol mismatch
+FETCHING: http://localhost:3000/app.js
+FETCHING: https://www.espncricinfo.com/live-cricket-match-schedule-fixtures?quick_class_id=t20
+FETCHING: https://www.espncricinfo.com/live-cricket-match-schedule-fixtures?quick_class_id=t20
+FETCHING: https://www.espncricinfo.com/series/ipl-2026-1510719/kolkata-knight-riders-vs-gujarat-titans-60th-match-1529303/full-scorecard
+FETCHING: https://www.espncricinfo.com/live-cricket-match-schedule-fixtures?quick_class_id=t20
+FETCHING: https://www.espncricinfo.com/series/ipl-2026-1510719/kolkata-knight-riders-vs-gujarat-titans-60th-match-1529303/full-scorecard

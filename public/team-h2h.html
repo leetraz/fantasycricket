@@ -154,25 +154,12 @@
 
         /* Player Box / Cards List in Grid */
         .players-h2h-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
             flex-grow: 1;
             min-height: 0;
             overflow-y: auto;
-            align-content: start;
-        }
-
-        @media (min-width: 1200px) {
-            .players-h2h-list {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .players-h2h-list {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -392,13 +379,12 @@
                         
                         text = m.bat.toString(); // runs only (e.g. "85" or "85*")
                     }
-                    
                     if (hasBowl) {
                         const wkts = parseInt(m.bowl) || 0;
                         if (wkts >= 3) isHighBowl = true;
                         else if (wkts >= 2) isMedBowl = true;
                         
-                        const bowlText = `${m.bowl}wk`; // how much wicket followed by 2 letters: wk
+                        const bowlText = `${m.bowl}W`;
                         text = text ? `${text} ${bowlText}` : bowlText;
                     }
                     

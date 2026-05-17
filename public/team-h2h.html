@@ -479,68 +479,101 @@
         }
 
         function renderPlayerCard(player, matches, parentContainer, isError = false) {
-            const card = document.createElement('div');
-            card.className = 'player-h2h-card';
-
             const formattedName = player.name.toUpperCase();
             const avatarUrl = `https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320/lsci/db/PICTURES/CMS/${Math.floor(player.player_id/100)}/${player.player_id}.jpg`;
             const errorAvatarUrl = `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${player.name}&backgroundColor=00f2ff`;
 
-            // HTML Structure of Player box
-            let contentHTML = `
-                <div class="player-header">
-                    <div class="player-identity">
-                        <div class="player-avatar">
-                            <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" alt="${player.name}">
-                        </div>
-                        <div class="player-name-wrapper">
-                            <h2>⚡ ${formattedName}</h2>
-                            <div class="player-role-badge">${player.role || 'Player'}</div>
-                        </div>
-                    </div>
-                    <div>
-                        <a href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}" 
-                           target="_blank" class="back-btn" style="padding: 0.35rem 0.75rem; font-size: 0.75rem; border-color: var(--neon-blue); color: var(--neon-blue);">
-                           Dedicated H2H ➔
-                        </a>
-                    </div>
-                </div>
-            `;
+            const row = document.createElement('div');
+            row.style.marginBottom = '0.75rem';
 
             if (isError) {
-                contentHTML += `<div class="empty-h2h"><span>⚠️ FAILED TO DECRYPT NEURAL PROFILE DATA.</span></div>`;
+                row.innerHTML = `
+                    <div style="background: rgba(255, 0, 85, 0.02); border: 1px dashed rgba(255, 0, 85, 0.2); padding: 1rem 1.25rem; border-radius: 12px; font-family: 'Space Grotesk'; font-size: 1.15rem; display: flex; align-items: center; justify-content: space-between;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" style="width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--neon-rose);" alt="${player.name}">
+                            <div>
+                                <span style="color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; margin-right: 0.5rem;">${player.name}:</span>
+                                <span style="color: var(--neon-rose); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.5px;">⚠️ FAILED TO DECRYPT NEURAL PROFILE DATA.</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
             } else if (matches.length === 0) {
-                contentHTML += `<div class="empty-h2h">NO DIRECT H2H HISTORY FOUND AGAINST <span>${opponent}</span>.</div>`;
+                row.innerHTML = `
+                    <div style="background: rgba(255, 0, 85, 0.015); border: 1px dashed rgba(255, 0, 85, 0.15); padding: 1rem 1.25rem; border-radius: 12px; font-family: 'Space Grotesk'; font-size: 1.15rem; display: flex; align-items: center; justify-content: space-between;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" style="width: 36px; height: 36px; border-radius: 8px; border: 1px solid rgba(255, 0, 85, 0.3);" alt="${player.name}">
+                            <div>
+                                <span style="color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; margin-right: 0.5rem;">${player.name}:</span>
+                                <span style="color: rgba(255, 255, 255, 0.3); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.5px;">NO H2H MATCH HISTORY FOUND AGAINST ${opponent}</span>
+                            </div>
+                        </div>
+                        <a href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}" 
+                           target="_blank" class="back-btn" style="padding: 0.3rem 0.6rem; font-size: 0.75rem; border-color: rgba(255, 0, 85, 0.3); color: rgba(255, 0, 85, 0.6); background: transparent;">
+                           DEDICATED ➔
+                        </a>
+                    </div>
+                `;
             } else {
-                // Generate a simple, ultra-concise comma-separated list of matches
-                const perfList = matches.map(m => {
+                // Reverse the matches array to display in oldest-to-newest chronological order
+                const chronologicalMatches = [...matches].reverse();
+
+                const perfList = chronologicalMatches.map(m => {
                     const parts = [];
                     const hasBat = m.bat && m.bat !== '-' && m.bat !== 'DNB' && m.bat !== 'TDNB' && m.bat !== 'absent';
                     const hasBowl = m.bowl && m.bowl !== '-' && m.bowl !== 'DNB';
                     
                     if (hasBat) {
-                        parts.push(`${m.bat} run`);
-                    }
-                    if (hasBowl) {
-                        const wkts = m.bowl.toString().trim();
-                        parts.push(`${wkts} wkt`);
+                        const runs = parseInt(m.bat.toString().replace('*', '')) || 0;
+                        
+                        // Check if it is a highlighted batting performance
+                        if (runs >= 50) {
+                            parts.push(`<span style="color: var(--neon-green); font-weight: 900; text-shadow: 0 0 10px rgba(57, 255, 20, 0.75);">${m.bat}🏏</span>`);
+                        } else if (runs >= 30) {
+                            parts.push(`<span style="color: #39ff14; font-weight: 700;">${m.bat}🏏</span>`);
+                        } else {
+                            parts.push(`<span style="color: #fff; font-weight: 500;">${m.bat}🏏</span>`);
+                        }
                     }
                     
-                    return parts.length > 0 ? parts.join(' ') : 'DNB';
+                    if (hasBowl) {
+                        const wkts = parseInt(m.bowl) || 0;
+                        
+                        // Check if it is a highlighted bowling performance
+                        if (wkts >= 3) {
+                            parts.push(`<span style="color: #ff0055; font-weight: 900; text-shadow: 0 0 10px rgba(255, 0, 85, 0.75);">${m.bowl}🎯</span>`);
+                        } else if (wkts >= 2) {
+                            parts.push(`<span style="color: #ff0055; font-weight: 700;">${m.bowl}🎯</span>`);
+                        } else {
+                            parts.push(`<span style="color: var(--neon-blue); font-weight: 500;">${m.bowl}🎯</span>`);
+                        }
+                    }
+                    
+                    return parts.length > 0 ? parts.join(' ') : '<span style="color: rgba(255,255,255,0.25);">DNB</span>';
                 });
 
-                const finalPerfString = perfList.length > 0 ? perfList.join(', ') : 'DNB';
+                const finalPerfString = perfList.length > 0 ? perfList.join(', ') : '<span style="color: rgba(255,255,255,0.25);">DNB</span>';
 
-                contentHTML += `
-                    <div style="background: rgba(0,0,0,0.35); border: 1px solid var(--glass-border); padding: 1.25rem; border-radius: 12px; font-family: 'Space Grotesk'; font-size: 1.15rem; line-height: 1.6; color: var(--neon-blue); box-shadow: inset 0 0 15px rgba(0, 242, 255, 0.05); text-transform: uppercase;">
-                        <span style="color: #fff; font-weight: 700; letter-spacing: 0.5px;">${player.name}:</span>
-                        <span style="color: var(--neon-blue); font-weight: 500; margin-left: 0.5rem; letter-spacing: 0.5px;">${finalPerfString}</span>
+                row.innerHTML = `
+                    <div style="background: rgba(17, 18, 29, 0.5); border: 1px solid var(--glass-border); padding: 1rem 1.25rem; border-radius: 12px; font-family: 'Space Grotesk'; font-size: 1.15rem; display: flex; align-items: center; justify-content: space-between; box-shadow: inset 0 0 15px rgba(0, 242, 255, 0.02); transition: all 0.3s;"
+                         onmouseover="this.style.borderColor='rgba(0, 242, 255, 0.35)'; this.style.boxShadow='inset 0 0 20px rgba(0, 242, 255, 0.05)';"
+                         onmouseout="this.style.borderColor='var(--glass-border)'; this.style.boxShadow='inset 0 0 15px rgba(0, 242, 255, 0.02)';">
+                        <div style="display: flex; align-items: center; gap: 1rem; flex-grow: 1;">
+                            <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" style="width: 36px; height: 36px; border-radius: 8px; border: 1.5px solid var(--neon-blue); box-shadow: 0 0 10px rgba(0, 242, 255, 0.15);" alt="${player.name}">
+                            <div style="line-height: 1.6;">
+                                <span style="color: #fff; font-weight: 700; text-transform: uppercase; margin-right: 0.5rem; letter-spacing: 0.5px;">${player.name}:</span>
+                                <span style="margin-left: 0.25rem; letter-spacing: 0.5px;">${finalPerfString}</span>
+                            </div>
+                        </div>
+                        <a href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}" 
+                           target="_blank" class="back-btn" style="padding: 0.3rem 0.6rem; font-size: 0.75rem; border-color: var(--neon-blue); color: var(--neon-blue); background: transparent;">
+                           DEDICATED ➔
+                        </a>
                     </div>
                 `;
             }
 
-            card.innerHTML = contentHTML;
-            parentContainer.appendChild(card);
+            parentContainer.appendChild(row);
         }
 
         // Run initializer

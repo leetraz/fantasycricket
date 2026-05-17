@@ -3,71 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SQUAD H2H ANALYSIS // CRICINFO PREVIEW</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>SQUAD RECENT FORM // CRICINFO PREVIEW</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #06070a;
+            --bg-dark: #0a0b10;
+            --card-bg: rgba(17, 18, 29, 0.6);
             --neon-blue: #00f2ff;
-            --neon-purple: #bc13fe;
-            --neon-green: #39ff14;
+            --neon-purple: #9d00ff;
             --neon-rose: #ff0055;
-            --amber: #ff9900;
-            --glass: rgba(255, 255, 255, 0.02);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --neon-green: #39ff14;
+            --amber: #ffaa00;
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --font-main: 'Space Grotesk', sans-serif;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.5); }
-        ::-webkit-scrollbar-thumb { background: var(--neon-blue); border-radius: 10px; }
-
-        html, body {
-            height: 100vh;
-            overflow: hidden;
-            background-color: var(--bg);
-            color: #fff;
-            font-family: 'Outfit', sans-serif;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Immersive Background Grid */
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: var(--font-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Abstract Cyber Grid Background */
         .cyber-grid {
             position: fixed;
-            inset: 0;
-            background: 
-                linear-gradient(rgba(0, 242, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 242, 255, 0.02) 1px, transparent 1px);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 40px 40px;
             z-index: -2;
+            pointer-events: none;
         }
 
         .neon-glow {
             position: fixed;
-            width: 40vw; height: 40vw;
-            filter: blur(160px);
-            opacity: 0.06;
+            width: 400px;
+            height: 400px;
             border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.12;
             z-index: -1;
+            pointer-events: none;
         }
 
         .container {
-            width: 100vw;
-            height: 100vh;
-            max-width: 1800px;
+            max-width: 1600px;
             margin: 0 auto;
-            padding: 1rem;
+            width: 100%;
+            padding: 1.25rem;
             display: flex;
             flex-direction: column;
+            flex-grow: 1;
+            height: 100vh;
+            max-height: 100vh;
         }
 
-        /* Navigation Header */
         header {
-            border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 0.5rem;
-            margin-bottom: 0.5rem;
             display: flex;
             flex-direction: column;
-            gap: 0.25rem;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
             flex-shrink: 0;
         }
 
@@ -78,73 +90,78 @@
         }
 
         .back-btn {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--glass-border);
-            padding: 0.35rem 1rem;
-            color: #fff;
-            text-transform: uppercase;
-            font-family: 'Space Grotesk';
-            font-weight: 700;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 0.4rem 0.8rem;
             border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.75rem;
+            font-family: var(--font-main);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 700;
             letter-spacing: 1px;
+            cursor: pointer;
             text-decoration: none;
-            display: inline-block;
+            transition: all 0.2s ease;
         }
 
         .back-btn:hover {
-            background: var(--neon-blue);
-            color: #000;
-            box-shadow: 0 0 12px var(--neon-blue);
+            background: rgba(0, 242, 255, 0.1);
             border-color: var(--neon-blue);
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
         }
 
-        .title-section h1 {
+        h1 {
             font-size: 1.6rem;
-            font-weight: 900;
-            letter-spacing: -0.5px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            background: linear-gradient(90deg, #fff, rgba(255,255,255,0.7));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .title-section p {
-            color: rgba(255,255,255,0.5);
+        .subtitle {
+            color: rgba(255, 255, 255, 0.4);
             font-size: 0.85rem;
+            font-weight: 400;
+            text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        /* Loading / Progress Indicator */
-        .progress-container {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--glass-border);
+        /* Squad analysis loader progress container */
+        #loading-indicator {
+            background: rgba(17, 18, 29, 0.85);
+            border: 1px solid rgba(0, 242, 255, 0.15);
             border-radius: 8px;
-            padding: 0.6rem 1rem;
-            margin-bottom: 0.5rem;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
             flex-shrink: 0;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
 
-        .progress-header {
+        .loader-meta {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 0.4rem;
-            font-family: 'Space Grotesk';
             font-size: 0.75rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .progress-bar-wrapper {
-            height: 4px;
-            background: rgba(255,255,255,0.05);
+        .progress-bar-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             overflow: hidden;
         }
 
-        .progress-bar-fill {
+        #progress-fill {
             height: 100%;
             width: 0%;
             background: linear-gradient(90deg, var(--neon-blue), var(--amber));
@@ -205,56 +222,55 @@
             <div class="header-top">
                 <a href="/" class="back-btn">⚡ Back to Dashboard</a>
             </div>
-            <div class="title-section">
-                <h1 id="squad-title">RCB // SQUAD H2H MATRIX</h1>
-                <p id="squad-subtitle">Loading complete squad historical matchups...</p>
-            </div>
+            <h1 id="squad-title">LOADING MATRIX...</h1>
+            <div class="subtitle" id="squad-subtitle">Initializing general recent matches...</div>
         </header>
 
-        <!-- Progress Indicator -->
-        <div class="progress-container" id="loading-indicator">
-            <div class="progress-header">
-                <span id="progress-status">Initializing sensors...</span>
-                <span id="progress-percent">0%</span>
+        <!-- Loading indicator dashboard -->
+        <div id="loading-indicator">
+            <div class="loader-meta">
+                <span id="progress-status" style="color: var(--neon-blue)">Secure link established. Initiating player scrape...</span>
+                <span id="progress-percent" style="color: var(--amber)">0%</span>
             </div>
-            <div class="progress-bar-wrapper">
-                <div class="progress-bar-fill" id="progress-fill"></div>
+            <div class="progress-bar-container">
+                <div id="progress-fill"></div>
             </div>
         </div>
 
-        <!-- Render List -->
+        <!-- Render List Container -->
         <div class="players-h2h-list" id="players-list-container">
-            <!-- Dynamic player H2H cards will be injected here -->
+            <!-- Dynamic Player details rows injected here -->
         </div>
 
     </div>
 
     <script>
-        // High-Fidelity Canonical Team Matching Logic
-        const getCanonicalTeam = (teamName) => {
-            const name = teamName.toUpperCase().trim();
-            if (name.includes("PUNJAB") || name.includes("PBKS") || name.includes("KXIP") || name.includes("KINGS XI")) {
-                return "PBKS";
-            }
+        // Resolve canonical team names for consistency
+        const getCanonicalTeam = (name) => {
+            if (!name) return "";
+            name = name.toUpperCase().trim();
             if (name.includes("CHENNAI") || name.includes("CSK") || name.includes("SUPER KINGS")) {
                 return "CSK";
             }
             if (name.includes("MUMBAI") || name.includes("MI") || name.includes("INDIANS")) {
                 return "MI";
             }
-            if (name.includes("KOLKATA") || name.includes("KKR") || name.includes("KNIGHT RIDERS")) {
-                return "KKR";
-            }
-            if (name.includes("ROYAL CHALLENGERS") || name.includes("RCB") || name.includes("BANGALORE") || name.includes("BENGALURU")) {
+            if (name.includes("ROYAL CHALLENGERS") || name.includes("RCB") || name.includes("BENGALURU")) {
                 return "RCB";
             }
-            if (name.includes("DELHI") || name.includes("DC") || name.includes("DAREDEVILS") || name.includes("CAPITALS")) {
-                return "DC";
+            if (name.includes("KOLKATA") || name.includes("KKR") || name.includes("KNIGHT RIDERS")) {
+                return "KKR";
             }
             if (name.includes("RAJASTHAN") || name.includes("RR") || name.includes("ROYALS")) {
                 return "RR";
             }
-            if (name.includes("SUNRISERS") || name.includes("SRH") || name.includes("HYDERABAD") || name.includes("DECCAN") || name.includes("CHARGERS")) {
+            if (name.includes("PUNJAB") || name.includes("PBKS") || name.includes("KINGS")) {
+                return "PBKS";
+            }
+            if (name.includes("DELHI") || name.includes("DC") || name.includes("CAPITALS")) {
+                return "DC";
+            }
+            if (name.includes("SUNRISERS") || name.includes("SRH") || name.includes("HYDERABAD")) {
                 return "SRH";
             }
             if (name.includes("GUJARAT") || name.includes("GT") || name.includes("TITANS")) {
@@ -270,11 +286,10 @@
         const urlParams = new URLSearchParams(window.location.search);
         const matchUrl = urlParams.get('url');
         const teamIdx = parseInt(urlParams.get('teamIdx')) || 0;
-        const opponent = urlParams.get('opponent') || 'OPPONENT';
         const teamName = urlParams.get('teamName') || 'SQUAD';
 
-        document.getElementById('squad-title').textContent = `${teamName} // H2H SQUAD MATRIX`;
-        document.getElementById('squad-subtitle').textContent = `Complete historical head-to-head data against ${opponent}`;
+        document.getElementById('squad-title').textContent = `${teamName} // SQUAD RECENT FORM`;
+        document.getElementById('squad-subtitle').textContent = `Chronological recent player performance data (All formats)`;
 
         async function init() {
             if (!matchUrl) {
@@ -297,7 +312,7 @@
                     throw new Error("No players found in this squad.");
                 }
 
-                document.getElementById('progress-status').textContent = `Found ${squadPlayers.length} players. Initializing H2H query...`;
+                document.getElementById('progress-status').textContent = `Found ${squadPlayers.length} players. Querying recent form...`;
                 
                 const container = document.getElementById('players-list-container');
                 
@@ -309,7 +324,7 @@
                         Player Identity
                     </div>
                     <div style="font-family: 'Space Grotesk'; font-size: 0.7rem; text-transform: uppercase; font-weight: 700; color: rgba(255,255,255,0.25); letter-spacing: 1px;">
-                        Last 10 H2H Matches (Chronological ➔)
+                        Last 10 Overall Matches (Chronological ➔)
                     </div>
                 `;
                 container.appendChild(headerRow);
@@ -320,26 +335,17 @@
 
                 // Step 2: Concurrently fetch player profiles (with slight delay to avoid server hammering)
                 let loadedCount = 0;
-                const targetCanonical = getCanonicalTeam(opponent);
 
                 for (let i = 0; i < squadPlayers.length; i++) {
                     const p = squadPlayers[i];
                     progressStatus.textContent = `Analyzing ${p.name}... (${i + 1}/${squadPlayers.length})`;
                     
                     try {
-                        const profileRes = await fetch(`/api/player-profile?pid=${p.player_id}&name=${encodeURIComponent(p.name)}&opponent=${encodeURIComponent(opponent)}`);
+                        const profileRes = await fetch(`/api/player-profile?pid=${p.player_id}&name=${encodeURIComponent(p.name)}`);
                         const profileData = await profileRes.json();
 
-                        // Filter H2H matches against the opponent team exactly
-                        let h2hMatches = [];
-                        if (profileData.last10) {
-                            h2hMatches = profileData.last10.filter(m => {
-                                const oppClean = m.opp.replace(/^V\s+/, '').replace(/^v\s+/, '').trim();
-                                return getCanonicalTeam(oppClean) === targetCanonical;
-                            });
-                        }
-
-                        renderPlayerCard(p, h2hMatches, container);
+                        const overallMatches = profileData.last10 || [];
+                        renderPlayerCard(p, overallMatches, container);
 
                     } catch (err) {
                         console.error(`Failed to load profile for ${p.name}:`, err);
@@ -465,7 +471,7 @@
                         <span style="color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${player.name}</span>
                     </div>
                     <div style="color: var(--neon-rose); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
-                        ⚠️ ERROR SECURING H2H DATA
+                        ⚠️ ERROR SECURING RECENT FORM DATA
                     </div>
                 `;
             } else {
@@ -477,7 +483,7 @@
                         ${roleLight}
                         <span style="color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${player.name}</span>
                     </div>
-                    <!-- Column 2: Last 10 H2H Matches -->
+                    <!-- Column 2: Last 10 Matches -->
                     ${generateCapsules(matches)}
                 `;
             }

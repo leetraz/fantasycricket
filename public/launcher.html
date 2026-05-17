@@ -315,6 +315,7 @@
                         <button class="btn-sm" onclick="bulkOpen(0, 'profile')">Profiles</button>
                         <button class="btn-sm btn-h2h" onclick="bulkOpen(0, 'h2h')">H2H Stats</button>
                         <button class="btn-sm btn-matrix" onclick="openSquadH2H(0)">Squad H2H</button>
+                        <button class="btn-sm btn-matrix" style="border-color: var(--neon-purple); text-shadow: 0 0 5px rgba(157, 0, 255, 0.4); margin-left: 0.25rem;" onclick="openSquadRecent(0)">Recent Form</button>
                     </div>
                 </div>
                 <div class="player-list" id="team1List"></div>
@@ -328,6 +329,7 @@
                         <button class="btn-sm" onclick="bulkOpen(1, 'profile')">Profiles</button>
                         <button class="btn-sm btn-h2h" onclick="bulkOpen(1, 'h2h')">H2H Stats</button>
                         <button class="btn-sm btn-matrix" onclick="openSquadH2H(1)">Squad H2H</button>
+                        <button class="btn-sm btn-matrix" style="border-color: var(--neon-purple); text-shadow: 0 0 5px rgba(157, 0, 255, 0.4); margin-left: 0.25rem;" onclick="openSquadRecent(1)">Recent Form</button>
                     </div>
                 </div>
                 <div class="player-list" id="team2List"></div>
@@ -823,6 +825,14 @@
             const opponent = matchData.teams.find(t => t !== teamName);
             const url = document.getElementById('matchUrl').value.trim();
             const targetUrl = `team-h2h.html?url=${encodeURIComponent(url)}&teamIdx=${teamIndex}&opponent=${encodeURIComponent(opponent)}&teamName=${encodeURIComponent(teamName)}`;
+            window.open(targetUrl, '_blank');
+        }
+
+        function openSquadRecent(teamIndex) {
+            if (!matchData) return;
+            const teamName = matchData.teams[teamIndex];
+            const url = document.getElementById('matchUrl').value.trim();
+            const targetUrl = `team-recent.html?url=${encodeURIComponent(url)}&teamIdx=${teamIndex}&teamName=${encodeURIComponent(teamName)}`;
             window.open(targetUrl, '_blank');
         }
     </script>

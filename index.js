@@ -75,25 +75,51 @@ async function fetchNextData(url) {
     }
 }
 
+// Recursive helper to find any team squad container in the JSON structure
+function findSquadsRecursively(obj, squads = []) {
+    if (!obj || typeof obj !== 'object') return squads;
+    
+    // Check if this object represents a team with players
+    if (obj.team && (obj.players || obj.player || obj.squad || obj.squadPlayers) && Array.isArray(obj.players || obj.player || obj.squad || obj.squadPlayers)) {
+        squads.push(obj);
+    }
+    
+    // Recurse into all keys
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key) && obj[key] && typeof obj[key] === 'object') {
+            findSquadsRecursively(obj[key], squads);
+        }
+    }
+    return squads;
+}
+
+// Get team players array dynamically and securely
+function getTeamPlayers(data) {
+    if (!data) return [];
+    let list = data.teamPlayers || 
+               data.content?.matchPlayers?.teamPlayers || 
+               data.matchData?.teamPlayers || 
+               data.match?.teams || 
+               data.squads || 
+               data.content?.squads || [];
+               
+    if (data.content?.matchPlayers?.teamPlayers) list = data.content.matchPlayers.teamPlayers;
+    
+    if (!list || !list.length) {
+        list = findSquadsRecursively(data);
+    }
+    return list;
+}
+
 // ── Parse Playing XI ──
 function parsePlayingXi(data) {
-    if (!data) return [];
-    
-    // Drill down to team players
-    let teamPlayers = data.teamPlayers || 
-                      data.content?.matchPlayers?.teamPlayers || 
-                      data.matchData?.teamPlayers || 
-                      data.match?.teams || [];
-
-    // If it's the match details page structure
-    if (data.content?.matchPlayers?.teamPlayers) teamPlayers = data.content.matchPlayers.teamPlayers;
-
+    const teamPlayers = getTeamPlayers(data);
     const players = [];
     const seen = new Set();
 
     teamPlayers.forEach(t => {
         const teamName = t.team?.abbreviation || t.team?.name || t.team_short_name || t.team_abbreviation || "Team";
-        const playerList = t.player || t.players || [];
+        const playerList = t.player || t.players || t.squad || t.squadPlayers || [];
         
         playerList.forEach(p => {
             const node = p.player || p;
@@ -101,17 +127,41 @@ function parsePlayingXi(data) {
             if (!pid || seen.has(pid)) return;
             seen.add(pid);
 
+            const isBench = p.isSub || p.substitute || p.role === 'substitute' || node.isSub || p.isBench || node.isBench || false;
+            if (isBench) return;
+
             players.push({
                 name: node.longName || node.name || node.fullName || "Unknown",
                 team: teamName,
                 player_id: pid,
                 object_id: pid,
-                role: node.playingRole?.name || node.role || "Player"
+                role: node.playingRole?.name || node.role || "Player",
+                playingXI: p.playingXI || p.isPlay || node.isPlay || p.isPlaying || node.isPlaying || false
             });
         });
     });
 
-    return players;
+    const teams = [...new Set(players.map(p => p.team))];
+    let filteredPlayers = [];
+    
+    teams.forEach(teamName => {
+        const teamList = players.filter(p => p.team === teamName);
+        const hasAnnouncedXI = teamList.some(p => p.playingXI === true);
+        
+        if (hasAnnouncedXI) {
+            filteredPlayers.push(...teamList.filter(p => p.playingXI === true));
+        } else {
+            filteredPlayers.push(...teamList);
+        }
+    });
+
+    return filteredPlayers.map(p => ({
+        name: p.name,
+        team: p.team,
+        player_id: p.player_id,
+        object_id: p.object_id,
+        role: p.role
+    }));
 }
 
 // ── API: List Live/Upcoming Matches ──
@@ -168,11 +218,7 @@ app.get('/api/match-data', async (req, res) => {
 
         const teamNames = [...new Set(players.map(p => p.team))];
         
-        let teamPlayers = data.teamPlayers || 
-                          data.content?.matchPlayers?.teamPlayers || 
-                          data.matchData?.teamPlayers || 
-                          data.match?.teams || [];
-        if (data.content?.matchPlayers?.teamPlayers) teamPlayers = data.content.matchPlayers.teamPlayers;
+        const teamPlayers = getTeamPlayers(data);
 
         const teamsInfo = teamPlayers.map(t => ({
             name: t.team?.abbreviation || t.team?.name || t.team_short_name || t.team_abbreviation || "Team",

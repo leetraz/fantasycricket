@@ -225,10 +225,14 @@ app.get('/api/match-data', async (req, res) => {
             id: t.team?.objectId || t.team?.id
         }));
 
+        const matchInfo = data.matchInfo || data.content?.matchInfo || {};
+        const statusText = data.matchData?.statusText || matchInfo.statusText || data.statusText || "";
+
         res.json({
             allPlayers: players,
             teams: teamNames,
-            teamsInfo: teamsInfo
+            teamsInfo: teamsInfo,
+            statusText: statusText
         });
     } catch (e) {
         res.status(500).json({ error: e.message });

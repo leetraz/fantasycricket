@@ -201,20 +201,26 @@ app.get('/api/list-matches', async (req, res) => {
             const statusText = (m.statusText || '').toLowerCase();
             const state = (m.state || '').toLowerCase();
             
-            // Toss done: status contains toss / chose to / elected to / opted to
+            // Exclude completely finished/cancelled matches
+            const completed = state === 'post' || statusText.includes('won by') || statusText.includes('abandoned') || statusText.includes('no result');
+            
+            // Return active live matches and scheduled/upcoming matches
+            return (state === 'pre' || state === 'live') && !completed;
+        }).map(m => {
+            const statusText = (m.statusText || '').toLowerCase();
+            const state = (m.state || '').toLowerCase();
             const tossDone = statusText.includes('toss') || statusText.includes('chose to') || statusText.includes('elected to') || statusText.includes('opted to');
             
-            // Not playing yet / not live / not completed
-            const upcoming = state === 'pre' && !statusText.includes('match started') && !statusText.includes('won by') && !statusText.includes('abandoned');
-            
-            return tossDone && upcoming;
-        }).map(m => ({
-            title: `${m.teams?.[0]?.team?.abbreviation || 'T1'} vs ${m.teams?.[1]?.team?.abbreviation || 'T2'}`,
-            series: m.series?.name || "T20 Match",
-            status: m.statusText || "Upcoming",
-            url: "https://www.espncricinfo.com" + (m.slug ? `/series/${m.slug}-${m.series?.objectId}/${m.slug}-${m.objectId}/live-cricket-score` : ""),
-            startTime: m.startTime
-        })).filter(m => m.url.includes('match-'));
+            return {
+                title: `${m.teams?.[0]?.team?.abbreviation || 'T1'} vs ${m.teams?.[1]?.team?.abbreviation || 'T2'}`,
+                series: m.series?.name || "T20 Match",
+                status: m.statusText || "Upcoming",
+                url: "https://www.espncricinfo.com" + (m.slug ? `/series/${m.slug}-${m.series?.objectId}/${m.slug}-${m.objectId}/live-cricket-score` : ""),
+                startTime: m.startTime,
+                tossDone: tossDone,
+                state: state
+            };
+        }).filter(m => m.url.includes('match-') || m.url.includes('live-cricket') || m.url.includes('scorecard'));
 
         res.json(matches.slice(0, 30));
     } catch (e) {

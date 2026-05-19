@@ -609,6 +609,32 @@
                 height: 26px !important;
                 font-size: 0.85rem !important;
             }
+            @media (max-width: 768px) {
+                .container {
+                    flex-direction: column !important;
+                }
+                #roster-sidebar {
+                    width: 100% !important;
+                    border-right: none !important;
+                    border-bottom: 1px solid var(--glass-border) !important;
+                    padding-right: 0 !important;
+                    padding-bottom: 1rem !important;
+                    height: 120px !important;
+                    flex-shrink: 0 !important;
+                }
+                #roster-list {
+                    flex-direction: row !important;
+                    overflow-x: auto !important;
+                    overflow-y: hidden !important;
+                    padding-bottom: 0.5rem !important;
+                    align-items: center !important;
+                }
+                .roster-player-item {
+                    flex-shrink: 0 !important;
+                    width: 140px !important;
+                    margin-bottom: 0 !important;
+                }
+            }
         }
     </style>
 </head>
@@ -620,42 +646,56 @@
 
 
 
-    <div class="container" style="max-height: 100vh; overflow: hidden; display: flex; flex-direction: column;">
-        <div class="interactive-header-container">
-            <header class="hero-section" style="padding: 0.5rem 0; margin-bottom: 0.25rem;">
-                <div class="profile-photo-container">
-                    <div class="profile-photo-inner">
-                        <img id="player-photo" src="" alt="Player Photo">
-                    </div>
-                </div>
-                <div class="hero-info">
-                    <span id="player-role" class="hero-tag">FETCHING_ROLE...</span>
-                    <h1 id="player-name" class="glitch-name"><span class="animated-name">ACCESSING</span></h1>
-                </div>
-            </header>
-
-            <!-- Dynamic Stadium Navigation Bar Toggles -->
-            <div class="nav-bar" style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--glass-border); margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.75rem;">
-                <div class="view-toggle">
-                    <button id="btn-h2h" class="toggle-btn active" onclick="switchTab('h2h')">⚔️ H2H OPPONENT</button>
-                    <button id="btn-venue" class="toggle-btn" onclick="switchTab('venue')">🏟️ STADIUM MATCHES</button>
-                    <button id="btn-all" class="toggle-btn" onclick="switchTab('all')">📊 ALL MATCH LOGS</button>
-                </div>
-                <div id="stadium-badge" style="font-family: 'Space Grotesk'; font-size: 0.75rem; font-weight: 700; color: var(--neon-blue); border: 1px dashed var(--neon-blue); padding: 0.3rem 0.6rem; border-radius: 4px; text-transform: uppercase; text-shadow: 0 0 5px rgba(0, 242, 255, 0.4);">
-                    STADIUM: EDEN GARDENS
-                </div>
+    <div class="container" style="max-height: 100vh; overflow: hidden; display: flex; flex-direction: row; gap: 1.5rem; width: 100%; max-width: 1400px; margin: 0 auto; padding: 1rem; box-sizing: border-box;">
+        
+        <!-- Roster Sidebar -->
+        <div id="roster-sidebar" class="roster-sidebar glass" style="width: 250px; flex-shrink: 0; display: flex; flex-direction: column; overflow: hidden; border-right: 1px solid var(--glass-border); padding-right: 1rem; height: 100%;">
+            <div style="font-family: 'Space Grotesk'; font-size: 0.85rem; font-weight: 900; color: var(--neon-blue); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span>🎴</span> SQUAD DECK
+            </div>
+            <div id="roster-list" style="overflow-y: auto; flex-grow: 1; display: flex; flex-direction: column; gap: 0.4rem; padding-right: 0.25rem;">
+                <!-- Roster items will be injected here -->
             </div>
         </div>
 
-        <div class="cyber-grid-layout" style="flex-grow: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden;">
-            <div id="table-view" class="tab-content active" style="width: 100%; height: 100%; display: flex; flex-direction: column; overflow: hidden; min-height: 0;">
-                <div class="module m-12" style="flex-grow: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden; padding: 0.5rem;">
-                    <div class="matrix-table-wrapper" style="overflow-y: auto; flex-grow: 1; min-height: 0; max-height: calc(100vh - 200px);">
-                        <table class="matrix-table" style="width: 100%;">
-                            <tbody id="matrix-body">
-                                <!-- Dynamic rows are rendered here -->
-                            </tbody>
-                        </table>
+        <!-- Main Content Area -->
+        <div class="main-content-area" style="flex-grow: 1; display: flex; flex-direction: column; overflow: hidden; min-width: 0; height: 100%;">
+            <div class="interactive-header-container">
+                <header class="hero-section" style="padding: 0.5rem 0; margin-bottom: 0.25rem;">
+                    <div class="profile-photo-container">
+                        <div class="profile-photo-inner">
+                            <img id="player-photo" src="" alt="Player Photo">
+                        </div>
+                    </div>
+                    <div class="hero-info">
+                        <span id="player-role" class="hero-tag">FETCHING_ROLE...</span>
+                        <h1 id="player-name" class="glitch-name"><span class="animated-name">ACCESSING</span></h1>
+                    </div>
+                </header>
+
+                <!-- Dynamic Stadium Navigation Bar Toggles -->
+                <div class="nav-bar" style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--glass-border); margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.75rem;">
+                    <div class="view-toggle">
+                        <button id="btn-h2h" class="toggle-btn active" onclick="switchTab('h2h')">⚔️ H2H OPPONENT</button>
+                        <button id="btn-venue" class="toggle-btn" onclick="switchTab('venue')">🏟️ STADIUM MATCHES</button>
+                        <button id="btn-all" class="toggle-btn" onclick="switchTab('all')">📊 ALL MATCH LOGS</button>
+                    </div>
+                    <div id="stadium-badge" style="font-family: 'Space Grotesk'; font-size: 0.75rem; font-weight: 700; color: var(--neon-blue); border: 1px dashed var(--neon-blue); padding: 0.3rem 0.6rem; border-radius: 4px; text-transform: uppercase; text-shadow: 0 0 5px rgba(0, 242, 255, 0.4);">
+                        STADIUM: EDEN GARDENS
+                    </div>
+                </div>
+            </div>
+
+            <div class="cyber-grid-layout" style="flex-grow: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden;">
+                <div id="table-view" class="tab-content active" style="width: 100%; height: 100%; display: flex; flex-direction: column; overflow: hidden; min-height: 0;">
+                    <div class="module m-12" style="flex-grow: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden; padding: 0.5rem;">
+                        <div class="matrix-table-wrapper" style="overflow-y: auto; flex-grow: 1; min-height: 0; max-height: calc(100vh - 200px);">
+                            <table class="matrix-table" style="width: 100%;">
+                                <tbody id="matrix-body">
+                                    <!-- Dynamic rows are rendered here -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -681,6 +721,57 @@
                 const data = await res.json();
                 window.playerData = data;
                 renderUI(data);
+
+                // Render Roster Sidebar dynamically using shared localStorage matchData
+                let matchData = null;
+                try {
+                    matchData = JSON.parse(localStorage.getItem('matchData'));
+                } catch(err) {
+                    console.error("Local matchData parse failed", err);
+                }
+
+                if (matchData && matchData.allPlayers) {
+                    const activePlayer = matchData.allPlayers.find(p => p.object_id == objectId || p.player_id == pid);
+                    if (activePlayer) {
+                        const teamPlayers = matchData.allPlayers.filter(p => p.team === activePlayer.team);
+                        const rosterList = document.getElementById('roster-list');
+                        if (rosterList && teamPlayers.length > 0) {
+                            rosterList.innerHTML = '';
+                            teamPlayers.forEach(p => {
+                                const item = document.createElement('div');
+                                const isActive = p.object_id == objectId || p.player_id == pid;
+                                item.className = `roster-player-item ${isActive ? 'active' : ''}`;
+                                
+                                item.style.padding = '0.6rem 0.8rem';
+                                item.style.borderRadius = '8px';
+                                item.style.cursor = 'pointer';
+                                item.style.background = isActive ? 'rgba(56, 189, 248, 0.15)' : 'rgba(255, 255, 255, 0.02)';
+                                item.style.border = isActive ? '1px solid var(--neon-blue)' : '1px solid rgba(255,255,255,0.05)';
+                                item.style.transition = 'all 0.2s ease';
+                                item.style.display = 'flex';
+                                item.style.flexDirection = 'column';
+                                item.style.gap = '0.15rem';
+                                
+                                item.innerHTML = `
+                                    <div style="font-family: 'Space Grotesk'; font-size: 0.8rem; font-weight: 700; color: ${isActive ? '#fff' : 'rgba(255,255,255,0.8)'};">${p.name}</div>
+                                    <div style="font-family: 'Outfit'; font-size: 0.65rem; color: rgba(255,255,255,0.4); text-transform: uppercase;">${p.role}</div>
+                                `;
+                                
+                                item.onclick = () => {
+                                    if (isActive) return;
+                                    const nextOpponent = matchData.teams.find(t => t !== p.team);
+                                    window.location.href = `player.html?pid=${p.player_id}&objectId=${p.object_id}&name=${encodeURIComponent(p.name)}&role=${encodeURIComponent(p.role)}&opponent=${encodeURIComponent(nextOpponent)}&ground=${encodeURIComponent(ground)}&tab=${currentActiveTab}`;
+                                };
+                                
+                                rosterList.appendChild(item);
+                            });
+                        }
+                    } else {
+                        document.getElementById('roster-sidebar').style.display = 'none';
+                    }
+                } else {
+                    document.getElementById('roster-sidebar').style.display = 'none';
+                }
             } catch (e) {
                 console.error(e);
                 document.getElementById('player-name').textContent = "ERROR: " + e.message;

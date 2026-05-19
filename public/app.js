@@ -612,6 +612,17 @@ function renderComparisonChart() {
             }]
         },
         options: {
+            onClick: (event, activeElements) => {
+                if (activeElements && activeElements.length > 0) {
+                    const index = activeElements[0].index;
+                    const player = sortedPlayers[index];
+                    if (player) {
+                        const opponent = matchData.teams.find(t => t !== player.team);
+                        const url = `player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(matchData.ground || '')}`;
+                        window.open(url, '_blank');
+                    }
+                }
+            },
             responsive: true, maintainAspectRatio: false,
             scales: {
                 x: { grid: { display: false }, ticks: { color: '#94a3b8', font: { size: 11, family: 'Outfit' }, maxRotation: 45, minRotation: 45 } },

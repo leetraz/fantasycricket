@@ -318,11 +318,25 @@
             z-index: 1000;
         }
 
-        .intel-dropdown:hover .intel-dropdown-menu,
         .intel-dropdown.active .intel-dropdown-menu {
             opacity: 1;
             pointer-events: auto;
             transform: translateY(0) scale(1);
+        }
+
+        .intel-dropdown-header {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.65rem !important;
+            font-weight: 900 !important;
+            color: var(--neon-blue);
+            letter-spacing: 1px !important;
+            padding: 0.5rem 0.75rem !important;
+            text-transform: uppercase !important;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            margin-bottom: 0.3rem;
+            margin-top: 0.4rem;
+            opacity: 0.8;
+            pointer-events: none;
         }
 
         .intel-dropdown-item {
@@ -816,13 +830,13 @@
             100% { box-shadow: 0 0 8px rgba(255, 0, 85, 0.2); opacity: 0.9; }
         }
     </style>
-    <title>CRICINTEL // NEURAL COMBAT LAB</title>
+    <title>CRICINTEL NEURAL COMBAT LAB</title>
 </head>
 <body>
 
     <div class="container">
         <header>
-            <h1>CRICINTEL // NEURAL LAB</h1>
+            <h1>CRICINTEL NEURAL LAB</h1>
             <p class="subtitle">TACTICAL PITCH TELEMETRY & SQUAD NEURAL COMPARATOR</p>
         </header>
 
@@ -900,8 +914,18 @@
                                 📊 SQUAD INTEL <span style="font-size: 0.6rem;">▼</span>
                             </button>
                             <div class="intel-dropdown-menu">
-                                <div class="intel-dropdown-item" onclick="bulkOpen(0, 'profile')">👤 SYNC PROFILE LINKS</div>
-                                <div class="intel-dropdown-item h2h" onclick="bulkOpen(0, 'h2h')">⚔️ BULK CLASH TELEMETRY</div>
+                                <div class="intel-dropdown-header">🚀 MULTI-TAB DEPLOYMENTS</div>
+                                <div class="intel-dropdown-item" onclick="bulkOpen(0, 'profile')">👤 OPEN ALL CRICINFO PROFILES</div>
+                                <div class="intel-dropdown-item h2h" onclick="bulkOpen(0, 'h2h')">⚔️ OPEN ALL H2H TELEMETRIES</div>
+                                <div class="intel-dropdown-item venue" onclick="bulkOpen(0, 'venue')">🏟️ OPEN ALL VENUE MATRICES</div>
+                                <div class="intel-dropdown-item logs" onclick="bulkOpen(0, 'all')">📈 OPEN ALL CHRONO LOGS</div>
+
+                                <div class="intel-dropdown-header">🎴 SAME WINDOW DECK</div>
+                                <div class="intel-dropdown-item h2h" onclick="openSquadDeck(0, 'h2h')">⚔️ OPEN DECK (H2H SECTION)</div>
+                                <div class="intel-dropdown-item venue" onclick="openSquadDeck(0, 'venue')">🏟️ OPEN DECK (VENUE SECTION)</div>
+                                <div class="intel-dropdown-item logs" onclick="openSquadDeck(0, 'all')">📈 OPEN DECK (CHRONO LOGS)</div>
+
+                                <div class="intel-dropdown-header">⚡ COHORT OVERLAYS</div>
                                 <div class="intel-dropdown-item venue" onclick="openSquadH2H(0)">⚡ COHORT H2H COMPARATOR</div>
                                 <div class="intel-dropdown-item logs" onclick="openSquadRecent(0)">📈 COHORT FORM REGISTERS</div>
                                 <div class="intel-dropdown-item venue" onclick="openSquadVenue(0)">🏟️ COHORT VENUE MATRIX</div>
@@ -922,8 +946,18 @@
                                 📊 SQUAD INTEL <span style="font-size: 0.6rem;">▼</span>
                             </button>
                             <div class="intel-dropdown-menu">
-                                <div class="intel-dropdown-item" onclick="bulkOpen(1, 'profile')">👤 SYNC PROFILE LINKS</div>
-                                <div class="intel-dropdown-item h2h" onclick="bulkOpen(1, 'h2h')">⚔️ BULK CLASH TELEMETRY</div>
+                                <div class="intel-dropdown-header">🚀 MULTI-TAB DEPLOYMENTS</div>
+                                <div class="intel-dropdown-item" onclick="bulkOpen(1, 'profile')">👤 OPEN ALL CRICINFO PROFILES</div>
+                                <div class="intel-dropdown-item h2h" onclick="bulkOpen(1, 'h2h')">⚔️ OPEN ALL H2H TELEMETRIES</div>
+                                <div class="intel-dropdown-item venue" onclick="bulkOpen(1, 'venue')">🏟️ OPEN ALL VENUE MATRICES</div>
+                                <div class="intel-dropdown-item logs" onclick="bulkOpen(1, 'all')">📈 OPEN ALL CHRONO LOGS</div>
+
+                                <div class="intel-dropdown-header">🎴 SAME WINDOW DECK</div>
+                                <div class="intel-dropdown-item h2h" onclick="openSquadDeck(1, 'h2h')">⚔️ OPEN DECK (H2H SECTION)</div>
+                                <div class="intel-dropdown-item venue" onclick="openSquadDeck(1, 'venue')">🏟️ OPEN DECK (VENUE SECTION)</div>
+                                <div class="intel-dropdown-item logs" onclick="openSquadDeck(1, 'all')">📈 OPEN DECK (CHRONO LOGS)</div>
+
+                                <div class="intel-dropdown-header">⚡ COHORT OVERLAYS</div>
                                 <div class="intel-dropdown-item venue" onclick="openSquadH2H(1)">⚡ COHORT H2H COMPARATOR</div>
                                 <div class="intel-dropdown-item logs" onclick="openSquadRecent(1)">📈 COHORT FORM REGISTERS</div>
                                 <div class="intel-dropdown-item venue" onclick="openSquadVenue(1)">🏟️ COHORT VENUE MATRIX</div>
@@ -1254,6 +1288,7 @@
                 if (data.error) throw new Error(data.error);
 
                 matchData = data;
+                localStorage.setItem('matchData', JSON.stringify(data));
                 renderSquads();
                 await fetchH2HHistory();
                 compileAndRenderVenueStats();
@@ -1699,7 +1734,18 @@
                     link.click();
                     document.body.removeChild(link);
                 }, i * 150); // 150ms delay to satisfy popup blockers and allow smooth sequential opening
-            });
+        }
+
+        function openSquadDeck(teamIndex, initialTab) {
+            if (!matchData) return;
+            const teamName = matchData.teams[teamIndex];
+            const players = matchData.allPlayers.filter(p => p.team === teamName);
+            if (players.length === 0) return;
+            const p = players[0];
+            const opponent = matchData.teams.find(t => t !== teamName);
+            const groundName = matchData.groundName || "Eden Gardens";
+            const url = `player.html?pid=${p.player_id}&objectId=${p.object_id}&name=${encodeURIComponent(p.name)}&role=${encodeURIComponent(p.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}&tab=${initialTab}`;
+            window.open(url, '_blank');
         }
 
         function openSquadH2H(teamIndex) {

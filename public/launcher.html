@@ -246,7 +246,8 @@
             transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .player-item:hover .player-links {
+        .player-item:hover .player-links,
+        .player-item:has(.intel-dropdown.active) .player-links {
             opacity: 1;
             pointer-events: auto;
         }
@@ -1290,6 +1291,15 @@
                 matchData = data;
                 localStorage.setItem('matchData', JSON.stringify(data));
                 renderSquads();
+
+                // Pre-warm player profile caches in background asynchronously
+                if (data.allPlayers) {
+                    data.allPlayers.forEach(p => {
+                        const nextOpponent = data.teams.find(t => t !== p.team);
+                        fetch(`/api/player-profile?pid=${p.player_id}&objectId=${p.object_id}&name=${encodeURIComponent(p.name)}&opponent=${encodeURIComponent(nextOpponent)}`).catch(() => {});
+                    });
+                }
+
                 await fetchH2HHistory();
                 compileAndRenderVenueStats();
                 

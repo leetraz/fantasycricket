@@ -349,10 +349,18 @@ app.get('/api/h2h-match-history', async (req, res) => {
     }
 });
 
+const playerCache = new Map(); // pid -> { timestamp, data }
+const CACHE_TTL_MS = 30 * 60 * 1000; // 30 minutes
+
 // ── API: Player Profile (Scrape Statsguru batting/bowling log) ──
 app.get('/api/player-profile', async (req, res) => {
     const { pid, name } = req.query;
     if (!pid) return res.status(400).json({ error: "Missing player ID" });
+
+    const cached = playerCache.get(pid);
+    if (cached && (Date.now() - cached.timestamp < CACHE_TTL_MS)) {
+        return res.json(cached.data);
+    }
 
     const fetchLog = async (type) => {
         const url = `https://stats.espncricinfo.com/ci/engine/player/${pid}.html?class=6;template=results;type=${type};view=match`;
@@ -432,9 +440,9 @@ app.get('/api/player-profile', async (req, res) => {
         }
         
         const sorted = Object.values(merged).sort((a, b) => b.timestamp - a.timestamp);
-        res.json({
-            last10: sorted
-        });
+        const responseData = { last10: sorted };
+        playerCache.set(pid, { timestamp: Date.now(), data: responseData });
+        res.json(responseData);
     } catch (e) {
         res.status(500).json({ error: e.message });
     }

@@ -144,11 +144,12 @@
 
         .team-header {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
             margin-bottom: 2rem;
-            padding-bottom: 1rem;
             border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
         }
 
         .team-name {
@@ -159,7 +160,9 @@
 
         .team-actions {
             display: flex;
+            flex-wrap: wrap;
             gap: 0.5rem;
+            width: 100%;
         }
 
         .btn-sm {
@@ -216,10 +219,18 @@
             letter-spacing: 1px;
         }
 
-        .player-links {
-            display: flex;
-            gap: 0.5rem;
-        }
+         .player-links {
+             display: flex;
+             gap: 0.5rem;
+             opacity: 0;
+             pointer-events: none;
+             transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+         }
+
+         .player-item:hover .player-links {
+             opacity: 1;
+             pointer-events: auto;
+         }
 
         .icon-link {
             width: 36px;
@@ -579,6 +590,42 @@
             color: white;
             box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
         }
+
+        /* Full page prediction view overrides to prevent iframe/modal looks */
+        .ai-modal.full-page-view {
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            width: 100% !important;
+            height: auto !important;
+            min-height: 100vh !important;
+            background: transparent !important;
+            z-index: 1 !important;
+            display: flex !important;
+            align-items: flex-start !important;
+            justify-content: center !important;
+            opacity: 1 !important;
+            pointer-events: auto !important;
+            backdrop-filter: none !important;
+            padding: 2rem 1rem !important;
+        }
+
+        .ai-modal.full-page-view .ai-modal-content {
+            transform: none !important;
+            width: 100% !important;
+            max-width: 1400px !important;
+            max-height: none !important;
+            background: rgba(13, 16, 30, 0.9) !important;
+            border: 2px solid var(--neon-purple) !important;
+            box-shadow: 0 0 50px rgba(157, 0, 255, 0.4) !important;
+            margin: 0 auto !important;
+            overflow-y: visible !important;
+            padding: 3rem 2rem !important;
+        }
+
+        .ai-modal.full-page-view .ai-close-btn {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
@@ -609,10 +656,47 @@
             <p style="margin-top: 1rem; color: var(--neon-blue); font-weight: 700;">FETCHING NEURAL DATA...</p>
         </div>
 
-        <div id="aiPredictionSection" style="display: none; text-align: center; margin-bottom: 2.5rem; margin-top: 1.5rem; animation: fadeIn 0.5s ease;">
-            <a id="aiAnalysisBtn" href="#" target="_self" class="btn" style="text-decoration: none; padding: 1.2rem 2.5rem; font-size: 1.25rem; font-weight: 900; border-radius: 1.25rem; border: 2px solid var(--neon-purple); background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(79, 70, 229, 0.2)); box-shadow: 0 0 25px rgba(157, 0, 255, 0.4), inset 0 0 15px rgba(157, 0, 255, 0.1); text-shadow: 0 0 10px rgba(157, 0, 255, 0.8); cursor: pointer; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); letter-spacing: 1px; color: #fff; text-transform: uppercase; display: inline-flex; align-items: center; gap: 0.75rem;">
+        <div id="aiPredictionSection" style="display: none; text-align: center; margin-bottom: 2.5rem; margin-top: 1.5rem; animation: fadeIn 0.5s ease; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+            <a id="aiAnalysisBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn" style="text-decoration: none; padding: 1.2rem 2.5rem; font-size: 1.25rem; font-weight: 900; border-radius: 1.25rem; border: 2px solid var(--neon-purple); background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(79, 70, 229, 0.2)); box-shadow: 0 0 25px rgba(157, 0, 255, 0.4), inset 0 0 15px rgba(157, 0, 255, 0.1); text-shadow: 0 0 10px rgba(157, 0, 255, 0.8); cursor: pointer; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); letter-spacing: 1px; color: #fff; text-transform: uppercase; display: inline-flex; align-items: center; gap: 0.75rem;">
                 <span>🧠</span> ANALYZE H2H STATS (AI TOP 11)
             </a>
+            <button id="venueToggleBtn" onclick="toggleVenueTelemetry()" class="btn" style="text-decoration: none; padding: 1.2rem 2.5rem; font-size: 1.25rem; font-weight: 900; border-radius: 1.25rem; border: 2px solid var(--neon-blue); background: linear-gradient(135deg, rgba(0, 242, 255, 0.2), rgba(0, 102, 255, 0.2)); box-shadow: 0 0 25px rgba(0, 242, 255, 0.4), inset 0 0 15px rgba(0, 242, 255, 0.1); text-shadow: 0 0 10px rgba(0, 242, 255, 0.8); cursor: pointer; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); letter-spacing: 1px; color: #fff; text-transform: uppercase; display: inline-flex; align-items: center; gap: 0.75rem;">
+                <span>🏟️</span> SHOW VENUE TELEMETRY
+            </button>
+        </div>
+
+        <!-- Venue Performance Telemetry Section -->
+        <div id="venuePerformanceSection" style="display: none; margin-bottom: 2.5rem; animation: fadeIn 0.5s ease;">
+            <div class="team-card" style="padding: 2rem; border-color: var(--neon-blue); box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);">
+                <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="font-size: 2rem; filter: drop-shadow(0 0 8px var(--neon-blue));">🏟️</span>
+                        <div>
+                            <h2 style="margin: 0; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px rgba(0, 243, 255, 0.4); color: #fff;">Venue Performance Telemetry</h2>
+                            <div id="venueLocationText" style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-dim); margin-top: 0.25rem;">STADIUM: DETECTING...</div>
+                        </div>
+                    </div>
+                    <span class="pulse-indicator" style="background: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue);">VENUE SPECIFIC</span>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 0.9rem; text-align: left;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--border); color: var(--text-dim); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">
+                                <th style="padding: 0.75rem 1rem;">Player</th>
+                                <th style="padding: 0.75rem 1rem; text-align: center;">Team</th>
+                                <th style="padding: 0.75rem 1rem; text-align: center;">Role</th>
+                                <th style="padding: 0.75rem 1rem; text-align: center;">Ground Matches</th>
+                                <th style="padding: 0.75rem 1rem; text-align: center;">Avg Runs</th>
+                                <th style="padding: 0.75rem 1rem; text-align: center;">Avg Wkts</th>
+                                <th style="padding: 0.75rem 1rem; text-align: center; color: var(--neon-blue);">Ground Avg Pts</th>
+                            </tr>
+                        </thead>
+                        <tbody id="venueStatsTableBody">
+                            <!-- Injected dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
         <div id="teamsContainer" class="teams-container">
@@ -625,6 +709,7 @@
                         <button class="btn-sm btn-h2h" onclick="bulkOpen(0, 'h2h')">H2H Stats</button>
                         <button class="btn-sm btn-matrix" onclick="openSquadH2H(0)">Squad H2H</button>
                         <button class="btn-sm btn-matrix" style="border-color: var(--neon-purple); text-shadow: 0 0 5px rgba(157, 0, 255, 0.4); margin-left: 0.25rem;" onclick="openSquadRecent(0)">Recent Form</button>
+                        <button class="btn-sm btn-matrix" style="border-color: var(--neon-blue); text-shadow: 0 0 5px rgba(0, 242, 255, 0.4); margin-left: 0.25rem;" onclick="openSquadVenue(0)">Squad Venue</button>
                     </div>
                 </div>
                 <div class="player-list" id="team1List"></div>
@@ -639,6 +724,7 @@
                         <button class="btn-sm btn-h2h" onclick="bulkOpen(1, 'h2h')">H2H Stats</button>
                         <button class="btn-sm btn-matrix" onclick="openSquadH2H(1)">Squad H2H</button>
                         <button class="btn-sm btn-matrix" style="border-color: var(--neon-purple); text-shadow: 0 0 5px rgba(157, 0, 255, 0.4); margin-left: 0.25rem;" onclick="openSquadRecent(1)">Recent Form</button>
+                        <button class="btn-sm btn-matrix" style="border-color: var(--neon-blue); text-shadow: 0 0 5px rgba(0, 242, 255, 0.4); margin-left: 0.25rem;" onclick="openSquadVenue(1)">Squad Venue</button>
                     </div>
                 </div>
                 <div class="player-list" id="team2List"></div>
@@ -747,6 +833,7 @@
                         <button class="ai-tab-btn" onclick="switchPredictionTeam(7)">☄️ Bowling Domination (GL 8)</button>
                         <button class="ai-tab-btn" onclick="switchPredictionTeam(8)">🏃‍♂️ Chasing Domination (GL 9)</button>
                         <button class="ai-tab-btn" onclick="switchPredictionTeam(9)">💎 Deep Ensemble Ultimate (GL 10)</button>
+                        <button class="ai-tab-btn" onclick="switchPredictionTeam(10)">🏆 Historical H2H Scorecard AI (GL 11)</button>
                     </div>
                     <!-- Captain and Vice-Captain Row -->
                     <div style="color: var(--neon-purple); font-size: 1.1rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 900; text-align: center; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem;">👑 NEURAL LEADERBOARD (C / VC)</div>
@@ -865,10 +952,22 @@
         // Initialization
         window.onload = () => {
             fetchUpcomingMatches();
+            
+            // Relocate prediction modal to body root dynamically to prevent display inheritance bugs
+            const modal = document.getElementById('aiPredictionModal');
+            if (modal && modal.parentElement !== document.body) {
+                document.body.appendChild(modal);
+            }
+            
             const urlParams = new URLSearchParams(window.location.search);
             const url = urlParams.get('url');
             if (url) {
                 document.getElementById('matchUrl').value = url;
+                if (urlParams.get('analyze') === 'true') {
+                    document.querySelector('.container').style.display = 'none';
+                    modal.classList.add('full-page-view');
+                    modal.classList.add('active');
+                }
                 fetchSquads();
             }
         };
@@ -938,10 +1037,12 @@
                 matchData = data;
                 renderSquads();
                 await fetchH2HHistory();
+                compileAndRenderVenueStats();
+                
                 const matchUrlInput = document.getElementById('matchUrl').value.trim();
                 const currentPathName = window.location.pathname;
                 document.getElementById('aiAnalysisBtn').href = `${currentPathName}?url=${encodeURIComponent(matchUrlInput)}&analyze=true`;
-                document.getElementById('aiPredictionSection').style.display = 'block';
+                document.getElementById('aiPredictionSection').style.display = 'flex';
                  
                 const urlParams = new URLSearchParams(window.location.search);
                 if (urlParams.get('analyze') === 'true') {
@@ -1013,6 +1114,172 @@
             });
         }
 
+        function toggleVenueTelemetry() {
+            const venueSection = document.getElementById('venuePerformanceSection');
+            const toggleBtn = document.getElementById('venueToggleBtn');
+            if (venueSection.style.display === 'none') {
+                venueSection.style.display = 'block';
+                toggleBtn.innerHTML = '<span>🏟️</span> HIDE VENUE TELEMETRY';
+                venueSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                venueSection.style.display = 'none';
+                toggleBtn.innerHTML = '<span>🏟️</span> SHOW VENUE TELEMETRY';
+            }
+        }
+
+        async function compileAndRenderVenueStats() {
+            const venueSection = document.getElementById('venuePerformanceSection');
+            const venueLocationText = document.getElementById('venueLocationText');
+            const tbody = document.getElementById('venueStatsTableBody');
+            
+            if (!matchData || !matchData.allPlayers || matchData.allPlayers.length === 0) return;
+            
+            const groundName = matchData.groundName || "Eden Gardens";
+            venueLocationText.innerText = `STADIUM: ${groundName.toUpperCase()}`;
+            tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; padding: 2rem; color: var(--neon-blue); font-weight: 700;">⚡ COMPILING VENUE STATS MATRIX OVER STATSGURU RECORD LOGS...</td></tr>`;
+            // Keep section hidden until show button is explicitly toggled by user!
+
+            const groundKeywords = groundName.toLowerCase().split(/[ ,]+/);
+            
+            const players = matchData.allPlayers;
+            const venueStatsList = [];
+
+            if (!window.playerProfileCache) {
+                window.playerProfileCache = {};
+            }
+
+            const batchSize = 5;
+            for (let i = 0; i < players.length; i += batchSize) {
+                const batch = players.slice(i, i + batchSize);
+                await Promise.all(batch.map(async (player) => {
+                    const pid = player.player_id;
+                    if (window.playerProfileCache[pid]) return;
+
+                    try {
+                        const response = await fetch(`/api/player-profile?pid=${pid}&name=${encodeURIComponent(player.name)}`);
+                        const profile = await response.json();
+                        window.playerProfileCache[pid] = profile;
+                    } catch (e) {
+                        console.error(`Failed to fetch profile for ${player.name}:`, e);
+                    }
+                }));
+            }
+
+            players.forEach(player => {
+                const profile = window.playerProfileCache[player.player_id];
+                if (!profile) return;
+
+                const matchesList = profile.last10 || profile.recentMatches || [];
+                const bowlingList = profile.bowlingLog || [];
+                
+                let venueBatting = matchesList.filter(m => {
+                    const groundLower = (m.ground || "").toLowerCase();
+                    return groundKeywords.some(keyword => keyword.length > 3 && groundLower.includes(keyword));
+                });
+                
+                let venueBowling = bowlingList.filter(m => {
+                    const groundLower = (m.ground || "").toLowerCase();
+                    return groundKeywords.some(keyword => keyword.length > 3 && groundLower.includes(keyword));
+                });
+
+                let totalMatches = Math.max(venueBatting.length, venueBowling.length);
+                let isSynthesized = false;
+
+                if (totalMatches === 0 && matchesList.length > 0) {
+                    isSynthesized = true;
+                    venueBatting = matchesList.slice(0, Math.min(3, matchesList.length));
+                    venueBowling = bowlingList.slice(0, Math.min(3, bowlingList.length));
+                    totalMatches = Math.max(venueBatting.length, venueBowling.length);
+                }
+
+                if (totalMatches === 0) return;
+
+                let sumRuns = 0;
+                let batInnings = 0;
+                venueBatting.forEach(m => {
+                    const runs = parseInt((m.bat || '').replace(/[^\d]/g, ''));
+                    if (!isNaN(runs)) {
+                        sumRuns += runs;
+                        batInnings++;
+                    }
+                });
+                const avgRuns = batInnings > 0 ? (sumRuns / batInnings).toFixed(1) : "0.0";
+
+                let sumWkts = 0;
+                let bowlInnings = 0;
+                venueBowling.forEach(m => {
+                    const wkts = parseInt((m.wkts || '').replace(/[^\d]/g, ''));
+                    if (!isNaN(wkts)) {
+                        sumWkts += wkts;
+                        bowlInnings++;
+                    }
+                });
+                const avgWkts = bowlInnings > 0 ? (sumWkts / bowlInnings).toFixed(1) : "0.0";
+
+                let totalPoints = 0;
+                let pointsInnings = 0;
+                
+                venueBatting.forEach(m => {
+                    const runs = parseInt((m.bat || '').replace(/[^\d]/g, ''));
+                    if (!isNaN(runs)) {
+                        totalPoints += runs + (runs >= 100 ? 16 : runs >= 50 ? 8 : 0);
+                        pointsInnings++;
+                    }
+                });
+                
+                venueBowling.forEach(m => {
+                    const wkts = parseInt((m.wkts || '').replace(/[^\d]/g, ''));
+                    if (!isNaN(wkts)) {
+                        totalPoints += wkts * 25 + (wkts >= 5 ? 16 : wkts >= 3 ? 8 : 0);
+                        if (pointsInnings === 0) pointsInnings++;
+                    }
+                });
+
+                const avgPoints = pointsInnings > 0 ? Math.round(totalPoints / pointsInnings) : 0;
+
+                venueStatsList.push({
+                    player: player,
+                    matches: totalMatches,
+                    avgRuns: avgRuns,
+                    avgWkts: avgWkts,
+                    avgPoints: avgPoints,
+                    isSynthesized: isSynthesized
+                });
+            });
+
+            venueStatsList.sort((a, b) => b.avgPoints - a.avgPoints);
+
+            if (venueStatsList.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; padding: 2rem; color: var(--neon-pink); font-weight: 700;">⚠️ NO HISTORICAL STATSGURU RECORD FOUND FOR SQUAD PLAYERS AT ${groundName.toUpperCase()}</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = '';
+            venueStatsList.forEach(item => {
+                const row = document.createElement('tr');
+                row.style.borderBottom = '1px solid rgba(255, 255, 255, 0.05)';
+                row.style.transition = 'background 0.2s ease';
+                
+                row.onmouseover = () => row.style.background = 'rgba(0, 243, 255, 0.03)';
+                row.onmouseout = () => row.style.background = 'transparent';
+
+                const roleColor = (item.player.role || '').toLowerCase().includes('allround') ? 'var(--neon-purple)' :
+                                  (item.player.role || '').toLowerCase().includes('bowl') ? 'var(--neon-pink)' :
+                                  (item.player.role || '').toLowerCase().includes('bat') ? 'var(--neon-green)' : 'var(--neon-blue)';
+
+                row.innerHTML = `
+                    <td style="padding: 1rem; font-weight: 700; color: white;">${item.player.name}</td>
+                    <td style="padding: 1rem; text-align: center; font-weight: 800; color: var(--text-dim);">${item.player.team}</td>
+                    <td style="padding: 1rem; text-align: center;"><span style="color: ${roleColor}; font-size: 0.75rem; font-weight: 800; border: 1px solid ${roleColor}; padding: 0.2rem 0.5rem; border-radius: 4px; text-transform: uppercase;">${item.player.role || 'Player'}</span></td>
+                    <td style="padding: 1rem; text-align: center; font-weight: 700; color: white;">${item.matches}${item.isSynthesized ? ' <span style="color: var(--neon-purple); font-size: 0.75rem;" title="Simulated venue average based on career profile stats">⚡</span>' : ''}</td>
+                    <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--neon-green);">${item.avgRuns}</td>
+                    <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--neon-pink);">${item.avgWkts}</td>
+                    <td style="padding: 1rem; text-align: center; font-weight: 900; color: var(--neon-blue); font-size: 1.05rem; text-shadow: 0 0 5px rgba(0, 243, 255, 0.4);">${item.avgPoints} Pts</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
         function renderSquads() {
             const container = document.getElementById('teamsContainer');
             const t1Name = document.getElementById('team1Name');
@@ -1040,18 +1307,22 @@
                 const opponentInfo = matchData.teamsInfo ? matchData.teamsInfo.find(t => t.name !== player.team) : null;
                 const opponentId = opponentInfo ? opponentInfo.id : "";
                 
-                // H2H page URL
-                const h2hUrl = `player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}`;
+                // Get dynamic ground name
+                const groundName = matchData.groundName || "Eden Gardens";
 
+                // H2H page URL
+                const h2hUrl = `player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}`;
+
+                const subBadge = player.isSub ? `<span style="font-family: 'Space Grotesk'; font-size: 0.65rem; font-weight: 900; background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); color: #fff; padding: 0.15rem 0.4rem; border-radius: 4px; margin-left: 0.5rem; text-shadow: 0 0 5px rgba(0, 242, 255, 0.4); text-transform: uppercase; border: 1px solid rgba(255,255,255,0.15);">SUB</span>` : '';
                 item.innerHTML = `
                     <div class="player-info">
-                        <span class="player-name">${player.name}</span>
+                        <span class="player-name">${player.name}${subBadge}</span>
                         <span class="player-role">${player.role}</span>
                     </div>
                     <div class="player-links">
                         <a href="${profileUrl}" target="_blank" class="icon-link" title="Cricinfo Profile">👤</a>
                         <a href="${h2hUrl}" target="_blank" class="icon-link h2h" title="Neural H2H Pure Data">⚔️</a>
-                        <a href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}" target="_blank" class="icon-link" title="Neural Analysis">📊</a>
+                        <a href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}" target="_blank" class="icon-link" title="Neural Analysis">📊</a>
                     </div>
                 `;
 
@@ -1219,6 +1490,15 @@
             const teamName = matchData.teams[teamIndex];
             const url = document.getElementById('matchUrl').value.trim();
             const targetUrl = `team-recent.html?url=${encodeURIComponent(url)}&teamIdx=${teamIndex}&teamName=${encodeURIComponent(teamName)}`;
+            window.open(targetUrl, '_blank');
+        }
+
+        function openSquadVenue(teamIndex) {
+            if (!matchData) return;
+            const teamName = matchData.teams[teamIndex];
+            const url = document.getElementById('matchUrl').value.trim();
+            const groundName = matchData.groundName || "Eden Gardens";
+            const targetUrl = `team-venue.html?url=${encodeURIComponent(url)}&teamIdx=${teamIndex}&teamName=${encodeURIComponent(teamName)}&ground=${encodeURIComponent(groundName)}`;
             window.open(targetUrl, '_blank');
         }
 
@@ -1485,7 +1765,9 @@
             isAiRunning = true;
             
             const modal = document.getElementById('aiPredictionModal');
+            modal.classList.add('full-page-view');
             modal.classList.add('active');
+            document.querySelector('.container').style.display = 'none';
             
             const terminal = document.getElementById('neuralTerminal');
             terminal.innerHTML = '';
@@ -1540,10 +1822,17 @@
                         const opponent = opponents.find(t => t !== player.team);
                         logTerminal(`[ACTIVATION] Pulling statistics and form timeline for ${player.name}...`);
                         
-                        const res = await fetch(`/api/player-profile?pid=${player.player_id}&name=${encodeURIComponent(player.name)}&opponent=${encodeURIComponent(opponent)}`);
-                        if (!res.ok) throw new Error("API network failure");
-                        
-                        const profile = await res.json();
+                        let profile;
+                        if (window.playerProfileCache && window.playerProfileCache[player.player_id]) {
+                            profile = window.playerProfileCache[player.player_id];
+                            logTerminal(`[ACTIVATION] Reading stats from memory cache for ${player.name}...`);
+                        } else {
+                            const res = await fetch(`/api/player-profile?pid=${player.player_id}&name=${encodeURIComponent(player.name)}&opponent=${encodeURIComponent(opponent)}`);
+                            if (!res.ok) throw new Error("API network failure");
+                            profile = await res.json();
+                            if (!window.playerProfileCache) window.playerProfileCache = {};
+                            window.playerProfileCache[player.player_id] = profile;
+                        }
                         
                         let dataset = [];
                         const role = (player.role || '').toLowerCase();
@@ -1759,9 +2048,10 @@
                         // Capability score aggregates basic capability class, star boosts, and career milestone weights
                         const capabilityScore = 45 + starBoost + Math.min(35, ceilingBoost) + (recentCount * 1.5);
                         
-                        // Final regularized expected ratings: Blend ML predictions with True Capability
-                        const projectedH2HCredible = (((recentCred * ensembleH2H) + ((1 - recentCred) * conservativeBase)) * expH2H * 0.40) + (capabilityScore * 0.60);
-                        const projectedRecentCredible = (((recentCred * ensembleRecent) + ((1 - recentCred) * conservativeBase)) * expRecent * 0.40) + (capabilityScore * 0.60);
+                        // Final regularized expected ratings: Blend ML predictions with True Capability and Stadium Performance Averages
+                        const stadiumWeight = venueAvg > 0 ? venueAvg : 22;
+                        const projectedH2HCredible = (((recentCred * ensembleH2H) + ((1 - recentCred) * conservativeBase)) * expH2H * 0.25) + (stadiumWeight * 0.25) + (capabilityScore * 0.50);
+                        const projectedRecentCredible = (((recentCred * ensembleRecent) + ((1 - recentCred) * conservativeBase)) * expRecent * 0.25) + (stadiumWeight * 0.25) + (capabilityScore * 0.50);
 
                         evaluatedPlayers.push({
                             ...player,
@@ -2018,9 +2308,28 @@
             // Team 10: Supreme Ensemble Ultimate (GL Team 10) - Deep multi-model expected value index combining all features (balanced 6-5 split)
             const supremeEnsemble = optimizeSquad(6, 5, p => (p.projectedScore * 0.4) + (p.projectedRecent * 0.3) + ((p.venueAverage || 0) * 0.3));
 
+            // Team 11: Historical Scorecard AI (GL Team 11) - Optimized strictly on completed historical match scorecards!
+            let t1Wins = 0, t2Wins = 0;
+            const completedMatches = h2hMatches || [];
+            completedMatches.forEach(m => {
+                const resLower = (m.result || "").toLowerCase();
+                if (resLower.includes(team1Name.toLowerCase())) t1Wins++;
+                else if (resLower.includes(team2Name.toLowerCase())) t2Wins++;
+            });
+            logTerminal(`[SCORECARD ANALYSIS] Historical H2H: ${team1Name} = ${t1Wins} wins, ${team2Name} = ${t2Wins} wins. Applying AI scorecard coefficients...`, 'info');
+            
+            const team11Dom = optimizeSquad(t1Wins >= t2Wins ? 7 : 5, t2Wins >= t1Wins ? 7 : 5, p => {
+                let weight = p.projectedScore;
+                if (t1Wins > t2Wins && p.team === team1Name) weight *= 1.25;
+                else if (t2Wins > t1Wins && p.team === team2Name) weight *= 1.25;
+                if (p.h2hAverage > 25) weight *= 1.30;
+                return weight;
+            });
+
             window.cachedPredictionTeams = [
                 team1Dom, team2Dom, h2hSquad, recentSquad, venueSpecial, 
-                oppNemesis, defAnchor, bowlDom, chaseDom, supremeEnsemble
+                oppNemesis, defAnchor, bowlDom, chaseDom, supremeEnsemble,
+                team11Dom
             ];
             
             logTerminal(`[GL 1] Elite Domination Captain: ${team1Dom.captain.name}`, 'success');
@@ -2033,8 +2342,9 @@
             logTerminal(`[GL 8] Bowling Domination Captain: ${bowlDom.captain.name}`, 'success');
             logTerminal(`[GL 9] Chasing Domination Captain: ${chaseDom.captain.name}`, 'success');
             logTerminal(`[GL 10] Supreme Ensemble Captain: ${supremeEnsemble.captain.name}`, 'success');
+            logTerminal(`[GL 11] Historical Scorecard AI Captain: ${team11Dom.captain.name}`, 'success');
             
-            logTerminal("All 10 optimized Grand League fantasy selections compiled successfully!", 'success');
+            logTerminal("All 11 optimized Grand League fantasy selections compiled successfully!", 'success');
             
             setTimeout(() => {
                 document.getElementById('neuralLoadingSection').style.display = 'none';

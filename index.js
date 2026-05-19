@@ -127,8 +127,12 @@ function parsePlayingXi(data) {
             if (!pid || seen.has(pid)) return;
             seen.add(pid);
 
-            const isBench = p.isSub || p.substitute || p.role === 'substitute' || node.isSub || p.isBench || node.isBench || false;
-            if (isBench) return;
+            const isPlayingXI = p.playingXI || p.isPlay || node.isPlay || p.isPlaying || node.isPlaying || false;
+            const isSub = p.isSub || p.substitute || node.isSub || p.role === 'substitute' || false;
+            
+            // If the player is not playing and is also not an active substitute, they are pure bench.
+            const isPureBench = p.isBench || node.isBench || (!isPlayingXI && !isSub);
+            if (isPureBench) return;
 
             players.push({
                 name: node.longName || node.name || node.fullName || "Unknown",
@@ -136,7 +140,8 @@ function parsePlayingXi(data) {
                 player_id: pid,
                 object_id: pid,
                 role: node.playingRole?.name || node.role || "Player",
-                playingXI: p.playingXI || p.isPlay || node.isPlay || p.isPlaying || node.isPlaying || false
+                playingXI: isPlayingXI,
+                isSub: isSub
             });
         });
     });
@@ -149,7 +154,8 @@ function parsePlayingXi(data) {
         const hasAnnouncedXI = teamList.some(p => p.playingXI === true);
         
         if (hasAnnouncedXI) {
-            filteredPlayers.push(...teamList.filter(p => p.playingXI === true));
+            // Push starting playing XI AND active substitutes, exclude non-playing bench
+            filteredPlayers.push(...teamList.filter(p => p.playingXI === true || p.isSub === true));
         } else {
             filteredPlayers.push(...teamList);
         }
@@ -160,7 +166,8 @@ function parsePlayingXi(data) {
         team: p.team,
         player_id: p.player_id,
         object_id: p.object_id,
-        role: p.role
+        role: p.role,
+        isSub: p.isSub || false
     }));
 }
 
@@ -227,12 +234,14 @@ app.get('/api/match-data', async (req, res) => {
 
         const matchInfo = data.matchInfo || data.content?.matchInfo || {};
         const statusText = data.matchData?.statusText || matchInfo.statusText || data.statusText || "";
+        const groundName = data.matchData?.ground?.name || matchInfo.ground?.name || data.groundName || "";
 
         res.json({
             allPlayers: players,
             teams: teamNames,
             teamsInfo: teamsInfo,
-            statusText: statusText
+            statusText: statusText,
+            groundName: groundName
         });
     } catch (e) {
         res.status(500).json({ error: e.message });
@@ -335,7 +344,8 @@ app.get('/api/player-profile', async (req, res) => {
                 sr: headers.indexOf("sr"),
                 econ: headers.indexOf("econ"),
                 opp: headers.findIndex(h => h.includes("opposition")),
-                date: headers.findIndex(h => h.includes("date"))
+                date: headers.findIndex(h => h.includes("date")),
+                ground: headers.indexOf("ground")
             };
 
             let results = {};
@@ -360,6 +370,7 @@ app.get('/api/player-profile', async (req, res) => {
                     opp: oppStr.replace(/^v\s+/, '').trim(),
                     date: date,
                     timestamp: new Date(dateStr).getTime(),
+                    ground: idx.ground !== -1 ? cols[idx.ground] : "",
                     [type === 'batting' ? 'bat' : 'bowl']: type === 'batting' ? cols[idx.runs] : cols[idx.wkts],
                     [type === 'batting' ? 'sr' : 'econ']: type === 'batting' ? cols[idx.sr] : cols[idx.econ]
                 };

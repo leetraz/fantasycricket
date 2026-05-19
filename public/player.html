@@ -328,7 +328,7 @@
 
         .cell-id { width: 60px; font-family: 'Space Grotesk'; opacity: 0.3; text-align: center; font-size: 0.6rem; letter-spacing: 1px; }
         .cell-opp { width: 30%; color: #fff; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; font-size: 0.9rem; }
-        .cell-date { display: block; font-size: 0.65rem; color: var(--neon-blue); opacity: 0.6; font-weight: 400; font-family: 'Space Grotesk'; margin-top: 2px; }
+        .cell-date { display: block; font-size: 0.65rem; color: rgba(255, 255, 255, 0.45); opacity: 0.8; font-weight: 400; font-family: 'Space Grotesk'; margin-top: 2px; }
         .cell-val { text-align: right; width: 60%; padding-right: 1.5rem; }
 
         .score-capsule {
@@ -465,6 +465,151 @@
             pointer-events: none;
             opacity: 0.3;
         }
+
+        /* Hoverable Player Detail Header Container */
+        .interactive-header-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            position: relative;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid transparent;
+            border-radius: 1rem;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .interactive-header-container:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: var(--glass-border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .interactive-header-container .nav-bar {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            pointer-events: none;
+            margin-bottom: 0 !important;
+            padding: 0 !important;
+            border-bottom: none !important;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .interactive-header-container:hover .nav-bar {
+            opacity: 1;
+            max-height: 80px;
+            pointer-events: auto;
+            padding: 0.5rem 0 !important;
+            border-bottom: 1px solid var(--glass-border) !important;
+            margin-bottom: 0.5rem !important;
+        }
+
+        /* Mobile Responsiveness & Touch Support */
+        @media (max-width: 768px) {
+            body {
+                overflow-y: auto !important;
+                height: auto !important;
+            }
+            
+            .container {
+                height: auto !important;
+                max-height: none !important;
+                overflow: visible !important;
+                padding: 1rem 0.5rem !important;
+            }
+            
+            .cyber-grid-layout {
+                height: auto !important;
+                overflow: visible !important;
+            }
+            
+            .matrix-table-wrapper {
+                max-height: none !important;
+                overflow-y: visible !important;
+            }
+            
+            .interactive-header-container {
+                padding: 0.5rem 0.25rem !important;
+            }
+            
+            .interactive-header-container .nav-bar,
+            .interactive-header-container:hover .nav-bar {
+                opacity: 1 !important;
+                max-height: none !important;
+                pointer-events: auto !important;
+                padding: 0.5rem 0 !important;
+                border-bottom: 1px solid var(--glass-border) !important;
+                margin-bottom: 0.5rem !important;
+                display: flex !important;
+            }
+            
+            .hero-section {
+                flex-direction: row;
+                gap: 1rem;
+            }
+            
+            .profile-photo-container {
+                width: 60px !important;
+                height: 60px !important;
+            }
+            
+            .glitch-name {
+                font-size: 1.25rem !important;
+            }
+            
+            .nav-bar {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 0.5rem !important;
+            }
+            
+            .view-toggle {
+                width: 100% !important;
+                display: flex !important;
+                justify-content: space-around !important;
+            }
+            
+            .toggle-btn {
+                padding: 0.5rem 0.75rem !important;
+                font-size: 0.7rem !important;
+                flex-grow: 1 !important;
+                text-align: center !important;
+            }
+            
+            #stadium-badge {
+                width: 100% !important;
+                text-align: center !important;
+            }
+            
+            .matrix-table {
+                font-size: 0.8rem !important;
+            }
+            
+            .cell-opp {
+                width: 40% !important;
+            }
+            
+            .cell-val {
+                width: 60% !important;
+                padding-right: 0.5rem !important;
+            }
+            
+            .score-capsule {
+                gap: 5px !important;
+                padding: 2px 4px !important;
+            }
+            
+            .metric-badge {
+                padding: 4px 8px !important;
+            }
+            
+            .badge-value-box {
+                width: 26px !important;
+                height: 26px !important;
+                font-size: 0.85rem !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -475,27 +620,40 @@
 
 
 
-    <div class="container">
-        <header class="hero-section">
-            <div class="profile-photo-container">
-                <div class="profile-photo-inner">
-                    <img id="player-photo" src="" alt="Player Photo">
+    <div class="container" style="max-height: 100vh; overflow: hidden; display: flex; flex-direction: column;">
+        <div class="interactive-header-container">
+            <header class="hero-section" style="padding: 0.5rem 0; margin-bottom: 0.25rem;">
+                <div class="profile-photo-container">
+                    <div class="profile-photo-inner">
+                        <img id="player-photo" src="" alt="Player Photo">
+                    </div>
+                </div>
+                <div class="hero-info">
+                    <span id="player-role" class="hero-tag">FETCHING_ROLE...</span>
+                    <h1 id="player-name" class="glitch-name"><span class="animated-name">ACCESSING</span></h1>
+                </div>
+            </header>
+
+            <!-- Dynamic Stadium Navigation Bar Toggles -->
+            <div class="nav-bar" style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--glass-border); margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.75rem;">
+                <div class="view-toggle">
+                    <button id="btn-h2h" class="toggle-btn active" onclick="switchTab('h2h')">⚔️ H2H OPPONENT</button>
+                    <button id="btn-venue" class="toggle-btn" onclick="switchTab('venue')">🏟️ STADIUM MATCHES</button>
+                    <button id="btn-all" class="toggle-btn" onclick="switchTab('all')">📊 ALL MATCH LOGS</button>
+                </div>
+                <div id="stadium-badge" style="font-family: 'Space Grotesk'; font-size: 0.75rem; font-weight: 700; color: var(--neon-blue); border: 1px dashed var(--neon-blue); padding: 0.3rem 0.6rem; border-radius: 4px; text-transform: uppercase; text-shadow: 0 0 5px rgba(0, 242, 255, 0.4);">
+                    STADIUM: EDEN GARDENS
                 </div>
             </div>
-            <div class="hero-info">
-                <span id="player-role" class="hero-tag">FETCHING_ROLE...</span>
-                <h1 id="player-name" class="glitch-name"><span class="animated-name">ACCESSING</span></h1>
-            </div>
-        </header>
+        </div>
 
-        <div class="cyber-grid-layout">
-
+        <div class="cyber-grid-layout" style="flex-grow: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden;">
             <div id="table-view" class="tab-content active" style="width: 100%; height: 100%; display: flex; flex-direction: column; overflow: hidden; min-height: 0;">
-                <div class="module m-12">
-                    <div class="matrix-table-wrapper">
-                        <table class="matrix-table">
+                <div class="module m-12" style="flex-grow: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden; padding: 0.5rem;">
+                    <div class="matrix-table-wrapper" style="overflow-y: auto; flex-grow: 1; min-height: 0; max-height: calc(100vh - 200px);">
+                        <table class="matrix-table" style="width: 100%;">
                             <tbody id="matrix-body">
-                                <!-- Matrix Rows -->
+                                <!-- Dynamic rows are rendered here -->
                             </tbody>
                         </table>
                     </div>
@@ -505,15 +663,15 @@
     </div>
 
     <script>
-
         const urlParams = new URLSearchParams(window.location.search);
         const pid = urlParams.get('pid');
         const objectId = urlParams.get('objectId');
         const name = urlParams.get('name');
         const role = urlParams.get('role');
         const opponent = urlParams.get('opponent');
+        const ground = urlParams.get('ground') || "Eden Gardens";
 
-
+        let currentActiveTab = 'h2h';
 
         async function init() {
             try {
@@ -521,6 +679,7 @@
                 const res = await fetch(apiPath);
                 if (!res.ok) throw new Error("VAULT_ACCESS_DENIED");
                 const data = await res.json();
+                window.playerData = data;
                 renderUI(data);
             } catch (e) {
                 console.error(e);
@@ -532,89 +691,122 @@
             document.title = `${name || 'PLAYER'} // H2H ANALYSIS`;
             document.getElementById('player-name').innerHTML = `<span class="animated-name">${name || 'UNKNOWN'}</span>`;
             document.getElementById('player-role').textContent = role || 'DATA_GATHERING';
+            document.getElementById('stadium-badge').innerText = `STADIUM: ${ground.toUpperCase()}`;
             
             const photoImg = document.getElementById('player-photo');
             photoImg.src = `https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320/lsci/db/PICTURES/CMS/${Math.floor(pid/100)}/${pid}.jpg`;
-            document.querySelector('.profile-photo-container').style.width = '50px';
-            document.querySelector('.profile-photo-container').style.height = '50px';
+            document.querySelector('.profile-photo-container').style.width = '45px';
+            document.querySelector('.profile-photo-container').style.height = '45px';
             photoImg.onerror = () => {
                 photoImg.src = `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${name}&backgroundColor=00f2ff`;
             };
 
-            // Filter for pure H2H matches against the current opponent using high-fidelity canonical matching
-            let h2hMatches = data.last10 || [];
-            if (opponent) {
-                const getCanonicalTeam = (teamName) => {
-                    const name = teamName.toUpperCase().trim();
-                    if (name.includes("PUNJAB") || name.includes("PBKS") || name.includes("KXIP") || name.includes("KINGS XI")) {
-                        return "PBKS";
-                    }
-                    if (name.includes("CHENNAI") || name.includes("CSK") || name.includes("SUPER KINGS")) {
-                        return "CSK";
-                    }
-                    if (name.includes("MUMBAI") || name.includes("MI") || name.includes("INDIANS")) {
-                        return "MI";
-                    }
-                    if (name.includes("KOLKATA") || name.includes("KKR") || name.includes("KNIGHT RIDERS")) {
-                        return "KKR";
-                    }
-                    if (name.includes("ROYAL CHALLENGERS") || name.includes("RCB") || name.includes("BANGALORE") || name.includes("BENGALURU")) {
-                        return "RCB";
-                    }
-                    if (name.includes("DELHI") || name.includes("DC") || name.includes("DAREDEVILS") || name.includes("CAPITALS")) {
-                        return "DC";
-                    }
-                    if (name.includes("RAJASTHAN") || name.includes("RR") || name.includes("ROYALS")) {
-                        return "RR";
-                    }
-                    if (name.includes("SUNRISERS") || name.includes("SRH") || name.includes("HYDERABAD") || name.includes("DECCAN") || name.includes("CHARGERS")) {
-                        return "SRH";
-                    }
-                    if (name.includes("GUJARAT") || name.includes("GT") || name.includes("TITANS")) {
-                        return "GT";
-                    }
-                    if (name.includes("LUCKNOW") || name.includes("LSG") || name.includes("SUPER GIANTS")) {
-                        return "LSG";
-                    }
-                    return name;
-                };
+            switchTab('h2h');
+        }
 
-                const targetCanonical = getCanonicalTeam(opponent);
-                h2hMatches = data.last10.filter(m => {
-                    const oppClean = m.opp.replace(/^V\s+/, '').replace(/^v\s+/, '').trim();
-                    return getCanonicalTeam(oppClean) === targetCanonical;
+        const getCanonicalTeam = (teamName) => {
+            const name = (teamName || '').toUpperCase().trim();
+            if (name.includes("PUNJAB") || name.includes("PBKS") || name.includes("KXIP") || name.includes("KINGS XI")) return "PBKS";
+            if (name.includes("CHENNAI") || name.includes("CSK") || name.includes("SUPER KINGS")) return "CSK";
+            if (name.includes("MUMBAI") || name.includes("MI") || name.includes("INDIANS")) return "MI";
+            if (name.includes("KOLKATA") || name.includes("KKR") || name.includes("KNIGHT RIDERS")) return "KKR";
+            if (name.includes("ROYAL CHALLENGERS") || name.includes("RCB") || name.includes("BANGALORE") || name.includes("BENGALURU")) return "RCB";
+            if (name.includes("DELHI") || name.includes("DC") || name.includes("DAREDEVILS") || name.includes("CAPITALS")) return "DC";
+            if (name.includes("RAJASTHAN") || name.includes("RR") || name.includes("ROYALS")) return "RR";
+            if (name.includes("SUNRISERS") || name.includes("SRH") || name.includes("HYDERABAD") || name.includes("DECCAN") || name.includes("CHARGERS")) return "SRH";
+            if (name.includes("GUJARAT") || name.includes("GT") || name.includes("TITANS")) return "GT";
+            if (name.includes("LUCKNOW") || name.includes("LSG") || name.includes("SUPER GIANTS")) return "LSG";
+            return name;
+        };
+
+        function switchTab(tabType) {
+            currentActiveTab = tabType;
+            
+            document.getElementById('btn-h2h').classList.remove('active');
+            document.getElementById('btn-venue').classList.remove('active');
+            document.getElementById('btn-all').classList.remove('active');
+            
+            document.getElementById(`btn-${tabType}`).classList.add('active');
+            
+            const data = window.playerData;
+            if (!data) return;
+
+            let matches = [];
+            const matchesList = data.last10 || data.recentMatches || [];
+            const bowlingList = data.bowlingLog || [];
+
+            if (tabType === 'h2h') {
+                if (opponent) {
+                    const targetCanonical = getCanonicalTeam(opponent);
+                    matches = matchesList.filter(m => {
+                        const oppClean = (m.opp || '').replace(/^V\s+/, '').replace(/^v\s+/, '').trim();
+                        return getCanonicalTeam(oppClean) === targetCanonical;
+                    });
+                } else {
+                    matches = matchesList;
+                }
+
+                // Fallback: if no direct head-to-head match history, display general recent form
+                if (matches.length === 0 && matchesList.length > 0) {
+                    matches = matchesList.slice(0, Math.min(5, matchesList.length)).map(m => ({
+                        ...m,
+                        isSynthesized: true
+                    }));
+                }
+            } else if (tabType === 'venue') {
+                const keywords = ground.toLowerCase().split(/[ ,]+/);
+                matches = matchesList.filter(m => {
+                    const groundLower = (m.ground || "").toLowerCase();
+                    return keywords.some(keyword => keyword.length > 3 && groundLower.includes(keyword));
                 });
+                
+                // Fallback: if no venue records, synthesize realistic subset from recent matches
+                if (matches.length === 0 && matchesList.length > 0) {
+                    matches = matchesList.slice(0, Math.min(5, matchesList.length)).map(m => ({
+                        ...m,
+                        isSynthesized: true
+                    }));
+                }
+            } else {
+                matches = matchesList;
             }
 
+            renderMatchList(matches, tabType);
+        }
 
-
+        function renderMatchList(matches, tabType) {
             const body = document.getElementById('matrix-body');
-            if (h2hMatches.length === 0) {
+            
+            if (matches.length === 0) {
                 body.innerHTML = `
                     <tr class="matrix-row perf-mid">
                         <td colspan="3" style="text-align: center; padding: 3rem; color: var(--neon-rose); font-weight: 700; font-family: 'Space Grotesk'; font-size: 1.1rem; letter-spacing: 1px;">
-                            NO NEURAL H2H MATCH HISTORY FOUND AGAINST ${opponent || 'OPPONENT'}.
+                            NO HISTORY MATCH FOUND FOR THIS CONTEXT.
                         </td>
                     </tr>
                 `;
                 return;
             }
 
-            const hasEverBatted = h2hMatches.some(s => s.bat && s.bat !== 'DNB' && s.bat !== 'TDNB' && s.bat !== 'absent');
-            const hasEverBowled = h2hMatches.some(s => s.bowl && s.bowl !== '0' && s.bowl !== '-');
+            const hasEverBatted = matches.some(s => s.bat && s.bat !== 'DNB' && s.bat !== 'TDNB' && s.bat !== 'absent');
+            const hasEverBowled = matches.some(s => s.bowl && s.bowl !== '0' && s.bowl !== '-');
 
-            body.innerHTML = h2hMatches.map((s, i) => {
+            body.innerHTML = matches.map((s, i) => {
                 const rRaw = (s.bat || '0').toString().replace('*', '');
                 const r = parseInt(rRaw) || 0;
                 const w = parseInt(s.bowl) || 0;
                 
                 let perfClass = 'perf-mid';
                 let scoreColor = 'var(--neon-blue)';
+                let highlightLabel = '';
                 
-                // Enhanced performance logic
-                if (r >= 40 || w >= 3 || (r >= 30 && w >= 1)) {
+                // High performance highlighted status
+                const isHighPerformance = (r >= 40 || w >= 3 || (r >= 30 && w >= 1));
+                
+                if (isHighPerformance) {
                     perfClass = 'perf-good';
                     scoreColor = 'var(--neon-green)';
+                    highlightLabel = `<span style="background: var(--neon-green); color: #000; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.65rem; font-weight: 900; box-shadow: 0 0 10px var(--neon-green);">⚡ HI-PERF</span>`;
                 } else if (r <= 10 && w === 0 && s.bat !== 'DNB' && s.bat !== 'TDNB' && s.bat !== 'absent') {
                     perfClass = 'perf-bad';
                     scoreColor = 'var(--neon-rose)';
@@ -623,12 +815,26 @@
                     scoreColor = 'rgba(255,255,255,0.2)';
                 }
 
+                let synthesizedTag = '';
+                if (s.isSynthesized) {
+                    if (tabType === 'h2h') {
+                        synthesizedTag = `<span style="color: var(--neon-purple); font-size: 0.65rem; font-weight: 800; border: 1px solid var(--neon-purple); padding: 0.1rem 0.3rem; border-radius: 3px; margin-left: 5px; text-transform: uppercase;">⚔️ GENERAL FORM FALLBACK</span>`;
+                    } else if (tabType === 'venue') {
+                        synthesizedTag = `<span style="color: var(--neon-blue); font-size: 0.65rem; font-weight: 800; border: 1px solid var(--neon-blue); padding: 0.1rem 0.3rem; border-radius: 3px; margin-left: 5px; text-transform: uppercase;">🏟️ STADIUM ESTIMATE</span>`;
+                    } else {
+                        synthesizedTag = `<span style="color: var(--neon-purple); font-size: 0.65rem; font-weight: 800; border: 1px solid var(--neon-purple); padding: 0.1rem 0.3rem; border-radius: 3px; margin-left: 5px; text-transform: uppercase;">ESTIMATE</span>`;
+                    }
+                }
+
                 return `
-                <tr class="matrix-row ${perfClass}">
+                <tr class="matrix-row ${perfClass}" style="${isHighPerformance ? 'background: linear-gradient(90deg, rgba(57,255,20,0.06), transparent); box-shadow: 0 0 15px rgba(57,255,20,0.1); border-left: 4px solid var(--neon-green);' : ''}">
                     <td class="matrix-cell cell-id">${(i+1).toString().padStart(2, '0')}</td>
-                    <td class="matrix-cell cell-opp" style="color: var(--neon-purple); font-weight: 900;">
-                        ${s.opp || 'UNK'} <span style="font-size: 0.75rem; color: rgba(255,255,255,0.4); font-weight: 500;">🔥 (H2H)</span>
-                        <span class="cell-date">${s.date}</span>
+                    <td class="matrix-cell cell-opp" style="color: rgba(255, 255, 255, 0.75); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.5px;">
+                        ${s.opp || 'UNK'} ${synthesizedTag}
+                        <div style="margin-top: 5px; display: flex; gap: 5px; align-items: center; flex-wrap: wrap;">
+                            ${highlightLabel}
+                        </div>
+                        <span class="cell-date">${s.date} ${s.ground ? `// ${s.ground.toUpperCase()}` : ''}</span>
                     </td>
                     <td class="matrix-cell cell-val">
                         <div class="score-capsule">

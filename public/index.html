@@ -187,19 +187,39 @@
         }
 
         .player-item {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--border);
-            border-radius: 1rem;
-            padding: 0.75rem 1.25rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 1.25rem;
+            padding: 0.85rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .player-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: transparent;
+            transition: all 0.3s ease;
         }
 
         .player-item:hover {
-            border-color: rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .player-item:hover::before {
+            background: linear-gradient(to bottom, var(--neon-blue), var(--neon-purple));
+            box-shadow: 0 0 10px var(--neon-blue);
         }
 
         .player-info {
@@ -219,41 +239,55 @@
             letter-spacing: 1px;
         }
 
-         .player-links {
-             display: flex;
-             gap: 0.5rem;
-             opacity: 0;
-             pointer-events: none;
-             transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-         }
+        .player-links {
+            display: flex;
+            gap: 0.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-         .player-item:hover .player-links {
-             opacity: 1;
-             pointer-events: auto;
-         }
+        .player-item:hover .player-links {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
         .icon-link {
-            width: 36px;
-            height: 36px;
-            display: flex;
+            width: 38px;
+            height: 38px;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            border-radius: 0.75rem;
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-dim);
+            border-radius: 0.85rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
-            transition: all 0.2s ease;
-            font-size: 1.2rem;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1.1rem;
         }
 
         .icon-link:hover {
-            background: var(--neon-blue);
-            color: white;
-            transform: scale(1.1);
+            color: #fff;
+            transform: translateY(-2px) scale(1.08);
+        }
+
+        .icon-link.profile:hover {
+            background: rgba(56, 189, 248, 0.15);
+            border-color: #38bdf8;
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
         }
 
         .icon-link.h2h:hover {
-            background: var(--neon-pink);
+            background: rgba(255, 0, 85, 0.15);
+            border-color: var(--neon-rose);
+            box-shadow: 0 0 12px rgba(255, 0, 85, 0.4);
+        }
+
+        .icon-link.logs:hover {
+            background: rgba(0, 242, 255, 0.15);
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 12px rgba(0, 242, 255, 0.4);
         }
 
         .loader {
@@ -313,6 +347,67 @@
             }
             .subtitle {
                 font-size: 0.75rem !important;
+            }
+            .player-item {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 0.75rem !important;
+                padding: 1rem !important;
+            }
+            .player-info {
+                text-align: center !important;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                padding-bottom: 0.5rem;
+            }
+            .player-links {
+                opacity: 1 !important;
+                pointer-events: auto !important;
+                justify-content: center !important;
+                gap: 0.5rem !important;
+                width: 100% !important;
+            }
+            .icon-link {
+                flex: 1;
+                font-size: 0.8rem !important;
+                width: auto !important;
+                height: 38px !important;
+                padding: 0 0.5rem !important;
+                border-radius: 8px !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 0.3rem !important;
+                background: rgba(255, 255, 255, 0.04) !important;
+                border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            }
+            .icon-link.profile::after {
+                content: "Profile";
+                font-size: 0.7rem;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+            }
+            .icon-link.h2h::after {
+                content: "H2H";
+                font-size: 0.7rem;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+            }
+            .icon-link.logs::after {
+                content: "Analysis";
+                font-size: 0.7rem;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+            }
+            #aiPredictionSection {
+                flex-direction: column !important;
+                gap: 0.75rem !important;
+                align-items: stretch !important;
+            }
+            #aiAnalysisBtn, #venueToggleBtn {
+                width: 100% !important;
+                padding: 1rem !important;
+                font-size: 1rem !important;
+                justify-content: center !important;
             }
         }
 
@@ -1341,9 +1436,9 @@
                         <span class="player-role">${player.role}</span>
                     </div>
                     <div class="player-links">
-                        <a href="${profileUrl}" target="_blank" class="icon-link" title="Cricinfo Profile">👤</a>
+                        <a href="${profileUrl}" target="_blank" class="icon-link profile" title="Cricinfo Profile">👤</a>
                         <a href="${h2hUrl}" target="_blank" class="icon-link h2h" title="Neural H2H Pure Data">⚔️</a>
-                        <a href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}" target="_blank" class="icon-link" title="Neural Analysis">📊</a>
+                        <a href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}" target="_blank" class="icon-link logs" title="Neural Analysis">📊</a>
                     </div>
                 `;
 

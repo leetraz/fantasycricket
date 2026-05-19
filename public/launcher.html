@@ -921,10 +921,7 @@
                                 <div class="intel-dropdown-item venue" onclick="bulkOpen(0, 'venue')">🏟️ OPEN ALL VENUE MATRICES</div>
                                 <div class="intel-dropdown-item logs" onclick="bulkOpen(0, 'all')">📈 OPEN ALL CHRONO LOGS</div>
 
-                                <div class="intel-dropdown-header">🎴 SAME WINDOW DECK</div>
-                                <div class="intel-dropdown-item h2h" onclick="openSquadDeck(0, 'h2h')">⚔️ OPEN DECK (H2H SECTION)</div>
-                                <div class="intel-dropdown-item venue" onclick="openSquadDeck(0, 'venue')">🏟️ OPEN DECK (VENUE SECTION)</div>
-                                <div class="intel-dropdown-item logs" onclick="openSquadDeck(0, 'all')">📈 OPEN DECK (CHRONO LOGS)</div>
+
 
                                 <div class="intel-dropdown-header">⚡ COHORT OVERLAYS</div>
                                 <div class="intel-dropdown-item venue" onclick="openSquadH2H(0)">⚡ COHORT H2H COMPARATOR</div>
@@ -953,10 +950,7 @@
                                 <div class="intel-dropdown-item venue" onclick="bulkOpen(1, 'venue')">🏟️ OPEN ALL VENUE MATRICES</div>
                                 <div class="intel-dropdown-item logs" onclick="bulkOpen(1, 'all')">📈 OPEN ALL CHRONO LOGS</div>
 
-                                <div class="intel-dropdown-header">🎴 SAME WINDOW DECK</div>
-                                <div class="intel-dropdown-item h2h" onclick="openSquadDeck(1, 'h2h')">⚔️ OPEN DECK (H2H SECTION)</div>
-                                <div class="intel-dropdown-item venue" onclick="openSquadDeck(1, 'venue')">🏟️ OPEN DECK (VENUE SECTION)</div>
-                                <div class="intel-dropdown-item logs" onclick="openSquadDeck(1, 'all')">📈 OPEN DECK (CHRONO LOGS)</div>
+
 
                                 <div class="intel-dropdown-header">⚡ COHORT OVERLAYS</div>
                                 <div class="intel-dropdown-item venue" onclick="openSquadH2H(1)">⚡ COHORT H2H COMPARATOR</div>
@@ -1723,16 +1717,15 @@
             const opponentId = opponentInfo ? opponentInfo.id : "";
             const groundName = matchData.groundName || "Eden Gardens";
 
-            // Loop in the normal, chronological squad order (first player to last player)
-            // By utilizing a simulated link click (a.click()) instead of window.open(), Chrome and Firefox
-            // both treat this as a standard user link click and always append new tabs to the end of the tab bar.
-            // This guarantees that Player 1 opens first in time and remains the left-most tab closest to the dashboard!
-            players.forEach((p, i) => {
+            // Reversing the array ensures that later players open first, naturally creating the Chrome tab bar
+            // in the exact chronologically correct left-to-right Playing XI order (first player to last player)!
+            const reversedPlayers = [...players].reverse();
+            reversedPlayers.forEach((p, i) => {
                 let url;
                 if (type === 'profile') {
                     url = `https://www.espncricinfo.com/cricketers/${p.name.toLowerCase().replace(/ /g, '-')}-${p.player_id}/matches`;
                 } else {
-                    url = `player.html?pid=${p.player_id}&objectId=${p.object_id}&name=${encodeURIComponent(p.name)}&role=${encodeURIComponent(p.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}`;
+                    url = `player.html?pid=${p.player_id}&objectId=${p.object_id}&name=${encodeURIComponent(p.name)}&role=${encodeURIComponent(p.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}&tab=${type}`;
                 }
 
                 setTimeout(() => {
@@ -1745,18 +1738,6 @@
                     document.body.removeChild(link);
                 }, i * 150); // 150ms delay to satisfy popup blockers and allow smooth sequential opening
             });
-        }
-
-        function openSquadDeck(teamIndex, initialTab) {
-            if (!matchData) return;
-            const teamName = matchData.teams[teamIndex];
-            const players = matchData.allPlayers.filter(p => p.team === teamName);
-            if (players.length === 0) return;
-            const p = players[0];
-            const opponent = matchData.teams.find(t => t !== teamName);
-            const groundName = matchData.groundName || "Eden Gardens";
-            const url = `player.html?pid=${p.player_id}&objectId=${p.object_id}&name=${encodeURIComponent(p.name)}&role=${encodeURIComponent(p.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}&tab=${initialTab}`;
-            window.open(url, '_blank');
         }
 
         function openSquadH2H(teamIndex) {

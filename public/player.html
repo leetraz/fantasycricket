@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEURAL_LINK // PLAYER_PROFILE</title>
+    <title>NEURAL LINK | PLAYER PROFILE</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -647,17 +647,6 @@
 
 
     <div class="container" style="max-height: 100vh; overflow: hidden; display: flex; flex-direction: row; gap: 1.5rem; width: 100%; max-width: 1400px; margin: 0 auto; padding: 1rem; box-sizing: border-box;">
-        
-        <!-- Roster Sidebar -->
-        <div id="roster-sidebar" class="roster-sidebar glass" style="width: 250px; flex-shrink: 0; display: flex; flex-direction: column; overflow: hidden; border-right: 1px solid var(--glass-border); padding-right: 1rem; height: 100%;">
-            <div style="font-family: 'Space Grotesk'; font-size: 0.85rem; font-weight: 900; color: var(--neon-blue); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                <span>🎴</span> SQUAD DECK
-            </div>
-            <div id="roster-list" style="overflow-y: auto; flex-grow: 1; display: flex; flex-direction: column; gap: 0.4rem; padding-right: 0.25rem;">
-                <!-- Roster items will be injected here -->
-            </div>
-        </div>
-
         <!-- Main Content Area -->
         <div class="main-content-area" style="flex-grow: 1; display: flex; flex-direction: column; overflow: hidden; min-width: 0; height: 100%;">
             <div class="interactive-header-container">
@@ -721,57 +710,6 @@
                 const data = await res.json();
                 window.playerData = data;
                 renderUI(data);
-
-                // Render Roster Sidebar dynamically using shared localStorage matchData
-                let matchData = null;
-                try {
-                    matchData = JSON.parse(localStorage.getItem('matchData'));
-                } catch(err) {
-                    console.error("Local matchData parse failed", err);
-                }
-
-                if (matchData && matchData.allPlayers) {
-                    const activePlayer = matchData.allPlayers.find(p => p.object_id == objectId || p.player_id == pid);
-                    if (activePlayer) {
-                        const teamPlayers = matchData.allPlayers.filter(p => p.team === activePlayer.team);
-                        const rosterList = document.getElementById('roster-list');
-                        if (rosterList && teamPlayers.length > 0) {
-                            rosterList.innerHTML = '';
-                            teamPlayers.forEach(p => {
-                                const item = document.createElement('div');
-                                const isActive = p.object_id == objectId || p.player_id == pid;
-                                item.className = `roster-player-item ${isActive ? 'active' : ''}`;
-                                
-                                item.style.padding = '0.6rem 0.8rem';
-                                item.style.borderRadius = '8px';
-                                item.style.cursor = 'pointer';
-                                item.style.background = isActive ? 'rgba(56, 189, 248, 0.15)' : 'rgba(255, 255, 255, 0.02)';
-                                item.style.border = isActive ? '1px solid var(--neon-blue)' : '1px solid rgba(255,255,255,0.05)';
-                                item.style.transition = 'all 0.2s ease';
-                                item.style.display = 'flex';
-                                item.style.flexDirection = 'column';
-                                item.style.gap = '0.15rem';
-                                
-                                item.innerHTML = `
-                                    <div style="font-family: 'Space Grotesk'; font-size: 0.8rem; font-weight: 700; color: ${isActive ? '#fff' : 'rgba(255,255,255,0.8)'};">${p.name}</div>
-                                    <div style="font-family: 'Outfit'; font-size: 0.65rem; color: rgba(255,255,255,0.4); text-transform: uppercase;">${p.role}</div>
-                                `;
-                                
-                                item.onclick = () => {
-                                    if (isActive) return;
-                                    const nextOpponent = matchData.teams.find(t => t !== p.team);
-                                    window.location.href = `player.html?pid=${p.player_id}&objectId=${p.object_id}&name=${encodeURIComponent(p.name)}&role=${encodeURIComponent(p.role)}&opponent=${encodeURIComponent(nextOpponent)}&ground=${encodeURIComponent(ground)}&tab=${currentActiveTab}`;
-                                };
-                                
-                                rosterList.appendChild(item);
-                            });
-                        }
-                    } else {
-                        document.getElementById('roster-sidebar').style.display = 'none';
-                    }
-                } else {
-                    document.getElementById('roster-sidebar').style.display = 'none';
-                }
             } catch (e) {
                 console.error(e);
                 document.getElementById('player-name').textContent = "ERROR: " + e.message;
@@ -779,7 +717,7 @@
         }
         
         function renderUI(data) {
-            document.title = `${name || 'PLAYER'} // H2H ANALYSIS`;
+            document.title = `${name || 'PLAYER'} | H2H ANALYSIS`;
             document.getElementById('player-name').innerHTML = `<span class="animated-name">${name || 'UNKNOWN'}</span>`;
             document.getElementById('player-role').textContent = role || 'DATA_GATHERING';
             document.getElementById('stadium-badge').innerText = `STADIUM: ${ground.toUpperCase()}`;

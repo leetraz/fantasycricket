@@ -204,8 +204,24 @@ app.get('/api/list-matches', async (req, res) => {
             // Exclude completely finished/cancelled matches
             const completed = state === 'post' || statusText.includes('won by') || statusText.includes('abandoned') || statusText.includes('no result');
             
-            // Return active live matches and scheduled/upcoming matches
-            return (state === 'pre' || state === 'live') && !completed;
+            // Exclude already started matches
+            const alreadyStarted = state === 'live' || statusText.includes('match started') || statusText.includes('lead by') || statusText.includes('trail by') || statusText.includes('day ') || statusText.includes('overs');
+            
+            if (completed || alreadyStarted) return false;
+            
+            // Must be upcoming/pre-match (includes tossed but not yet started)
+            if (state !== 'pre') return false;
+
+            // Check if starting within next 24 hours (a couple of hours / today)
+            if (m.startTime) {
+                const now = new Date();
+                const matchTime = new Date(m.startTime);
+                const diffHours = (matchTime - now) / (1000 * 60 * 60);
+                // Must start in the near future/recently scheduled start, and within 24 hours
+                return diffHours >= -0.5 && diffHours <= 24;
+            }
+            
+            return true;
         }).map(m => {
             const statusText = (m.statusText || '').toLowerCase();
             const state = (m.state || '').toLowerCase();

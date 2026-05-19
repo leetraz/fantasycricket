@@ -701,7 +701,8 @@
                 photoImg.src = `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${name}&backgroundColor=00f2ff`;
             };
 
-            switchTab('h2h');
+            const initialTab = urlParams.get('tab') || 'h2h';
+            switchTab(initialTab);
         }
 
         const getCanonicalTeam = (teamName) => {

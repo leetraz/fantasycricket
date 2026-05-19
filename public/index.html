@@ -290,6 +290,88 @@
             box-shadow: 0 0 12px rgba(0, 242, 255, 0.4);
         }
 
+        /* Unified Dropdown Styling */
+        .intel-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .intel-dropdown-trigger {
+            cursor: pointer;
+        }
+
+        .intel-dropdown-menu {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            margin-top: 0.5rem;
+            background: rgba(8, 10, 18, 0.98);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 242, 255, 0.1);
+            min-width: 260px;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-10px) scale(0.95);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0.5rem;
+            z-index: 1000;
+        }
+
+        .intel-dropdown:hover .intel-dropdown-menu,
+        .intel-dropdown.active .intel-dropdown-menu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+        }
+
+        .intel-dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.7rem 1rem;
+            color: rgba(255, 255, 255, 0.8) !important;
+            text-decoration: none !important;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .intel-dropdown-item:hover {
+            color: #fff !important;
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+            padding-left: 1.25rem;
+        }
+
+        .intel-dropdown-item.h2h:hover {
+            background: rgba(255, 0, 85, 0.1);
+            border-color: var(--neon-rose);
+            box-shadow: 0 0 10px rgba(255, 0, 85, 0.2);
+        }
+
+        .intel-dropdown-item.venue:hover {
+            background: rgba(0, 242, 255, 0.1);
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
+        }
+
+        .intel-dropdown-item.logs:hover {
+            background: rgba(188, 19, 254, 0.1);
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 10px rgba(188, 19, 254, 0.2);
+        }
+
         .loader {
             display: none;
             text-align: center;
@@ -365,9 +447,16 @@
                 justify-content: center !important;
                 gap: 0.5rem !important;
                 width: 100% !important;
+                display: flex !important;
+            }
+            .player-links > .icon-link, 
+            .player-links > .intel-dropdown {
+                flex: 1 !important;
+            }
+            .player-links > .intel-dropdown > .icon-link {
+                width: 100% !important;
             }
             .icon-link {
-                flex: 1;
                 font-size: 0.8rem !important;
                 width: auto !important;
                 height: 38px !important;
@@ -386,17 +475,17 @@
                 font-weight: 700;
                 letter-spacing: 0.5px;
             }
-            .icon-link.h2h::after {
-                content: "H2H";
-                font-size: 0.7rem;
-                font-weight: 700;
-                letter-spacing: 0.5px;
-            }
             .icon-link.logs::after {
                 content: "Analysis";
                 font-size: 0.7rem;
                 font-weight: 700;
                 letter-spacing: 0.5px;
+            }
+            .intel-dropdown-menu {
+                width: calc(100vw - 3rem) !important;
+                max-width: 300px !important;
+                right: -20px !important;
+                top: 110% !important;
             }
             #aiPredictionSection {
                 flex-direction: column !important;
@@ -806,11 +895,18 @@
                 <div class="team-header">
                     <div class="team-name" id="team1Name">TEAM 1</div>
                     <div class="team-actions">
-                        <button class="btn-sm" onclick="bulkOpen(0, 'profile')">Profiles</button>
-                        <button class="btn-sm btn-h2h" onclick="bulkOpen(0, 'h2h')">H2H Stats</button>
-                        <button class="btn-sm btn-matrix" onclick="openSquadH2H(0)">Squad H2H</button>
-                        <button class="btn-sm btn-matrix" style="border-color: var(--neon-purple); text-shadow: 0 0 5px rgba(157, 0, 255, 0.4); margin-left: 0.25rem;" onclick="openSquadRecent(0)">Recent Form</button>
-                        <button class="btn-sm btn-matrix" style="border-color: var(--neon-blue); text-shadow: 0 0 5px rgba(0, 242, 255, 0.4); margin-left: 0.25rem;" onclick="openSquadVenue(0)">Squad Venue</button>
+                        <div class="intel-dropdown">
+                            <button class="btn-sm btn-matrix intel-dropdown-trigger" style="border-color: var(--neon-blue); text-shadow: 0 0 5px rgba(0, 242, 255, 0.4); display: flex; align-items: center; gap: 0.4rem;">
+                                📊 SQUAD INTEL <span style="font-size: 0.6rem;">▼</span>
+                            </button>
+                            <div class="intel-dropdown-menu">
+                                <div class="intel-dropdown-item" onclick="bulkOpen(0, 'profile')">👤 SYNC PROFILE LINKS</div>
+                                <div class="intel-dropdown-item h2h" onclick="bulkOpen(0, 'h2h')">⚔️ BULK CLASH TELEMETRY</div>
+                                <div class="intel-dropdown-item venue" onclick="openSquadH2H(0)">⚡ COHORT H2H COMPARATOR</div>
+                                <div class="intel-dropdown-item logs" onclick="openSquadRecent(0)">📈 COHORT FORM REGISTERS</div>
+                                <div class="intel-dropdown-item venue" onclick="openSquadVenue(0)">🏟️ COHORT VENUE MATRIX</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="player-list" id="team1List"></div>
@@ -821,11 +917,18 @@
                 <div class="team-header">
                     <div class="team-name" id="team2Name">TEAM 2</div>
                     <div class="team-actions">
-                        <button class="btn-sm" onclick="bulkOpen(1, 'profile')">Profiles</button>
-                        <button class="btn-sm btn-h2h" onclick="bulkOpen(1, 'h2h')">H2H Stats</button>
-                        <button class="btn-sm btn-matrix" onclick="openSquadH2H(1)">Squad H2H</button>
-                        <button class="btn-sm btn-matrix" style="border-color: var(--neon-purple); text-shadow: 0 0 5px rgba(157, 0, 255, 0.4); margin-left: 0.25rem;" onclick="openSquadRecent(1)">Recent Form</button>
-                        <button class="btn-sm btn-matrix" style="border-color: var(--neon-blue); text-shadow: 0 0 5px rgba(0, 242, 255, 0.4); margin-left: 0.25rem;" onclick="openSquadVenue(1)">Squad Venue</button>
+                        <div class="intel-dropdown">
+                            <button class="btn-sm btn-matrix intel-dropdown-trigger" style="border-color: var(--neon-blue); text-shadow: 0 0 5px rgba(0, 242, 255, 0.4); display: flex; align-items: center; gap: 0.4rem;">
+                                📊 SQUAD INTEL <span style="font-size: 0.6rem;">▼</span>
+                            </button>
+                            <div class="intel-dropdown-menu">
+                                <div class="intel-dropdown-item" onclick="bulkOpen(1, 'profile')">👤 SYNC PROFILE LINKS</div>
+                                <div class="intel-dropdown-item h2h" onclick="bulkOpen(1, 'h2h')">⚔️ BULK CLASH TELEMETRY</div>
+                                <div class="intel-dropdown-item venue" onclick="openSquadH2H(1)">⚡ COHORT H2H COMPARATOR</div>
+                                <div class="intel-dropdown-item logs" onclick="openSquadRecent(1)">📈 COHORT FORM REGISTERS</div>
+                                <div class="intel-dropdown-item venue" onclick="openSquadVenue(1)">🏟️ COHORT VENUE MATRIX</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="player-list" id="team2List"></div>
@@ -1435,10 +1538,17 @@
                         <span class="player-name">${player.name}${subBadge}</span>
                         <span class="player-role">${player.role}</span>
                     </div>
-                    <div class="player-links">
+                    <div class="player-links" style="display: flex; align-items: center; gap: 0.5rem;">
                         <a href="${profileUrl}" target="_blank" class="icon-link profile" title="Cricinfo Profile">👤</a>
-                        <a href="${h2hUrl}" target="_blank" class="icon-link h2h" title="Neural H2H Pure Data">⚔️</a>
-                        <a href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}" target="_blank" class="icon-link logs" title="Neural Analysis">📊</a>
+                        
+                        <div class="intel-dropdown">
+                            <a href="#" class="icon-link logs intel-dropdown-trigger" title="Neural Analysis" onclick="return false;">📊</a>
+                            <div class="intel-dropdown-menu">
+                                <a class="intel-dropdown-item h2h" href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}&tab=h2h" target="_blank">⚔️ CLASH TELEMETRY (H2H)</a>
+                                <a class="intel-dropdown-item venue" href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}&tab=venue" target="_blank">🏟️ VENUE MATRIX (STADIUM)</a>
+                                <a class="intel-dropdown-item logs" href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}&tab=all" target="_blank">📈 CHRONO MATCH LOGS</a>
+                            </div>
+                        </div>
                     </div>
                 `;
 
@@ -2551,6 +2661,24 @@
             const modal = document.getElementById('aiPredictionModal');
             modal.classList.remove('active');
         }
+
+        // Toggle dropdown on tap/click for mobile touch screens
+        document.addEventListener('click', function(e) {
+            const trigger = e.target.closest('.intel-dropdown-trigger');
+            if (trigger) {
+                const dropdown = trigger.closest('.intel-dropdown');
+                dropdown.classList.toggle('active');
+                document.querySelectorAll('.intel-dropdown').forEach(d => {
+                    if (d !== dropdown) d.classList.remove('active');
+                });
+                e.preventDefault();
+                e.stopPropagation();
+            } else {
+                document.querySelectorAll('.intel-dropdown').forEach(d => {
+                    d.classList.remove('active');
+                });
+            }
+        });
     </script>
 </body>
 </html>

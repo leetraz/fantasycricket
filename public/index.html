@@ -1451,6 +1451,7 @@
             const opponent = matchData.teams.find(t => t !== teamName);
             const opponentInfo = matchData.teamsInfo ? matchData.teamsInfo.find(t => t.name !== teamName) : null;
             const opponentId = opponentInfo ? opponentInfo.id : "";
+            const groundName = matchData.groundName || "Eden Gardens";
 
             // Loop in the normal, chronological squad order (first player to last player)
             // By utilizing a simulated link click (a.click()) instead of window.open(), Chrome and Firefox
@@ -1461,7 +1462,7 @@
                 if (type === 'profile') {
                     url = `https://www.espncricinfo.com/cricketers/${p.name.toLowerCase().replace(/ /g, '-')}-${p.player_id}/matches`;
                 } else {
-                    url = `player.html?pid=${p.player_id}&objectId=${p.object_id}&name=${encodeURIComponent(p.name)}&role=${encodeURIComponent(p.role)}&opponent=${encodeURIComponent(opponent)}`;
+                    url = `player.html?pid=${p.player_id}&objectId=${p.object_id}&name=${encodeURIComponent(p.name)}&role=${encodeURIComponent(p.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}`;
                 }
 
                 setTimeout(() => {

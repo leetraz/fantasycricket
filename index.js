@@ -117,6 +117,18 @@ function parsePlayingXi(data) {
     const players = [];
     const seen = new Set();
 
+    // Determine if starting XI has been announced by checking if any player is explicitly marked as playing
+    let xiAnnounced = false;
+    teamPlayers.forEach(t => {
+        const playerList = t.player || t.players || t.squad || t.squadPlayers || [];
+        playerList.forEach(p => {
+            const node = p.player || p;
+            if (p.playingXI || p.isPlay || node.isPlay || p.isPlaying || node.isPlaying) {
+                xiAnnounced = true;
+            }
+        });
+    });
+
     teamPlayers.forEach(t => {
         const teamName = t.team?.abbreviation || t.team?.name || t.team_short_name || t.team_abbreviation || "Team";
         const playerList = t.player || t.players || t.squad || t.squadPlayers || [];
@@ -130,9 +142,11 @@ function parsePlayingXi(data) {
             const isPlayingXI = p.playingXI || p.isPlay || node.isPlay || p.isPlaying || node.isPlaying || false;
             const isSub = p.isSub || p.substitute || node.isSub || p.role === 'substitute' || false;
             
-            // If the player is not playing and is also not an active substitute, they are pure bench.
-            const isPureBench = p.isBench || node.isBench || (!isPlayingXI && !isSub);
-            if (isPureBench) return;
+            // Only filter out pure bench players if the starting XI has been announced
+            if (xiAnnounced) {
+                const isPureBench = p.isBench || node.isBench || (!isPlayingXI && !isSub);
+                if (isPureBench) return;
+            }
 
             players.push({
                 name: node.longName || node.name || node.fullName || "Unknown",
@@ -233,8 +247,9 @@ app.get('/api/match-data', async (req, res) => {
         }));
 
         const matchInfo = data.matchInfo || data.content?.matchInfo || {};
-        const statusText = data.matchData?.statusText || matchInfo.statusText || data.statusText || "";
-        const groundName = data.matchData?.ground?.name || matchInfo.ground?.name || data.groundName || "";
+        const matchDetail = data.match || data.matchDetail || {};
+        const statusText = matchDetail.statusText || data.matchData?.statusText || matchInfo.statusText || data.statusText || "";
+        const groundName = matchDetail.ground?.name || data.matchData?.ground?.name || matchInfo.ground?.name || data.groundName || "";
 
         res.json({
             allPlayers: players,

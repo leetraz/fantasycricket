@@ -637,6 +637,8 @@
             }
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 </head>
 <body>
     <div class="cyber-grid"></div>
@@ -669,8 +671,14 @@
                         <button id="btn-venue" class="toggle-btn" onclick="switchTab('venue')">🏟️ STADIUM MATCHES</button>
                         <button id="btn-all" class="toggle-btn" onclick="switchTab('all')">📊 ALL MATCH LOGS</button>
                     </div>
-                    <div id="stadium-badge" style="font-family: 'Space Grotesk'; font-size: 0.75rem; font-weight: 700; color: var(--neon-blue); border: 1px dashed var(--neon-blue); padding: 0.3rem 0.6rem; border-radius: 4px; text-transform: uppercase; text-shadow: 0 0 5px rgba(0, 242, 255, 0.4);">
-                        STADIUM: EDEN GARDENS
+                    <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+                        <div class="view-toggle" style="display: inline-flex; border: 1px solid var(--glass-border); border-radius: 0.5rem; padding: 0.2rem; background: rgba(0, 0, 0, 0.25); gap: 0.25rem;">
+                            <button id="btnViewTable" class="toggle-btn" onclick="switchRepresentation('table')" style="font-size: 0.7rem; font-weight: 700; padding: 0.35rem 0.8rem; border-radius: 0.35rem; border: none; cursor: pointer; transition: all 0.2s; background: transparent; color: rgba(255,255,255,0.6);">📊 Table</button>
+                            <button id="btnViewGraph" class="toggle-btn active" onclick="switchRepresentation('graph')" style="font-size: 0.7rem; font-weight: 700; padding: 0.35rem 0.8rem; border-radius: 0.35rem; border: none; cursor: pointer; transition: all 0.2s; background: rgba(157, 0, 255, 0.2); color: #fff;">📈 Graph View</button>
+                        </div>
+                        <div id="stadium-badge" style="font-family: 'Space Grotesk'; font-size: 0.75rem; font-weight: 700; color: var(--neon-blue); border: 1px dashed var(--neon-blue); padding: 0.3rem 0.6rem; border-radius: 4px; text-transform: uppercase; text-shadow: 0 0 5px rgba(0, 242, 255, 0.4);">
+                            STADIUM: EDEN GARDENS
+                        </div>
                     </div>
                 </div>
             </div>
@@ -684,6 +692,22 @@
                                     <!-- Dynamic rows are rendered here -->
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Graphical Data Visualizer Panel -->
+                <div id="chart-view" class="tab-content" style="display: none; width: 100%; height: 100%; min-height: 0; flex-grow: 1; flex-direction: column; overflow: hidden;">
+                    <div class="module m-12" style="flex-grow: 1; min-height: 0; display: flex; flex-direction: column; padding: 1.5rem; border-color: var(--neon-purple); background: rgba(17, 18, 29, 0.75);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.75rem;">
+                            <div style="font-family: 'Space Grotesk'; font-size: 1.1rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px;">Chronological Neural Telemetry</div>
+                            <div class="view-toggle" style="display: inline-flex; border: 1px solid var(--glass-border); border-radius: 0.5rem; padding: 0.2rem; background: rgba(0, 0, 0, 0.25); gap: 0.25rem;">
+                                <button id="btnPlayerLine" class="toggle-btn active" onclick="switchPlayerChartType('line')" style="font-size: 0.7rem; font-weight: 700; padding: 0.35rem 0.8rem; border-radius: 0.35rem; border: none; cursor: pointer; background: rgba(157, 0, 255, 0.2); color: #fff; transition: all 0.2s;">Line</button>
+                                <button id="btnPlayerBar" class="toggle-btn" onclick="switchPlayerChartType('bar')" style="font-size: 0.7rem; font-weight: 700; padding: 0.35rem 0.8rem; border-radius: 0.35rem; border: none; cursor: pointer; background: transparent; color: rgba(255,255,255,0.6); transition: all 0.2s;">Bar</button>
+                            </div>
+                        </div>
+                        <div class="chart-container" style="position: relative; height: 350px; width: 100%; flex-grow: 1; min-height: 0;">
+                            <canvas id="playerTrendsChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -749,6 +773,60 @@
             return name;
         };
 
+        let playerChartInstance = null;
+        let currentPlayerChartType = 'line';
+        let currentRepresentation = 'graph'; // Default to Graph View to wow the user immediately!
+
+        function switchPlayerChartType(type) {
+            if (currentPlayerChartType === type) return;
+            currentPlayerChartType = type;
+            document.getElementById('btnPlayerLine').classList.toggle('active', type === 'line');
+            document.getElementById('btnPlayerBar').classList.toggle('active', type === 'bar');
+            
+            // Toggle styles
+            const lineBtn = document.getElementById('btnPlayerLine');
+            const barBtn = document.getElementById('btnPlayerBar');
+            if (type === 'line') {
+                lineBtn.style.background = 'rgba(157, 0, 255, 0.2)';
+                lineBtn.style.color = '#fff';
+                barBtn.style.background = 'transparent';
+                barBtn.style.color = 'rgba(255,255,255,0.6)';
+            } else {
+                barBtn.style.background = 'rgba(157, 0, 255, 0.2)';
+                barBtn.style.color = '#fff';
+                lineBtn.style.background = 'transparent';
+                lineBtn.style.color = 'rgba(255,255,255,0.6)';
+            }
+            const data = window.playerData;
+            if (data && window.currentContextMatches) {
+                renderPlayerTrendsChart(window.currentContextMatches);
+            }
+        }
+
+        function switchRepresentation(type) {
+            if (currentRepresentation === type) return;
+            currentRepresentation = type;
+
+            const tblBtn = document.getElementById('btnViewTable');
+            const grpBtn = document.getElementById('btnViewGraph');
+            if (type === 'table') {
+                tblBtn.classList.add('active');
+                tblBtn.style.background = 'rgba(157, 0, 255, 0.2)';
+                tblBtn.style.color = '#fff';
+                grpBtn.classList.remove('active');
+                grpBtn.style.background = 'transparent';
+                grpBtn.style.color = 'rgba(255,255,255,0.6)';
+            } else {
+                grpBtn.classList.add('active');
+                grpBtn.style.background = 'rgba(157, 0, 255, 0.2)';
+                grpBtn.style.color = '#fff';
+                tblBtn.classList.remove('active');
+                tblBtn.style.background = 'transparent';
+                tblBtn.style.color = 'rgba(255,255,255,0.6)';
+            }
+            switchTab(currentActiveTab);
+        }
+
         function switchTab(tabType) {
             currentActiveTab = tabType;
             
@@ -801,7 +879,169 @@
                 matches = matchesList;
             }
 
-            renderMatchList(matches, tabType);
+            // Save currently selected context matches
+            window.currentContextMatches = matches;
+
+            if (currentRepresentation === 'graph') {
+                document.getElementById('table-view').style.display = 'none';
+                document.getElementById('chart-view').style.display = 'flex';
+                renderPlayerTrendsChart(matches);
+            } else {
+                document.getElementById('table-view').style.display = 'flex';
+                document.getElementById('chart-view').style.display = 'none';
+                renderMatchList(matches, tabType);
+            }
+        }
+
+        function renderPlayerTrendsChart(matches) {
+            const data = window.playerData;
+            if (!data) return;
+
+            const bowlingList = data.bowlingLog || [];
+
+            // Combine batting & bowling chronologically (oldest first for line trend)
+            const chartData = [];
+            const matchesReversed = [...matches].reverse();
+
+            matchesReversed.forEach((m, idx) => {
+                const rRaw = (m.bat || '0').toString().replace('*', '');
+                const runs = parseInt(rRaw) || 0;
+                
+                const oppClean = (m.opp || "").toLowerCase().replace(/^v\s+/, '').trim();
+                const bowlEntry = bowlingList.find(b => (b.opp || "").toLowerCase().includes(oppClean)) || {};
+                const wkts = parseInt(bowlEntry.wkts || bowlEntry.bowl || '0') || 0;
+
+                chartData.push({
+                    opp: m.opp || `Match ${idx + 1}`,
+                    runs: runs,
+                    wkts: wkts
+                });
+            });
+
+            const ctx = document.getElementById('playerTrendsChart').getContext('2d');
+            if (playerChartInstance) playerChartInstance.destroy();
+
+            const labels = chartData.map(d => d.opp);
+            const runData = chartData.map(d => d.runs);
+            const wktData = chartData.map(d => d.wkts);
+
+            const runsGradient = ctx.createLinearGradient(0, 0, 0, 300);
+            runsGradient.addColorStop(0, 'rgba(0, 242, 255, 0.45)');
+            runsGradient.addColorStop(1, 'rgba(0, 242, 255, 0.01)');
+
+            const wktsGradient = ctx.createLinearGradient(0, 0, 0, 300);
+            wktsGradient.addColorStop(0, 'rgba(255, 0, 85, 0.45)');
+            wktsGradient.addColorStop(1, 'rgba(255, 0, 85, 0.01)');
+
+            playerChartInstance = new Chart(ctx, {
+                type: currentPlayerChartType,
+                plugins: [ChartDataLabels],
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Runs Scored',
+                            data: runData,
+                            backgroundColor: currentPlayerChartType === 'bar' ? 'rgba(0, 242, 255, 0.4)' : runsGradient,
+                            borderColor: '#00f2ff',
+                            borderWidth: 2.5,
+                            fill: true,
+                            tension: 0.3,
+                            yAxisID: 'yRuns',
+                            datalabels: {
+                                color: '#00f2ff',
+                                anchor: 'end',
+                                align: 'top',
+                                font: { weight: 'bold', size: 10, family: 'Space Grotesk' },
+                                offset: 4,
+                                formatter: function(val) {
+                                    return val > 0 ? val : '';
+                                }
+                            }
+                        },
+                        {
+                            label: 'Wickets Taken',
+                            data: wktData,
+                            backgroundColor: currentPlayerChartType === 'bar' ? 'rgba(255, 0, 85, 0.4)' : wktsGradient,
+                            borderColor: '#ff0055',
+                            borderWidth: 2.5,
+                            fill: true,
+                            tension: 0.3,
+                            yAxisID: 'yWkts',
+                            datalabels: {
+                                color: '#ff0055',
+                                anchor: 'end',
+                                align: 'top',
+                                font: { weight: 'bold', size: 10, family: 'Space Grotesk' },
+                                offset: 4,
+                                formatter: function(val) {
+                                    return val > 0 ? val + 'W' : '';
+                                }
+                            }
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: { display: false },
+                            ticks: {
+                                color: 'rgba(255,255,255,0.7)',
+                                font: { family: 'Space Grotesk', size: 9 }
+                            }
+                        },
+                        yRuns: {
+                            type: 'linear',
+                            position: 'left',
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Runs',
+                                color: '#00f2ff',
+                                font: { family: 'Space Grotesk', weight: 'bold' }
+                            },
+                            grid: { color: 'rgba(255,255,255,0.06)' },
+                            ticks: { color: 'rgba(255,255,255,0.7)' }
+                        },
+                        yWkts: {
+                            type: 'linear',
+                            position: 'right',
+                            beginAtZero: true,
+                            suggestedMax: 5,
+                            title: {
+                                display: true,
+                                text: 'Wickets',
+                                color: '#ff0055',
+                                font: { family: 'Space Grotesk', weight: 'bold' }
+                            },
+                            grid: { drawOnChartArea: false },
+                            ticks: {
+                                color: 'rgba(255,255,255,0.7)',
+                                stepSize: 1
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#fff',
+                                font: { family: 'Space Grotesk' }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(8, 10, 18, 0.98)',
+                            titleColor: '#fff',
+                            titleFont: { family: 'Space Grotesk', size: 12, weight: '700' },
+                            bodyFont: { family: 'Space Grotesk', size: 11 },
+                            borderColor: '#bc13fe',
+                            borderWidth: 1,
+                            padding: 10
+                        }
+                    }
+                }
+            });
         }
 
         function renderMatchList(matches, tabType) {

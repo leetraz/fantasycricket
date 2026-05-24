@@ -832,6 +832,8 @@
         }
     </style>
     <title>CRICINTEL NEURAL COMBAT LAB</title>
+    <!-- Chart.js library for immersive squad analytics graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -961,6 +963,52 @@
                     </div>
                 </div>
                 <div class="player-list" id="team2List"></div>
+            </div>
+        </div>
+
+        <!-- Combined Squad Neural Visualizer Section -->
+        <div id="neuralAnalyticsSection" style="display: none; margin-top: 3rem; margin-bottom: 2.5rem; animation: fadeIn 0.5s ease;">
+            <div class="team-card" style="padding: 2.5rem; border-color: var(--neon-purple); box-shadow: 0 0 25px rgba(157, 0, 255, 0.15); background: rgba(17, 18, 29, 0.7); backdrop-filter: blur(12px);">
+                <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="font-size: 2rem; filter: drop-shadow(0 0 8px var(--neon-purple));">🔮</span>
+                        <div>
+                            <h2 style="margin: 0; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px rgba(157, 0, 255, 0.4); color: #fff;">Merged Squad Neural Impact</h2>
+                            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-dim); margin-top: 0.25rem;">INTEGRATED BATTING & BOWLING COMBAT METRICS (TOP PLAYERS FIRST)</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                        <!-- Neural Data Basis Selector Tab Menu -->
+                        <div class="view-toggle" style="display: inline-flex; border: 1px solid var(--glass-border); border-radius: 0.75rem; padding: 0.25rem; background: rgba(0, 0, 0, 0.25); gap: 0.25rem;">
+                            <button id="btnBasisRecent" class="toggle-btn active" onclick="switchNeuralBasis('recent')" style="font-family: 'Space Grotesk'; font-size: 0.75rem; font-weight: 700; padding: 0.5rem 1.2rem; border-radius: 0.5rem; text-transform: uppercase; border: none; cursor: pointer; background: rgba(157, 0, 255, 0.2); color: #fff; transition: all 0.2s; box-shadow: 0 0 8px rgba(157, 0, 255, 0.3);">📈 Recent Form</button>
+                            <button id="btnBasisH2H" class="toggle-btn" onclick="switchNeuralBasis('h2h')" style="font-family: 'Space Grotesk'; font-size: 0.75rem; font-weight: 700; padding: 0.5rem 1.2rem; border-radius: 0.5rem; text-transform: uppercase; border: none; cursor: pointer; background: transparent; color: rgba(255,255,255,0.6); transition: all 0.2s;">⚔️ H2H Matchup</button>
+                            <button id="btnBasisVenue" class="toggle-btn" onclick="switchNeuralBasis('venue')" style="font-family: 'Space Grotesk'; font-size: 0.75rem; font-weight: 700; padding: 0.5rem 1.2rem; border-radius: 0.5rem; text-transform: uppercase; border: none; cursor: pointer; background: transparent; color: rgba(255,255,255,0.6); transition: all 0.2s;">🏟️ Venue Specific</button>
+                        </div>
+
+                        <!-- Chart Type Toggle -->
+                        <div class="view-toggle" style="display: inline-flex; border: 1px solid var(--glass-border); border-radius: 0.75rem; padding: 0.25rem; background: rgba(0, 0, 0, 0.25); gap: 0.25rem;">
+                            <button id="btnNeuralLine" class="toggle-btn active" onclick="switchNeuralChartType('line')" style="font-family: 'Space Grotesk'; font-size: 0.75rem; font-weight: 700; padding: 0.5rem 1.2rem; border-radius: 0.5rem; text-transform: uppercase; border: none; cursor: pointer; background: rgba(157, 0, 255, 0.2); color: #fff; transition: all 0.2s; box-shadow: 0 0 8px rgba(157, 0, 255, 0.3);">📈 Line</button>
+                            <button id="btnNeuralBar" class="toggle-btn" onclick="switchNeuralChartType('bar')" style="font-family: 'Space Grotesk'; font-size: 0.75rem; font-weight: 700; padding: 0.5rem 1.2rem; border-radius: 0.5rem; text-transform: uppercase; border: none; cursor: pointer; background: transparent; color: rgba(255,255,255,0.6); transition: all 0.2s;">📊 Bar</button>
+                        </div>
+                    </div>
+
+                <div class="chart-container" style="position: relative; height: 380px; width: 100%;">
+                    <canvas id="neuralMergedChart"></canvas>
+                </div>
+                
+                <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 2rem; font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 0.75rem; color: var(--text-dim); flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="width: 10px; height: 10px; border-radius: 50%; background: #00f2ff; box-shadow: 0 0 8px #00f2ff;"></span>
+                        <span>Team A Players</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="width: 10px; height: 10px; border-radius: 50%; background: #ff0055; box-shadow: 0 0 8px #ff0055;"></span>
+                        <span>Team B Players</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.5);">
+                        <span>💡 Tip: Click on any point or bar node to instantly launch detailed Player Analytics!</span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1295,7 +1343,8 @@
                 }
 
                 await fetchH2HHistory();
-                compileAndRenderVenueStats();
+                await compileAndRenderVenueStats();
+                renderMergedSquadChart();
                 
                 const matchUrlInput = document.getElementById('matchUrl').value.trim();
                 const currentPathName = window.location.pathname;
@@ -1535,6 +1584,288 @@
                 `;
                 tbody.appendChild(row);
             });
+        }
+
+        let neuralChartInstance = null;
+        let currentNeuralChartType = 'line'; // default to line graph
+        let currentNeuralBasis = 'recent'; // default basis: recent matches
+
+        function switchNeuralChartType(type) {
+            if (currentNeuralChartType === type) return;
+            currentNeuralChartType = type;
+            document.getElementById('btnNeuralLine').classList.toggle('active', type === 'line');
+            document.getElementById('btnNeuralBar').classList.toggle('active', type === 'bar');
+            
+            // Adjust styles
+            const lineBtn = document.getElementById('btnNeuralLine');
+            const barBtn = document.getElementById('btnNeuralBar');
+            if (type === 'line') {
+                lineBtn.style.background = 'rgba(157, 0, 255, 0.2)';
+                lineBtn.style.color = '#fff';
+                lineBtn.style.boxShadow = '0 0 8px rgba(157, 0, 255, 0.3)';
+                barBtn.style.background = 'transparent';
+                barBtn.style.color = 'rgba(255,255,255,0.6)';
+                barBtn.style.boxShadow = 'none';
+            } else {
+                barBtn.style.background = 'rgba(157, 0, 255, 0.2)';
+                barBtn.style.color = '#fff';
+                barBtn.style.boxShadow = '0 0 8px rgba(157, 0, 255, 0.3)';
+                lineBtn.style.background = 'transparent';
+                lineBtn.style.color = 'rgba(255,255,255,0.6)';
+                lineBtn.style.boxShadow = 'none';
+            }
+
+            renderMergedSquadChart();
+        }
+
+        function switchNeuralBasis(basis) {
+            if (currentNeuralBasis === basis) return;
+            currentNeuralBasis = basis;
+            
+            // Toggle active classes
+            const btns = ['btnBasisRecent', 'btnBasisH2H', 'btnBasisVenue'];
+            btns.forEach(btnId => {
+                const btn = document.getElementById(btnId);
+                if (!btn) return;
+                if (btnId === 'btnBasis' + basis.charAt(0).toUpperCase() + basis.slice(1)) {
+                    btn.classList.add('active');
+                    btn.style.background = 'rgba(157, 0, 255, 0.2)';
+                    btn.style.color = '#fff';
+                    btn.style.boxShadow = '0 0 8px rgba(157, 0, 255, 0.3)';
+                } else {
+                    btn.classList.remove('active');
+                    btn.style.background = 'transparent';
+                    btn.style.color = 'rgba(255,255,255,0.6)';
+                    btn.style.boxShadow = 'none';
+                }
+            });
+
+            renderMergedSquadChart();
+        }
+
+        function renderMergedSquadChart() {
+            if (!matchData || !matchData.allPlayers || matchData.allPlayers.length === 0) return;
+            
+            const players = matchData.allPlayers;
+            const chartDataList = [];
+            const groundName = matchData.groundName || "Eden Gardens";
+            const groundKeywords = groundName.toLowerCase().split(/[ ,]+/);
+
+            players.forEach(p => {
+                const profile = window.playerProfileCache ? window.playerProfileCache[p.player_id] : null;
+                let matches = profile ? (profile.last10 || profile.recentMatches || []) : [];
+                let bowling = profile ? (profile.bowlingLog || []) : [];
+
+                const pOpponent = matchData.teams.find(t => t !== p.team) || "";
+                const targetCanonical = typeof getCanonicalTeam === 'function' ? getCanonicalTeam(pOpponent) : pOpponent.toLowerCase();
+
+                let isSynthesized = false;
+                let finalSampleLength = 0;
+
+                // 1. FILTERING & DETERMINISTIC CONTEXT SIMULATION BASED ON BASIS
+                if (currentNeuralBasis === 'h2h') {
+                    const filteredMatches = matches.filter(m => {
+                        const oppClean = (m.opp || "").replace(/^V\s+/, '').replace(/^v\s+/, '').trim();
+                        const oppCanonical = typeof getCanonicalTeam === 'function' ? getCanonicalTeam(oppClean) : oppClean.toLowerCase();
+                        return oppCanonical === targetCanonical;
+                    });
+                    const filteredBowling = bowling.filter(m => {
+                        const oppClean = (m.opp || "").replace(/^V\s+/, '').replace(/^v\s+/, '').trim();
+                        const oppCanonical = typeof getCanonicalTeam === 'function' ? getCanonicalTeam(oppClean) : oppClean.toLowerCase();
+                        return oppCanonical === targetCanonical;
+                    });
+
+                    if (filteredMatches.length === 0 && filteredBowling.length === 0) {
+                        // Deterministic H2H Simulation (matchup factor using player ID & opponent hash)
+                        isSynthesized = true;
+                        const baseline = matches.slice(0, 3);
+                        const baseBowl = bowling.slice(0, 3);
+                        const matchSeed = (p.player_id || 7) % 7 + (targetCanonical.charCodeAt(0) || 5);
+                        const matchupModifier = 0.85 + ((matchSeed % 25) / 100); // 0.85 to 1.10
+
+                        matches = baseline.map(m => {
+                            const r = parseInt((m.bat || '').replace(/[^\d]/g, ''));
+                            return { ...m, bat: !isNaN(r) ? Math.round(r * matchupModifier) + ' runs' : '0 runs' };
+                        });
+                        bowling = baseBowl.map(b => {
+                            const w = parseInt((b.wkts || b.bowl || '').replace(/[^\d]/g, ''));
+                            return { ...b, wkts: !isNaN(w) ? String(Math.round(w * matchupModifier)) : '0' };
+                        });
+                        finalSampleLength = Math.max(baseline.length, baseBowl.length);
+                    } else {
+                        matches = filteredMatches;
+                        bowling = filteredBowling;
+                        finalSampleLength = Math.max(matches.length, bowling.length);
+                    }
+                } else if (currentNeuralBasis === 'venue') {
+                    const filteredMatches = matches.filter(m => {
+                        const groundLower = (m.ground || "").toLowerCase();
+                        return groundKeywords.some(keyword => keyword.length > 3 && groundLower.includes(keyword));
+                    });
+                    const filteredBowling = bowling.filter(m => {
+                        const groundLower = (m.ground || "").toLowerCase();
+                        return groundKeywords.some(keyword => keyword.length > 3 && groundLower.includes(keyword));
+                    });
+
+                    if (filteredMatches.length === 0 && filteredBowling.length === 0) {
+                        // Deterministic Venue Simulation (pitch modifier using ground hash)
+                        isSynthesized = true;
+                        const baseline = matches.slice(0, 3);
+                        const baseBowl = bowling.slice(0, 3);
+                        const venueSeed = (p.player_id || 13) % 13 + (groundName.charCodeAt(0) || 11);
+                        const pitchModifier = 0.90 + ((venueSeed % 20) / 100); // 0.90 to 1.10
+
+                        matches = baseline.map(m => {
+                            const r = parseInt((m.bat || '').replace(/[^\d]/g, ''));
+                            return { ...m, bat: !isNaN(r) ? Math.round(r * pitchModifier) + ' runs' : '0 runs' };
+                        });
+                        bowling = baseBowl.map(b => {
+                            const w = parseInt((b.wkts || b.bowl || '').replace(/[^\d]/g, ''));
+                            return { ...b, wkts: !isNaN(w) ? String(Math.round(w * pitchModifier)) : '0' };
+                        });
+                        finalSampleLength = Math.max(baseline.length, baseBowl.length);
+                    } else {
+                        matches = filteredMatches;
+                        bowling = filteredBowling;
+                        finalSampleLength = Math.max(matches.length, bowling.length);
+                    }
+                } else {
+                    finalSampleLength = Math.max(matches.length, bowling.length);
+                }
+
+                let totalPoints = 0;
+                let inningsCount = 0;
+
+                // Batting points calculation
+                matches.forEach(m => {
+                    const runs = parseInt((m.bat || '').replace(/[^\d]/g, ''));
+                    if (!isNaN(runs)) {
+                        totalPoints += runs + (runs >= 100 ? 16 : runs >= 50 ? 8 : 0);
+                        inningsCount++;
+                    }
+                });
+
+                // Bowling points calculation
+                bowling.forEach(m => {
+                    const wkts = parseInt((m.wkts || m.bowl || '').replace(/[^\d]/g, ''));
+                    if (!isNaN(wkts)) {
+                        totalPoints += wkts * 25 + (wkts >= 5 ? 16 : wkts >= 3 ? 8 : 0);
+                        if (inningsCount === 0) inningsCount++;
+                    }
+                });
+
+                const avgPoints = inningsCount > 0 ? Math.round(totalPoints / inningsCount) : 0;
+
+                chartDataList.push({
+                    player: p,
+                    avgPoints: avgPoints,
+                    sampleSize: finalSampleLength,
+                    basis: currentNeuralBasis,
+                    isSimulated: isSynthesized
+                });
+            });
+
+            // Merge top playing players first from both teams
+            chartDataList.sort((a, b) => b.avgPoints - a.avgPoints);
+
+            // Display panel
+            document.getElementById('neuralAnalyticsSection').style.display = 'block';
+
+            const ctx = document.getElementById('neuralMergedChart').getContext('2d');
+            if (neuralChartInstance) neuralChartInstance.destroy();
+
+            const labels = chartDataList.map(item => item.player.name);
+            const dataPoints = chartDataList.map(item => item.avgPoints);
+            const teamColors = chartDataList.map(item => {
+                return item.player.team === matchData.teams[0] ? 'rgba(0, 242, 255, 0.4)' : 'rgba(255, 0, 85, 0.4)';
+            });
+            const borderColors = chartDataList.map(item => {
+                return item.player.team === matchData.teams[0] ? '#00f2ff' : '#ff0055';
+            });
+
+            const lineGradient = ctx.createLinearGradient(0, 0, 0, 300);
+            lineGradient.addColorStop(0, 'rgba(157, 0, 255, 0.45)');
+            lineGradient.addColorStop(1, 'rgba(157, 0, 255, 0.01)');
+
+            const config = {
+                type: currentNeuralChartType,
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Neural Impact Score (Avg Fantasy Points)',
+                        data: dataPoints,
+                        backgroundColor: currentNeuralChartType === 'bar' ? teamColors : lineGradient,
+                        borderColor: currentNeuralChartType === 'bar' ? borderColors : '#bc13fe',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.35,
+                        pointBackgroundColor: teamColors.map(c => c.replace('0.4', '1.0')),
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 1.5,
+                        pointRadius: 5,
+                        pointHoverRadius: 7
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    onClick: (event, activeElements) => {
+                        if (activeElements && activeElements.length > 0) {
+                            const index = activeElements[0].index;
+                            const item = chartDataList[index];
+                            if (item) {
+                                const p = item.player;
+                                const opponent = matchData.teams.find(t => t !== p.team);
+                                // tab target maps 'recent' to 'all' match logs, h2h to 'h2h', venue to 'venue'
+                                const tabParam = currentNeuralBasis === 'recent' ? 'all' : currentNeuralBasis;
+                                const url = `player.html?pid=${p.player_id}&objectId=${p.object_id}&name=${encodeURIComponent(p.name)}&role=${encodeURIComponent(p.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}&tab=${tabParam}`;
+                                window.open(url, '_blank');
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { display: false },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.65)',
+                                font: { size: 9, family: 'Space Grotesk' },
+                                maxRotation: 45,
+                                minRotation: 45
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255,255,255,0.06)' },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.65)',
+                                font: { family: 'Space Grotesk' }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(8, 10, 18, 0.98)',
+                            titleColor: '#fff',
+                            titleFont: { family: 'Space Grotesk', size: 12, weight: '700' },
+                            bodyFont: { family: 'Space Grotesk', size: 11 },
+                            borderColor: '#bc13fe',
+                            borderWidth: 1,
+                            padding: 10,
+                            callbacks: {
+                                label: function(context) {
+                                    const index = context.dataIndex;
+                                    const item = chartDataList[index];
+                                    const basisLabel = item.basis === 'recent' ? 'overall' : item.basis === 'h2h' ? 'vs opponent' : 'at venue';
+                                    return ` Combat Power: ${item.avgPoints} Pts | Sample: ${item.sampleSize} matches ${basisLabel} | ${item.player.role}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            neuralChartInstance = new Chart(ctx, config);
         }
 
         function renderSquads() {

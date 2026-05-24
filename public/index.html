@@ -1734,32 +1734,23 @@
                     finalSampleLength = Math.max(matches.length, bowling.length);
                 }
 
-                let totalPoints = 0;
+                let totalRuns = 0;
                 let inningsCount = 0;
 
-                // Batting points calculation
+                // Batting runs calculation
                 matches.forEach(m => {
                     const runs = parseInt((m.bat || '').replace(/[^\d]/g, ''));
                     if (!isNaN(runs)) {
-                        totalPoints += runs + (runs >= 100 ? 16 : runs >= 50 ? 8 : 0);
+                        totalRuns += runs;
                         inningsCount++;
                     }
                 });
 
-                // Bowling points calculation
-                bowling.forEach(m => {
-                    const wkts = parseInt((m.wkts || m.bowl || '').replace(/[^\d]/g, ''));
-                    if (!isNaN(wkts)) {
-                        totalPoints += wkts * 25 + (wkts >= 5 ? 16 : wkts >= 3 ? 8 : 0);
-                        if (inningsCount === 0) inningsCount++;
-                    }
-                });
-
-                const avgPoints = inningsCount > 0 ? Math.round(totalPoints / inningsCount) : 0;
+                const avgRuns = inningsCount > 0 ? Math.round(totalRuns / inningsCount) : 0;
 
                 chartDataList.push({
                     player: p,
-                    avgPoints: avgPoints,
+                    avgPoints: avgRuns, // Map to avgPoints property so we don't need to rename sorting/data references
                     sampleSize: finalSampleLength,
                     basis: currentNeuralBasis,
                     isSimulated: isSynthesized
@@ -1793,7 +1784,7 @@
                 data: {
                     labels: labels,
                     datasets: [{
-                        label: 'Neural Impact Score (Avg Fantasy Points)',
+                        label: 'Neural Impact Score (Avg Runs Scored)',
                         data: dataPoints,
                         backgroundColor: currentNeuralChartType === 'bar' ? teamColors : lineGradient,
                         borderColor: currentNeuralChartType === 'bar' ? borderColors : '#bc13fe',

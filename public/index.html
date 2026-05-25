@@ -830,6 +830,19 @@
             50% { box-shadow: 0 0 16px rgba(255, 0, 85, 0.5); opacity: 1; }
             100% { box-shadow: 0 0 8px rgba(255, 0, 85, 0.2); opacity: 0.9; }
         }
+
+        .aspect-tab-btn {
+            border-color: rgba(255, 255, 255, 0.05) !important;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+
+        .aspect-tab-btn:hover {
+            background: rgba(157, 0, 255, 0.15) !important;
+            border-color: var(--neon-purple) !important;
+            box-shadow: 0 0 12px rgba(157, 0, 255, 0.4);
+            text-shadow: 0 0 5px #fff;
+            transform: translateY(-1px);
+        }
     </style>
     <title>CRICINTEL NEURAL COMBAT LAB</title>
     <!-- Chart.js library for immersive squad analytics graphs -->
@@ -933,6 +946,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="team-aspect-tabs" style="display: flex; gap: 0.4rem; padding: 0.25rem; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); border-radius: 0.75rem; margin: 0.75rem 1rem 0.25rem 1rem;">
+                    <button class="aspect-tab-btn" onclick="openSquadRecent(0)" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.3rem; padding: 0.5rem; font-family: 'Space Grotesk'; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: #fff; background: transparent; border: 1px solid transparent; border-radius: 0.5rem; cursor: pointer; transition: all 0.2s;">
+                        📈 Recent
+                    </button>
+                    <button class="aspect-tab-btn" onclick="openSquadH2H(0)" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.3rem; padding: 0.5rem; font-family: 'Space Grotesk'; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: #fff; background: transparent; border: 1px solid transparent; border-radius: 0.5rem; cursor: pointer; transition: all 0.2s;">
+                        ⚔️ H2H
+                    </button>
+                    <button class="aspect-tab-btn" onclick="openSquadVenue(0)" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.3rem; padding: 0.5rem; font-family: 'Space Grotesk'; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: #fff; background: transparent; border: 1px solid transparent; border-radius: 0.5rem; cursor: pointer; transition: all 0.2s;">
+                        🏟️ Venue
+                    </button>
+                </div>
                 <div class="player-list" id="team1List"></div>
             </div>
 
@@ -961,6 +985,17 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="team-aspect-tabs" style="display: flex; gap: 0.4rem; padding: 0.25rem; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); border-radius: 0.75rem; margin: 0.75rem 1rem 0.25rem 1rem;">
+                    <button class="aspect-tab-btn" onclick="openSquadRecent(1)" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.3rem; padding: 0.5rem; font-family: 'Space Grotesk'; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: #fff; background: transparent; border: 1px solid transparent; border-radius: 0.5rem; cursor: pointer; transition: all 0.2s;">
+                        📈 Recent
+                    </button>
+                    <button class="aspect-tab-btn" onclick="openSquadH2H(1)" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.3rem; padding: 0.5rem; font-family: 'Space Grotesk'; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: #fff; background: transparent; border: 1px solid transparent; border-radius: 0.5rem; cursor: pointer; transition: all 0.2s;">
+                        ⚔️ H2H
+                    </button>
+                    <button class="aspect-tab-btn" onclick="openSquadVenue(1)" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.3rem; padding: 0.5rem; font-family: 'Space Grotesk'; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: #fff; background: transparent; border: 1px solid transparent; border-radius: 0.5rem; cursor: pointer; transition: all 0.2s;">
+                        🏟️ Venue
+                    </button>
                 </div>
                 <div class="player-list" id="team2List"></div>
             </div>
@@ -999,11 +1034,11 @@
                 <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 2rem; font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 0.75rem; color: var(--text-dim); flex-wrap: wrap;">
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
                         <span style="width: 10px; height: 10px; border-radius: 50%; background: #00f2ff; box-shadow: 0 0 8px #00f2ff;"></span>
-                        <span>Team A Players</span>
+                        <span id="legendTeam1">Team A Players</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
                         <span style="width: 10px; height: 10px; border-radius: 50%; background: #ff0055; box-shadow: 0 0 8px #ff0055;"></span>
-                        <span>Team B Players</span>
+                        <span id="legendTeam2">Team B Players</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.5);">
                         <span>💡 Tip: Click on any point or bar node to instantly launch detailed Player Analytics!</span>
@@ -1870,6 +1905,12 @@
             const teamNames = matchData.teams;
             t1Name.innerText = teamNames[0];
             t2Name.innerText = teamNames[1];
+
+            // Update legends to match the actual team name
+            const legend1 = document.getElementById('legendTeam1');
+            const legend2 = document.getElementById('legendTeam2');
+            if (legend1) legend1.innerText = teamNames[0] + ' Players';
+            if (legend2) legend2.innerText = teamNames[1] + ' Players';
 
             t1List.innerHTML = '';
             t2List.innerHTML = '';

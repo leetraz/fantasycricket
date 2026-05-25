@@ -897,8 +897,6 @@
             const data = window.playerData;
             if (!data) return;
 
-            const bowlingList = data.bowlingLog || [];
-
             // Combine batting & bowling chronologically (oldest first for line trend)
             const chartData = [];
             const matchesReversed = [...matches].reverse();
@@ -907,9 +905,9 @@
                 const rRaw = (m.bat || '0').toString().replace('*', '');
                 const runs = parseInt(rRaw) || 0;
                 
-                const oppClean = (m.opp || "").toLowerCase().replace(/^v\s+/, '').trim();
-                const bowlEntry = bowlingList.find(b => (b.opp || "").toLowerCase().includes(oppClean)) || {};
-                const wkts = parseInt(bowlEntry.wkts || bowlEntry.bowl || '0') || 0;
+                // Read wickets directly from the merged bowl field
+                const wRaw = (m.bowl || '0').toString();
+                const wkts = parseInt(wRaw) || 0;
 
                 chartData.push({
                     opp: m.opp || `Match ${idx + 1}`,

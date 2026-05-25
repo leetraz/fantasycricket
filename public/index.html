@@ -1890,20 +1890,26 @@
                 // Get dynamic ground name
                 const groundName = matchData.groundName || "Eden Gardens";
 
-                // H2H page URL
-                const h2hUrl = `player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}`;
+                // Helper to get URL on currently selected neural basis context
+                const getDynamicPlayerUrl = () => {
+                    const basisParam = currentNeuralBasis === 'recent' ? 'all' : currentNeuralBasis;
+                    return `player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}&tab=${basisParam}`;
+                };
 
                 const subBadge = player.isSub ? `<span style="font-family: 'Space Grotesk'; font-size: 0.65rem; font-weight: 900; background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); color: #fff; padding: 0.15rem 0.4rem; border-radius: 4px; margin-left: 0.5rem; text-shadow: 0 0 5px rgba(0, 242, 255, 0.4); text-transform: uppercase; border: 1px solid rgba(255,255,255,0.15);">SUB</span>` : '';
                 item.innerHTML = `
-                    <div class="player-info">
-                        <span class="player-name">${player.name}${subBadge}</span>
-                        <span class="player-role">${player.role}</span>
+                    <div class="player-info" style="display: flex; flex-direction: column; gap: 0.2rem; align-items: flex-start;">
+                        <div style="display: flex; align-items: center; width: 100%;">
+                            <a class="player-name-link" href="${getDynamicPlayerUrl()}" target="_blank" style="color: #fff; text-decoration: none; font-weight: 700; transition: all 0.2s; font-family: 'Space Grotesk';" onmouseover="this.style.color='var(--neon-blue)'; this.style.textShadow='0 0 8px var(--neon-blue)';" onmouseout="this.style.color='#fff'; this.style.textShadow='none';">${player.name}</a>
+                            ${subBadge}
+                        </div>
+                        <span class="player-role" style="font-size: 0.7rem; color: rgba(255,255,255,0.5);">${player.role}</span>
                     </div>
                     <div class="player-links" style="display: flex; align-items: center; gap: 0.5rem;">
                         <a href="${profileUrl}" target="_blank" class="icon-link profile" title="Cricinfo Profile">👤</a>
                         
                         <div class="intel-dropdown">
-                            <a href="#" class="icon-link logs intel-dropdown-trigger" title="Neural Analysis" onclick="return false;">📊</a>
+                            <a href="${getDynamicPlayerUrl()}" target="_blank" class="icon-link logs" title="Neural Analysis">📊</a>
                             <div class="intel-dropdown-menu">
                                 <a class="intel-dropdown-item h2h" href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}&tab=h2h" target="_blank">⚔️ CLASH TELEMETRY (H2H)</a>
                                 <a class="intel-dropdown-item venue" href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}&tab=venue" target="_blank">🏟️ VENUE MATRIX (STADIUM)</a>

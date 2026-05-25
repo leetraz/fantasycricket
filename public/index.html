@@ -1477,7 +1477,7 @@
                 if (!profile) return;
 
                 const matchesList = profile.last10 || profile.recentMatches || [];
-                const bowlingList = profile.bowlingLog || [];
+                const bowlingList = profile.last10 || profile.recentMatches || [];
                 
                 let venueBatting = matchesList.filter(m => {
                     const groundLower = (m.ground || "").toLowerCase();
@@ -1515,7 +1515,7 @@
                 let sumWkts = 0;
                 let bowlInnings = 0;
                 venueBowling.forEach(m => {
-                    const wkts = parseInt((m.wkts || '').replace(/[^\d]/g, ''));
+                    const wkts = parseInt((m.bowl || m.wkts || '').toString().replace(/[^\d]/g, ''));
                     if (!isNaN(wkts)) {
                         sumWkts += wkts;
                         bowlInnings++;
@@ -1535,7 +1535,7 @@
                 });
                 
                 venueBowling.forEach(m => {
-                    const wkts = parseInt((m.wkts || '').replace(/[^\d]/g, ''));
+                    const wkts = parseInt((m.bowl || m.wkts || '').toString().replace(/[^\d]/g, ''));
                     if (!isNaN(wkts)) {
                         totalPoints += wkts * 25 + (wkts >= 5 ? 16 : wkts >= 3 ? 8 : 0);
                         if (pointsInnings === 0) pointsInnings++;
@@ -1655,7 +1655,7 @@
             players.forEach(p => {
                 const profile = window.playerProfileCache ? window.playerProfileCache[p.player_id] : null;
                 let matches = profile ? (profile.last10 || profile.recentMatches || []) : [];
-                let bowling = profile ? (profile.bowlingLog || []) : [];
+                let bowling = profile ? (profile.last10 || profile.recentMatches || []) : [];
 
                 const pOpponent = matchData.teams.find(t => t !== p.team) || "";
                 const targetCanonical = typeof getCanonicalTeam === 'function' ? getCanonicalTeam(pOpponent) : pOpponent.toLowerCase();

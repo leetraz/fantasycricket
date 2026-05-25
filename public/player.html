@@ -916,6 +916,8 @@
                 });
             });
 
+            console.log("Trend Chart Render Data:", chartData);
+
             const ctx = document.getElementById('playerTrendsChart').getContext('2d');
             if (playerChartInstance) playerChartInstance.destroy();
 
@@ -946,6 +948,7 @@
                             fill: true,
                             tension: 0.3,
                             yAxisID: 'yRuns',
+                            y: 'yRuns',
                             datalabels: {
                                 color: '#00f2ff',
                                 anchor: 'end',
@@ -966,6 +969,7 @@
                             fill: true,
                             tension: 0.3,
                             yAxisID: 'yWkts',
+                            y: 'yWkts',
                             datalabels: {
                                 color: '#ff0055',
                                 anchor: 'end',

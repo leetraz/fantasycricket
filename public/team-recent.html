@@ -112,6 +112,29 @@
             box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
         }
 
+        .open-profiles-btn {
+            background: rgba(0, 242, 255, 0.05);
+            border: 1px solid var(--neon-blue);
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-family: var(--font-main);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.15);
+        }
+
+        .open-profiles-btn:hover {
+            background: rgba(0, 242, 255, 0.15);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
         h1 {
             font-size: 1.6rem;
             font-weight: 700;
@@ -289,8 +312,9 @@
     <div class="container">
 
         <header>
-            <div class="header-top">
+            <div class="header-top" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; width: 100%;">
                 <a href="/" class="back-btn">⚡ Back to Dashboard</a>
+                <button id="openAllProfilesBtn" class="open-profiles-btn" style="display: none;" onclick="openAllProfiles()">👤 OPEN ALL CRICINFO PROFILES</button>
             </div>
             <h1 id="squad-title">LOADING MATRIX...</h1>
             <div class="subtitle" id="squad-subtitle">Initializing general recent matches...</div>
@@ -317,6 +341,215 @@
     </div>
 
     <script>
+        // --- MACHINE LEARNING: RANDOM FOREST REGRESSOR ENGINE ---
+        class DecisionTreeRegressor {
+            constructor(maxDepth = 3) {
+                this.maxDepth = maxDepth;
+                this.tree = null;
+            }
+
+            fit(X, y) {
+                this.tree = this.buildTree(X, y, 0);
+            }
+
+            buildTree(X, y, depth) {
+                const numSamples = X.length;
+                if (numSamples === 0) return null;
+
+                if (depth >= this.maxDepth || numSamples <= 2) {
+                    return { val: y.reduce((s, val) => s + val, 0) / numSamples };
+                }
+
+                let bestFeature = -1;
+                let bestThreshold = null;
+                let bestScore = Infinity;
+                let bestLeftX = [], bestLeftY = [];
+                let bestRightX = [], bestRightY = [];
+
+                const numFeatures = X[0].length;
+                for (let f = 0; f < numFeatures; f++) {
+                    const vals = X.map(row => row[f]);
+                    vals.forEach(threshold => {
+                        const leftIdx = [];
+                        const rightIdx = [];
+                        for (let i = 0; i < numSamples; i++) {
+                            if (X[i][f] <= threshold) leftIdx.push(i);
+                            else rightIdx.push(i);
+                        }
+
+                        if (leftIdx.length === 0 || rightIdx.length === 0) return;
+
+                        const leftY = leftIdx.map(i => y[i]);
+                        const rightY = rightIdx.map(i => y[i]);
+
+                        const leftMean = leftY.reduce((s, v) => s + v, 0) / leftY.length;
+                        const rightMean = rightY.reduce((s, v) => s + v, 0) / rightY.length;
+                        const leftMSE = leftY.reduce((s, v) => s + Math.pow(v - leftMean, 2), 0);
+                        const rightMSE = rightY.reduce((s, v) => s + Math.pow(v - rightMean, 2), 0);
+                        const totalScore = leftMSE + rightMSE;
+
+                        if (totalScore < bestScore) {
+                            bestScore = totalScore;
+                            bestFeature = f;
+                            bestThreshold = threshold;
+                            bestLeftX = leftIdx.map(i => X[i]);
+                            bestLeftY = leftY;
+                            bestRightX = rightIdx.map(i => X[i]);
+                            bestRightY = rightY;
+                        }
+                    });
+                }
+
+                if (bestFeature === -1) {
+                    return { val: y.reduce((s, val) => s + val, 0) / numSamples };
+                }
+
+                return {
+                    feature: bestFeature,
+                    threshold: bestThreshold,
+                    left: this.buildTree(bestLeftX, bestLeftY, depth + 1),
+                    right: this.buildTree(bestRightX, bestRightY, depth + 1)
+                };
+            }
+
+            predictRow(node, row) {
+                if (node.val !== undefined) return node.val;
+                if (row[node.feature] <= node.threshold) {
+                    return this.predictRow(node.left, row);
+                } else {
+                    return this.predictRow(node.right, row);
+                }
+            }
+
+            predict(X) {
+                return X.map(row => this.predictRow(this.tree, row));
+            }
+        }
+
+        class RandomForestRegressor {
+            constructor(numTrees = 8, maxDepth = 3) {
+                this.numTrees = numTrees;
+                this.maxDepth = maxDepth;
+                this.trees = [];
+            }
+
+            fit(X, y) {
+                this.trees = [];
+                for (let i = 0; i < this.numTrees; i++) {
+                    const bootstrapX = [];
+                    const bootstrapY = [];
+                    for (let j = 0; j < X.length; j++) {
+                        const randIdx = Math.floor(Math.random() * X.length);
+                        bootstrapX.push(X[randIdx]);
+                        bootstrapY.push(y[randIdx]);
+                    }
+                    const tree = new DecisionTreeRegressor(this.maxDepth);
+                    tree.fit(bootstrapX, bootstrapY);
+                    this.trees.push(tree);
+                }
+            }
+
+            predict(X) {
+                const treePredictions = this.trees.map(t => t.predict(X));
+                const numSamples = X.length;
+                const averaged = [];
+                for (let i = 0; i < numSamples; i++) {
+                    let sum = 0;
+                    for (let j = 0; j < this.numTrees; j++) {
+                        sum += treePredictions[j][i];
+                    }
+                    averaged.push(sum / this.numTrees);
+                }
+                return averaged;
+            }
+        }
+
+        const predictNextScoreRandomForest = (matchesList, playerRole) => {
+            if (!matchesList || matchesList.length === 0) return 22;
+
+            // Map match points chronologically (oldest to newest)
+            const pointsList = [...matchesList].reverse().map(m => {
+                const hasBat = m.bat && m.bat !== '-' && m.bat !== 'DNB' && m.bat !== 'TDNB' && m.bat !== 'absent';
+                const hasBowl = m.bowl && m.bowl !== '-' && m.bowl !== 'DNB';
+                let pts = 0;
+                if (hasBat) {
+                    const runs = parseInt(m.bat.toString().replace('*', '')) || 0;
+                    pts += runs;
+                    if (runs >= 100) pts += 16;
+                    else if (runs >= 50) pts += 8;
+                }
+                if (hasBowl) {
+                    const wkts = parseInt(m.bowl) || 0;
+                    pts += wkts * 25;
+                    if (wkts >= 5) pts += 16;
+                    else if (wkts >= 3) pts += 8;
+                }
+                return pts;
+            });
+
+            const N = pointsList.length;
+            
+            const getRoleDefault = (r) => {
+                const roleLower = (r || '').toLowerCase();
+                if (roleLower.includes('bowl')) return 28;
+                if (roleLower.includes('allrounder') || roleLower.includes('all rounder') || roleLower.includes('all-rounder')) return 32;
+                if (roleLower.includes('keeper') || roleLower.includes('wk')) return 26;
+                return 30; // Batsman
+            };
+            const roleDefault = getRoleDefault(playerRole);
+
+            if (N < 4) {
+                const mean = N > 0 ? pointsList.reduce((s, x) => s + x, 0) / N : roleDefault;
+                return Math.round(mean);
+            }
+
+            const X = [];
+            const y = [];
+            for (let t = 3; t < N; t++) {
+                const lag1 = pointsList[t-1];
+                const lag2 = pointsList[t-2];
+                const lag3 = pointsList[t-3];
+                const meanLag = (lag1 + lag2 + lag3) / 3;
+                const trend = lag1 - lag2;
+                X.push([lag1, lag2, lag3, meanLag, trend]);
+                y.push(pointsList[t]);
+            }
+
+            const rf = new RandomForestRegressor(12, 3);
+            rf.fit(X, y);
+
+            const last1 = pointsList[N-1];
+            const last2 = pointsList[N-2];
+            const last3 = pointsList[N-3];
+            const lastMean = (last1 + last2 + last3) / 3;
+            const lastTrend = last1 - last2;
+
+            const nextFeatures = [last1, last2, last3, lastMean, lastTrend];
+            const prediction = rf.predict([nextFeatures])[0];
+
+            const playerAvg = pointsList.reduce((s, x) => s + x, 0) / N;
+            const finalPrediction = (0.75 * prediction) + (0.25 * playerAvg);
+
+            return Math.max(8, Math.min(115, Math.round(finalPrediction)));
+        };
+
+        function openAllProfiles() {
+            if (!window.loadedPlayersForBulk || window.loadedPlayersForBulk.length === 0) return;
+            const reversed = [...window.loadedPlayersForBulk].reverse();
+            reversed.forEach((p, idx) => {
+                const url = `https://www.espncricinfo.com/cricketers/${p.name.toLowerCase().replace(/ /g, '-')}-${p.player_id}/matches`;
+                setTimeout(() => {
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.target = '_blank';
+                    a.rel = 'noopener noreferrer';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                }, idx * 150);
+            });
+        }
+
         // Resolve canonical team names for consistency
         const getCanonicalTeam = (name) => {
             if (!name) return "";
@@ -404,7 +637,7 @@
                     <div style="color: rgba(255,255,255,0.3); font-weight: 800; text-align: center;">M8</div>
                     <div style="color: rgba(255,255,255,0.3); font-weight: 800; text-align: center;">M9</div>
                     <div style="color: rgba(255,255,255,0.3); font-weight: 800; text-align: center;">M10 (Oldest)</div>
-                    <div style="color: var(--neon-purple); font-weight: 800; text-align: right;">Form Index</div>
+                    <div style="color: var(--neon-purple); font-weight: 800; text-align: right;">RF Projected</div>
                 `;
                 container.appendChild(headerRow);
 
@@ -440,6 +673,8 @@
 
                 progressStatus.textContent = "SQUAD ANALYSIS SECURED";
                 progressStatus.style.color = "var(--neon-green)";
+                window.loadedPlayersForBulk = squadPlayers;
+                document.getElementById('openAllProfilesBtn').style.display = 'inline-block';
                 setTimeout(() => {
                     document.getElementById('loading-indicator').style.display = 'none';
                 }, 1000);
@@ -479,31 +714,11 @@
             };
             const roleLabel = getRoleLabel(player.role);
 
-            // Form Index calculations
-            const calculateFormFactor = (matchesList) => {
-                if (!matchesList || matchesList.length === 0) return 0;
-                let runs = 0;
-                let wkts = 0;
-                let playedCount = 0;
-                matchesList.forEach(m => {
-                    const hasBat = m.bat && m.bat !== '-' && m.bat !== 'DNB' && m.bat !== 'TDNB' && m.bat !== 'absent';
-                    const hasBowl = m.bowl && m.bowl !== '-' && m.bowl !== 'DNB';
-                    if (hasBat || hasBowl) playedCount++;
-                    if (hasBat) {
-                        runs += parseInt(m.bat.toString().replace('*', '')) || 0;
-                    }
-                    if (hasBowl) {
-                        wkts += parseInt(m.bowl) || 0;
-                    }
-                });
-                if (playedCount === 0) return 0;
-                const score = (runs / playedCount) * 1.0 + (wkts / playedCount) * 20.0;
-                return Math.min(99, Math.round(score));
-            };
-            const formFactor = calculateFormFactor(matches);
+            // Random Forest Regression expected prediction score
+            const rfProjectedScore = predictNextScoreRandomForest(matches, player.role);
             let formColor = 'var(--neon-green)';
-            if (formFactor < 40) formColor = 'var(--neon-rose)';
-            else if (formFactor < 65) formColor = 'var(--amber)';
+            if (rfProjectedScore < 25) formColor = 'var(--neon-rose)';
+            else if (rfProjectedScore < 45) formColor = 'var(--amber)';
 
             // helper to map and pad match history slots exactly
             const generateTabularCapsules = (matchesList) => {
@@ -596,9 +811,9 @@
                     </div>
                     <!-- Match Columns -->
                     ${generateTabularCapsules(matches)}
-                    <!-- Form Factor Column -->
-                    <div style="text-align: right; font-family: 'Space Grotesk'; font-size: 0.95rem; font-weight: 900; color: ${formColor}; text-shadow: 0 0 8px ${formColor}40;">
-                        🔥 ${formFactor}
+                    <!-- RF Projected Score Prediction Column -->
+                    <div style="text-align: right; font-family: 'Space Grotesk'; font-size: 0.95rem; font-weight: 900; color: ${formColor}; text-shadow: 0 0 8px ${formColor}40;" title="Predictive score fitted using temporal Random Forest Regression over 10-match sliding lags">
+                        🔮 ${rfProjectedScore} Pts
                     </div>
                 `;
             }

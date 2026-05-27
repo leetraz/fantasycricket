@@ -876,13 +876,9 @@
             <p style="margin-top: 1rem; color: var(--neon-blue); font-weight: 700;">FETCHING NEURAL DATA...</p>
         </div>
 
-        <div id="aiPredictionSection" style="display: none; text-align: center; margin-bottom: 2.5rem; margin-top: 1.5rem; animation: fadeIn 0.5s ease; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-            <a id="aiAnalysisBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn" style="text-decoration: none; padding: 1.2rem 2.5rem; font-size: 1.25rem; font-weight: 900; border-radius: 1.25rem; border: 2px solid var(--neon-purple); background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(79, 70, 229, 0.2)); box-shadow: 0 0 25px rgba(157, 0, 255, 0.4), inset 0 0 15px rgba(157, 0, 255, 0.1); text-shadow: 0 0 10px rgba(157, 0, 255, 0.8); cursor: pointer; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); letter-spacing: 1px; color: #fff; text-transform: uppercase; display: inline-flex; align-items: center; gap: 0.75rem;">
-                <span>🧠</span> ANALYZE H2H STATS (AI TOP 11)
-            </a>
-            <button id="venueToggleBtn" onclick="toggleVenueTelemetry()" class="btn" style="text-decoration: none; padding: 1.2rem 2.5rem; font-size: 1.25rem; font-weight: 900; border-radius: 1.25rem; border: 2px solid var(--neon-blue); background: linear-gradient(135deg, rgba(0, 242, 255, 0.2), rgba(0, 102, 255, 0.2)); box-shadow: 0 0 25px rgba(0, 242, 255, 0.4), inset 0 0 15px rgba(0, 242, 255, 0.1); text-shadow: 0 0 10px rgba(0, 242, 255, 0.8); cursor: pointer; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); letter-spacing: 1px; color: #fff; text-transform: uppercase; display: inline-flex; align-items: center; gap: 0.75rem;">
-                <span>🏟️</span> SHOW VENUE TELEMETRY
-            </button>
+        <div id="aiPredictionSection" style="display: none !important;">
+            <a id="aiAnalysisBtn" style="display: none !important;"></a>
+            <button id="venueToggleBtn" style="display: none !important;"></button>
         </div>
 
         <!-- Venue Performance Telemetry Section -->
@@ -1498,7 +1494,7 @@
                 const matchUrlInput = document.getElementById('matchUrl').value.trim();
                 const currentPathName = window.location.pathname;
                 document.getElementById('aiAnalysisBtn').href = `${currentPathName}?url=${encodeURIComponent(matchUrlInput)}&analyze=true`;
-                document.getElementById('aiPredictionSection').style.display = 'flex';
+                document.getElementById('aiPredictionSection').style.display = 'none';
                 
                 const urlParams = new URLSearchParams(window.location.search);
                 if (urlParams.get('analyze') === 'true') {

@@ -2664,8 +2664,8 @@
                         
                         const baseDefault = 22;
                         
-                        // 1. Recent form: last 5 scores, moving average
-                        const last5Scores = matchPoints.slice(0, 5);
+                        // 1. Recent form: last 5 scores (reversed to be oldest-to-newest chronologically), moving average
+                        const last5Scores = matchPoints.slice(0, 5).reverse();
                         while (last5Scores.length < 5) last5Scores.push(baseDefault);
                         const movingAvg = last5Scores.reduce((sum, x) => sum + x, 0) / 5;
                         
@@ -2748,9 +2748,32 @@
                         const lstmModel = new LSTMAttentionPredictor();
                         const projectedH2HLstm = lstmModel.predict(last5Scores, chaseFactor, pitchScore, formatScore, pressureScore);
 
+                        // Fit a linear regression trend line to identify performance trajectory
+                        let trendSlope = 0;
+                        const chronologicalPoints = [...matchPoints].reverse();
+                        const trendN = chronologicalPoints.length;
+                        if (trendN >= 2) {
+                            let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
+                            for (let idx = 0; idx < trendN; idx++) {
+                                const x = idx + 1;
+                                const y = chronologicalPoints[idx];
+                                sumX += x;
+                                sumY += y;
+                                sumXY += x * y;
+                                sumX2 += x * x;
+                            }
+                            const denominator = (trendN * sumX2) - (sumX * sumX);
+                            if (denominator !== 0) {
+                                trendSlope = ((trendN * sumXY) - (sumX * sumY)) / denominator;
+                            }
+                        }
+                        
+                        // Dynamic trajectory boost learning directly from the player's recent score trend pattern
+                        const trendBoost = Math.max(-12, Math.min(15, trendSlope * 1.5));
+
                         // Bayesian-LSTM-XGBoost Ensemble expected scores
-                        const ensembleH2H = (0.40 * projectedH2H) + (0.35 * projectedH2HLstm) + (0.25 * projectedH2HBayes);
-                        const ensembleRecent = (0.40 * projectedRecent) + (0.35 * projectedH2HLstm) + (0.25 * projectedH2HBayes);
+                        const ensembleH2H = (0.40 * projectedH2H) + (0.35 * projectedH2HLstm) + (0.25 * projectedH2HBayes) + trendBoost;
+                        const ensembleRecent = (0.40 * projectedRecent) + (0.35 * projectedH2HLstm) + (0.25 * projectedH2HBayes) + trendBoost;
 
                         const confidence = Math.min(99, Math.max(70, Math.round(75 + (ensembleH2H / 4.0))));
                         

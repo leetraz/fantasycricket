@@ -312,10 +312,6 @@
     <div class="container">
 
         <header>
-            <div class="header-top" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; width: 100%;">
-                <a href="/" class="back-btn">⚡ Back to Dashboard</a>
-                <button id="openAllProfilesBtn" class="open-profiles-btn" style="display: none;" onclick="openAllProfiles()">👤 OPEN ALL CRICINFO PROFILES</button>
-            </div>
             <h1 id="squad-title">LOADING MATRIX...</h1>
             <div class="subtitle" id="squad-subtitle">Initializing general recent matches...</div>
         </header>
@@ -745,7 +741,6 @@
                 progressStatus.textContent = "SQUAD ANALYSIS SECURED";
                 progressStatus.style.color = "var(--neon-green)";
                 window.loadedPlayersForBulk = squadPlayers;
-                document.getElementById('openAllProfilesBtn').style.display = 'inline-block';
                 setTimeout(() => {
                     document.getElementById('loading-indicator').style.display = 'none';
                 }, 1000);

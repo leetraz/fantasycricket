@@ -153,7 +153,7 @@ function parsePlayingXi(data) {
                 team: teamName,
                 player_id: pid,
                 object_id: pid,
-                role: node.playingRole?.name || node.role || "Player",
+                role: (node.playingRoles && node.playingRoles.length > 0) ? node.playingRoles[0] : (node.playingRole?.name || node.role || "Player"),
                 playingXI: isPlayingXI,
                 isSub: isSub
             });

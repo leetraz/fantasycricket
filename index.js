@@ -362,89 +362,96 @@ app.get('/api/player-profile', async (req, res) => {
         return res.json(cached.data);
     }
 
-    let matchedClass = null;
+    const classes = [6, 3, 23, 10, 2, 9, 1, 8];
 
-    const fetchLog = async (type) => {
-        const classes = matchedClass ? [matchedClass] : [6, 3, 23, 10, 2, 9, 1, 8];
-        for (const cls of classes) {
-            const url = `https://stats.espncricinfo.com/ci/engine/player/${pid}.html?class=${cls};template=results;type=${type};view=match`;
-            try {
-                const r = await axios.get(url, axiosConfig);
-                const $ = cheerio.load(r.data);
-                
-                let table = null;
-                $("table.engineTable").each((i, t) => {
-                    const headerText = $(t).find("tr.headlinks th, tr.head th, thead tr th").text().toLowerCase();
-                    if ((type === 'batting' && headerText.includes("runs")) || 
-                        (type === 'bowling' && headerText.includes("wkts")) ||
-                        headerText.includes("opposition")) {
-                        table = $(t);
-                    }
-                });
-
-                if (!table || !table.length) continue;
-
-                let headers = [];
-                table.find("tr.headlinks th, tr.head th, thead tr th").each((i, h) => headers.push($(h).text().trim().toLowerCase()));
-                
-                const idx = {
-                    runs: headers.indexOf("runs"),
-                    wkts: headers.indexOf("wkts"),
-                    sr: headers.indexOf("sr"),
-                    econ: headers.indexOf("econ"),
-                    opp: headers.findIndex(h => h.includes("opposition")),
-                    date: headers.findIndex(h => h.includes("date")),
-                    ground: headers.indexOf("ground")
-                };
-
-                let results = {};
-                const rows = table.find("tr.data1");
-                if (rows.length === 0) continue;
-
-                rows.each((i, el) => {
-                    const cols = $(el).find("td").toArray().map(c => $(c).text().trim());
-                    if (cols.length < 5) return;
-                    
-                    const dateStr = idx.date !== -1 ? cols[idx.date] : "";
-                    const oppStr = idx.opp !== -1 ? cols[idx.opp] : "";
-                    if (!dateStr || dateStr === '0') return;
-
-                    // Exclude matches played today or in the future to keep only completed matches
-                    const matchDateObj = new Date(dateStr);
-                    const todayObj = new Date();
-                    todayObj.setHours(0,0,0,0);
-                    if (matchDateObj >= todayObj) return; // skip live or upcoming matches
-
-                    const date = new Date(dateStr).toLocaleDateString();
-                    const key = `${oppStr.replace(/^v\s+/, '').trim()}|${date}`;
-                    
-                    results[key] = {
-                        opp: oppStr.replace(/^v\s+/, '').trim(),
-                        date: date,
-                        timestamp: new Date(dateStr).getTime(),
-                        ground: idx.ground !== -1 ? cols[idx.ground] : "",
-                        [type === 'batting' ? 'bat' : 'bowl']: type === 'batting' ? cols[idx.runs] : cols[idx.wkts],
-                        [type === 'batting' ? 'sr' : 'econ']: type === 'batting' ? cols[idx.sr] : cols[idx.econ]
-                    };
-                });
-
-                if (Object.keys(results).length > 0) {
-                    matchedClass = cls;
-                    return results;
+    const fetchSingleLog = async (cls, type) => {
+        const url = `https://stats.espncricinfo.com/ci/engine/player/${pid}.html?class=${cls};template=results;type=${type};view=match`;
+        try {
+            const r = await axios.get(url, axiosConfig);
+            const $ = cheerio.load(r.data);
+            
+            let table = null;
+            $("table.engineTable").each((i, t) => {
+                const headerText = $(t).find("tr.headlinks th, tr.head th, thead tr th").text().toLowerCase();
+                if ((type === 'batting' && headerText.includes("runs")) || 
+                    (type === 'bowling' && headerText.includes("wkts")) ||
+                    headerText.includes("opposition")) {
+                    table = $(t);
                 }
-            } catch (e) {
-                // ignore and continue
-            }
+            });
+
+            if (!table || !table.length) return {};
+
+            let headers = [];
+            table.find("tr.headlinks th, tr.head th, thead tr th").each((i, h) => headers.push($(h).text().trim().toLowerCase()));
+            
+            const idx = {
+                runs: headers.indexOf("runs"),
+                wkts: headers.indexOf("wkts"),
+                sr: headers.indexOf("sr"),
+                econ: headers.indexOf("econ"),
+                opp: headers.findIndex(h => h.includes("opposition")),
+                date: headers.findIndex(h => h.includes("date")),
+                ground: headers.indexOf("ground")
+            };
+
+            let results = {};
+            const rows = table.find("tr.data1");
+            if (rows.length === 0) return {};
+
+            rows.each((i, el) => {
+                const cols = $(el).find("td").toArray().map(c => $(c).text().trim());
+                if (cols.length < 5) return;
+                
+                const dateStr = idx.date !== -1 ? cols[idx.date] : "";
+                const oppStr = idx.opp !== -1 ? cols[idx.opp] : "";
+                if (!dateStr || dateStr === '0') return;
+
+                // Exclude matches played today or in the future to keep only completed matches
+                const matchDateObj = new Date(dateStr);
+                const todayObj = new Date();
+                todayObj.setHours(0,0,0,0);
+                if (matchDateObj >= todayObj) return; // skip live or upcoming matches
+
+                const date = new Date(dateStr).toLocaleDateString();
+                const key = `${oppStr.replace(/^v\s+/, '').trim()}|${date}`;
+                
+                results[key] = {
+                    opp: oppStr.replace(/^v\s+/, '').trim(),
+                    date: date,
+                    timestamp: new Date(dateStr).getTime(),
+                    ground: idx.ground !== -1 ? cols[idx.ground] : "",
+                    [type === 'batting' ? 'bat' : 'bowl']: type === 'batting' ? cols[idx.runs] : cols[idx.wkts],
+                    [type === 'batting' ? 'sr' : 'econ']: type === 'batting' ? cols[idx.sr] : cols[idx.econ]
+                };
+            });
+            return results;
+        } catch (e) {
+            return {};
         }
-        return {};
     };
 
     try {
-        const batData = await fetchLog('batting');
-        const bowlData = await fetchLog('bowling');
-        
-        let merged = { ...batData };
-        for (const [key, data] of Object.entries(bowlData)) {
+        const batPromises = classes.map(cls => fetchSingleLog(cls, 'batting'));
+        const bowlPromises = classes.map(cls => fetchSingleLog(cls, 'bowling'));
+
+        const [batResultsArray, bowlResultsArray] = await Promise.all([
+            Promise.all(batPromises),
+            Promise.all(bowlPromises)
+        ]);
+
+        let mergedBat = {};
+        batResultsArray.forEach(res => {
+            mergedBat = { ...mergedBat, ...res };
+        });
+
+        let mergedBowl = {};
+        bowlResultsArray.forEach(res => {
+            mergedBowl = { ...mergedBowl, ...res };
+        });
+
+        let merged = { ...mergedBat };
+        for (const [key, data] of Object.entries(mergedBowl)) {
             if (merged[key]) {
                 merged[key] = { ...merged[key], ...data };
             } else {

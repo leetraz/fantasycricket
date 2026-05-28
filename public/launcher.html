@@ -183,6 +183,61 @@
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
+            width: 100%;
+        }
+
+        .table-viewport {
+            overflow-x: auto;
+            width: 100%;
+            margin-top: 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(0, 0, 0, 0.2);
+            scrollbar-width: thin;
+            scrollbar-color: var(--neon-blue) transparent;
+        }
+
+        .table-viewport::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .table-viewport::-webkit-scrollbar-thumb {
+            background-color: var(--neon-blue);
+            border-radius: 3px;
+        }
+        
+        .players-table-grid {
+            min-width: 1050px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .players-list-header {
+            display: grid;
+            grid-template-columns: 2.2fr 1.2fr repeat(10, 0.9fr) 1.3fr;
+            padding: 0.75rem 1.25rem;
+            border-bottom: 1.5px solid rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.02);
+            font-size: 0.7rem;
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            align-items: center;
+        }
+
+        .player-row {
+            display: grid;
+            grid-template-columns: 2.2fr 1.2fr repeat(10, 0.9fr) 1.3fr;
+            padding: 0.75rem 1.25rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            align-items: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .player-row:hover {
+            background: rgba(0, 242, 255, 0.04);
         }
 
         .player-item {
@@ -241,13 +296,6 @@
         .player-links {
             display: flex;
             gap: 0.5rem;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .player-item:hover .player-links,
-        .player-item:has(.intel-dropdown.active) .player-links {
             opacity: 1;
             pointer-events: auto;
         }
@@ -844,7 +892,7 @@
             transform: translateY(-1px);
         }
     </style>
-    <title>CRICINTEL NEURAL COMBAT LAB</title>
+    <title>TEAM NAME VS TEAM NAME • SQUAD INTEL WORKSPACE</title>
     <!-- Chart.js library for immersive squad analytics graphs -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -852,8 +900,8 @@
 
     <div class="container">
         <header>
-            <h1>CRICINTEL NEURAL LAB</h1>
-            <p class="subtitle">TACTICAL PITCH TELEMETRY & SQUAD NEURAL COMPARATOR</p>
+            <h1 id="header-match-title" style="text-transform: uppercase; font-family: 'Space Grotesk'; font-weight: 900; letter-spacing: 2px;">TEAM NAME VS TEAM NAME</h1>
+            <p class="subtitle" id="header-match-subtitle" style="text-transform: uppercase; font-family: 'Space Grotesk'; font-weight: 700; color: var(--neon-purple); text-shadow: 0 0 8px rgba(157, 0, 255, 0.4); letter-spacing: 1px;">🏟️ MATCH VENUE / LOCATION</p>
         </header>
 
         <div class="input-section">
@@ -920,14 +968,16 @@
             <div class="team-card" id="team1Card">
                 <div class="team-header">
                     <div class="team-name" id="team1Name">TEAM 1</div>
-                    <div class="team-actions">
+                    <div class="team-actions" style="display: flex; align-items: center; gap: 0.5rem;">
+                        <button class="btn-sm btn-matrix" onclick="bulkOpen(0, 'profile')" style="border-color: var(--neon-blue); text-shadow: 0 0 5px rgba(0, 242, 255, 0.4); display: flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.75rem; border-radius: 6px; font-family: 'Space Grotesk'; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; cursor: pointer; color: #fff; background: rgba(0, 242, 255, 0.05); border: 1px solid var(--neon-blue); box-shadow: 0 0 8px rgba(0, 242, 255, 0.2); transition: all 0.2s;">
+                            👤 ESPNCICINFO
+                        </button>
                         <div class="intel-dropdown">
                             <button class="btn-sm btn-matrix intel-dropdown-trigger" style="border-color: var(--neon-blue); text-shadow: 0 0 5px rgba(0, 242, 255, 0.4); display: flex; align-items: center; gap: 0.4rem;">
                                 📊 SQUAD INTEL <span style="font-size: 0.6rem;">▼</span>
                             </button>
                             <div class="intel-dropdown-menu">
                                 <div class="intel-dropdown-header">🚀 MULTI-TAB DEPLOYMENTS</div>
-                                <div class="intel-dropdown-item" onclick="bulkOpen(0, 'profile')">👤 OPEN ALL CRICINFO PROFILES</div>
                                 <div class="intel-dropdown-item h2h" onclick="bulkOpen(0, 'h2h')">⚔️ OPEN ALL H2H TELEMETRIES</div>
                                 <div class="intel-dropdown-item venue" onclick="bulkOpen(0, 'venue')">🏟️ OPEN ALL VENUE MATRICES</div>
                                 <div class="intel-dropdown-item logs" onclick="bulkOpen(0, 'all')">📈 OPEN ALL CHRONO LOGS</div>
@@ -960,14 +1010,16 @@
             <div class="team-card" id="team2Card">
                 <div class="team-header">
                     <div class="team-name" id="team2Name">TEAM 2</div>
-                    <div class="team-actions">
+                    <div class="team-actions" style="display: flex; align-items: center; gap: 0.5rem;">
+                        <button class="btn-sm btn-matrix" onclick="bulkOpen(1, 'profile')" style="border-color: var(--neon-blue); text-shadow: 0 0 5px rgba(0, 242, 255, 0.4); display: flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.75rem; border-radius: 6px; font-family: 'Space Grotesk'; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; cursor: pointer; color: #fff; background: rgba(0, 242, 255, 0.05); border: 1px solid var(--neon-blue); box-shadow: 0 0 8px rgba(0, 242, 255, 0.2); transition: all 0.2s;">
+                            👤 ESPNCICINFO
+                        </button>
                         <div class="intel-dropdown">
                             <button class="btn-sm btn-matrix intel-dropdown-trigger" style="border-color: var(--neon-blue); text-shadow: 0 0 5px rgba(0, 242, 255, 0.4); display: flex; align-items: center; gap: 0.4rem;">
                                 📊 SQUAD INTEL <span style="font-size: 0.6rem;">▼</span>
                             </button>
                             <div class="intel-dropdown-menu">
                                 <div class="intel-dropdown-header">🚀 MULTI-TAB DEPLOYMENTS</div>
-                                <div class="intel-dropdown-item" onclick="bulkOpen(1, 'profile')">👤 OPEN ALL CRICINFO PROFILES</div>
                                 <div class="intel-dropdown-item h2h" onclick="bulkOpen(1, 'h2h')">⚔️ OPEN ALL H2H TELEMETRIES</div>
                                 <div class="intel-dropdown-item venue" onclick="bulkOpen(1, 'venue')">🏟️ OPEN ALL VENUE MATRICES</div>
                                 <div class="intel-dropdown-item logs" onclick="bulkOpen(1, 'all')">📈 OPEN ALL CHRONO LOGS</div>
@@ -2013,6 +2065,252 @@
             neuralChartInstance = new Chart(ctx, config);
         }
 
+        const detectPlayerRole = (role, matches) => {
+            const r = (role || '').toLowerCase();
+            let stringType = 'batsman';
+
+            if (r.includes('keeper') || r.includes('wk')) {
+                stringType = 'wk';
+            } else if (
+                r.includes('bowl') || 
+                r.includes('fast') || 
+                r.includes('medium') || 
+                r.includes('seam') || 
+                r.includes('spin') || 
+                r.includes('break') || 
+                r.includes('orthodox') || 
+                r.includes('legbreak') || 
+                r.includes('offbreak') || 
+                r.includes('goog') ||
+                r.includes('pace') ||
+                r.includes('arm')
+            ) {
+                if (r.includes('allrounder') || r.includes('all rounder') || r.includes('all-rounder') || r.includes('all_rounder')) {
+                    stringType = 'allrounder';
+                } else {
+                    stringType = 'bowler';
+                }
+            } else if (r.includes('allrounder') || r.includes('all rounder') || r.includes('all-rounder') || r.includes('all_rounder') || r.includes('allround')) {
+                stringType = 'allrounder';
+            }
+
+            if (stringType === 'batsman' && matches && matches.length > 0) {
+                let totalWkts = 0;
+                let totalRuns = 0;
+                let wktMatches = 0;
+                let batMatches = 0;
+
+                matches.forEach(m => {
+                    const hasBat = m.bat && m.bat !== '-' && m.bat !== 'DNB' && m.bat !== 'TDNB' && m.bat !== 'absent';
+                    const hasBowl = m.bowl && m.bowl !== '-' && m.bowl !== 'DNB';
+                    if (hasBat) {
+                        const runs = parseInt(m.bat.toString().replace('*', '')) || 0;
+                        totalRuns += runs;
+                        batMatches++;
+                    }
+                    if (hasBowl) {
+                        const wkts = parseInt(m.bowl) || 0;
+                        totalWkts += wkts;
+                        wktMatches++;
+                    }
+                });
+
+                if (wktMatches > batMatches && totalWkts > 2) {
+                    return 'bowler';
+                }
+                if (totalWkts > 5 && totalRuns < 50) {
+                    return 'bowler';
+                }
+                if (wktMatches > 2 && totalWkts > 2 && totalRuns > 50) {
+                    return 'allrounder';
+                }
+            }
+            return stringType;
+        };
+
+        const predictNextScoreEWMA = (matchesList, detectedRole) => {
+            if (!matchesList || matchesList.length === 0) {
+                if (detectedRole === 'bowler') return '1 Wkt';
+                if (detectedRole === 'allrounder') return '22 R | 1 W';
+                return '28 Runs';
+            }
+
+            const alpha = 0.35;
+
+            if (detectedRole === 'bowler') {
+                const wktsList = [...matchesList].reverse().map(m => {
+                    const hasBowl = m.bowl && m.bowl !== '-' && m.bowl !== 'DNB';
+                    return hasBowl ? (parseInt(m.bowl) || 0) : 0;
+                });
+                let ewma = wktsList[0];
+                for (let t = 1; t < wktsList.length; t++) {
+                    ewma = (alpha * wktsList[t]) + ((1 - alpha) * ewma);
+                }
+                const roundedWkts = Math.max(0, Math.round(ewma));
+                return roundedWkts + (roundedWkts === 1 ? ' Wkt' : ' Wkts');
+            }
+
+            if (detectedRole === 'allrounder') {
+                const runsList = [...matchesList].reverse().map(m => {
+                    const hasBat = m.bat && m.bat !== '-' && m.bat !== 'DNB' && m.bat !== 'TDNB' && m.bat !== 'absent';
+                    return hasBat ? (parseInt(m.bat.toString().replace('*', '')) || 0) : 0;
+                });
+                const wktsList = [...matchesList].reverse().map(m => {
+                    const hasBowl = m.bowl && m.bowl !== '-' && m.bowl !== 'DNB';
+                    return hasBowl ? (parseInt(m.bowl) || 0) : 0;
+                });
+
+                let ewmaRuns = runsList[0];
+                for (let t = 1; t < runsList.length; t++) {
+                    ewmaRuns = (alpha * runsList[t]) + ((1 - alpha) * ewmaRuns);
+                }
+
+                let ewmaWkts = wktsList[0];
+                for (let t = 1; t < wktsList.length; t++) {
+                    ewmaWkts = (alpha * wktsList[t]) + ((1 - alpha) * ewmaWkts);
+                }
+
+                return `${Math.max(0, Math.round(ewmaRuns))} R | ${Math.max(0, Math.round(ewmaWkts))} W`;
+            }
+
+            // Default: Batsman / Keeper
+            const runsList = [...matchesList].reverse().map(m => {
+                const hasBat = m.bat && m.bat !== '-' && m.bat !== 'DNB' && m.bat !== 'TDNB' && m.bat !== 'absent';
+                return hasBat ? (parseInt(m.bat.toString().replace('*', '')) || 0) : 0;
+            });
+            let ewma = runsList[0];
+            for (let t = 1; t < runsList.length; t++) {
+                ewma = (alpha * runsList[t]) + ((1 - alpha) * ewma);
+            }
+            return Math.max(0, Math.round(ewma)) + ' Runs';
+        };
+
+        async function hydratePlayerRow(player, opponent) {
+            try {
+                let profile;
+                if (window.playerProfileCache && window.playerProfileCache[player.player_id]) {
+                    profile = window.playerProfileCache[player.player_id];
+                } else {
+                    const res = await fetch(`/api/player-profile?pid=${player.player_id}&name=${encodeURIComponent(player.name)}&opponent=${encodeURIComponent(opponent)}`);
+                    if (!res.ok) throw new Error("Fetch error");
+                    profile = await res.json();
+                    if (!window.playerProfileCache) window.playerProfileCache = {};
+                    window.playerProfileCache[player.player_id] = profile;
+                }
+
+                const matches = profile.last10 || profile.recentMatches || [];
+                const row = document.getElementById(`player-row-${player.player_id}`);
+                if (!row) return;
+
+                const chronological = [...matches].reverse().slice(-10);
+                while (chronological.length < 10) {
+                    chronological.push({ bat: '-', bowl: '-' });
+                }
+
+                // Detect exact player role
+                const detectedRole = detectPlayerRole(player.role, matches);
+
+                const getRoleColor = (role) => {
+                    if (role === 'bowler') return 'var(--neon-rose)';
+                    if (role === 'allrounder') return 'var(--neon-purple)';
+                    if (role === 'wk') return 'var(--amber)';
+                    return 'var(--neon-green)';
+                };
+
+                const getRoleLabel = (role) => {
+                    if (role === 'bowler') return 'BOWLER';
+                    if (role === 'allrounder') return 'ALL-ROUND';
+                    if (role === 'wk') return 'WK-KEEPER';
+                    return 'BATSMAN';
+                };
+
+                const roleColor = getRoleColor(detectedRole);
+                const roleLabel = getRoleLabel(detectedRole);
+
+                const capsulesMarkup = chronological.map(m => {
+                    let text = '';
+                    let colorObj = { bg: 'rgba(255,255,255,0.02)', border: 'rgba(255,255,255,0.03)', text: 'rgba(255,255,255,0.15)', shadow: 'none' };
+                    
+                    const hasBat = m.bat && m.bat !== '-' && m.bat !== 'DNB' && m.bat !== 'TDNB' && m.bat !== 'absent';
+                    const hasBowl = m.bowl && m.bowl !== '-' && m.bowl !== 'DNB';
+
+                    if (hasBat && hasBowl) {
+                        text = `${m.bat} // ${m.bowl}`;
+                        colorObj = { bg: 'rgba(0, 242, 255, 0.05)', border: 'var(--neon-blue)', text: '#fff', shadow: 'rgba(0, 242, 255, 0.3)' };
+                    } else if (hasBat) {
+                        text = m.bat;
+                        const runs = parseInt(m.bat.toString().replace('*', '')) || 0;
+                        if (runs >= 50) {
+                            colorObj = { bg: 'rgba(0, 255, 136, 0.08)', border: 'var(--neon-green)', text: '#fff', shadow: 'rgba(0, 255, 136, 0.4)' };
+                        } else if (runs > 0) {
+                            colorObj = { bg: 'rgba(255, 255, 255, 0.04)', border: 'rgba(255, 255, 255, 0.15)', text: '#fff', shadow: 'none' };
+                        } else {
+                            colorObj = { bg: 'rgba(255, 0, 119, 0.05)', border: 'rgba(255, 0, 119, 0.3)', text: 'var(--neon-rose)', shadow: 'none' };
+                        }
+                    } else if (hasBowl) {
+                        text = m.bowl;
+                        const wkts = parseInt(m.bowl) || 0;
+                        if (wkts >= 2) {
+                            colorObj = { bg: 'rgba(0, 242, 255, 0.08)', border: 'var(--neon-blue)', text: '#fff', shadow: 'rgba(0, 242, 255, 0.4)' };
+                        } else {
+                            colorObj = { bg: 'rgba(255, 255, 255, 0.04)', border: 'rgba(255, 255, 255, 0.15)', text: '#fff', shadow: 'none' };
+                        }
+                    } else {
+                        text = m.bat || m.bowl || '-';
+                    }
+
+                    if (text === 'DNB' || text === 'TDNB' || text === 'absent' || text === '-') {
+                        return `<div style="text-align: center; color: rgba(255,255,255,0.1); font-size: 0.75rem;">-</div>`;
+                    }
+
+                    return `
+                        <div style="display: flex; justify-content: center; align-items: center;">
+                            <span style="font-family: 'Space Grotesk'; font-size: 0.75rem; font-weight: 700; background: ${colorObj.bg}; border: 1.5px solid ${colorObj.border}; color: ${colorObj.text}; padding: 0.15rem 0.4rem; border-radius: 6px; box-shadow: 0 0 6px ${colorObj.shadow}; letter-spacing: 0.5px; white-space: nowrap;">
+                                ${text}
+                            </span>
+                        </div>
+                    `;
+                }).join('');
+
+                const ewmaForecast = predictNextScoreEWMA(matches, detectedRole);
+                let ewmaColor = 'var(--neon-green)';
+                if (detectedRole === 'bowler') {
+                    const val = parseFloat(ewmaForecast) || 0;
+                    if (val < 1.0) ewmaColor = 'var(--neon-rose)';
+                    else if (val < 2.0) ewmaColor = 'var(--amber)';
+                } else if (detectedRole === 'allrounder') {
+                    ewmaColor = 'var(--neon-purple)';
+                } else {
+                    const val = parseInt(ewmaForecast) || 0;
+                    if (val < 20) ewmaColor = 'var(--neon-rose)';
+                    else if (val < 40) ewmaColor = 'var(--amber)';
+                }
+
+                const subBadge = player.isSub ? `<span style="font-family: 'Space Grotesk'; font-size: 0.6rem; font-weight: 900; background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); color: #fff; padding: 0.1rem 0.25rem; border-radius: 4px; margin-left: 0.35rem; text-shadow: 0 0 5px rgba(0, 242, 255, 0.4); text-transform: uppercase;">SUB</span>` : '';
+
+                const opponentInfo = matchData.teamsInfo ? matchData.teamsInfo.find(t => t.name !== player.team) : null;
+                const opponentId = opponentInfo ? opponentInfo.id : "";
+                const groundName = matchData.groundName || "Eden Gardens";
+                const profileUrl = `https://www.espncricinfo.com/cricketers/${player.name.toLowerCase().replace(/ /g, '-')}-${player.player_id}/matches`;
+
+                row.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 0.5rem; min-width: 0;">
+                        <a href="${profileUrl}" target="_blank" style="color: #fff; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: all 0.2s;" onmouseover="this.style.color='var(--neon-blue)'; this.style.textShadow='0 0 8px var(--neon-blue)';" onmouseout="this.style.color='#fff'; this.style.textShadow='none';" title="View Cricinfo profile for ${player.name}">${player.name}</a>
+                        ${subBadge}
+                    </div>
+                    <div style="font-size: 0.7rem; font-weight: bold; color: ${roleColor}; text-align: center; text-transform: uppercase; letter-spacing: 0.5px;">
+                        ${roleLabel}
+                    </div>
+                    ${capsulesMarkup}
+                    <div style="text-align: right; font-family: 'Space Grotesk'; font-size: 0.85rem; font-weight: 900; color: ${ewmaColor}; text-shadow: 0 0 8px ${ewmaColor}40;" title="Expected score forecasted using dynamic Exponentially Weighted Moving Average (EWMA)">
+                        🔮 ${ewmaForecast}
+                    </div>
+                `;
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
         function renderSquads() {
             const container = document.getElementById('teamsContainer');
             const t1Name = document.getElementById('team1Name');
@@ -2021,54 +2319,65 @@
             const t2List = document.getElementById('team2List');
 
             const teamNames = matchData.teams;
-            t1Name.innerText = teamNames[0];
-            t2Name.innerText = teamNames[1];
+            
+            // Dynamically set matchup header and venue
+            document.getElementById('header-match-title').innerText = `${teamNames[0].toUpperCase()} VS ${teamNames[1].toUpperCase()}`;
+            document.getElementById('header-match-subtitle').innerText = `🏟️ ${(matchData.groundName || 'VENUE LOCATION').toUpperCase()}`;
+            document.title = `${teamNames[0].toUpperCase()} VS ${teamNames[1].toUpperCase()} • SQUAD INTEL WORKSPACE`;
 
-            // Update legends to match the actual team name
-            const legend1 = document.getElementById('legendTeam1');
-            const legend2 = document.getElementById('legendTeam2');
-            if (legend1) legend1.innerText = teamNames[0] + ' Players';
-            if (legend2) legend2.innerText = teamNames[1] + ' Players';
+            t1Name.innerText = `${teamNames[0].toUpperCase()} • SQUAD ROSTER`;
+            t2Name.innerText = `${teamNames[1].toUpperCase()} • SQUAD ROSTER`;
 
             t1List.innerHTML = '';
             t2List.innerHTML = '';
 
+            const getRoleColor = (role) => {
+                const r = (role || '').toLowerCase();
+                if (r.includes('bowl')) return 'var(--neon-rose)';
+                if (r.includes('allrounder') || r.includes('all rounder') || r.includes('all-rounder')) return 'var(--neon-purple)';
+                if (r.includes('keeper') || r.includes('wk')) return 'var(--amber)';
+                return 'var(--neon-green)';
+            };
+
+            const getRoleLabel = (role) => {
+                const r = (role || '').toLowerCase();
+                if (r.includes('bowl')) return 'BOWLER';
+                if (r.includes('allrounder') || r.includes('all rounder') || r.includes('all-rounder')) return 'ALL-ROUND';
+                if (r.includes('keeper') || r.includes('wk')) return 'WK-KEEPER';
+                return 'BATSMAN';
+            };
+
             matchData.allPlayers.forEach(player => {
                 const item = document.createElement('div');
                 item.className = 'player-item';
-                
+                item.id = `player-row-${player.player_id}`;
+
+                const roleColor = getRoleColor(player.role);
+                const roleLabel = getRoleLabel(player.role);
+                const subBadge = player.isSub ? `<span style="font-family: 'Space Grotesk'; font-size: 0.6rem; font-weight: 900; background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); color: #fff; padding: 0.1rem 0.25rem; border-radius: 4px; margin-left: 0.35rem; text-shadow: 0 0 5px rgba(0, 242, 255, 0.4); text-transform: uppercase;">SUB</span>` : '';
+
                 const opponent = teamNames.find(t => t !== player.team);
-                
-                // Profile URL: https://www.espncricinfo.com/cricketers/name-id/matches
-                const profileUrl = `https://www.espncricinfo.com/cricketers/${player.name.toLowerCase().replace(/ /g, '-')}-${player.player_id}/matches`;
-                
-                // Get dynamic opponent ID
-                const opponentInfo = matchData.teamsInfo ? matchData.teamsInfo.find(t => t.name !== player.team) : null;
-                const opponentId = opponentInfo ? opponentInfo.id : "";
-                
-                // Get dynamic ground name
                 const groundName = matchData.groundName || "Eden Gardens";
+                const profileUrl = `https://www.espncricinfo.com/cricketers/${player.name.toLowerCase().replace(/ /g, '-')}-${player.player_id}/matches`;
 
-                // H2H page URL
-                const h2hUrl = `player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}`;
+                // Individual action targets (Profile, H2H Clash, Venue Matrix, Match logs)
+                const h2hUrl = `player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}&tab=h2h`;
+                const venueUrl = `player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}&tab=venue`;
+                const logsUrl = `player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}&tab=recent`;
 
-                const subBadge = player.isSub ? `<span style="font-family: 'Space Grotesk'; font-size: 0.65rem; font-weight: 900; background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); color: #fff; padding: 0.15rem 0.4rem; border-radius: 4px; margin-left: 0.5rem; text-shadow: 0 0 5px rgba(0, 242, 255, 0.4); text-transform: uppercase; border: 1px solid rgba(255,255,255,0.15);">SUB</span>` : '';
                 item.innerHTML = `
-                    <div class="player-info">
-                        <span class="player-name">${player.name}${subBadge}</span>
-                        <span class="player-role">${player.role}</span>
-                    </div>
-                    <div class="player-links" style="display: flex; align-items: center; gap: 0.5rem;">
-                        <a href="${profileUrl}" target="_blank" class="icon-link profile" title="Cricinfo Profile">👤</a>
-                        
-                        <div class="intel-dropdown">
-                            <a href="#" class="icon-link logs intel-dropdown-trigger" title="Neural Analysis" onclick="return false;">📊</a>
-                            <div class="intel-dropdown-menu">
-                                <a class="intel-dropdown-item h2h" href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}&tab=h2h" target="_blank">⚔️ CLASH TELEMETRY (H2H)</a>
-                                <a class="intel-dropdown-item venue" href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}&tab=venue" target="_blank">🏟️ VENUE MATRIX (STADIUM)</a>
-                                <a class="intel-dropdown-item logs" href="player.html?pid=${player.player_id}&objectId=${player.object_id}&name=${encodeURIComponent(player.name)}&role=${encodeURIComponent(player.role)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}&tab=all" target="_blank">📈 CHRONO MATCH LOGS</a>
-                            </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; min-width: 0;">
+                        <span style="width: 8px; height: 8px; border-radius: 50%; background-color: ${roleColor}; box-shadow: 0 0 8px ${roleColor}; flex-shrink: 0;"></span>
+                        <div style="display: flex; flex-direction: column; min-width: 0;">
+                            <a href="${profileUrl}" target="_blank" style="color: #fff; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: all 0.2s;" onmouseover="this.style.color='var(--neon-blue)'; this.style.textShadow='0 0 8px var(--neon-blue)';" onmouseout="this.style.color='#fff'; this.style.textShadow='none';" title="View Cricinfo profile for ${player.name}">${player.name}${subBadge}</a>
+                            <span style="font-size: 0.7rem; font-weight: bold; color: ${roleColor}; text-transform: uppercase; letter-spacing: 0.5px;">${roleLabel}</span>
                         </div>
+                    </div>
+                    <div class="player-links" style="display: flex; gap: 0.4rem; align-items: center;">
+                        <a href="${profileUrl}" target="_blank" class="icon-link profile" title="Cricinfo Profile" style="width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); color: rgba(255, 255, 255, 0.6); text-decoration: none; font-size: 0.85rem; transition: all 0.25s;">👤</a>
+                        <a href="${h2hUrl}" target="_blank" class="icon-link h2h" title="Head-to-Head Clash" style="width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); color: rgba(255, 255, 255, 0.6); text-decoration: none; font-size: 0.85rem; transition: all 0.25s;">⚔️</a>
+                        <a href="${venueUrl}" target="_blank" class="icon-link venue" title="Venue Analytics" style="width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); color: rgba(255, 255, 255, 0.6); text-decoration: none; font-size: 0.85rem; transition: all 0.25s;">🏟️</a>
+                        <a href="${logsUrl}" target="_blank" class="icon-link logs" title="Chrono logs" style="width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); color: rgba(255, 255, 255, 0.6); text-decoration: none; font-size: 0.85rem; transition: all 0.25s;">📈</a>
                     </div>
                 `;
 

@@ -673,8 +673,8 @@
                     </div>
                     <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
                         <div class="view-toggle" style="display: inline-flex; border: 1px solid var(--glass-border); border-radius: 0.5rem; padding: 0.2rem; background: rgba(0, 0, 0, 0.25); gap: 0.25rem;">
-                            <button id="btnViewTable" class="toggle-btn" onclick="switchRepresentation('table')" style="font-size: 0.7rem; font-weight: 700; padding: 0.35rem 0.8rem; border-radius: 0.35rem; border: none; cursor: pointer; transition: all 0.2s; background: transparent; color: rgba(255,255,255,0.6);">📊 Table</button>
-                            <button id="btnViewGraph" class="toggle-btn active" onclick="switchRepresentation('graph')" style="font-size: 0.7rem; font-weight: 700; padding: 0.35rem 0.8rem; border-radius: 0.35rem; border: none; cursor: pointer; transition: all 0.2s; background: rgba(157, 0, 255, 0.2); color: #fff;">📈 Graph View</button>
+                            <button id="btnViewTable" class="toggle-btn active" onclick="switchRepresentation('table')" style="font-size: 0.7rem; font-weight: 700; padding: 0.35rem 0.8rem; border-radius: 0.35rem; border: none; cursor: pointer; transition: all 0.2s; background: rgba(157, 0, 255, 0.2); color: #fff;">📊 Table</button>
+                            <button id="btnViewGraph" class="toggle-btn" onclick="switchRepresentation('graph')" style="font-size: 0.7rem; font-weight: 700; padding: 0.35rem 0.8rem; border-radius: 0.35rem; border: none; cursor: pointer; transition: all 0.2s; background: transparent; color: rgba(255,255,255,0.6);">📈 Graph View</button>
                         </div>
                         <div id="stadium-badge" style="font-family: 'Space Grotesk'; font-size: 0.75rem; font-weight: 700; color: var(--neon-blue); border: 1px dashed var(--neon-blue); padding: 0.3rem 0.6rem; border-radius: 4px; text-transform: uppercase; text-shadow: 0 0 5px rgba(0, 242, 255, 0.4);">
                             STADIUM: EDEN GARDENS
@@ -775,7 +775,7 @@
 
         let playerChartInstance = null;
         let currentPlayerChartType = 'line';
-        let currentRepresentation = 'graph'; // Default to Graph View to wow the user immediately!
+        let currentRepresentation = 'table'; // Default to Table View!
 
         function switchPlayerChartType(type) {
             if (currentPlayerChartType === type) return;
@@ -1106,7 +1106,7 @@
                         <div style="margin-top: 5px; display: flex; gap: 5px; align-items: center; flex-wrap: wrap;">
                             ${highlightLabel}
                         </div>
-                        <span class="cell-date">${s.date} ${s.ground ? `// ${s.ground.toUpperCase()}` : ''}</span>
+                        <span class="cell-date">${s.date} ${s.ground ? `• ${s.ground.toUpperCase()}` : ''}</span>
                     </td>
                     <td class="matrix-cell cell-val">
                         <div class="score-capsule">

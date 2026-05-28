@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SQUAD H2H ANALYSIS // CRICINFO PREVIEW</title>
+    <title>SQUAD H2H ANALYSIS • CRICINFO PREVIEW</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -261,7 +261,7 @@
                 <a href="/" class="back-btn">⚡ Back to Dashboard</a>
             </div>
             <div class="title-section">
-                <h1 id="squad-title">RCB // SQUAD H2H MATRIX</h1>
+                <h1 id="squad-title">RCB • SQUAD H2H MATRIX</h1>
                 <p id="squad-subtitle">Loading complete squad historical matchups...</p>
             </div>
         </header>
@@ -328,7 +328,7 @@
         const opponent = urlParams.get('opponent') || 'OPPONENT';
         const teamName = urlParams.get('teamName') || 'SQUAD';
 
-        document.getElementById('squad-title').textContent = `${teamName} // H2H SQUAD MATRIX`;
+        document.getElementById('squad-title').textContent = `${teamName} • H2H SQUAD MATRIX`;
         document.getElementById('squad-subtitle').textContent = `Complete historical head-to-head data against ${opponent}`;
 
         async function init() {

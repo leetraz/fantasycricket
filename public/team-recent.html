@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SQUAD RECENT FORM // CRICINFO PREVIEW</title>
+    <title>SQUAD RECENT FORM • CRICINFO PREVIEW</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -464,73 +464,144 @@
             }
         }
 
-        const predictNextScoreRandomForest = (matchesList, playerRole) => {
-            if (!matchesList || matchesList.length === 0) return 22;
+        const detectPlayerRole = (role, matches) => {
+            const r = (role || '').toLowerCase();
+            let stringType = 'batsman';
 
-            // Map match points chronologically (oldest to newest)
-            const pointsList = [...matchesList].reverse().map(m => {
-                const hasBat = m.bat && m.bat !== '-' && m.bat !== 'DNB' && m.bat !== 'TDNB' && m.bat !== 'absent';
-                const hasBowl = m.bowl && m.bowl !== '-' && m.bowl !== 'DNB';
-                let pts = 0;
-                if (hasBat) {
-                    const runs = parseInt(m.bat.toString().replace('*', '')) || 0;
-                    pts += runs;
-                    if (runs >= 100) pts += 16;
-                    else if (runs >= 50) pts += 8;
+            if (r.includes('keeper') || r.includes('wk')) {
+                stringType = 'wk';
+            } else if (
+                r.includes('bowl') || 
+                r.includes('fast') || 
+                r.includes('medium') || 
+                r.includes('seam') || 
+                r.includes('spin') || 
+                r.includes('break') || 
+                r.includes('orthodox') || 
+                r.includes('legbreak') || 
+                r.includes('offbreak') || 
+                r.includes('goog') ||
+                r.includes('pace') ||
+                r.includes('arm')
+            ) {
+                if (r.includes('allrounder') || r.includes('all rounder') || r.includes('all-rounder') || r.includes('all_rounder')) {
+                    stringType = 'allrounder';
+                } else {
+                    stringType = 'bowler';
                 }
-                if (hasBowl) {
-                    const wkts = parseInt(m.bowl) || 0;
-                    pts += wkts * 25;
-                    if (wkts >= 5) pts += 16;
-                    else if (wkts >= 3) pts += 8;
+            } else if (r.includes('allrounder') || r.includes('all rounder') || r.includes('all-rounder') || r.includes('all_rounder') || r.includes('allround')) {
+                stringType = 'allrounder';
+            }
+
+            if (stringType === 'batsman' && matches && matches.length > 0) {
+                let totalWkts = 0;
+                let totalRuns = 0;
+                let wktMatches = 0;
+                let batMatches = 0;
+
+                matches.forEach(m => {
+                    const hasBat = m.bat && m.bat !== '-' && m.bat !== 'DNB' && m.bat !== 'TDNB' && m.bat !== 'absent';
+                    const hasBowl = m.bowl && m.bowl !== '-' && m.bowl !== 'DNB';
+                    if (hasBat) {
+                        const runs = parseInt(m.bat.toString().replace('*', '')) || 0;
+                        totalRuns += runs;
+                        batMatches++;
+                    }
+                    if (hasBowl) {
+                        const wkts = parseInt(m.bowl) || 0;
+                        totalWkts += wkts;
+                        wktMatches++;
+                    }
+                });
+
+                if (wktMatches > batMatches && totalWkts > 2) {
+                    return 'bowler';
                 }
-                return pts;
-            });
+                if (totalWkts > 5 && totalRuns < 50) {
+                    return 'bowler';
+                }
+                if (wktMatches > 2 && totalWkts > 2 && totalRuns > 50) {
+                    return 'allrounder';
+                }
+            }
+            return stringType;
+        };
 
-            const N = pointsList.length;
-            
-            const getRoleDefault = (r) => {
-                const roleLower = (r || '').toLowerCase();
-                if (roleLower.includes('bowl')) return 28;
-                if (roleLower.includes('allrounder') || roleLower.includes('all rounder') || roleLower.includes('all-rounder')) return 32;
-                if (roleLower.includes('keeper') || roleLower.includes('wk')) return 26;
-                return 30; // Batsman
-            };
-            const roleDefault = getRoleDefault(playerRole);
-
+        const trainAndPredictRF = (valuesList, defaultVal) => {
+            const N = valuesList.length;
+            if (N === 0) return defaultVal;
             if (N < 4) {
-                const mean = N > 0 ? pointsList.reduce((s, x) => s + x, 0) / N : roleDefault;
-                return Math.round(mean);
+                const mean = valuesList.reduce((s, x) => s + x, 0) / N;
+                return mean;
             }
 
             const X = [];
             const y = [];
             for (let t = 3; t < N; t++) {
-                const lag1 = pointsList[t-1];
-                const lag2 = pointsList[t-2];
-                const lag3 = pointsList[t-3];
+                const lag1 = valuesList[t-1];
+                const lag2 = valuesList[t-2];
+                const lag3 = valuesList[t-3];
                 const meanLag = (lag1 + lag2 + lag3) / 3;
                 const trend = lag1 - lag2;
                 X.push([lag1, lag2, lag3, meanLag, trend]);
-                y.push(pointsList[t]);
+                y.push(valuesList[t]);
             }
 
             const rf = new RandomForestRegressor(12, 3);
             rf.fit(X, y);
 
-            const last1 = pointsList[N-1];
-            const last2 = pointsList[N-2];
-            const last3 = pointsList[N-3];
+            const last1 = valuesList[N-1];
+            const last2 = valuesList[N-2];
+            const last3 = valuesList[N-3];
             const lastMean = (last1 + last2 + last3) / 3;
             const lastTrend = last1 - last2;
 
             const nextFeatures = [last1, last2, last3, lastMean, lastTrend];
             const prediction = rf.predict([nextFeatures])[0];
 
-            const playerAvg = pointsList.reduce((s, x) => s + x, 0) / N;
-            const finalPrediction = (0.75 * prediction) + (0.25 * playerAvg);
+            const avgVal = valuesList.reduce((s, x) => s + x, 0) / N;
+            return (0.75 * prediction) + (0.25 * avgVal);
+        };
 
-            return Math.max(8, Math.min(115, Math.round(finalPrediction)));
+        const predictNextScoreRandomForest = (matchesList, detectedRole) => {
+            if (!matchesList || matchesList.length === 0) {
+                if (detectedRole === 'bowler') return '1 Wkt';
+                if (detectedRole === 'allrounder') return '22 R | 1 W';
+                return '28 Runs';
+            }
+
+            if (detectedRole === 'bowler') {
+                const wktsList = [...matchesList].reverse().map(m => {
+                    const hasBowl = m.bowl && m.bowl !== '-' && m.bowl !== 'DNB';
+                    return hasBowl ? (parseInt(m.bowl) || 0) : 0;
+                });
+                const pred = trainAndPredictRF(wktsList, 1.2);
+                const roundedWkts = Math.max(0, Math.round(pred));
+                return roundedWkts + (roundedWkts === 1 ? ' Wkt' : ' Wkts');
+            }
+
+            if (detectedRole === 'allrounder') {
+                const runsList = [...matchesList].reverse().map(m => {
+                    const hasBat = m.bat && m.bat !== '-' && m.bat !== 'DNB' && m.bat !== 'TDNB' && m.bat !== 'absent';
+                    return hasBat ? (parseInt(m.bat.toString().replace('*', '')) || 0) : 0;
+                });
+                const wktsList = [...matchesList].reverse().map(m => {
+                    const hasBowl = m.bowl && m.bowl !== '-' && m.bowl !== 'DNB';
+                    return hasBowl ? (parseInt(m.bowl) || 0) : 0;
+                });
+
+                const predRuns = trainAndPredictRF(runsList, 22);
+                const predWkts = trainAndPredictRF(wktsList, 0.8);
+                return `${Math.max(0, Math.round(predRuns))} R | ${Math.max(0, Math.round(predWkts))} W`;
+            }
+
+            // Default: Batsman / Keeper
+            const runsList = [...matchesList].reverse().map(m => {
+                const hasBat = m.bat && m.bat !== '-' && m.bat !== 'DNB' && m.bat !== 'TDNB' && m.bat !== 'absent';
+                return hasBat ? (parseInt(m.bat.toString().replace('*', '')) || 0) : 0;
+            });
+            const pred = trainAndPredictRF(runsList, 30);
+            return Math.max(0, Math.round(pred)) + ' Runs';
         };
 
         function openAllProfiles() {
@@ -593,7 +664,7 @@
         const teamIdx = parseInt(urlParams.get('teamIdx')) || 0;
         const teamName = urlParams.get('teamName') || 'SQUAD';
 
-        document.getElementById('squad-title').textContent = `${teamName} // SQUAD RECENT FORM`;
+        document.getElementById('squad-title').textContent = `${teamName} • SQUAD RECENT FORM`;
         document.getElementById('squad-subtitle').textContent = `Chronological recent player performance data (All formats)`;
 
         async function init() {
@@ -695,30 +766,38 @@
             row.style.marginBottom = '0.35rem';
 
             // Dynamic color coding indicator dot next to name based on Player Role
-            const getRoleColor = (role) => {
-                const r = (role || '').toLowerCase();
-                if (r.includes('bowl')) return 'var(--neon-rose)';
-                if (r.includes('allrounder') || r.includes('all rounder') || r.includes('all-rounder')) return 'var(--neon-purple)';
-                if (r.includes('keeper') || r.includes('wk')) return 'var(--amber)';
-                return 'var(--neon-green)'; // default Batter
+            const detectedRole = detectPlayerRole(player.role, matches);
+            const getRoleColor = (roleStr) => {
+                if (roleStr === 'bowler') return 'var(--neon-rose)';
+                if (roleStr === 'allrounder') return 'var(--neon-purple)';
+                if (roleStr === 'wk') return 'var(--amber)';
+                return 'var(--neon-green)'; // Batter
             };
-            const roleColor = getRoleColor(player.role);
+            const roleColor = getRoleColor(detectedRole);
             const roleLight = `<span style="width: 6px; height: 6px; border-radius: 50%; background-color: ${roleColor}; box-shadow: 0 0 6px ${roleColor}; flex-shrink: 0;" title="${player.role}"></span>`;
 
-            const getRoleLabel = (role) => {
-                const r = (role || '').toLowerCase();
-                if (r.includes('bowl')) return 'BOWLER';
-                if (r.includes('allrounder') || r.includes('all rounder') || r.includes('all-rounder')) return 'ALL-ROUNDER';
-                if (r.includes('keeper') || r.includes('wk')) return 'WK-KEEPER';
+            const getRoleLabel = (roleStr) => {
+                if (roleStr === 'bowler') return 'BOWLER';
+                if (roleStr === 'allrounder') return 'ALL-ROUNDER';
+                if (roleStr === 'wk') return 'WK-KEEPER';
                 return 'BATSMAN';
             };
-            const roleLabel = getRoleLabel(player.role);
+            const roleLabel = getRoleLabel(detectedRole);
 
             // Random Forest Regression expected prediction score
-            const rfProjectedScore = predictNextScoreRandomForest(matches, player.role);
+            const rfProjectedScore = predictNextScoreRandomForest(matches, detectedRole);
             let formColor = 'var(--neon-green)';
-            if (rfProjectedScore < 25) formColor = 'var(--neon-rose)';
-            else if (rfProjectedScore < 45) formColor = 'var(--amber)';
+            if (detectedRole === 'bowler') {
+                const wVal = parseFloat(rfProjectedScore) || 0;
+                if (wVal < 0.8) formColor = 'var(--neon-rose)';
+                else if (wVal < 1.5) formColor = 'var(--amber)';
+            } else if (detectedRole === 'allrounder') {
+                formColor = 'var(--neon-purple)';
+            } else {
+                const rVal = parseFloat(rfProjectedScore) || 0;
+                if (rVal < 20) formColor = 'var(--neon-rose)';
+                else if (rVal < 35) formColor = 'var(--amber)';
+            }
 
             // helper to map and pad match history slots exactly
             const generateTabularCapsules = (matchesList) => {
@@ -753,7 +832,7 @@
                     if (hasBowl) {
                         const wkts = parseInt(m.bowl) || 0;
                         const bowlText = `${m.bowl}W`;
-                        text = text ? `${text} ${bowlText}` : bowlText;
+                        text = text ? `${text} | ${bowlText}` : bowlText;
                         
                         if (!hasBat || wkts > 0) {
                             if (wkts >= 3) {
@@ -813,7 +892,7 @@
                     ${generateTabularCapsules(matches)}
                     <!-- RF Projected Score Prediction Column -->
                     <div style="text-align: right; font-family: 'Space Grotesk'; font-size: 0.95rem; font-weight: 900; color: ${formColor}; text-shadow: 0 0 8px ${formColor}40;" title="Predictive score fitted using temporal Random Forest Regression over 10-match sliding lags">
-                        🔮 ${rfProjectedScore} Pts
+                        🔮 ${rfProjectedScore}
                     </div>
                 `;
             }

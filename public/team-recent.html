@@ -221,7 +221,7 @@
         }
 
         .table-grid {
-            min-width: 1250px;
+            min-width: 1500px;
             display: flex;
             flex-direction: column;
             padding: 0.5rem;
@@ -231,7 +231,7 @@
 
         .players-list-header {
             display: grid;
-            grid-template-columns: 240px 140px repeat(10, 1fr) 110px;
+            grid-template-columns: 240px 140px repeat(15, 1fr) 110px;
             gap: 0.5rem;
             padding: 0.75rem 1.25rem;
             background: rgba(255, 255, 255, 0.02);
@@ -254,7 +254,7 @@
             border-radius: 8px;
             font-family: var(--font-main);
             display: grid;
-            grid-template-columns: 240px 140px repeat(10, 1fr) 110px;
+            grid-template-columns: 240px 140px repeat(15, 1fr) 110px;
             align-items: center;
             gap: 0.5rem;
             box-shadow: inset 0 0 10px rgba(0, 242, 255, 0.01);
@@ -282,7 +282,7 @@
                 max-height: none !important;
             }
             .table-grid {
-                min-width: 1250px !important;
+                min-width: 1500px !important;
                 overflow-y: visible !important;
             }
             .container {
@@ -703,7 +703,12 @@
                     <div style="color: rgba(255,255,255,0.3); font-weight: 800; text-align: center;">M7</div>
                     <div style="color: rgba(255,255,255,0.3); font-weight: 800; text-align: center;">M8</div>
                     <div style="color: rgba(255,255,255,0.3); font-weight: 800; text-align: center;">M9</div>
-                    <div style="color: rgba(255,255,255,0.3); font-weight: 800; text-align: center;">M10 (Latest)</div>
+                    <div style="color: rgba(255,255,255,0.3); font-weight: 800; text-align: center;">M10</div>
+                    <div style="color: rgba(255,255,255,0.3); font-weight: 800; text-align: center;">M11</div>
+                    <div style="color: rgba(255,255,255,0.3); font-weight: 800; text-align: center;">M12</div>
+                    <div style="color: rgba(255,255,255,0.3); font-weight: 800; text-align: center;">M13</div>
+                    <div style="color: rgba(255,255,255,0.3); font-weight: 800; text-align: center;">M14</div>
+                    <div style="color: rgba(255,255,255,0.3); font-weight: 800; text-align: center;">M15 (Latest)</div>
                     <div style="color: var(--neon-purple); font-weight: 800; text-align: right;">RF Projected</div>
                 `;
                 container.appendChild(headerRow);
@@ -715,12 +720,14 @@
                 // Step 2: Concurrently fetch player profiles (with slight delay to avoid server hammering)
                 let loadedCount = 0;
 
+                const opponentName = matchData.teams.find(t => t !== activeTeamName) || '';
+
                 for (let i = 0; i < squadPlayers.length; i++) {
                     const p = squadPlayers[i];
                     progressStatus.textContent = `Analyzing ${p.name}... (${i + 1}/${squadPlayers.length})`;
                     
                     try {
-                        const profileRes = await fetch(`/api/player-profile?pid=${p.player_id}&name=${encodeURIComponent(p.name)}`);
+                        const profileRes = await fetch(`/api/player-profile?pid=${p.player_id}&name=${encodeURIComponent(p.name)}&opponent=${encodeURIComponent(opponentName)}`);
                         const profileData = await profileRes.json();
 
                         const overallMatches = profileData.last10 || [];
@@ -796,8 +803,8 @@
 
             // helper to map and pad match history slots exactly
             const generateTabularCapsules = (matchesList) => {
-                const chronological = [...matchesList].reverse().slice(-10);
-                while (chronological.length < 10) {
+                const chronological = [...matchesList].reverse().slice(-15);
+                while (chronological.length < 15) {
                     chronological.unshift({ bat: '-', bowl: '-' });
                 }
 
@@ -850,7 +857,9 @@
                     }
 
                     const styleString = `background: ${colorObj.bg}; border: 1px solid ${colorObj.border}; color: ${colorObj.text}; box-shadow: ${colorObj.shadow};`;
-                    return `<div style="display: flex; align-items: center; justify-content: center; height: 30px; width: 100%;"><span style="display: inline-flex; align-items: center; justify-content: center; padding: 0 0.4rem; min-width: 44px; height: 26px; border-radius: 6px; font-family: 'Space Grotesk'; font-size: 0.85rem; font-weight: 700; ${styleString}">${text}</span></div>`;
+                    const isDual = text.includes('|');
+                    const fontSize = isDual ? '0.72rem' : '0.78rem';
+                    return `<div style="display: flex; align-items: center; justify-content: center; height: 30px; width: 100%;"><span style="display: inline-flex; align-items: center; justify-content: center; padding: 0 0.3rem; min-width: 42px; height: 26px; border-radius: 6px; font-family: 'Space Grotesk'; font-size: ${fontSize}; font-weight: 700; white-space: nowrap; ${styleString}">${text}</span></div>`;
                 }).join('');
             };
 
@@ -865,7 +874,7 @@
                         <span style="color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${player.name}</span>
                     </div>
                     <div style="font-size: 0.75rem; font-weight: bold; color: rgba(255,255,255,0.25); text-align: center;">UNKNOWN</div>
-                    <div style="grid-column: span 10; color: var(--neon-rose); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; text-align: center;">
+                    <div style="grid-column: span 15; color: var(--neon-rose); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; text-align: center;">
                         ⚠️ ERROR SECURING RECENT FORM DATA
                     </div>
                     <div style="text-align: right; color: rgba(255,255,255,0.15); font-weight: 700; font-size: 0.95rem;">-</div>

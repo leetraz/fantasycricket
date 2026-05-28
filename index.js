@@ -233,10 +233,32 @@ app.get('/api/list-matches', async (req, res) => {
             const state = (m.state || '').toLowerCase();
             const tossDone = statusText.includes('toss') || statusText.includes('chose to') || statusText.includes('elected to') || statusText.includes('opted to');
             
+            let status = m.statusText || "Upcoming";
+            if (status.includes("{{MATCH_START_HOURS}}") || status.includes("{{MATCH_START_MINS}}")) {
+                if (m.startTime) {
+                    const diffMs = new Date(m.startTime) - new Date();
+                    if (diffMs > 0) {
+                        const totalMins = Math.floor(diffMs / (1000 * 60));
+                        const hours = Math.floor(totalMins / 60);
+                        const mins = totalMins % 60;
+                        
+                        let hourText = hours > 0 ? `${hours} hr` : "";
+                        let minText = `${mins} min`;
+                        let timeStr = hourText ? `${hourText} ${minText}` : minText;
+                        
+                        status = `Match starts in ${timeStr}`;
+                    } else {
+                        status = "Match starting soon";
+                    }
+                } else {
+                    status = "Match starts soon";
+                }
+            }
+
             return {
                 title: `${m.teams?.[0]?.team?.abbreviation || 'T1'} vs ${m.teams?.[1]?.team?.abbreviation || 'T2'}`,
                 series: m.series?.name || "T20 Match",
-                status: m.statusText || "Upcoming",
+                status: status,
                 url: "https://www.espncricinfo.com" + (m.slug ? `/series/${m.slug}-${m.series?.objectId}/${m.slug}-${m.objectId}/live-cricket-score` : ""),
                 startTime: m.startTime,
                 tossDone: tossDone,

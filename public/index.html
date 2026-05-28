@@ -455,53 +455,95 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.75rem !important;
+            }
+            .container {
+                padding: 0 !important;
+            }
+            h1 {
+                font-size: 2rem !important;
+                letter-spacing: -1px !important;
+                margin-bottom: 0.25rem !important;
+            }
+            .subtitle {
+                font-size: 0.8rem !important;
+            }
+            .input-section {
+                padding: 1.25rem !important;
+                margin-bottom: 2rem !important;
+                border-radius: 1rem !important;
+                gap: 0.75rem !important;
+                flex-direction: column !important;
+            }
+            .input-section button {
+                width: 100% !important;
+            }
+            input {
+                font-size: 0.9rem !important;
+                padding: 0.75rem 1rem !important;
+            }
+            input::placeholder {
+                font-size: 0.8rem !important;
+            }
+            .match-selector-section {
+                padding: 1rem !important;
+                margin-bottom: 2rem !important;
+                border-radius: 1rem !important;
+            }
+            .h2h-match-grid {
+                grid-template-columns: 1fr !important;
+                gap: 0.75rem !important;
+            }
+            .h2h-match-item {
+                padding: 1rem !important;
+            }
             .teams-container {
-                grid-template-columns: 1fr;
-                gap: 1.25rem;
+                grid-template-columns: 1fr !important;
+                gap: 1.25rem !important;
             }
             .team-card {
-                padding: 1.25rem;
+                padding: 1rem !important;
+                border-radius: 1rem !important;
             }
             .team-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.75rem;
-                border-bottom: 1px solid var(--border);
-                padding-bottom: 0.75rem;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 0.75rem !important;
+                border-bottom: 1px solid var(--border) !important;
+                padding-bottom: 0.75rem !important;
+                margin-bottom: 1.25rem !important;
+            }
+            .team-name {
+                font-size: 1.4rem !important;
             }
             .team-actions {
-                width: 100%;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 0.4rem;
+                width: 100% !important;
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 0.5rem !important;
             }
             .team-actions button {
                 width: 100% !important;
                 margin-left: 0 !important;
-                font-size: 0.75rem;
-                padding: 0.5rem;
-                text-align: center;
-            }
-            .input-section {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            .input-section button {
-                width: 100%;
-            }
-            .subtitle {
                 font-size: 0.75rem !important;
+                padding: 0.6rem !important;
+                text-align: center !important;
             }
             .player-item {
                 flex-direction: column !important;
                 align-items: stretch !important;
                 gap: 0.75rem !important;
-                padding: 1rem !important;
+                padding: 0.85rem 1rem !important;
+                border-radius: 1rem !important;
             }
             .player-info {
                 text-align: center !important;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-                padding-bottom: 0.5rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+                padding-bottom: 0.5rem !important;
+            }
+            .player-name {
+                font-size: 1rem !important;
             }
             .player-links {
                 opacity: 1 !important;
@@ -519,11 +561,11 @@
                 width: 100% !important;
             }
             .icon-link {
-                font-size: 0.8rem !important;
+                font-size: 0.75rem !important;
                 width: auto !important;
-                height: 38px !important;
+                height: 36px !important;
                 padding: 0 0.5rem !important;
-                border-radius: 8px !important;
+                border-radius: 6px !important;
                 display: inline-flex !important;
                 align-items: center !important;
                 justify-content: center !important;
@@ -532,22 +574,50 @@
                 border: 1px solid rgba(255, 255, 255, 0.1) !important;
             }
             .icon-link.profile::after {
-                content: "Profile";
-                font-size: 0.7rem;
-                font-weight: 700;
-                letter-spacing: 0.5px;
+                content: "Profile" !important;
+                font-size: 0.65rem !important;
+                font-weight: 700 !important;
             }
             .icon-link.logs::after {
-                content: "Analysis";
-                font-size: 0.7rem;
-                font-weight: 700;
-                letter-spacing: 0.5px;
+                content: "Form" !important;
+                font-size: 0.65rem !important;
+                font-weight: 700 !important;
             }
             .intel-dropdown-menu {
-                width: calc(100vw - 3rem) !important;
-                max-width: 300px !important;
-                right: -20px !important;
+                width: calc(100vw - 2.5rem) !important;
+                max-width: 280px !important;
+                right: -10px !important;
                 top: 110% !important;
+            }
+            /* AI Modal & Tabs mobile viewport optimizations */
+            .ai-modal-content {
+                width: 95% !important;
+                padding: 1.25rem !important;
+                border-radius: 1.25rem !important;
+            }
+            .ai-team-tabs {
+                flex-wrap: nowrap !important;
+                justify-content: flex-start !important;
+                overflow-x: auto !important;
+                padding-bottom: 0.75rem !important;
+                gap: 0.4rem !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+            .ai-team-tabs::-webkit-scrollbar {
+                display: none !important;
+            }
+            .ai-tab-btn {
+                flex-shrink: 0 !important;
+                padding: 0.5rem 0.85rem !important;
+                font-size: 0.75rem !important;
+            }
+            #cvcContainer {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+            .dream-team-grid {
+                grid-template-columns: 1fr !important;
+                gap: 0.75rem !important;
             }
             #aiPredictionSection {
                 flex-direction: column !important;
@@ -556,8 +626,8 @@
             }
             #aiAnalysisBtn, #venueToggleBtn {
                 width: 100% !important;
-                padding: 1rem !important;
-                font-size: 1rem !important;
+                padding: 0.85rem !important;
+                font-size: 0.9rem !important;
                 justify-content: center !important;
             }
         }

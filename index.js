@@ -362,68 +362,81 @@ app.get('/api/player-profile', async (req, res) => {
         return res.json(cached.data);
     }
 
+    let matchedClass = null;
+
     const fetchLog = async (type) => {
-        const url = `https://stats.espncricinfo.com/ci/engine/player/${pid}.html?class=6;template=results;type=${type};view=match`;
-        try {
-            const r = await axios.get(url, axiosConfig);
-            const $ = cheerio.load(r.data);
-            
-            let table = null;
-            $("table.engineTable").each((i, t) => {
-                const headerText = $(t).find("tr.headlinks th, tr.head th, thead tr th").text().toLowerCase();
-                if ((type === 'batting' && headerText.includes("runs")) || 
-                    (type === 'bowling' && headerText.includes("wkts")) ||
-                    headerText.includes("opposition")) {
-                    table = $(t);
-                }
-            });
-
-            if (!table || !table.length) return {};
-
-            let headers = [];
-            table.find("tr.headlinks th, tr.head th, thead tr th").each((i, h) => headers.push($(h).text().trim().toLowerCase()));
-            
-            const idx = {
-                runs: headers.indexOf("runs"),
-                wkts: headers.indexOf("wkts"),
-                sr: headers.indexOf("sr"),
-                econ: headers.indexOf("econ"),
-                opp: headers.findIndex(h => h.includes("opposition")),
-                date: headers.findIndex(h => h.includes("date")),
-                ground: headers.indexOf("ground")
-            };
-
-            let results = {};
-            table.find("tr.data1").each((i, el) => {
-                const cols = $(el).find("td").toArray().map(c => $(c).text().trim());
-                if (cols.length < 5) return;
+        const classes = matchedClass ? [matchedClass] : [6, 3, 23, 10, 2, 9, 1, 8];
+        for (const cls of classes) {
+            const url = `https://stats.espncricinfo.com/ci/engine/player/${pid}.html?class=${cls};template=results;type=${type};view=match`;
+            try {
+                const r = await axios.get(url, axiosConfig);
+                const $ = cheerio.load(r.data);
                 
-                const dateStr = idx.date !== -1 ? cols[idx.date] : "";
-                const oppStr = idx.opp !== -1 ? cols[idx.opp] : "";
-                if (!dateStr || dateStr === '0') return;
+                let table = null;
+                $("table.engineTable").each((i, t) => {
+                    const headerText = $(t).find("tr.headlinks th, tr.head th, thead tr th").text().toLowerCase();
+                    if ((type === 'batting' && headerText.includes("runs")) || 
+                        (type === 'bowling' && headerText.includes("wkts")) ||
+                        headerText.includes("opposition")) {
+                        table = $(t);
+                    }
+                });
 
-                // Exclude matches played today or in the future to keep only completed matches
-                const matchDateObj = new Date(dateStr);
-                const todayObj = new Date();
-                todayObj.setHours(0,0,0,0);
-                if (matchDateObj >= todayObj) return; // skip live or upcoming matches
+                if (!table || !table.length) continue;
 
-                const date = new Date(dateStr).toLocaleDateString();
-                const key = `${oppStr.replace(/^v\s+/, '').trim()}|${date}`;
+                let headers = [];
+                table.find("tr.headlinks th, tr.head th, thead tr th").each((i, h) => headers.push($(h).text().trim().toLowerCase()));
                 
-                results[key] = {
-                    opp: oppStr.replace(/^v\s+/, '').trim(),
-                    date: date,
-                    timestamp: new Date(dateStr).getTime(),
-                    ground: idx.ground !== -1 ? cols[idx.ground] : "",
-                    [type === 'batting' ? 'bat' : 'bowl']: type === 'batting' ? cols[idx.runs] : cols[idx.wkts],
-                    [type === 'batting' ? 'sr' : 'econ']: type === 'batting' ? cols[idx.sr] : cols[idx.econ]
+                const idx = {
+                    runs: headers.indexOf("runs"),
+                    wkts: headers.indexOf("wkts"),
+                    sr: headers.indexOf("sr"),
+                    econ: headers.indexOf("econ"),
+                    opp: headers.findIndex(h => h.includes("opposition")),
+                    date: headers.findIndex(h => h.includes("date")),
+                    ground: headers.indexOf("ground")
                 };
-            });
-            return results;
-        } catch (e) {
-            return {};
+
+                let results = {};
+                const rows = table.find("tr.data1");
+                if (rows.length === 0) continue;
+
+                rows.each((i, el) => {
+                    const cols = $(el).find("td").toArray().map(c => $(c).text().trim());
+                    if (cols.length < 5) return;
+                    
+                    const dateStr = idx.date !== -1 ? cols[idx.date] : "";
+                    const oppStr = idx.opp !== -1 ? cols[idx.opp] : "";
+                    if (!dateStr || dateStr === '0') return;
+
+                    // Exclude matches played today or in the future to keep only completed matches
+                    const matchDateObj = new Date(dateStr);
+                    const todayObj = new Date();
+                    todayObj.setHours(0,0,0,0);
+                    if (matchDateObj >= todayObj) return; // skip live or upcoming matches
+
+                    const date = new Date(dateStr).toLocaleDateString();
+                    const key = `${oppStr.replace(/^v\s+/, '').trim()}|${date}`;
+                    
+                    results[key] = {
+                        opp: oppStr.replace(/^v\s+/, '').trim(),
+                        date: date,
+                        timestamp: new Date(dateStr).getTime(),
+                        ground: idx.ground !== -1 ? cols[idx.ground] : "",
+                        [type === 'batting' ? 'bat' : 'bowl']: type === 'batting' ? cols[idx.runs] : cols[idx.wkts],
+                        [type === 'batting' ? 'sr' : 'econ']: type === 'batting' ? cols[idx.sr] : cols[idx.econ]
+                    };
+                });
+
+                if (Object.keys(results).length > 0) {
+                    matchedClass = cls;
+                    return results;
+                }
+            } catch (e) {
+                // ignore and continue
+            }
         }
+        return {};
     };
 
     try {

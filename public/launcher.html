@@ -900,8 +900,8 @@
 
     <div class="container">
         <header>
-            <h1 id="header-match-title" style="text-transform: uppercase; font-family: 'Space Grotesk'; font-weight: 900; letter-spacing: 2px;">TEAM NAME VS TEAM NAME</h1>
-            <p class="subtitle" id="header-match-subtitle" style="text-transform: uppercase; font-family: 'Space Grotesk'; font-weight: 700; color: var(--neon-purple); text-shadow: 0 0 8px rgba(157, 0, 255, 0.4); letter-spacing: 1px;">🏟️ MATCH VENUE / LOCATION</p>
+            <h1 id="header-match-title" style="display: none; text-transform: uppercase; font-family: 'Space Grotesk'; font-weight: 900; letter-spacing: 2px;"></h1>
+            <p class="subtitle" id="header-match-subtitle" style="display: none; text-transform: uppercase; font-family: 'Space Grotesk'; font-weight: 700; color: var(--neon-purple); text-shadow: 0 0 8px rgba(157, 0, 255, 0.4); letter-spacing: 1px;"></p>
         </header>
 
         <div class="input-section">
@@ -2307,8 +2307,12 @@
             const teamNames = matchData.teams;
             
             // Dynamically set matchup header and venue
-            document.getElementById('header-match-title').innerText = `${teamNames[0].toUpperCase()} VS ${teamNames[1].toUpperCase()}`;
-            document.getElementById('header-match-subtitle').innerText = `🏟️ ${(matchData.groundName || 'VENUE LOCATION').toUpperCase()}`;
+            const headerTitle = document.getElementById('header-match-title');
+            const headerSubtitle = document.getElementById('header-match-subtitle');
+            headerTitle.innerText = `${teamNames[0].toUpperCase()} VS ${teamNames[1].toUpperCase()}`;
+            headerTitle.style.display = 'block';
+            headerSubtitle.innerText = `🏟️ ${(matchData.groundName || 'VENUE LOCATION').toUpperCase()}`;
+            headerSubtitle.style.display = 'block';
             document.title = `${teamNames[0].toUpperCase()} VS ${teamNames[1].toUpperCase()} • SQUAD INTEL WORKSPACE`;
 
             t1Name.innerText = `${teamNames[0].toUpperCase()} • SQUAD ROSTER`;

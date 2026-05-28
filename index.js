@@ -187,6 +187,9 @@ function parsePlayingXi(data) {
     }));
 }
 
+// ── Global Match Playing XI Availability Cache ──
+const matchXiCache = new Map();
+
 // ── API: List Live/Upcoming Matches ──
 app.get('/api/list-matches', async (req, res) => {
     try {
@@ -199,7 +202,7 @@ app.get('/api/list-matches', async (req, res) => {
                            json.props?.appPageProps?.matchScheduleData?.content?.matches || 
                            json.props?.pageProps?.matchScheduleData?.content?.matches || [];
 
-        const matches = matchesData.filter(m => {
+        const candidateMatches = matchesData.filter(m => {
             const statusText = (m.statusText || '').toLowerCase();
             const state = (m.state || '').toLowerCase();
             
@@ -240,7 +243,44 @@ app.get('/api/list-matches', async (req, res) => {
             };
         }).filter(m => m.url.includes('match-') || m.url.includes('live-cricket') || m.url.includes('scorecard'));
 
-        res.json(matches.slice(0, 30));
+        const verifiedMatches = [];
+        await Promise.all(candidateMatches.map(async (m) => {
+            const cacheKey = m.url;
+            if (matchXiCache.has(cacheKey)) {
+                const cached = matchXiCache.get(cacheKey);
+                if (cached.available) {
+                    verifiedMatches.push(m);
+                    return;
+                } else {
+                    // Check if negative cache expired (5 minutes TTL)
+                    if (Date.now() - cached.timestamp < 5 * 60 * 1000) {
+                        return;
+                    }
+                }
+            }
+
+            try {
+                const matchJson = await fetchNextData(m.url);
+                if (matchJson) {
+                    let data = matchJson.props?.appPageProps?.data || matchJson.props?.pageProps?.data || matchJson.props?.appPageProps || matchJson.props?.pageProps;
+                    if (data && data.data && !data.teamPlayers && !data.content) data = data.data;
+                    const players = parsePlayingXi(data);
+                    if (players && players.length > 0) {
+                        matchXiCache.set(cacheKey, { available: true, timestamp: Date.now() });
+                        verifiedMatches.push(m);
+                        return;
+                    }
+                }
+            } catch (err) {
+                // Ignore match
+            }
+            matchXiCache.set(cacheKey, { available: false, timestamp: Date.now() });
+        }));
+
+        // Sort verified matches chronologically (earliest first)
+        verifiedMatches.sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
+
+        res.json(verifiedMatches.slice(0, 30));
     } catch (e) {
         res.json([]);
     }

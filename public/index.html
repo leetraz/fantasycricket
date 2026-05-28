@@ -2182,7 +2182,7 @@
 
                 const chronological = [...matches].reverse().slice(-10);
                 while (chronological.length < 10) {
-                    chronological.push({ bat: '-', bowl: '-' });
+                    chronological.unshift({ bat: '-', bowl: '-' });
                 }
 
                 // Detect exact player role

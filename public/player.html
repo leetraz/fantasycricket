@@ -828,6 +828,9 @@
         }
 
         function switchTab(tabType) {
+            if (tabType === 'recent') {
+                tabType = 'all';
+            }
             currentActiveTab = tabType;
             
             document.getElementById('btn-h2h').classList.remove('active');

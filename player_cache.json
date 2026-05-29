@@ -12565,6 +12565,12 @@
       ]
     }
   },
+  "327947": {
+    "timestamp": 1780035481558,
+    "data": {
+      "last10": []
+    }
+  },
   "355349": {
     "timestamp": 1779976102801,
     "data": {
@@ -32743,6 +32749,12 @@
       "last10": []
     }
   },
+  "437438": {
+    "timestamp": 1780035481568,
+    "data": {
+      "last10": []
+    }
+  },
   "438362": {
     "timestamp": 1779978825567,
     "data": {
@@ -32973,6 +32985,12 @@
           "econ": "-"
         }
       ]
+    }
+  },
+  "498582": {
+    "timestamp": 1780035482081,
+    "data": {
+      "last10": []
     }
   },
   "515874": {
@@ -38839,8 +38857,26 @@
       ]
     }
   },
+  "535353": {
+    "timestamp": 1780035482058,
+    "data": {
+      "last10": []
+    }
+  },
+  "550187": {
+    "timestamp": 1780035482651,
+    "data": {
+      "last10": []
+    }
+  },
   "550215": {
     "timestamp": 1779978807768,
+    "data": {
+      "last10": []
+    }
+  },
+  "553249": {
+    "timestamp": 1780035483864,
     "data": {
       "last10": []
     }
@@ -38936,6 +38972,24 @@
           "econ": "-"
         }
       ]
+    }
+  },
+  "596073": {
+    "timestamp": 1780035483881,
+    "data": {
+      "last10": []
+    }
+  },
+  "596097": {
+    "timestamp": 1780035484141,
+    "data": {
+      "last10": []
+    }
+  },
+  "596436": {
+    "timestamp": 1780035484150,
+    "data": {
+      "last10": []
     }
   },
   "597806": {
@@ -46917,6 +46971,18 @@
   },
   "670025": {
     "timestamp": 1779978819363,
+    "data": {
+      "last10": []
+    }
+  },
+  "696439": {
+    "timestamp": 1780035484825,
+    "data": {
+      "last10": []
+    }
+  },
+  "697183": {
+    "timestamp": 1780035487303,
     "data": {
       "last10": []
     }
@@ -59955,6 +60021,18 @@
       "last10": []
     }
   },
+  "949461": {
+    "timestamp": 1780035486143,
+    "data": {
+      "last10": []
+    }
+  },
+  "952207": {
+    "timestamp": 1780035486153,
+    "data": {
+      "last10": []
+    }
+  },
   "960715": {
     "timestamp": 1779976425321,
     "data": {
@@ -66653,6 +66731,273 @@
       ]
     }
   },
+  "1023361": {
+    "timestamp": 1780035476194,
+    "data": {
+      "last10": [
+        {
+          "opp": "Rockets",
+          "date": "8/27/2025",
+          "timestamp": 1756233000000,
+          "ground": "Nottingham",
+          "bat": "1",
+          "sr": "50",
+          "bowl": "2",
+          "econ": "7.5"
+        },
+        {
+          "opp": "Originals",
+          "date": "8/24/2025",
+          "timestamp": 1755973800000,
+          "ground": "Manchester",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "1",
+          "econ": "5.4"
+        },
+        {
+          "opp": "Lancashire",
+          "date": "7/18/2025",
+          "timestamp": 1752777000000,
+          "ground": "Nottingham",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "2",
+          "econ": "3.5"
+        },
+        {
+          "opp": "Worcs",
+          "date": "7/17/2025",
+          "timestamp": 1752690600000,
+          "ground": "Worcester",
+          "bat": "0",
+          "sr": "0",
+          "bowl": "1",
+          "econ": "10.75"
+        },
+        {
+          "opp": "Durham",
+          "date": "7/11/2025",
+          "timestamp": 1752172200000,
+          "ground": "Nottingham",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "0",
+          "econ": "6.66"
+        },
+        {
+          "opp": "Leics",
+          "date": "7/6/2025",
+          "timestamp": 1751740200000,
+          "ground": "Nottingham",
+          "bat": "3",
+          "sr": "50",
+          "bowl": "0",
+          "econ": "8.33"
+        },
+        {
+          "opp": "Durham",
+          "date": "7/4/2025",
+          "timestamp": 1751567400000,
+          "ground": "Chester-le-Street",
+          "bat": "8",
+          "sr": "266.66",
+          "bowl": "0",
+          "econ": "10.28"
+        },
+        {
+          "opp": "Northants",
+          "date": "6/20/2025",
+          "timestamp": 1750357800000,
+          "ground": "Northampton",
+          "bat": "11",
+          "sr": "157.14",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Leics",
+          "date": "6/19/2025",
+          "timestamp": 1750271400000,
+          "ground": "Leicester",
+          "bat": "2",
+          "sr": "40",
+          "bowl": "1",
+          "econ": "9"
+        },
+        {
+          "opp": "Bears",
+          "date": "6/14/2025",
+          "timestamp": 1749839400000,
+          "ground": "Birmingham",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "3",
+          "econ": "12.33"
+        },
+        {
+          "opp": "Derbyshire",
+          "date": "6/13/2025",
+          "timestamp": 1749753000000,
+          "ground": "Nottingham",
+          "bat": "13",
+          "sr": "65",
+          "bowl": "1",
+          "econ": "8"
+        },
+        {
+          "opp": "Yorkshire",
+          "date": "6/11/2025",
+          "timestamp": 1749580200000,
+          "ground": "Nottingham",
+          "bat": "4",
+          "sr": "50",
+          "bowl": "2",
+          "econ": "6"
+        },
+        {
+          "opp": "Worcs",
+          "date": "6/7/2025",
+          "timestamp": 1749234600000,
+          "ground": "Nottingham",
+          "bat": "39",
+          "sr": "205.26",
+          "bowl": "1",
+          "econ": "9.25"
+        },
+        {
+          "opp": "Derbyshire",
+          "date": "6/6/2025",
+          "timestamp": 1749148200000,
+          "ground": "Derby",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "3",
+          "econ": "5"
+        },
+        {
+          "opp": "Lancashire",
+          "date": "5/31/2025",
+          "timestamp": 1748629800000,
+          "ground": "Manchester",
+          "bat": "15",
+          "sr": "187.5",
+          "bowl": "1",
+          "econ": "10.5"
+        },
+        {
+          "opp": "Bears",
+          "date": "5/30/2025",
+          "timestamp": 1748543400000,
+          "ground": "Nottingham",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "0",
+          "econ": "14"
+        },
+        {
+          "opp": "Yorkshire",
+          "date": "7/19/2024",
+          "timestamp": 1721327400000,
+          "ground": "Leeds",
+          "bat": "1",
+          "sr": "50",
+          "bowl": "0",
+          "econ": "14"
+        },
+        {
+          "opp": "Lancashire",
+          "date": "7/17/2024",
+          "timestamp": 1721154600000,
+          "ground": "Manchester",
+          "bat": "17",
+          "sr": "113.33",
+          "bowl": "1",
+          "econ": "4.33"
+        },
+        {
+          "opp": "Leics",
+          "date": "7/14/2024",
+          "timestamp": 1720895400000,
+          "ground": "Leicester",
+          "bat": "28",
+          "sr": "175",
+          "bowl": "1",
+          "econ": "7"
+        },
+        {
+          "opp": "Durham",
+          "date": "7/12/2024",
+          "timestamp": 1720722600000,
+          "ground": "Chester-le-Street",
+          "bat": "1",
+          "sr": "12.5",
+          "bowl": "2",
+          "econ": "4.5"
+        },
+        {
+          "opp": "Bears",
+          "date": "7/7/2024",
+          "timestamp": 1720290600000,
+          "ground": "Nottingham",
+          "bat": "4",
+          "sr": "50",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Leics",
+          "date": "7/5/2024",
+          "timestamp": 1720117800000,
+          "ground": "Nottingham",
+          "bat": "26",
+          "sr": "173.33",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Derbyshire",
+          "date": "6/21/2024",
+          "timestamp": 1718908200000,
+          "ground": "Nottingham",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "2",
+          "econ": "10.25"
+        },
+        {
+          "opp": "Durham",
+          "date": "6/15/2024",
+          "timestamp": 1718389800000,
+          "ground": "Nottingham",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Worcs",
+          "date": "6/14/2024",
+          "timestamp": 1718303400000,
+          "ground": "Worcester",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "0",
+          "econ": "7.33"
+        },
+        {
+          "opp": "Lancashire",
+          "date": "6/9/2024",
+          "timestamp": 1717871400000,
+          "ground": "Nottingham",
+          "bat": "44",
+          "sr": "209.52",
+          "bowl": "1",
+          "econ": "5.5"
+        }
+      ]
+    }
+  },
   "1026403": {
     "timestamp": 1779976101473,
     "data": {
@@ -68374,13 +68719,13 @@
     }
   },
   "1070173": {
-    "timestamp": 1779978799955,
+    "timestamp": 1780038898703,
     "data": {
       "last10": [
         {
           "opp": "RCB",
           "date": "5/26/2026",
-          "timestamp": 1779733800000,
+          "timestamp": 1779753600000,
           "ground": "Dharamsala",
           "bat": "2",
           "sr": "28.57",
@@ -68390,7 +68735,7 @@
         {
           "opp": "CSK",
           "date": "5/21/2026",
-          "timestamp": 1779301800000,
+          "timestamp": 1779321600000,
           "ground": "Ahmedabad",
           "bat": "64",
           "sr": "172.97",
@@ -68400,7 +68745,7 @@
         {
           "opp": "KKR",
           "date": "5/16/2026",
-          "timestamp": 1778869800000,
+          "timestamp": 1778889600000,
           "ground": "Eden Gardens",
           "bat": "85",
           "sr": "173.46",
@@ -68410,7 +68755,7 @@
         {
           "opp": "SRH",
           "date": "5/12/2026",
-          "timestamp": 1778524200000,
+          "timestamp": 1778544000000,
           "ground": "Ahmedabad",
           "bat": "5",
           "sr": "71.42",
@@ -68420,7 +68765,7 @@
         {
           "opp": "RR",
           "date": "5/9/2026",
-          "timestamp": 1778265000000,
+          "timestamp": 1778284800000,
           "ground": "Jaipur",
           "bat": "84",
           "sr": "190.9",
@@ -68430,7 +68775,7 @@
         {
           "opp": "Punjab Kings",
           "date": "5/3/2026",
-          "timestamp": 1777746600000,
+          "timestamp": 1777766400000,
           "ground": "Ahmedabad",
           "bat": "5",
           "sr": "125",
@@ -68440,7 +68785,7 @@
         {
           "opp": "RCB",
           "date": "4/30/2026",
-          "timestamp": 1777487400000,
+          "timestamp": 1777507200000,
           "ground": "Ahmedabad",
           "bat": "43",
           "sr": "238.88",
@@ -68450,7 +68795,7 @@
         {
           "opp": "CSK",
           "date": "4/26/2026",
-          "timestamp": 1777141800000,
+          "timestamp": 1777161600000,
           "ground": "Chennai",
           "bat": "33",
           "sr": "143.47",
@@ -68460,7 +68805,7 @@
         {
           "opp": "RCB",
           "date": "4/24/2026",
-          "timestamp": 1776969000000,
+          "timestamp": 1776988800000,
           "ground": "Bengaluru",
           "bat": "32",
           "sr": "133.33",
@@ -68470,7 +68815,7 @@
         {
           "opp": "MI",
           "date": "4/20/2026",
-          "timestamp": 1776623400000,
+          "timestamp": 1776643200000,
           "ground": "Ahmedabad",
           "bat": "14",
           "sr": "107.69",
@@ -68480,7 +68825,7 @@
         {
           "opp": "KKR",
           "date": "4/17/2026",
-          "timestamp": 1776364200000,
+          "timestamp": 1776384000000,
           "ground": "Ahmedabad",
           "bat": "86",
           "sr": "172",
@@ -68490,7 +68835,7 @@
         {
           "opp": "LSG",
           "date": "4/12/2026",
-          "timestamp": 1775932200000,
+          "timestamp": 1775952000000,
           "ground": "Lucknow",
           "bat": "56",
           "sr": "140",
@@ -68500,7 +68845,7 @@
         {
           "opp": "DC",
           "date": "4/8/2026",
-          "timestamp": 1775586600000,
+          "timestamp": 1775606400000,
           "ground": "Delhi",
           "bat": "70",
           "sr": "155.55",
@@ -68510,7 +68855,7 @@
         {
           "opp": "Punjab Kings",
           "date": "3/31/2026",
-          "timestamp": 1774895400000,
+          "timestamp": 1774915200000,
           "ground": "New Chandigarh",
           "bat": "39",
           "sr": "144.44",
@@ -68520,7 +68865,7 @@
         {
           "opp": "New Zealand",
           "date": "1/18/2026",
-          "timestamp": 1768674600000,
+          "timestamp": 1768694400000,
           "ground": "Indore",
           "bat": "23",
           "sr": "127.77",
@@ -68530,7 +68875,7 @@
         {
           "opp": "New Zealand",
           "date": "1/14/2026",
-          "timestamp": 1768329000000,
+          "timestamp": 1768348800000,
           "ground": "Rajkot",
           "bat": "56",
           "sr": "105.66",
@@ -68540,7 +68885,7 @@
         {
           "opp": "New Zealand",
           "date": "1/11/2026",
-          "timestamp": 1768069800000,
+          "timestamp": 1768089600000,
           "ground": "Vadodara",
           "bat": "56",
           "sr": "78.87",
@@ -68550,7 +68895,7 @@
         {
           "opp": "South Africa",
           "date": "12/14/2025",
-          "timestamp": 1765650600000,
+          "timestamp": 1765670400000,
           "ground": "Dharamsala",
           "bat": "28",
           "sr": "100",
@@ -68560,7 +68905,7 @@
         {
           "opp": "South Africa",
           "date": "12/11/2025",
-          "timestamp": 1765391400000,
+          "timestamp": 1765411200000,
           "ground": "New Chandigarh",
           "bat": "0",
           "sr": "0",
@@ -68570,7 +68915,7 @@
         {
           "opp": "South Africa",
           "date": "12/9/2025",
-          "timestamp": 1765218600000,
+          "timestamp": 1765238400000,
           "ground": "Cuttack",
           "bat": "4",
           "sr": "200",
@@ -68580,7 +68925,7 @@
         {
           "opp": "South Africa",
           "date": "11/14/2025",
-          "timestamp": 1763058600000,
+          "timestamp": 1763078400000,
           "ground": "Eden Gardens",
           "bat": "4",
           "sr": "133.33",
@@ -68590,7 +68935,7 @@
         {
           "opp": "Australia",
           "date": "11/8/2025",
-          "timestamp": 1762540200000,
+          "timestamp": 1762560000000,
           "ground": "Brisbane",
           "bat": "29",
           "sr": "181.25",
@@ -68600,7 +68945,7 @@
         {
           "opp": "Australia",
           "date": "11/6/2025",
-          "timestamp": 1762367400000,
+          "timestamp": 1762387200000,
           "ground": "Carrara",
           "bat": "46",
           "sr": "117.94",
@@ -68610,7 +68955,7 @@
         {
           "opp": "Australia",
           "date": "11/2/2025",
-          "timestamp": 1762021800000,
+          "timestamp": 1762041600000,
           "ground": "Hobart",
           "bat": "15",
           "sr": "125",
@@ -68620,7 +68965,7 @@
         {
           "opp": "Australia",
           "date": "10/31/2025",
-          "timestamp": 1761849000000,
+          "timestamp": 1761868800000,
           "ground": "Melbourne",
           "bat": "5",
           "sr": "50",
@@ -68630,7 +68975,7 @@
         {
           "opp": "Australia",
           "date": "10/29/2025",
-          "timestamp": 1761676200000,
+          "timestamp": 1761696000000,
           "ground": "Canberra",
           "bat": "37",
           "sr": "185",
@@ -68640,7 +68985,7 @@
         {
           "opp": "Australia",
           "date": "10/25/2025",
-          "timestamp": 1761330600000,
+          "timestamp": 1761350400000,
           "ground": "Sydney",
           "bat": "24",
           "sr": "92.3",
@@ -68650,7 +68995,7 @@
         {
           "opp": "Australia",
           "date": "10/23/2025",
-          "timestamp": 1761157800000,
+          "timestamp": 1761177600000,
           "ground": "Adelaide",
           "bat": "9",
           "sr": "100",
@@ -68660,7 +69005,7 @@
         {
           "opp": "Australia",
           "date": "10/19/2025",
-          "timestamp": 1760812200000,
+          "timestamp": 1760832000000,
           "ground": "Perth",
           "bat": "10",
           "sr": "55.55",
@@ -68670,7 +69015,7 @@
         {
           "opp": "West Indies",
           "date": "10/10/2025",
-          "timestamp": 1760034600000,
+          "timestamp": 1760054400000,
           "ground": "Delhi",
           "bat": "142",
           "sr": "67.29",
@@ -68680,7 +69025,7 @@
         {
           "opp": "West Indies",
           "date": "10/2/2025",
-          "timestamp": 1759343400000,
+          "timestamp": 1759363200000,
           "ground": "Ahmedabad",
           "bat": "50",
           "sr": "50",
@@ -68690,7 +69035,7 @@
         {
           "opp": "Pakistan",
           "date": "9/28/2025",
-          "timestamp": 1758997800000,
+          "timestamp": 1759017600000,
           "ground": "Dubai (DICS)",
           "bat": "12",
           "sr": "120",
@@ -68700,7 +69045,7 @@
         {
           "opp": "Sri Lanka",
           "date": "9/26/2025",
-          "timestamp": 1758825000000,
+          "timestamp": 1758844800000,
           "ground": "Dubai (DICS)",
           "bat": "4",
           "sr": "133.33",
@@ -68710,7 +69055,7 @@
         {
           "opp": "Bangladesh",
           "date": "9/24/2025",
-          "timestamp": 1758652200000,
+          "timestamp": 1758672000000,
           "ground": "Dubai (DICS)",
           "bat": "29",
           "sr": "152.63",
@@ -68720,7 +69065,7 @@
         {
           "opp": "Pakistan",
           "date": "9/21/2025",
-          "timestamp": 1758393000000,
+          "timestamp": 1758412800000,
           "ground": "Dubai (DICS)",
           "bat": "47",
           "sr": "167.85",
@@ -68730,7 +69075,7 @@
         {
           "opp": "Oman",
           "date": "9/19/2025",
-          "timestamp": 1758220200000,
+          "timestamp": 1758240000000,
           "ground": "Abu Dhabi",
           "bat": "5",
           "sr": "62.5",
@@ -68740,7 +69085,7 @@
         {
           "opp": "Pakistan",
           "date": "9/14/2025",
-          "timestamp": 1757788200000,
+          "timestamp": 1757808000000,
           "ground": "Dubai (DICS)",
           "bat": "10",
           "sr": "142.85",
@@ -68750,7 +69095,7 @@
         {
           "opp": "U.A.E.",
           "date": "9/10/2025",
-          "timestamp": 1757442600000,
+          "timestamp": 1757462400000,
           "ground": "Dubai (DICS)",
           "bat": "20",
           "sr": "222.22",
@@ -68760,7 +69105,7 @@
         {
           "opp": "England",
           "date": "7/31/2025",
-          "timestamp": 1753900200000,
+          "timestamp": 1753920000000,
           "ground": "The Oval",
           "bat": "32",
           "sr": "72.72",
@@ -68770,7 +69115,7 @@
         {
           "opp": "England",
           "date": "7/23/2025",
-          "timestamp": 1753209000000,
+          "timestamp": 1753228800000,
           "ground": "Manchester",
           "bat": "115",
           "sr": "44.06",
@@ -68780,7 +69125,7 @@
         {
           "opp": "England",
           "date": "7/10/2025",
-          "timestamp": 1752085800000,
+          "timestamp": 1752105600000,
           "ground": "Lord's",
           "bat": "22",
           "sr": "41.5",
@@ -68790,7 +69135,7 @@
         {
           "opp": "England",
           "date": "7/2/2025",
-          "timestamp": 1751394600000,
+          "timestamp": 1751414400000,
           "ground": "Birmingham",
           "bat": "430",
           "sr": "78.32",
@@ -68800,7 +69145,7 @@
         {
           "opp": "England",
           "date": "6/20/2025",
-          "timestamp": 1750357800000,
+          "timestamp": 1750377600000,
           "ground": "Leeds",
           "bat": "155",
           "sr": "63.78",
@@ -68810,7 +69155,7 @@
         {
           "opp": "MI",
           "date": "5/30/2025",
-          "timestamp": 1748543400000,
+          "timestamp": 1748563200000,
           "ground": "New Chandigarh",
           "bat": "1",
           "sr": "50",
@@ -68820,7 +69165,7 @@
         {
           "opp": "CSK",
           "date": "5/25/2025",
-          "timestamp": 1748111400000,
+          "timestamp": 1748131200000,
           "ground": "Ahmedabad",
           "bat": "13",
           "sr": "144.44",
@@ -68830,7 +69175,7 @@
         {
           "opp": "LSG",
           "date": "5/22/2025",
-          "timestamp": 1747852200000,
+          "timestamp": 1747872000000,
           "ground": "Ahmedabad",
           "bat": "35",
           "sr": "175",
@@ -68840,7 +69185,7 @@
         {
           "opp": "DC",
           "date": "5/18/2025",
-          "timestamp": 1747506600000,
+          "timestamp": 1747526400000,
           "ground": "Delhi",
           "bat": "93",
           "sr": "175.47",
@@ -68850,7 +69195,7 @@
         {
           "opp": "MI",
           "date": "5/6/2025",
-          "timestamp": 1746469800000,
+          "timestamp": 1746489600000,
           "ground": "Wankhede",
           "bat": "43",
           "sr": "93.47",
@@ -68860,7 +69205,7 @@
         {
           "opp": "SRH",
           "date": "5/2/2025",
-          "timestamp": 1746124200000,
+          "timestamp": 1746144000000,
           "ground": "Ahmedabad",
           "bat": "76",
           "sr": "200",
@@ -68870,7 +69215,7 @@
         {
           "opp": "RR",
           "date": "4/28/2025",
-          "timestamp": 1745778600000,
+          "timestamp": 1745798400000,
           "ground": "Jaipur",
           "bat": "84",
           "sr": "168",
@@ -68880,7 +69225,7 @@
         {
           "opp": "KKR",
           "date": "4/21/2025",
-          "timestamp": 1745173800000,
+          "timestamp": 1745193600000,
           "ground": "Eden Gardens",
           "bat": "90",
           "sr": "163.63",
@@ -68890,7 +69235,7 @@
         {
           "opp": "DC",
           "date": "4/19/2025",
-          "timestamp": 1745001000000,
+          "timestamp": 1745020800000,
           "ground": "Ahmedabad",
           "bat": "7",
           "sr": "140",
@@ -68900,7 +69245,7 @@
         {
           "opp": "LSG",
           "date": "4/12/2025",
-          "timestamp": 1744396200000,
+          "timestamp": 1744416000000,
           "ground": "Lucknow",
           "bat": "60",
           "sr": "157.89",
@@ -68910,7 +69255,7 @@
         {
           "opp": "RR",
           "date": "4/9/2025",
-          "timestamp": 1744137000000,
+          "timestamp": 1744156800000,
           "ground": "Ahmedabad",
           "bat": "2",
           "sr": "66.66",
@@ -68920,7 +69265,7 @@
         {
           "opp": "SRH",
           "date": "4/6/2025",
-          "timestamp": 1743877800000,
+          "timestamp": 1743897600000,
           "ground": "Hyderabad",
           "bat": "61",
           "sr": "141.86",
@@ -68930,7 +69275,7 @@
         {
           "opp": "RCB",
           "date": "4/2/2025",
-          "timestamp": 1743532200000,
+          "timestamp": 1743552000000,
           "ground": "Bengaluru",
           "bat": "14",
           "sr": "100",
@@ -68940,7 +69285,7 @@
         {
           "opp": "MI",
           "date": "3/29/2025",
-          "timestamp": 1743186600000,
+          "timestamp": 1743206400000,
           "ground": "Ahmedabad",
           "bat": "38",
           "sr": "140.74",
@@ -68950,7 +69295,7 @@
         {
           "opp": "Punjab Kings",
           "date": "3/25/2025",
-          "timestamp": 1742841000000,
+          "timestamp": 1742860800000,
           "ground": "Ahmedabad",
           "bat": "33",
           "sr": "235.71",
@@ -68960,7 +69305,7 @@
         {
           "opp": "New Zealand",
           "date": "3/9/2025",
-          "timestamp": 1741458600000,
+          "timestamp": 1741478400000,
           "ground": "Dubai (DICS)",
           "bat": "31",
           "sr": "62",
@@ -68970,7 +69315,7 @@
         {
           "opp": "Australia",
           "date": "3/4/2025",
-          "timestamp": 1741026600000,
+          "timestamp": 1741046400000,
           "ground": "Dubai (DICS)",
           "bat": "8",
           "sr": "72.72",
@@ -68980,7 +69325,7 @@
         {
           "opp": "New Zealand",
           "date": "3/2/2025",
-          "timestamp": 1740853800000,
+          "timestamp": 1740873600000,
           "ground": "Dubai (DICS)",
           "bat": "2",
           "sr": "28.57",
@@ -68990,7 +69335,7 @@
         {
           "opp": "Pakistan",
           "date": "2/23/2025",
-          "timestamp": 1740249000000,
+          "timestamp": 1740268800000,
           "ground": "Dubai (DICS)",
           "bat": "46",
           "sr": "88.46",
@@ -69000,7 +69345,7 @@
         {
           "opp": "Bangladesh",
           "date": "2/20/2025",
-          "timestamp": 1739989800000,
+          "timestamp": 1740009600000,
           "ground": "Dubai (DICS)",
           "bat": "101",
           "sr": "78.29",
@@ -69010,7 +69355,7 @@
         {
           "opp": "England",
           "date": "2/12/2025",
-          "timestamp": 1739298600000,
+          "timestamp": 1739318400000,
           "ground": "Ahmedabad",
           "bat": "112",
           "sr": "109.8",
@@ -69020,7 +69365,7 @@
         {
           "opp": "England",
           "date": "2/9/2025",
-          "timestamp": 1739039400000,
+          "timestamp": 1739059200000,
           "ground": "Cuttack",
           "bat": "60",
           "sr": "115.38",
@@ -69030,7 +69375,7 @@
         {
           "opp": "England",
           "date": "2/6/2025",
-          "timestamp": 1738780200000,
+          "timestamp": 1738800000000,
           "ground": "Nagpur",
           "bat": "87",
           "sr": "90.62",
@@ -69040,7 +69385,7 @@
         {
           "opp": "Australia",
           "date": "1/3/2025",
-          "timestamp": 1735842600000,
+          "timestamp": 1735862400000,
           "ground": "Sydney",
           "bat": "33",
           "sr": "41.77",
@@ -69050,7 +69395,7 @@
         {
           "opp": "Australia",
           "date": "12/14/2024",
-          "timestamp": 1734114600000,
+          "timestamp": 1734134400000,
           "ground": "Brisbane",
           "bat": "1",
           "sr": "33.33",
@@ -69060,7 +69405,7 @@
         {
           "opp": "Australia",
           "date": "12/6/2024",
-          "timestamp": 1733423400000,
+          "timestamp": 1733443200000,
           "ground": "Adelaide",
           "bat": "59",
           "sr": "72.83",
@@ -69070,7 +69415,7 @@
         {
           "opp": "New Zealand",
           "date": "11/1/2024",
-          "timestamp": 1730399400000,
+          "timestamp": 1730419200000,
           "ground": "Wankhede",
           "bat": "91",
           "sr": "60.66",
@@ -69080,7 +69425,7 @@
         {
           "opp": "New Zealand",
           "date": "10/24/2024",
-          "timestamp": 1729708200000,
+          "timestamp": 1729728000000,
           "ground": "Pune",
           "bat": "53",
           "sr": "51.45",
@@ -69090,7 +69435,7 @@
         {
           "opp": "Bangladesh",
           "date": "9/27/2024",
-          "timestamp": 1727375400000,
+          "timestamp": 1727395200000,
           "ground": "Kanpur",
           "bat": "45",
           "sr": "97.82",
@@ -69100,7 +69445,7 @@
         {
           "opp": "Bangladesh",
           "date": "9/19/2024",
-          "timestamp": 1726684200000,
+          "timestamp": 1726704000000,
           "ground": "Chennai",
           "bat": "119",
           "sr": "64.67",
@@ -69110,7 +69455,7 @@
         {
           "opp": "Sri Lanka",
           "date": "8/7/2024",
-          "timestamp": 1722969000000,
+          "timestamp": 1722988800000,
           "ground": "Colombo (RPS)",
           "bat": "6",
           "sr": "42.85",
@@ -69120,7 +69465,7 @@
         {
           "opp": "Sri Lanka",
           "date": "8/4/2024",
-          "timestamp": 1722709800000,
+          "timestamp": 1722729600000,
           "ground": "Colombo (RPS)",
           "bat": "35",
           "sr": "79.54",
@@ -69130,7 +69475,7 @@
         {
           "opp": "Sri Lanka",
           "date": "8/2/2024",
-          "timestamp": 1722537000000,
+          "timestamp": 1722556800000,
           "ground": "Colombo (RPS)",
           "bat": "16",
           "sr": "45.71",
@@ -69140,7 +69485,7 @@
         {
           "opp": "Sri Lanka",
           "date": "7/30/2024",
-          "timestamp": 1722277800000,
+          "timestamp": 1722297600000,
           "ground": "Pallekele",
           "bat": "39",
           "sr": "105.4",
@@ -69150,7 +69495,7 @@
         {
           "opp": "Sri Lanka",
           "date": "7/27/2024",
-          "timestamp": 1722018600000,
+          "timestamp": 1722038400000,
           "ground": "Pallekele",
           "bat": "34",
           "sr": "212.5",
@@ -69160,7 +69505,7 @@
         {
           "opp": "Zimbabwe",
           "date": "7/14/2024",
-          "timestamp": 1720895400000,
+          "timestamp": 1720915200000,
           "ground": "Harare",
           "bat": "13",
           "sr": "92.85",
@@ -69170,7 +69515,7 @@
         {
           "opp": "Zimbabwe",
           "date": "7/13/2024",
-          "timestamp": 1720809000000,
+          "timestamp": 1720828800000,
           "ground": "Harare",
           "bat": "58",
           "sr": "148.71",
@@ -69180,7 +69525,7 @@
         {
           "opp": "Zimbabwe",
           "date": "7/10/2024",
-          "timestamp": 1720549800000,
+          "timestamp": 1720569600000,
           "ground": "Harare",
           "bat": "66",
           "sr": "134.69",
@@ -69190,7 +69535,7 @@
         {
           "opp": "Zimbabwe",
           "date": "7/7/2024",
-          "timestamp": 1720290600000,
+          "timestamp": 1720310400000,
           "ground": "Harare",
           "bat": "2",
           "sr": "50",
@@ -69200,7 +69545,7 @@
         {
           "opp": "Zimbabwe",
           "date": "7/6/2024",
-          "timestamp": 1720204200000,
+          "timestamp": 1720224000000,
           "ground": "Harare",
           "bat": "31",
           "sr": "106.89",
@@ -69210,7 +69555,7 @@
         {
           "opp": "CSK",
           "date": "5/10/2024",
-          "timestamp": 1715279400000,
+          "timestamp": 1715299200000,
           "ground": "Ahmedabad",
           "bat": "104",
           "sr": "189.09",
@@ -69220,7 +69565,7 @@
         {
           "opp": "RCB",
           "date": "5/4/2024",
-          "timestamp": 1714761000000,
+          "timestamp": 1714780800000,
           "ground": "Bengaluru",
           "bat": "2",
           "sr": "28.57",
@@ -69230,7 +69575,7 @@
         {
           "opp": "RCB",
           "date": "4/28/2024",
-          "timestamp": 1714242600000,
+          "timestamp": 1714262400000,
           "ground": "Ahmedabad",
           "bat": "16",
           "sr": "84.21",
@@ -69240,7 +69585,7 @@
         {
           "opp": "DC",
           "date": "4/24/2024",
-          "timestamp": 1713897000000,
+          "timestamp": 1713916800000,
           "ground": "Delhi",
           "bat": "6",
           "sr": "120",
@@ -69250,7 +69595,7 @@
         {
           "opp": "Punjab Kings",
           "date": "4/21/2024",
-          "timestamp": 1713637800000,
+          "timestamp": 1713657600000,
           "ground": "New Chandigarh",
           "bat": "35",
           "sr": "120.68",
@@ -69260,7 +69605,7 @@
         {
           "opp": "DC",
           "date": "4/17/2024",
-          "timestamp": 1713292200000,
+          "timestamp": 1713312000000,
           "ground": "Ahmedabad",
           "bat": "8",
           "sr": "133.33",
@@ -69270,7 +69615,7 @@
         {
           "opp": "RR",
           "date": "4/10/2024",
-          "timestamp": 1712687400000,
+          "timestamp": 1712707200000,
           "ground": "Jaipur",
           "bat": "72",
           "sr": "163.63",
@@ -69280,7 +69625,7 @@
         {
           "opp": "LSG",
           "date": "4/7/2024",
-          "timestamp": 1712428200000,
+          "timestamp": 1712448000000,
           "ground": "Lucknow",
           "bat": "19",
           "sr": "90.47",
@@ -69290,7 +69635,7 @@
         {
           "opp": "Punjab Kings",
           "date": "4/4/2024",
-          "timestamp": 1712169000000,
+          "timestamp": 1712188800000,
           "ground": "Ahmedabad",
           "bat": "89",
           "sr": "185.41",
@@ -69300,7 +69645,7 @@
         {
           "opp": "SRH",
           "date": "3/31/2024",
-          "timestamp": 1711823400000,
+          "timestamp": 1711843200000,
           "ground": "Ahmedabad",
           "bat": "36",
           "sr": "128.57",
@@ -69310,7 +69655,7 @@
         {
           "opp": "CSK",
           "date": "3/26/2024",
-          "timestamp": 1711391400000,
+          "timestamp": 1711411200000,
           "ground": "Chennai",
           "bat": "8",
           "sr": "160",
@@ -69320,7 +69665,7 @@
         {
           "opp": "MI",
           "date": "3/24/2024",
-          "timestamp": 1711218600000,
+          "timestamp": 1711238400000,
           "ground": "Ahmedabad",
           "bat": "31",
           "sr": "140.9",
@@ -69330,7 +69675,7 @@
         {
           "opp": "England",
           "date": "3/7/2024",
-          "timestamp": 1709749800000,
+          "timestamp": 1709769600000,
           "ground": "Dharamsala",
           "bat": "110",
           "sr": "73.33",
@@ -69340,7 +69685,7 @@
         {
           "opp": "England",
           "date": "2/23/2024",
-          "timestamp": 1708626600000,
+          "timestamp": 1708646400000,
           "ground": "Ranchi",
           "bat": "90",
           "sr": "47.61",
@@ -69350,7 +69695,7 @@
         {
           "opp": "England",
           "date": "2/15/2024",
-          "timestamp": 1707935400000,
+          "timestamp": 1707955200000,
           "ground": "Rajkot",
           "bat": "91",
           "sr": "56.87",
@@ -69360,7 +69705,7 @@
         {
           "opp": "England",
           "date": "2/2/2024",
-          "timestamp": 1706812200000,
+          "timestamp": 1706832000000,
           "ground": "Visakhapatnam",
           "bat": "138",
           "sr": "71.5",
@@ -69370,7 +69715,7 @@
         {
           "opp": "England",
           "date": "1/25/2024",
-          "timestamp": 1706121000000,
+          "timestamp": 1706140800000,
           "ground": "Hyderabad",
           "bat": "23",
           "sr": "33.82",
@@ -69380,7 +69725,7 @@
         {
           "opp": "Afghanistan",
           "date": "1/11/2024",
-          "timestamp": 1704911400000,
+          "timestamp": 1704931200000,
           "ground": "Mohali",
           "bat": "23",
           "sr": "191.66",
@@ -69390,7 +69735,7 @@
         {
           "opp": "South Africa",
           "date": "1/3/2024",
-          "timestamp": 1704220200000,
+          "timestamp": 1704240000000,
           "ground": "Cape Town",
           "bat": "46",
           "sr": "69.69",
@@ -69400,7 +69745,7 @@
         {
           "opp": "South Africa",
           "date": "12/26/2023",
-          "timestamp": 1703529000000,
+          "timestamp": 1703548800000,
           "ground": "Centurion",
           "bat": "28",
           "sr": "57.14",
@@ -69410,7 +69755,7 @@
         {
           "opp": "South Africa",
           "date": "12/14/2023",
-          "timestamp": 1702492200000,
+          "timestamp": 1702512000000,
           "ground": "Johannesburg",
           "bat": "8",
           "sr": "133.33",
@@ -69420,7 +69765,7 @@
         {
           "opp": "South Africa",
           "date": "12/12/2023",
-          "timestamp": 1702319400000,
+          "timestamp": 1702339200000,
           "ground": "Gqeberha",
           "bat": "0",
           "sr": "0",
@@ -69430,7 +69775,7 @@
         {
           "opp": "Australia",
           "date": "11/19/2023",
-          "timestamp": 1700332200000,
+          "timestamp": 1700352000000,
           "ground": "Ahmedabad",
           "bat": "4",
           "sr": "57.14",
@@ -69440,7 +69785,7 @@
         {
           "opp": "New Zealand",
           "date": "11/15/2023",
-          "timestamp": 1699986600000,
+          "timestamp": 1700006400000,
           "ground": "Wankhede",
           "bat": "80",
           "sr": "121.21",
@@ -69450,7 +69795,7 @@
         {
           "opp": "Netherlands",
           "date": "11/12/2023",
-          "timestamp": 1699727400000,
+          "timestamp": 1699747200000,
           "ground": "Bengaluru",
           "bat": "51",
           "sr": "159.37",
@@ -69460,7 +69805,7 @@
         {
           "opp": "South Africa",
           "date": "11/5/2023",
-          "timestamp": 1699122600000,
+          "timestamp": 1699142400000,
           "ground": "Eden Gardens",
           "bat": "23",
           "sr": "95.83",
@@ -69470,7 +69815,7 @@
         {
           "opp": "Sri Lanka",
           "date": "11/2/2023",
-          "timestamp": 1698863400000,
+          "timestamp": 1698883200000,
           "ground": "Wankhede",
           "bat": "92",
           "sr": "100",
@@ -69480,7 +69825,7 @@
         {
           "opp": "England",
           "date": "10/29/2023",
-          "timestamp": 1698517800000,
+          "timestamp": 1698537600000,
           "ground": "Lucknow",
           "bat": "9",
           "sr": "69.23",
@@ -69490,7 +69835,7 @@
         {
           "opp": "New Zealand",
           "date": "10/22/2023",
-          "timestamp": 1697913000000,
+          "timestamp": 1697932800000,
           "ground": "Dharamsala",
           "bat": "26",
           "sr": "83.87",
@@ -69500,7 +69845,7 @@
         {
           "opp": "Bangladesh",
           "date": "10/19/2023",
-          "timestamp": 1697653800000,
+          "timestamp": 1697673600000,
           "ground": "Pune",
           "bat": "53",
           "sr": "96.36",
@@ -69510,7 +69855,7 @@
         {
           "opp": "Pakistan",
           "date": "10/14/2023",
-          "timestamp": 1697221800000,
+          "timestamp": 1697241600000,
           "ground": "Ahmedabad",
           "bat": "16",
           "sr": "145.45",
@@ -69520,7 +69865,7 @@
         {
           "opp": "Australia",
           "date": "9/24/2023",
-          "timestamp": 1695493800000,
+          "timestamp": 1695513600000,
           "ground": "Indore",
           "bat": "104",
           "sr": "107.21",
@@ -69530,7 +69875,7 @@
         {
           "opp": "Australia",
           "date": "9/22/2023",
-          "timestamp": 1695321000000,
+          "timestamp": 1695340800000,
           "ground": "Mohali",
           "bat": "74",
           "sr": "117.46",
@@ -69540,7 +69885,7 @@
         {
           "opp": "Sri Lanka",
           "date": "9/17/2023",
-          "timestamp": 1694889000000,
+          "timestamp": 1694908800000,
           "ground": "Colombo (RPS)",
           "bat": "27",
           "sr": "142.1",
@@ -69550,7 +69895,7 @@
         {
           "opp": "Bangladesh",
           "date": "9/15/2023",
-          "timestamp": 1694716200000,
+          "timestamp": 1694736000000,
           "ground": "Colombo (RPS)",
           "bat": "121",
           "sr": "90.97",
@@ -69560,7 +69905,7 @@
         {
           "opp": "Sri Lanka",
           "date": "9/12/2023",
-          "timestamp": 1694457000000,
+          "timestamp": 1694476800000,
           "ground": "Colombo (RPS)",
           "bat": "19",
           "sr": "76",
@@ -69570,7 +69915,7 @@
         {
           "opp": "Pakistan",
           "date": "9/10/2023",
-          "timestamp": 1694284200000,
+          "timestamp": 1694304000000,
           "ground": "Colombo (RPS)",
           "bat": "58",
           "sr": "111.53",
@@ -69580,7 +69925,7 @@
         {
           "opp": "Nepal",
           "date": "9/4/2023",
-          "timestamp": 1693765800000,
+          "timestamp": 1693785600000,
           "ground": "Pallekele",
           "bat": "67",
           "sr": "108.06",
@@ -69590,7 +69935,7 @@
         {
           "opp": "Pakistan",
           "date": "9/2/2023",
-          "timestamp": 1693593000000,
+          "timestamp": 1693612800000,
           "ground": "Pallekele",
           "bat": "10",
           "sr": "31.25",
@@ -69600,7 +69945,7 @@
         {
           "opp": "West Indies",
           "date": "8/13/2023",
-          "timestamp": 1691865000000,
+          "timestamp": 1691884800000,
           "ground": "Lauderhill",
           "bat": "9",
           "sr": "100",
@@ -69610,7 +69955,7 @@
         {
           "opp": "West Indies",
           "date": "8/12/2023",
-          "timestamp": 1691778600000,
+          "timestamp": 1691798400000,
           "ground": "Lauderhill",
           "bat": "77",
           "sr": "163.82",
@@ -69620,7 +69965,7 @@
         {
           "opp": "West Indies",
           "date": "8/8/2023",
-          "timestamp": 1691433000000,
+          "timestamp": 1691452800000,
           "ground": "Providence",
           "bat": "6",
           "sr": "54.54",
@@ -69630,7 +69975,7 @@
         {
           "opp": "West Indies",
           "date": "8/6/2023",
-          "timestamp": 1691260200000,
+          "timestamp": 1691280000000,
           "ground": "Providence",
           "bat": "7",
           "sr": "77.77",
@@ -69640,7 +69985,7 @@
         {
           "opp": "West Indies",
           "date": "8/3/2023",
-          "timestamp": 1691001000000,
+          "timestamp": 1691020800000,
           "ground": "Tarouba",
           "bat": "3",
           "sr": "33.33",
@@ -69650,7 +69995,7 @@
         {
           "opp": "West Indies",
           "date": "8/1/2023",
-          "timestamp": 1690828200000,
+          "timestamp": 1690848000000,
           "ground": "Tarouba",
           "bat": "85",
           "sr": "92.39",
@@ -69660,7 +70005,7 @@
         {
           "opp": "West Indies",
           "date": "7/29/2023",
-          "timestamp": 1690569000000,
+          "timestamp": 1690588800000,
           "ground": "Bridgetown",
           "bat": "34",
           "sr": "69.38",
@@ -69670,7 +70015,7 @@
         {
           "opp": "West Indies",
           "date": "7/27/2023",
-          "timestamp": 1690396200000,
+          "timestamp": 1690416000000,
           "ground": "Bridgetown",
           "bat": "7",
           "sr": "43.75",
@@ -69680,7 +70025,7 @@
         {
           "opp": "West Indies",
           "date": "7/20/2023",
-          "timestamp": 1689791400000,
+          "timestamp": 1689811200000,
           "ground": "Port of Spain",
           "bat": "39",
           "sr": "79.59",
@@ -69690,7 +70035,7 @@
         {
           "opp": "West Indies",
           "date": "7/12/2023",
-          "timestamp": 1689100200000,
+          "timestamp": 1689120000000,
           "ground": "Roseau",
           "bat": "6",
           "sr": "54.54",
@@ -69700,7 +70045,7 @@
         {
           "opp": "Australia",
           "date": "6/7/2023",
-          "timestamp": 1686076200000,
+          "timestamp": 1686096000000,
           "ground": "The Oval",
           "bat": "31",
           "sr": "91.17",
@@ -69710,7 +70055,7 @@
         {
           "opp": "CSK",
           "date": "5/28/2023",
-          "timestamp": 1685212200000,
+          "timestamp": 1685232000000,
           "ground": "Ahmedabad",
           "bat": "39",
           "sr": "195",
@@ -69720,7 +70065,7 @@
         {
           "opp": "MI",
           "date": "5/26/2023",
-          "timestamp": 1685039400000,
+          "timestamp": 1685059200000,
           "ground": "Ahmedabad",
           "bat": "129",
           "sr": "215",
@@ -69730,7 +70075,7 @@
         {
           "opp": "CSK",
           "date": "5/23/2023",
-          "timestamp": 1684780200000,
+          "timestamp": 1684800000000,
           "ground": "Chennai",
           "bat": "42",
           "sr": "110.52",
@@ -69740,7 +70085,7 @@
         {
           "opp": "RCB",
           "date": "5/21/2023",
-          "timestamp": 1684607400000,
+          "timestamp": 1684627200000,
           "ground": "Bengaluru",
           "bat": "104",
           "sr": "200",
@@ -69750,7 +70095,7 @@
         {
           "opp": "SRH",
           "date": "5/15/2023",
-          "timestamp": 1684089000000,
+          "timestamp": 1684108800000,
           "ground": "Ahmedabad",
           "bat": "101",
           "sr": "174.13",
@@ -69760,7 +70105,7 @@
         {
           "opp": "MI",
           "date": "5/12/2023",
-          "timestamp": 1683829800000,
+          "timestamp": 1683849600000,
           "ground": "Wankhede",
           "bat": "6",
           "sr": "66.66",
@@ -69770,7 +70115,7 @@
         {
           "opp": "LSG",
           "date": "5/7/2023",
-          "timestamp": 1683397800000,
+          "timestamp": 1683417600000,
           "ground": "Ahmedabad",
           "bat": "94",
           "sr": "184.31",
@@ -69780,7 +70125,7 @@
         {
           "opp": "RR",
           "date": "5/5/2023",
-          "timestamp": 1683225000000,
+          "timestamp": 1683244800000,
           "ground": "Jaipur",
           "bat": "36",
           "sr": "102.85",
@@ -69790,7 +70135,7 @@
         {
           "opp": "DC",
           "date": "5/2/2023",
-          "timestamp": 1682965800000,
+          "timestamp": 1682985600000,
           "ground": "Ahmedabad",
           "bat": "6",
           "sr": "85.71",
@@ -69800,7 +70145,7 @@
         {
           "opp": "KKR",
           "date": "4/29/2023",
-          "timestamp": 1682706600000,
+          "timestamp": 1682726400000,
           "ground": "Eden Gardens",
           "bat": "49",
           "sr": "140",
@@ -69810,7 +70155,7 @@
         {
           "opp": "MI",
           "date": "4/25/2023",
-          "timestamp": 1682361000000,
+          "timestamp": 1682380800000,
           "ground": "Ahmedabad",
           "bat": "56",
           "sr": "164.7",
@@ -69820,7 +70165,7 @@
         {
           "opp": "LSG",
           "date": "4/22/2023",
-          "timestamp": 1682101800000,
+          "timestamp": 1682121600000,
           "ground": "Lucknow",
           "bat": "0",
           "sr": "0",
@@ -69830,7 +70175,7 @@
         {
           "opp": "RR",
           "date": "4/16/2023",
-          "timestamp": 1681583400000,
+          "timestamp": 1681603200000,
           "ground": "Ahmedabad",
           "bat": "45",
           "sr": "132.35",
@@ -69840,7 +70185,7 @@
         {
           "opp": "Punjab Kings",
           "date": "4/13/2023",
-          "timestamp": 1681324200000,
+          "timestamp": 1681344000000,
           "ground": "Mohali",
           "bat": "67",
           "sr": "136.73",
@@ -69850,7 +70195,7 @@
         {
           "opp": "KKR",
           "date": "4/9/2023",
-          "timestamp": 1680978600000,
+          "timestamp": 1680998400000,
           "ground": "Ahmedabad",
           "bat": "39",
           "sr": "125.8",
@@ -69860,7 +70205,7 @@
         {
           "opp": "DC",
           "date": "4/4/2023",
-          "timestamp": 1680546600000,
+          "timestamp": 1680566400000,
           "ground": "Delhi",
           "bat": "14",
           "sr": "107.69",
@@ -69870,7 +70215,7 @@
         {
           "opp": "CSK",
           "date": "3/31/2023",
-          "timestamp": 1680201000000,
+          "timestamp": 1680220800000,
           "ground": "Ahmedabad",
           "bat": "63",
           "sr": "175",
@@ -69880,7 +70225,7 @@
         {
           "opp": "Australia",
           "date": "3/22/2023",
-          "timestamp": 1679423400000,
+          "timestamp": 1679443200000,
           "ground": "Chennai",
           "bat": "37",
           "sr": "75.51",
@@ -69890,7 +70235,7 @@
         {
           "opp": "Australia",
           "date": "3/19/2023",
-          "timestamp": 1679164200000,
+          "timestamp": 1679184000000,
           "ground": "Visakhapatnam",
           "bat": "0",
           "sr": "0",
@@ -69900,7 +70245,7 @@
         {
           "opp": "Australia",
           "date": "3/17/2023",
-          "timestamp": 1678991400000,
+          "timestamp": 1679011200000,
           "ground": "Wankhede",
           "bat": "20",
           "sr": "64.51",
@@ -69910,7 +70255,7 @@
         {
           "opp": "Australia",
           "date": "3/9/2023",
-          "timestamp": 1678300200000,
+          "timestamp": 1678320000000,
           "ground": "Ahmedabad",
           "bat": "128",
           "sr": "54.46",
@@ -69920,7 +70265,7 @@
         {
           "opp": "Australia",
           "date": "3/1/2023",
-          "timestamp": 1677609000000,
+          "timestamp": 1677628800000,
           "ground": "Indore",
           "bat": "26",
           "sr": "78.78",
@@ -69930,7 +70275,7 @@
         {
           "opp": "New Zealand",
           "date": "2/1/2023",
-          "timestamp": 1675189800000,
+          "timestamp": 1675209600000,
           "ground": "Ahmedabad",
           "bat": "126",
           "sr": "200",
@@ -69940,7 +70285,7 @@
         {
           "opp": "New Zealand",
           "date": "1/29/2023",
-          "timestamp": 1674930600000,
+          "timestamp": 1674950400000,
           "ground": "Lucknow",
           "bat": "11",
           "sr": "122.22",
@@ -69950,7 +70295,7 @@
         {
           "opp": "New Zealand",
           "date": "1/27/2023",
-          "timestamp": 1674757800000,
+          "timestamp": 1674777600000,
           "ground": "Ranchi",
           "bat": "7",
           "sr": "116.66",
@@ -69960,7 +70305,7 @@
         {
           "opp": "New Zealand",
           "date": "1/24/2023",
-          "timestamp": 1674498600000,
+          "timestamp": 1674518400000,
           "ground": "Indore",
           "bat": "112",
           "sr": "143.58",
@@ -69970,7 +70315,7 @@
         {
           "opp": "New Zealand",
           "date": "1/21/2023",
-          "timestamp": 1674239400000,
+          "timestamp": 1674259200000,
           "ground": "Raipur",
           "bat": "40",
           "sr": "75.47",
@@ -69980,7 +70325,7 @@
         {
           "opp": "New Zealand",
           "date": "1/18/2023",
-          "timestamp": 1673980200000,
+          "timestamp": 1674000000000,
           "ground": "Hyderabad",
           "bat": "208",
           "sr": "139.59",
@@ -69990,7 +70335,7 @@
         {
           "opp": "Sri Lanka",
           "date": "1/15/2023",
-          "timestamp": 1673721000000,
+          "timestamp": 1673740800000,
           "ground": "Thiruvananthapuram",
           "bat": "116",
           "sr": "119.58",
@@ -70000,7 +70345,7 @@
         {
           "opp": "Sri Lanka",
           "date": "1/12/2023",
-          "timestamp": 1673461800000,
+          "timestamp": 1673481600000,
           "ground": "Eden Gardens",
           "bat": "21",
           "sr": "175",
@@ -70010,7 +70355,7 @@
         {
           "opp": "Sri Lanka",
           "date": "1/10/2023",
-          "timestamp": 1673289000000,
+          "timestamp": 1673308800000,
           "ground": "Guwahati",
           "bat": "70",
           "sr": "116.66",
@@ -70020,7 +70365,7 @@
         {
           "opp": "Sri Lanka",
           "date": "1/7/2023",
-          "timestamp": 1673029800000,
+          "timestamp": 1673049600000,
           "ground": "Rajkot",
           "bat": "46",
           "sr": "127.77",
@@ -70030,7 +70375,7 @@
         {
           "opp": "Sri Lanka",
           "date": "1/5/2023",
-          "timestamp": 1672857000000,
+          "timestamp": 1672876800000,
           "ground": "Pune",
           "bat": "5",
           "sr": "166.66",
@@ -70040,7 +70385,7 @@
         {
           "opp": "Sri Lanka",
           "date": "1/3/2023",
-          "timestamp": 1672684200000,
+          "timestamp": 1672704000000,
           "ground": "Wankhede",
           "bat": "7",
           "sr": "140",
@@ -70050,7 +70395,7 @@
         {
           "opp": "Bangladesh",
           "date": "12/22/2022",
-          "timestamp": 1671647400000,
+          "timestamp": 1671667200000,
           "ground": "Mirpur",
           "bat": "27",
           "sr": "36.48",
@@ -70060,7 +70405,7 @@
         {
           "opp": "Bangladesh",
           "date": "12/14/2022",
-          "timestamp": 1670956200000,
+          "timestamp": 1670976000000,
           "ground": "Chattogram",
           "bat": "130",
           "sr": "67.7",
@@ -70070,7 +70415,7 @@
         {
           "opp": "New Zealand",
           "date": "11/30/2022",
-          "timestamp": 1669746600000,
+          "timestamp": 1669766400000,
           "ground": "Christchurch",
           "bat": "13",
           "sr": "59.09",
@@ -70080,7 +70425,7 @@
         {
           "opp": "New Zealand",
           "date": "11/27/2022",
-          "timestamp": 1669487400000,
+          "timestamp": 1669507200000,
           "ground": "Hamilton",
           "bat": "45",
           "sr": "107.14",
@@ -70090,7 +70435,7 @@
         {
           "opp": "New Zealand",
           "date": "11/25/2022",
-          "timestamp": 1669314600000,
+          "timestamp": 1669334400000,
           "ground": "Auckland",
           "bat": "50",
           "sr": "76.92",
@@ -70100,7 +70445,7 @@
         {
           "opp": "Himachal",
           "date": "11/3/2022",
-          "timestamp": 1667413800000,
+          "timestamp": 1667433600000,
           "ground": "Eden Gardens",
           "bat": "45",
           "sr": "140.62",
@@ -70110,7 +70455,7 @@
         {
           "opp": "Karnataka",
           "date": "11/1/2022",
-          "timestamp": 1667241000000,
+          "timestamp": 1667260800000,
           "ground": "Eden Gardens",
           "bat": "126",
           "sr": "229.09",
@@ -70120,7 +70465,7 @@
         {
           "opp": "Haryana",
           "date": "10/30/2022",
-          "timestamp": 1667068200000,
+          "timestamp": 1667088000000,
           "ground": "Eden Gardens",
           "bat": "4",
           "sr": "40",
@@ -70130,7 +70475,7 @@
         {
           "opp": "UP",
           "date": "10/22/2022",
-          "timestamp": 1666377000000,
+          "timestamp": 1666396800000,
           "ground": "Jaipur",
           "bat": "57",
           "sr": "129.54",
@@ -70140,7 +70485,7 @@
         {
           "opp": "Puducherry",
           "date": "10/20/2022",
-          "timestamp": 1666204200000,
+          "timestamp": 1666224000000,
           "ground": "Jaipur",
           "bat": "21",
           "sr": "140",
@@ -70150,7 +70495,7 @@
         {
           "opp": "Manipur",
           "date": "10/18/2022",
-          "timestamp": 1666031400000,
+          "timestamp": 1666051200000,
           "ground": "Jaipur",
           "bat": "7",
           "sr": "70",
@@ -70160,7 +70505,7 @@
         {
           "opp": "South Africa",
           "date": "10/11/2022",
-          "timestamp": 1665426600000,
+          "timestamp": 1665446400000,
           "ground": "Delhi",
           "bat": "49",
           "sr": "85.96",
@@ -70170,7 +70515,7 @@
         {
           "opp": "South Africa",
           "date": "10/9/2022",
-          "timestamp": 1665253800000,
+          "timestamp": 1665273600000,
           "ground": "Ranchi",
           "bat": "28",
           "sr": "107.69",
@@ -70180,7 +70525,7 @@
         {
           "opp": "South Africa",
           "date": "10/6/2022",
-          "timestamp": 1664994600000,
+          "timestamp": 1665014400000,
           "ground": "Lucknow",
           "bat": "3",
           "sr": "42.85",
@@ -70190,7 +70535,7 @@
         {
           "opp": "Zimbabwe",
           "date": "8/22/2022",
-          "timestamp": 1661106600000,
+          "timestamp": 1661126400000,
           "ground": "Harare",
           "bat": "130",
           "sr": "134.02",
@@ -70200,7 +70545,7 @@
         {
           "opp": "Zimbabwe",
           "date": "8/20/2022",
-          "timestamp": 1660933800000,
+          "timestamp": 1660953600000,
           "ground": "Harare",
           "bat": "33",
           "sr": "97.05",
@@ -70210,7 +70555,7 @@
         {
           "opp": "Zimbabwe",
           "date": "8/18/2022",
-          "timestamp": 1660761000000,
+          "timestamp": 1660780800000,
           "ground": "Harare",
           "bat": "82",
           "sr": "113.88",
@@ -70220,7 +70565,7 @@
         {
           "opp": "West Indies",
           "date": "7/27/2022",
-          "timestamp": 1658860200000,
+          "timestamp": 1658880000000,
           "ground": "Port of Spain",
           "bat": "98",
           "sr": "100",
@@ -70230,7 +70575,7 @@
         {
           "opp": "West Indies",
           "date": "7/24/2022",
-          "timestamp": 1658601000000,
+          "timestamp": 1658620800000,
           "ground": "Port of Spain",
           "bat": "43",
           "sr": "87.75",
@@ -70240,7 +70585,7 @@
         {
           "opp": "West Indies",
           "date": "7/22/2022",
-          "timestamp": 1658428200000,
+          "timestamp": 1658448000000,
           "ground": "Port of Spain",
           "bat": "64",
           "sr": "120.75",
@@ -70250,7 +70595,7 @@
         {
           "opp": "England",
           "date": "7/1/2022",
-          "timestamp": 1656613800000,
+          "timestamp": 1656633600000,
           "ground": "Birmingham",
           "bat": "21",
           "sr": "77.77",
@@ -70260,7 +70605,7 @@
         {
           "opp": "RR",
           "date": "5/29/2022",
-          "timestamp": 1653762600000,
+          "timestamp": 1653782400000,
           "ground": "Ahmedabad",
           "bat": "45",
           "sr": "104.65",
@@ -70270,7 +70615,7 @@
         {
           "opp": "RR",
           "date": "5/24/2022",
-          "timestamp": 1653330600000,
+          "timestamp": 1653350400000,
           "ground": "Eden Gardens",
           "bat": "35",
           "sr": "166.66",
@@ -70280,7 +70625,7 @@
         {
           "opp": "RCB",
           "date": "5/19/2022",
-          "timestamp": 1652898600000,
+          "timestamp": 1652918400000,
           "ground": "Wankhede",
           "bat": "1",
           "sr": "25",
@@ -70290,7 +70635,7 @@
         {
           "opp": "CSK",
           "date": "5/15/2022",
-          "timestamp": 1652553000000,
+          "timestamp": 1652572800000,
           "ground": "Wankhede",
           "bat": "18",
           "sr": "105.88",
@@ -70300,7 +70645,7 @@
         {
           "opp": "LSG",
           "date": "5/10/2022",
-          "timestamp": 1652121000000,
+          "timestamp": 1652140800000,
           "ground": "Pune",
           "bat": "63",
           "sr": "128.57",
@@ -70310,7 +70655,7 @@
         {
           "opp": "MI",
           "date": "5/6/2022",
-          "timestamp": 1651775400000,
+          "timestamp": 1651795200000,
           "ground": "Brabourne",
           "bat": "52",
           "sr": "144.44",
@@ -70320,7 +70665,7 @@
         {
           "opp": "Punjab Kings",
           "date": "5/3/2022",
-          "timestamp": 1651516200000,
+          "timestamp": 1651536000000,
           "ground": "DY Patil",
           "bat": "9",
           "sr": "150",
@@ -70330,7 +70675,7 @@
         {
           "opp": "RCB",
           "date": "4/30/2022",
-          "timestamp": 1651257000000,
+          "timestamp": 1651276800000,
           "ground": "Brabourne",
           "bat": "31",
           "sr": "110.71",
@@ -70340,7 +70685,7 @@
         {
           "opp": "SRH",
           "date": "4/27/2022",
-          "timestamp": 1650997800000,
+          "timestamp": 1651017600000,
           "ground": "Wankhede",
           "bat": "22",
           "sr": "91.66",
@@ -70350,7 +70695,7 @@
         {
           "opp": "KKR",
           "date": "4/23/2022",
-          "timestamp": 1650652200000,
+          "timestamp": 1650672000000,
           "ground": "DY Patil",
           "bat": "7",
           "sr": "140",
@@ -70360,7 +70705,7 @@
         {
           "opp": "CSK",
           "date": "4/17/2022",
-          "timestamp": 1650133800000,
+          "timestamp": 1650153600000,
           "ground": "Pune",
           "bat": "0",
           "sr": "0",
@@ -70370,7 +70715,7 @@
         {
           "opp": "RR",
           "date": "4/14/2022",
-          "timestamp": 1649874600000,
+          "timestamp": 1649894400000,
           "ground": "DY Patil",
           "bat": "13",
           "sr": "92.85",
@@ -70380,7 +70725,7 @@
         {
           "opp": "SRH",
           "date": "4/11/2022",
-          "timestamp": 1649615400000,
+          "timestamp": 1649635200000,
           "ground": "DY Patil",
           "bat": "7",
           "sr": "77.77",
@@ -70390,7 +70735,7 @@
         {
           "opp": "Punjab Kings",
           "date": "4/8/2022",
-          "timestamp": 1649356200000,
+          "timestamp": 1649376000000,
           "ground": "Brabourne",
           "bat": "96",
           "sr": "162.71",
@@ -70400,7 +70745,7 @@
         {
           "opp": "DC",
           "date": "4/2/2022",
-          "timestamp": 1648837800000,
+          "timestamp": 1648857600000,
           "ground": "Pune",
           "bat": "84",
           "sr": "182.6",
@@ -70410,7 +70755,7 @@
         {
           "opp": "LSG",
           "date": "3/28/2022",
-          "timestamp": 1648405800000,
+          "timestamp": 1648425600000,
           "ground": "Wankhede",
           "bat": "0",
           "sr": "0",
@@ -70420,7 +70765,7 @@
         {
           "opp": "New Zealand",
           "date": "12/3/2021",
-          "timestamp": 1638469800000,
+          "timestamp": 1638489600000,
           "ground": "Wankhede",
           "bat": "91",
           "sr": "62.32",
@@ -70430,7 +70775,7 @@
         {
           "opp": "New Zealand",
           "date": "11/25/2021",
-          "timestamp": 1637778600000,
+          "timestamp": 1637798400000,
           "ground": "Kanpur",
           "bat": "53",
           "sr": "55.2",
@@ -70440,7 +70785,7 @@
         {
           "opp": "Tamil Nadu",
           "date": "11/9/2021",
-          "timestamp": 1636396200000,
+          "timestamp": 1636416000000,
           "ground": "Lucknow",
           "bat": "34",
           "sr": "113.33",
@@ -70450,7 +70795,7 @@
         {
           "opp": "Odisha",
           "date": "11/8/2021",
-          "timestamp": 1636309800000,
+          "timestamp": 1636329600000,
           "ground": "Lucknow",
           "bat": "9",
           "sr": "180",
@@ -70460,7 +70805,7 @@
         {
           "opp": "Goa",
           "date": "11/6/2021",
-          "timestamp": 1636137000000,
+          "timestamp": 1636156800000,
           "ground": "Lucknow",
           "bat": "40",
           "sr": "111.11",
@@ -70470,7 +70815,7 @@
         {
           "opp": "Maharashtra",
           "date": "11/5/2021",
-          "timestamp": 1636050600000,
+          "timestamp": 1636070400000,
           "ground": "Lucknow",
           "bat": "44",
           "sr": "112.82",
@@ -70480,7 +70825,7 @@
         {
           "opp": "Puducherry",
           "date": "11/4/2021",
-          "timestamp": 1635964200000,
+          "timestamp": 1635984000000,
           "ground": "Lucknow",
           "bat": "12",
           "sr": "120",
@@ -70490,7 +70835,7 @@
         {
           "opp": "CSK",
           "date": "10/15/2021",
-          "timestamp": 1634236200000,
+          "timestamp": 1634256000000,
           "ground": "Dubai (DICS)",
           "bat": "51",
           "sr": "118.6",
@@ -70500,7 +70845,7 @@
         {
           "opp": "DC",
           "date": "10/13/2021",
-          "timestamp": 1634063400000,
+          "timestamp": 1634083200000,
           "ground": "Sharjah",
           "bat": "46",
           "sr": "100",
@@ -70510,7 +70855,7 @@
         {
           "opp": "RCB",
           "date": "10/11/2021",
-          "timestamp": 1633890600000,
+          "timestamp": 1633910400000,
           "ground": "Sharjah",
           "bat": "29",
           "sr": "161.11",
@@ -70520,7 +70865,7 @@
         {
           "opp": "RR",
           "date": "10/7/2021",
-          "timestamp": 1633545000000,
+          "timestamp": 1633564800000,
           "ground": "Sharjah",
           "bat": "56",
           "sr": "127.27",
@@ -70530,7 +70875,7 @@
         {
           "opp": "SRH",
           "date": "10/3/2021",
-          "timestamp": 1633199400000,
+          "timestamp": 1633219200000,
           "ground": "Dubai (DICS)",
           "bat": "57",
           "sr": "111.76",
@@ -70540,7 +70885,7 @@
         {
           "opp": "Punjab Kings",
           "date": "10/1/2021",
-          "timestamp": 1633026600000,
+          "timestamp": 1633046400000,
           "ground": "Dubai (DICS)",
           "bat": "7",
           "sr": "100",
@@ -70550,7 +70895,7 @@
         {
           "opp": "DC",
           "date": "9/28/2021",
-          "timestamp": 1632767400000,
+          "timestamp": 1632787200000,
           "ground": "Sharjah",
           "bat": "30",
           "sr": "90.9",
@@ -70560,7 +70905,7 @@
         {
           "opp": "CSK",
           "date": "9/26/2021",
-          "timestamp": 1632594600000,
+          "timestamp": 1632614400000,
           "ground": "Abu Dhabi",
           "bat": "9",
           "sr": "180",
@@ -70570,7 +70915,7 @@
         {
           "opp": "MI",
           "date": "9/23/2021",
-          "timestamp": 1632335400000,
+          "timestamp": 1632355200000,
           "ground": "Abu Dhabi",
           "bat": "13",
           "sr": "144.44",
@@ -70580,7 +70925,7 @@
         {
           "opp": "RCB",
           "date": "9/20/2021",
-          "timestamp": 1632076200000,
+          "timestamp": 1632096000000,
           "ground": "Abu Dhabi",
           "bat": "48",
           "sr": "141.17",
@@ -70590,7 +70935,7 @@
         {
           "opp": "New Zealand",
           "date": "6/18/2021",
-          "timestamp": 1623954600000,
+          "timestamp": 1623974400000,
           "ground": "Southampton",
           "bat": "36",
           "sr": "37.11",
@@ -70600,7 +70945,7 @@
         {
           "opp": "DC",
           "date": "4/29/2021",
-          "timestamp": 1619634600000,
+          "timestamp": 1619654400000,
           "ground": "Ahmedabad",
           "bat": "43",
           "sr": "113.15",
@@ -70610,7 +70955,7 @@
         {
           "opp": "Punjab Kings",
           "date": "4/26/2021",
-          "timestamp": 1619375400000,
+          "timestamp": 1619395200000,
           "ground": "Ahmedabad",
           "bat": "9",
           "sr": "112.5",
@@ -70620,7 +70965,7 @@
         {
           "opp": "RR",
           "date": "4/24/2021",
-          "timestamp": 1619202600000,
+          "timestamp": 1619222400000,
           "ground": "Wankhede",
           "bat": "11",
           "sr": "57.89",
@@ -70630,7 +70975,7 @@
         {
           "opp": "CSK",
           "date": "4/21/2021",
-          "timestamp": 1618943400000,
+          "timestamp": 1618963200000,
           "ground": "Wankhede",
           "bat": "0",
           "sr": "0",
@@ -70640,7 +70985,7 @@
         {
           "opp": "RCB",
           "date": "4/18/2021",
-          "timestamp": 1618684200000,
+          "timestamp": 1618704000000,
           "ground": "Chennai",
           "bat": "21",
           "sr": "233.33",
@@ -70650,7 +70995,7 @@
         {
           "opp": "MI",
           "date": "4/13/2021",
-          "timestamp": 1618252200000,
+          "timestamp": 1618272000000,
           "ground": "Chennai",
           "bat": "33",
           "sr": "137.5",
@@ -70660,7 +71005,7 @@
         {
           "opp": "SRH",
           "date": "4/11/2021",
-          "timestamp": 1618079400000,
+          "timestamp": 1618099200000,
           "ground": "Chennai",
           "bat": "15",
           "sr": "115.38",
@@ -70670,7 +71015,7 @@
         {
           "opp": "England",
           "date": "3/4/2021",
-          "timestamp": 1614796200000,
+          "timestamp": 1614816000000,
           "ground": "Ahmedabad",
           "bat": "0",
           "sr": "0",
@@ -70680,7 +71025,7 @@
         {
           "opp": "England",
           "date": "2/24/2021",
-          "timestamp": 1614105000000,
+          "timestamp": 1614124800000,
           "ground": "Ahmedabad",
           "bat": "26",
           "sr": "36.11",
@@ -70690,7 +71035,7 @@
         {
           "opp": "England",
           "date": "2/13/2021",
-          "timestamp": 1613154600000,
+          "timestamp": 1613174400000,
           "ground": "Chennai",
           "bat": "14",
           "sr": "45.16",
@@ -70700,7 +71045,7 @@
         {
           "opp": "England",
           "date": "2/5/2021",
-          "timestamp": 1612463400000,
+          "timestamp": 1612483200000,
           "ground": "Chennai",
           "bat": "79",
           "sr": "71.17",
@@ -70710,7 +71055,7 @@
         {
           "opp": "Australia",
           "date": "1/15/2021",
-          "timestamp": 1610649000000,
+          "timestamp": 1610668800000,
           "ground": "Brisbane",
           "bat": "98",
           "sr": "60.86",
@@ -70720,7 +71065,7 @@
         {
           "opp": "Australia",
           "date": "1/7/2021",
-          "timestamp": 1609957800000,
+          "timestamp": 1609977600000,
           "ground": "Sydney",
           "bat": "81",
           "sr": "49.09",
@@ -70730,7 +71075,7 @@
         {
           "opp": "Australia",
           "date": "12/26/2020",
-          "timestamp": 1608921000000,
+          "timestamp": 1608940800000,
           "ground": "Melbourne",
           "bat": "80",
           "sr": "79.2",
@@ -70740,7 +71085,7 @@
         {
           "opp": "Australia",
           "date": "12/2/2020",
-          "timestamp": 1606847400000,
+          "timestamp": 1606867200000,
           "ground": "Canberra",
           "bat": "33",
           "sr": "84.61",
@@ -70750,7 +71095,7 @@
         {
           "opp": "RR",
           "date": "11/1/2020",
-          "timestamp": 1604169000000,
+          "timestamp": 1604188800000,
           "ground": "Dubai (DICS)",
           "bat": "36",
           "sr": "150",
@@ -70760,7 +71105,7 @@
         {
           "opp": "CSK",
           "date": "10/29/2020",
-          "timestamp": 1603909800000,
+          "timestamp": 1603929600000,
           "ground": "Dubai (DICS)",
           "bat": "26",
           "sr": "152.94",
@@ -70770,7 +71115,7 @@
         {
           "opp": "Kings XI",
           "date": "10/26/2020",
-          "timestamp": 1603650600000,
+          "timestamp": 1603670400000,
           "ground": "Sharjah",
           "bat": "57",
           "sr": "126.66",
@@ -70780,7 +71125,7 @@
         {
           "opp": "DC",
           "date": "10/24/2020",
-          "timestamp": 1603477800000,
+          "timestamp": 1603497600000,
           "ground": "Abu Dhabi",
           "bat": "9",
           "sr": "112.5",
@@ -70790,7 +71135,7 @@
         {
           "opp": "RCB",
           "date": "10/21/2020",
-          "timestamp": 1603218600000,
+          "timestamp": 1603238400000,
           "ground": "Abu Dhabi",
           "bat": "1",
           "sr": "16.66",
@@ -70800,7 +71145,7 @@
         {
           "opp": "SRH",
           "date": "10/18/2020",
-          "timestamp": 1602959400000,
+          "timestamp": 1602979200000,
           "ground": "Abu Dhabi",
           "bat": "36",
           "sr": "97.29",
@@ -70810,7 +71155,7 @@
         {
           "opp": "MI",
           "date": "10/16/2020",
-          "timestamp": 1602786600000,
+          "timestamp": 1602806400000,
           "ground": "Abu Dhabi",
           "bat": "21",
           "sr": "91.3",
@@ -70820,7 +71165,7 @@
         {
           "opp": "RCB",
           "date": "10/12/2020",
-          "timestamp": 1602441000000,
+          "timestamp": 1602460800000,
           "ground": "Sharjah",
           "bat": "34",
           "sr": "136",
@@ -70830,7 +71175,7 @@
         {
           "opp": "Kings XI",
           "date": "10/10/2020",
-          "timestamp": 1602268200000,
+          "timestamp": 1602288000000,
           "ground": "Abu Dhabi",
           "bat": "57",
           "sr": "121.27",
@@ -70840,7 +71185,7 @@
         {
           "opp": "CSK",
           "date": "10/7/2020",
-          "timestamp": 1602009000000,
+          "timestamp": 1602028800000,
           "ground": "Abu Dhabi",
           "bat": "11",
           "sr": "91.66",
@@ -70850,7 +71195,7 @@
         {
           "opp": "DC",
           "date": "10/3/2020",
-          "timestamp": 1601663400000,
+          "timestamp": 1601683200000,
           "ground": "Sharjah",
           "bat": "28",
           "sr": "127.27",
@@ -70860,7 +71205,7 @@
         {
           "opp": "RR",
           "date": "9/30/2020",
-          "timestamp": 1601404200000,
+          "timestamp": 1601424000000,
           "ground": "Dubai (DICS)",
           "bat": "47",
           "sr": "138.23",
@@ -70870,7 +71215,7 @@
         {
           "opp": "SRH",
           "date": "9/26/2020",
-          "timestamp": 1601058600000,
+          "timestamp": 1601078400000,
           "ground": "Abu Dhabi",
           "bat": "70",
           "sr": "112.9",
@@ -70880,7 +71225,7 @@
         {
           "opp": "MI",
           "date": "9/23/2020",
-          "timestamp": 1600799400000,
+          "timestamp": 1600819200000,
           "ground": "Abu Dhabi",
           "bat": "7",
           "sr": "63.63",
@@ -70890,7 +71235,7 @@
         {
           "opp": "Mumbai",
           "date": "11/27/2019",
-          "timestamp": 1574793000000,
+          "timestamp": 1574812800000,
           "ground": "Surat",
           "bat": "78",
           "sr": "205.26",
@@ -70900,7 +71245,7 @@
         {
           "opp": "Tamil Nadu",
           "date": "11/25/2019",
-          "timestamp": 1574620200000,
+          "timestamp": 1574640000000,
           "ground": "Surat",
           "bat": "2",
           "sr": "18.18",
@@ -70910,7 +71255,7 @@
         {
           "opp": "Karnataka",
           "date": "11/24/2019",
-          "timestamp": 1574533800000,
+          "timestamp": 1574553600000,
           "ground": "Surat",
           "bat": "11",
           "sr": "122.22",
@@ -70920,7 +71265,7 @@
         {
           "opp": "Arunachal",
           "date": "11/9/2019",
-          "timestamp": 1573237800000,
+          "timestamp": 1573257600000,
           "ground": "Chandigarh",
           "bat": "24",
           "sr": "171.42",
@@ -70930,7 +71275,7 @@
         {
           "opp": "Hyderabad",
           "date": "11/8/2019",
-          "timestamp": 1573151400000,
+          "timestamp": 1573171200000,
           "ground": "Chandigarh",
           "bat": "48",
           "sr": "114.28",
@@ -70940,7 +71285,7 @@
         {
           "opp": "MI",
           "date": "5/5/2019",
-          "timestamp": 1556994600000,
+          "timestamp": 1557014400000,
           "ground": "Wankhede",
           "bat": "9",
           "sr": "56.25",
@@ -70950,7 +71295,7 @@
         {
           "opp": "Kings XI",
           "date": "5/3/2019",
-          "timestamp": 1556821800000,
+          "timestamp": 1556841600000,
           "ground": "Mohali",
           "bat": "65",
           "sr": "132.65",
@@ -70960,7 +71305,7 @@
         {
           "opp": "MI",
           "date": "4/28/2019",
-          "timestamp": 1556389800000,
+          "timestamp": 1556409600000,
           "ground": "Eden Gardens",
           "bat": "76",
           "sr": "168.88",
@@ -70970,7 +71315,7 @@
         {
           "opp": "RR",
           "date": "4/25/2019",
-          "timestamp": 1556130600000,
+          "timestamp": 1556150400000,
           "ground": "Eden Gardens",
           "bat": "14",
           "sr": "100",
@@ -70980,7 +71325,7 @@
         {
           "opp": "SRH",
           "date": "4/21/2019",
-          "timestamp": 1555785000000,
+          "timestamp": 1555804800000,
           "ground": "Hyderabad",
           "bat": "3",
           "sr": "75",
@@ -70990,7 +71335,7 @@
         {
           "opp": "RCB",
           "date": "4/19/2019",
-          "timestamp": 1555612200000,
+          "timestamp": 1555632000000,
           "ground": "Eden Gardens",
           "bat": "9",
           "sr": "81.81",
@@ -71000,7 +71345,7 @@
         {
           "opp": "CSK",
           "date": "4/14/2019",
-          "timestamp": 1555180200000,
+          "timestamp": 1555200000000,
           "ground": "Eden Gardens",
           "bat": "15",
           "sr": "75",
@@ -71010,7 +71355,7 @@
         {
           "opp": "DC",
           "date": "4/12/2019",
-          "timestamp": 1555007400000,
+          "timestamp": 1555027200000,
           "ground": "Eden Gardens",
           "bat": "65",
           "sr": "166.66",
@@ -71020,7 +71365,7 @@
         {
           "opp": "CSK",
           "date": "4/9/2019",
-          "timestamp": 1554748200000,
+          "timestamp": 1554768000000,
           "ground": "Chennai",
           "bat": "9",
           "sr": "75",
@@ -71030,7 +71375,7 @@
         {
           "opp": "RR",
           "date": "4/7/2019",
-          "timestamp": 1554575400000,
+          "timestamp": 1554595200000,
           "ground": "Jaipur",
           "bat": "6",
           "sr": "60",
@@ -71040,7 +71385,7 @@
         {
           "opp": "RCB",
           "date": "4/5/2019",
-          "timestamp": 1554402600000,
+          "timestamp": 1554422400000,
           "ground": "Bengaluru",
           "bat": "3",
           "sr": "100",
@@ -71050,7 +71395,7 @@
         {
           "opp": "DC",
           "date": "3/30/2019",
-          "timestamp": 1553884200000,
+          "timestamp": 1553904000000,
           "ground": "Delhi",
           "bat": "4",
           "sr": "80",
@@ -71060,7 +71405,7 @@
         {
           "opp": "Kings XI",
           "date": "3/27/2019",
-          "timestamp": 1553625000000,
+          "timestamp": 1553644800000,
           "ground": "Eden Gardens",
           "bat": "-",
           "sr": "-",
@@ -71070,7 +71415,7 @@
         {
           "opp": "SRH",
           "date": "3/24/2019",
-          "timestamp": 1553365800000,
+          "timestamp": 1553385600000,
           "ground": "Eden Gardens",
           "bat": "18",
           "sr": "180",
@@ -71080,7 +71425,7 @@
         {
           "opp": "Railways",
           "date": "3/2/2019",
-          "timestamp": 1551465000000,
+          "timestamp": 1551484800000,
           "ground": "Indore",
           "bat": "11",
           "sr": "78.57",
@@ -71090,7 +71435,7 @@
         {
           "opp": "Goa",
           "date": "2/28/2019",
-          "timestamp": 1551292200000,
+          "timestamp": 1551312000000,
           "ground": "Indore",
           "bat": "21",
           "sr": "131.25",
@@ -71100,7 +71445,7 @@
         {
           "opp": "Sikkim",
           "date": "2/27/2019",
-          "timestamp": 1551205800000,
+          "timestamp": 1551225600000,
           "ground": "Indore",
           "bat": "70",
           "sr": "175",
@@ -71110,7 +71455,7 @@
         {
           "opp": "Saurashtra",
           "date": "2/24/2019",
-          "timestamp": 1550946600000,
+          "timestamp": 1550966400000,
           "ground": "Indore",
           "bat": "12",
           "sr": "100",
@@ -71120,7 +71465,7 @@
         {
           "opp": "Mumbai",
           "date": "2/22/2019",
-          "timestamp": 1550773800000,
+          "timestamp": 1550793600000,
           "ground": "Indore",
           "bat": "1",
           "sr": "33.33",
@@ -71130,7 +71475,7 @@
         {
           "opp": "New Zealand",
           "date": "2/3/2019",
-          "timestamp": 1549132200000,
+          "timestamp": 1549152000000,
           "ground": "Wellington",
           "bat": "7",
           "sr": "63.63",
@@ -71140,7 +71485,7 @@
         {
           "opp": "New Zealand",
           "date": "1/31/2019",
-          "timestamp": 1548873000000,
+          "timestamp": 1548892800000,
           "ground": "Hamilton",
           "bat": "9",
           "sr": "42.85",
@@ -71150,7 +71495,7 @@
         {
           "opp": "SRH",
           "date": "5/25/2018",
-          "timestamp": 1527186600000,
+          "timestamp": 1527206400000,
           "ground": "Eden Gardens",
           "bat": "30",
           "sr": "150",
@@ -71160,7 +71505,7 @@
         {
           "opp": "RR",
           "date": "5/23/2018",
-          "timestamp": 1527013800000,
+          "timestamp": 1527033600000,
           "ground": "Eden Gardens",
           "bat": "28",
           "sr": "164.7",
@@ -71170,7 +71515,7 @@
         {
           "opp": "SRH",
           "date": "5/19/2018",
-          "timestamp": 1526668200000,
+          "timestamp": 1526688000000,
           "ground": "Hyderabad",
           "bat": "0",
           "sr": "-",
@@ -71180,7 +71525,7 @@
         {
           "opp": "RR",
           "date": "5/15/2018",
-          "timestamp": 1526322600000,
+          "timestamp": 1526342400000,
           "ground": "Eden Gardens",
           "bat": "-",
           "sr": "-",
@@ -71190,7 +71535,7 @@
         {
           "opp": "Kings XI",
           "date": "5/12/2018",
-          "timestamp": 1526063400000,
+          "timestamp": 1526083200000,
           "ground": "Indore",
           "bat": "16",
           "sr": "200",
@@ -71200,7 +71545,7 @@
         {
           "opp": "MI",
           "date": "5/6/2018",
-          "timestamp": 1525545000000,
+          "timestamp": 1525564800000,
           "ground": "Wankhede",
           "bat": "7",
           "sr": "140",
@@ -71210,7 +71555,7 @@
         {
           "opp": "CSK",
           "date": "5/3/2018",
-          "timestamp": 1525285800000,
+          "timestamp": 1525305600000,
           "ground": "Eden Gardens",
           "bat": "57",
           "sr": "158.33",
@@ -71220,7 +71565,7 @@
         {
           "opp": "RCB",
           "date": "4/29/2018",
-          "timestamp": 1524940200000,
+          "timestamp": 1524960000000,
           "ground": "Bengaluru",
           "bat": "5",
           "sr": "250",
@@ -71230,7 +71575,7 @@
         {
           "opp": "Daredevils",
           "date": "4/27/2018",
-          "timestamp": 1524767400000,
+          "timestamp": 1524787200000,
           "ground": "Delhi",
           "bat": "37",
           "sr": "127.58",
@@ -71240,7 +71585,7 @@
         {
           "opp": "Kings XI",
           "date": "4/21/2018",
-          "timestamp": 1524249000000,
+          "timestamp": 1524268800000,
           "ground": "Eden Gardens",
           "bat": "14",
           "sr": "175",
@@ -71250,7 +71595,7 @@
         {
           "opp": "RR",
           "date": "4/18/2018",
-          "timestamp": 1523989800000,
+          "timestamp": 1524009600000,
           "ground": "Jaipur",
           "bat": "-",
           "sr": "-",
@@ -71260,7 +71605,7 @@
         {
           "opp": "Daredevils",
           "date": "4/16/2018",
-          "timestamp": 1523817000000,
+          "timestamp": 1523836800000,
           "ground": "Eden Gardens",
           "bat": "6",
           "sr": "120",
@@ -71270,7 +71615,7 @@
         {
           "opp": "SRH",
           "date": "4/14/2018",
-          "timestamp": 1523644200000,
+          "timestamp": 1523664000000,
           "ground": "Eden Gardens",
           "bat": "3",
           "sr": "33.33",
@@ -72125,13 +72470,13 @@
     }
   },
   "1123073": {
-    "timestamp": 1779978799809,
+    "timestamp": 1780038899263,
     "data": {
       "last10": [
         {
           "opp": "Rajasthan",
           "date": "12/6/2025",
-          "timestamp": 1764959400000,
+          "timestamp": 1764979200000,
           "ground": "Ahmedabad",
           "bat": "0",
           "sr": "0",
@@ -72141,7 +72486,7 @@
         {
           "opp": "Karnataka",
           "date": "12/4/2025",
-          "timestamp": 1764786600000,
+          "timestamp": 1764806400000,
           "ground": "Ahmedabad",
           "bat": "-",
           "sr": "-",
@@ -72151,7 +72496,7 @@
         {
           "opp": "Tripura",
           "date": "12/2/2025",
-          "timestamp": 1764613800000,
+          "timestamp": 1764633600000,
           "ground": "Ahmedabad",
           "bat": "16",
           "sr": "145.45",
@@ -72161,7 +72506,7 @@
         {
           "opp": "Saurashtra",
           "date": "11/30/2025",
-          "timestamp": 1764441000000,
+          "timestamp": 1764460800000,
           "ground": "Ahmedabad",
           "bat": "17",
           "sr": "212.5",
@@ -72171,7 +72516,7 @@
         {
           "opp": "Tamil Nadu",
           "date": "11/28/2025",
-          "timestamp": 1764268200000,
+          "timestamp": 1764288000000,
           "ground": "Ahmedabad",
           "bat": "8",
           "sr": "133.33",
@@ -72181,7 +72526,7 @@
         {
           "opp": "Jharkhand",
           "date": "11/26/2025",
-          "timestamp": 1764095400000,
+          "timestamp": 1764115200000,
           "ground": "Ahmedabad",
           "bat": "4",
           "sr": "44.44",
@@ -72191,7 +72536,7 @@
         {
           "opp": "M. Pradesh",
           "date": "12/13/2024",
-          "timestamp": 1734028200000,
+          "timestamp": 1734048000000,
           "ground": "Bengaluru",
           "bat": "33",
           "sr": "137.5",
@@ -72201,7 +72546,7 @@
         {
           "opp": "UP",
           "date": "12/11/2024",
-          "timestamp": 1733855400000,
+          "timestamp": 1733875200000,
           "ground": "Bengaluru",
           "bat": "73",
           "sr": "221.21",
@@ -72211,7 +72556,7 @@
         {
           "opp": "Jharkhand",
           "date": "12/3/2024",
-          "timestamp": 1733164200000,
+          "timestamp": 1733184000000,
           "ground": "Mumbai",
           "bat": "49",
           "sr": "113.95",
@@ -72221,7 +72566,7 @@
         {
           "opp": "Himachal",
           "date": "12/1/2024",
-          "timestamp": 1732991400000,
+          "timestamp": 1733011200000,
           "ground": "Mumbai",
           "bat": "1",
           "sr": "100",
@@ -72231,7 +72576,7 @@
         {
           "opp": "Manipur",
           "date": "11/29/2024",
-          "timestamp": 1732818600000,
+          "timestamp": 1732838400000,
           "ground": "Wankhede",
           "bat": "4",
           "sr": "40",
@@ -72241,7 +72586,7 @@
         {
           "opp": "Haryana",
           "date": "11/27/2024",
-          "timestamp": 1732645800000,
+          "timestamp": 1732665600000,
           "ground": "Wankhede",
           "bat": "12",
           "sr": "120",
@@ -72251,7 +72596,7 @@
         {
           "opp": "J & K",
           "date": "11/25/2024",
-          "timestamp": 1732473000000,
+          "timestamp": 1732492800000,
           "ground": "Wankhede",
           "bat": "9",
           "sr": "150",
@@ -72261,7 +72606,7 @@
         {
           "opp": "UP",
           "date": "11/23/2024",
-          "timestamp": 1732300200000,
+          "timestamp": 1732320000000,
           "ground": "Wankhede",
           "bat": "11",
           "sr": "122.22",
@@ -72271,7 +72616,7 @@
         {
           "opp": "Oman",
           "date": "10/23/2024",
-          "timestamp": 1729621800000,
+          "timestamp": 1729641600000,
           "ground": "Al Amerat",
           "bat": "8",
           "sr": "72.72",
@@ -72281,7 +72626,7 @@
         {
           "opp": "SRH",
           "date": "4/15/2024",
-          "timestamp": 1713119400000,
+          "timestamp": 1713139200000,
           "ground": "Bengaluru",
           "bat": "25",
           "sr": "178.57",
@@ -72291,7 +72636,7 @@
         {
           "opp": "LSG",
           "date": "4/2/2024",
-          "timestamp": 1711996200000,
+          "timestamp": 1712016000000,
           "ground": "Bengaluru",
           "bat": "11",
           "sr": "52.38",
@@ -72301,7 +72646,7 @@
         {
           "opp": "KKR",
           "date": "3/29/2024",
-          "timestamp": 1711650600000,
+          "timestamp": 1711670400000,
           "ground": "Bengaluru",
           "bat": "3",
           "sr": "100",
@@ -72311,7 +72656,7 @@
         {
           "opp": "Punjab Kings",
           "date": "3/25/2024",
-          "timestamp": 1711305000000,
+          "timestamp": 1711324800000,
           "ground": "Bengaluru",
           "bat": "11",
           "sr": "78.57",
@@ -72321,7 +72666,7 @@
         {
           "opp": "CSK",
           "date": "3/22/2024",
-          "timestamp": 1711045800000,
+          "timestamp": 1711065600000,
           "ground": "Chennai",
           "bat": "48",
           "sr": "192",
@@ -72331,7 +72676,7 @@
         {
           "opp": "Punjab",
           "date": "11/4/2023",
-          "timestamp": 1699036200000,
+          "timestamp": 1699056000000,
           "ground": "Mohali",
           "bat": "34",
           "sr": "154.54",
@@ -72341,7 +72686,7 @@
         {
           "opp": "Vidarbha",
           "date": "11/2/2023",
-          "timestamp": 1698863400000,
+          "timestamp": 1698883200000,
           "ground": "New Chandigarh",
           "bat": "68",
           "sr": "128.3",
@@ -72351,7 +72696,7 @@
         {
           "opp": "Tripura",
           "date": "10/25/2023",
-          "timestamp": 1698172200000,
+          "timestamp": 1698192000000,
           "ground": "Dehradun",
           "bat": "0",
           "sr": "0",
@@ -72361,7 +72706,7 @@
         {
           "opp": "Tamil Nadu",
           "date": "10/23/2023",
-          "timestamp": 1697999400000,
+          "timestamp": 1698019200000,
           "ground": "Dehradun",
           "bat": "6",
           "sr": "66.66",
@@ -72371,7 +72716,7 @@
         {
           "opp": "Karnataka",
           "date": "10/21/2023",
-          "timestamp": 1697826600000,
+          "timestamp": 1697846400000,
           "ground": "Dehradun",
           "bat": "38",
           "sr": "118.75",
@@ -72381,7 +72726,7 @@
         {
           "opp": "Nagaland",
           "date": "10/19/2023",
-          "timestamp": 1697653800000,
+          "timestamp": 1697673600000,
           "ground": "Dehradun",
           "bat": "37",
           "sr": "115.62",
@@ -72391,7 +72736,7 @@
         {
           "opp": "M. Pradesh",
           "date": "10/17/2023",
-          "timestamp": 1697481000000,
+          "timestamp": 1697500800000,
           "ground": "Dehradun",
           "bat": "23",
           "sr": "115",
@@ -72401,7 +72746,7 @@
         {
           "opp": "GT",
           "date": "5/21/2023",
-          "timestamp": 1684607400000,
+          "timestamp": 1684627200000,
           "ground": "Bengaluru",
           "bat": "23",
           "sr": "153.33",
@@ -72411,7 +72756,7 @@
         {
           "opp": "SRH",
           "date": "5/18/2023",
-          "timestamp": 1684348200000,
+          "timestamp": 1684368000000,
           "ground": "Hyderabad",
           "bat": "-",
           "sr": "-",
@@ -72421,7 +72766,7 @@
         {
           "opp": "RR",
           "date": "5/14/2023",
-          "timestamp": 1684002600000,
+          "timestamp": 1684022400000,
           "ground": "Jaipur",
           "bat": "29",
           "sr": "263.63",
@@ -72431,7 +72776,7 @@
         {
           "opp": "MI",
           "date": "5/9/2023",
-          "timestamp": 1683570600000,
+          "timestamp": 1683590400000,
           "ground": "Wankhede",
           "bat": "6",
           "sr": "150",
@@ -72441,7 +72786,7 @@
         {
           "opp": "DC",
           "date": "5/6/2023",
-          "timestamp": 1683311400000,
+          "timestamp": 1683331200000,
           "ground": "Delhi",
           "bat": "8",
           "sr": "266.66",
@@ -72451,7 +72796,7 @@
         {
           "opp": "LSG",
           "date": "5/1/2023",
-          "timestamp": 1682879400000,
+          "timestamp": 1682899200000,
           "ground": "Lucknow",
           "bat": "9",
           "sr": "81.81",
@@ -72461,7 +72806,7 @@
         {
           "opp": "DC",
           "date": "4/15/2023",
-          "timestamp": 1681497000000,
+          "timestamp": 1681516800000,
           "ground": "Bengaluru",
           "bat": "15",
           "sr": "68.18",
@@ -72471,7 +72816,7 @@
         {
           "opp": "LSG",
           "date": "4/10/2023",
-          "timestamp": 1681065000000,
+          "timestamp": 1681084800000,
           "ground": "Bengaluru",
           "bat": "-",
           "sr": "-",
@@ -72481,7 +72826,7 @@
         {
           "opp": "KKR",
           "date": "4/6/2023",
-          "timestamp": 1680719400000,
+          "timestamp": 1680739200000,
           "ground": "Eden Gardens",
           "bat": "1",
           "sr": "20",
@@ -72491,7 +72836,7 @@
         {
           "opp": "Goa",
           "date": "10/20/2022",
-          "timestamp": 1666204200000,
+          "timestamp": 1666224000000,
           "ground": "Jaipur",
           "bat": "11",
           "sr": "100",
@@ -72501,7 +72846,7 @@
         {
           "opp": "Hyderabad",
           "date": "10/18/2022",
-          "timestamp": 1666031400000,
+          "timestamp": 1666051200000,
           "ground": "Jaipur",
           "bat": "1",
           "sr": "50",
@@ -72511,7 +72856,7 @@
         {
           "opp": "Puducherry",
           "date": "10/16/2022",
-          "timestamp": 1665858600000,
+          "timestamp": 1665878400000,
           "ground": "Jaipur",
           "bat": "-",
           "sr": "-",
@@ -72521,7 +72866,7 @@
         {
           "opp": "UP",
           "date": "10/14/2022",
-          "timestamp": 1665685800000,
+          "timestamp": 1665705600000,
           "ground": "Jaipur",
           "bat": "6",
           "sr": "66.66",
@@ -72531,7 +72876,7 @@
         {
           "opp": "Punjab",
           "date": "10/12/2022",
-          "timestamp": 1665513000000,
+          "timestamp": 1665532800000,
           "ground": "Jaipur",
           "bat": "3",
           "sr": "37.5",
@@ -72541,7 +72886,7 @@
         {
           "opp": "Manipur",
           "date": "10/11/2022",
-          "timestamp": 1665426600000,
+          "timestamp": 1665446400000,
           "ground": "Jaipur",
           "bat": "13",
           "sr": "76.47",
@@ -72551,7 +72896,7 @@
         {
           "opp": "SRH",
           "date": "4/23/2022",
-          "timestamp": 1650652200000,
+          "timestamp": 1650672000000,
           "ground": "Brabourne",
           "bat": "0",
           "sr": "0",
@@ -72561,7 +72906,7 @@
         {
           "opp": "LSG",
           "date": "4/19/2022",
-          "timestamp": 1650306600000,
+          "timestamp": 1650326400000,
           "ground": "DY Patil",
           "bat": "4",
           "sr": "80",
@@ -72571,7 +72916,7 @@
         {
           "opp": "DC",
           "date": "4/16/2022",
-          "timestamp": 1650047400000,
+          "timestamp": 1650067200000,
           "ground": "Wankhede",
           "bat": "0",
           "sr": "0",
@@ -72581,7 +72926,7 @@
         {
           "opp": "CSK",
           "date": "4/12/2022",
-          "timestamp": 1649701800000,
+          "timestamp": 1649721600000,
           "ground": "DY Patil",
           "bat": "12",
           "sr": "75",
@@ -72591,7 +72936,7 @@
         {
           "opp": "MI",
           "date": "4/9/2022",
-          "timestamp": 1649442600000,
+          "timestamp": 1649462400000,
           "ground": "Pune",
           "bat": "66",
           "sr": "140.42",
@@ -72601,7 +72946,7 @@
         {
           "opp": "RR",
           "date": "4/5/2022",
-          "timestamp": 1649097000000,
+          "timestamp": 1649116800000,
           "ground": "Wankhede",
           "bat": "26",
           "sr": "104",
@@ -72611,7 +72956,7 @@
         {
           "opp": "KKR",
           "date": "3/30/2022",
-          "timestamp": 1648578600000,
+          "timestamp": 1648598400000,
           "ground": "DY Patil",
           "bat": "0",
           "sr": "0",
@@ -72621,7 +72966,7 @@
         {
           "opp": "Punjab Kings",
           "date": "3/27/2022",
-          "timestamp": 1648319400000,
+          "timestamp": 1648339200000,
           "ground": "DY Patil",
           "bat": "21",
           "sr": "105",
@@ -72631,7 +72976,7 @@
         {
           "opp": "Saurashtra",
           "date": "11/9/2021",
-          "timestamp": 1636396200000,
+          "timestamp": 1636416000000,
           "ground": "Rohtak",
           "bat": "31",
           "sr": "110.71",
@@ -72641,7 +72986,7 @@
         {
           "opp": "Hyderabad",
           "date": "11/8/2021",
-          "timestamp": 1636309800000,
+          "timestamp": 1636329600000,
           "ground": "Sultanpur",
           "bat": "41",
           "sr": "124.24",
@@ -72651,7 +72996,7 @@
         {
           "opp": "UP",
           "date": "11/6/2021",
-          "timestamp": 1636137000000,
+          "timestamp": 1636156800000,
           "ground": "Rohtak",
           "bat": "50",
           "sr": "156.25",
@@ -72661,7 +73006,7 @@
         {
           "opp": "Chandigarh",
           "date": "11/5/2021",
-          "timestamp": 1636050600000,
+          "timestamp": 1636070400000,
           "ground": "Rohtak",
           "bat": "44",
           "sr": "125.71",
@@ -72671,7 +73016,7 @@
         {
           "opp": "Uttarakhand",
           "date": "11/4/2021",
-          "timestamp": 1635964200000,
+          "timestamp": 1635984000000,
           "ground": "Rohtak",
           "bat": "1",
           "sr": "50",
@@ -72681,7 +73026,7 @@
         {
           "opp": "KKR",
           "date": "10/7/2021",
-          "timestamp": 1633545000000,
+          "timestamp": 1633564800000,
           "ground": "Sharjah",
           "bat": "0",
           "sr": "0",
@@ -72691,7 +73036,7 @@
         {
           "opp": "SRH",
           "date": "5/2/2021",
-          "timestamp": 1619893800000,
+          "timestamp": 1619913600000,
           "ground": "Delhi",
           "bat": "-",
           "sr": "-",
@@ -72701,7 +73046,7 @@
         {
           "opp": "Puducherry",
           "date": "1/19/2021",
-          "timestamp": 1610994600000,
+          "timestamp": 1611014400000,
           "ground": "Mumbai",
           "bat": "0",
           "sr": "0",
@@ -72711,7 +73056,7 @@
         {
           "opp": "Haryana",
           "date": "1/17/2021",
-          "timestamp": 1610821800000,
+          "timestamp": 1610841600000,
           "ground": "Wankhede",
           "bat": "34",
           "sr": "130.76",
@@ -72721,7 +73066,7 @@
         {
           "opp": "Kerala",
           "date": "1/15/2021",
-          "timestamp": 1610649000000,
+          "timestamp": 1610668800000,
           "ground": "Wankhede",
           "bat": "27",
           "sr": "270",
@@ -72731,7 +73076,7 @@
         {
           "opp": "Andhra",
           "date": "1/13/2021",
-          "timestamp": 1610476200000,
+          "timestamp": 1610496000000,
           "ground": "Wankhede",
           "bat": "33",
           "sr": "106.45",
@@ -72741,7 +73086,7 @@
         {
           "opp": "Mumbai",
           "date": "1/11/2021",
-          "timestamp": 1610303400000,
+          "timestamp": 1610323200000,
           "ground": "Wankhede",
           "bat": "5",
           "sr": "71.42",
@@ -72751,7 +73096,7 @@
         {
           "opp": "Rajasthan",
           "date": "11/27/2019",
-          "timestamp": 1574793000000,
+          "timestamp": 1574812800000,
           "ground": "Surat",
           "bat": "5",
           "sr": "62.5",
@@ -72761,7 +73106,7 @@
         {
           "opp": "Baroda",
           "date": "11/22/2019",
-          "timestamp": 1574361000000,
+          "timestamp": 1574380800000,
           "ground": "Surat",
           "bat": "2",
           "sr": "40",
@@ -72771,7 +73116,7 @@
         {
           "opp": "Maharashtra",
           "date": "11/21/2019",
-          "timestamp": 1574274600000,
+          "timestamp": 1574294400000,
           "ground": "Surat",
           "bat": "10",
           "sr": "111.11",
@@ -72781,7 +73126,7 @@
         {
           "opp": "Odisha",
           "date": "11/18/2019",
-          "timestamp": 1574015400000,
+          "timestamp": 1574035200000,
           "ground": "Surat",
           "bat": "18",
           "sr": "120",
@@ -72791,7 +73136,7 @@
         {
           "opp": "Sikkim",
           "date": "11/17/2019",
-          "timestamp": 1573929000000,
+          "timestamp": 1573948800000,
           "ground": "Surat",
           "bat": "14",
           "sr": "116.66",
@@ -72801,7 +73146,7 @@
         {
           "opp": "Jharkhand",
           "date": "11/15/2019",
-          "timestamp": 1573756200000,
+          "timestamp": 1573776000000,
           "ground": "Surat",
           "bat": "5",
           "sr": "100",
@@ -72811,7 +73156,7 @@
         {
           "opp": "J & K",
           "date": "11/14/2019",
-          "timestamp": 1573669800000,
+          "timestamp": 1573689600000,
           "ground": "Surat",
           "bat": "34",
           "sr": "89.47",
@@ -72821,7 +73166,7 @@
         {
           "opp": "Saurashtra",
           "date": "11/12/2019",
-          "timestamp": 1573497000000,
+          "timestamp": 1573516800000,
           "ground": "Surat",
           "bat": "88",
           "sr": "151.72",
@@ -72831,7 +73176,7 @@
         {
           "opp": "Nagaland",
           "date": "11/11/2019",
-          "timestamp": 1573410600000,
+          "timestamp": 1573430400000,
           "ground": "Surat",
           "bat": "12",
           "sr": "80",
@@ -72841,7 +73186,7 @@
         {
           "opp": "Nagaland",
           "date": "3/2/2019",
-          "timestamp": 1551465000000,
+          "timestamp": 1551484800000,
           "ground": "Mulapadu",
           "bat": "-",
           "sr": "-",
@@ -72851,7 +73196,7 @@
         {
           "opp": "Andhra",
           "date": "2/27/2019",
-          "timestamp": 1551205800000,
+          "timestamp": 1551225600000,
           "ground": "Mulapadu",
           "bat": "2",
           "sr": "28.57",
@@ -72861,7 +73206,7 @@
         {
           "opp": "Kerala",
           "date": "2/25/2019",
-          "timestamp": 1551033000000,
+          "timestamp": 1551052800000,
           "ground": "Mulapadu",
           "bat": "-",
           "sr": "-",
@@ -72871,7 +73216,7 @@
         {
           "opp": "J & K",
           "date": "2/24/2019",
-          "timestamp": 1550946600000,
+          "timestamp": 1550966400000,
           "ground": "Mulapadu",
           "bat": "45",
           "sr": "125",
@@ -72881,7 +73226,7 @@
         {
           "opp": "Manipur",
           "date": "2/22/2019",
-          "timestamp": 1550773800000,
+          "timestamp": 1550793600000,
           "ground": "Mulapadu",
           "bat": "-",
           "sr": "-",
@@ -72891,7 +73236,7 @@
         {
           "opp": "Jharkhand",
           "date": "2/21/2019",
-          "timestamp": 1550687400000,
+          "timestamp": 1550707200000,
           "ground": "Mulapadu",
           "bat": "-",
           "sr": "-",
@@ -72983,6 +73328,480 @@
           "bat": "6*",
           "sr": "-",
           "bowl": "2",
+          "econ": "-"
+        }
+      ]
+    }
+  },
+  "1143809": {
+    "timestamp": 1780037096310,
+    "data": {
+      "last10": [
+        {
+          "opp": "Kent",
+          "date": "5/25/2026",
+          "timestamp": 1779667200000,
+          "ground": "Canterbury",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "1",
+          "econ": "10.33"
+        },
+        {
+          "opp": "Essex",
+          "date": "5/22/2026",
+          "timestamp": 1779408000000,
+          "ground": "Chelmsford",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "1",
+          "econ": "8.33"
+        },
+        {
+          "opp": "Surrey",
+          "date": "7/18/2025",
+          "timestamp": 1752796800000,
+          "ground": "Hove",
+          "bat": "1",
+          "sr": "100",
+          "bowl": "2",
+          "econ": "9.25"
+        },
+        {
+          "opp": "Gloucs",
+          "date": "7/17/2025",
+          "timestamp": 1752710400000,
+          "ground": "Cheltenham",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "3",
+          "econ": "8"
+        },
+        {
+          "opp": "Essex",
+          "date": "7/11/2025",
+          "timestamp": 1752192000000,
+          "ground": "Chelmsford",
+          "bat": "0",
+          "sr": "-",
+          "bowl": "1",
+          "econ": "10"
+        },
+        {
+          "opp": "Kent",
+          "date": "7/9/2025",
+          "timestamp": 1752019200000,
+          "ground": "Hove",
+          "bat": "0",
+          "sr": "-",
+          "bowl": "1",
+          "econ": "10.5"
+        },
+        {
+          "opp": "Hampshire",
+          "date": "7/5/2025",
+          "timestamp": 1751673600000,
+          "ground": "Hove",
+          "bat": "4",
+          "sr": "133.33",
+          "bowl": "2",
+          "econ": "8"
+        },
+        {
+          "opp": "Kent",
+          "date": "7/4/2025",
+          "timestamp": 1751587200000,
+          "ground": "Canterbury",
+          "bat": "4",
+          "sr": "200",
+          "bowl": "1",
+          "econ": "10.5"
+        },
+        {
+          "opp": "Surrey",
+          "date": "6/18/2025",
+          "timestamp": 1750204800000,
+          "ground": "The Oval",
+          "bat": "1",
+          "sr": "50",
+          "bowl": "1",
+          "econ": "9.66"
+        },
+        {
+          "opp": "Glamorgan",
+          "date": "6/14/2025",
+          "timestamp": 1749859200000,
+          "ground": "Cardiff",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "2",
+          "econ": "8.75"
+        },
+        {
+          "opp": "Essex",
+          "date": "6/13/2025",
+          "timestamp": 1749772800000,
+          "ground": "Hove",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "2",
+          "econ": "7"
+        },
+        {
+          "opp": "Gloucs",
+          "date": "6/22/2023",
+          "timestamp": 1687392000000,
+          "ground": "Bristol",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "0",
+          "econ": "12"
+        },
+        {
+          "opp": "Surrey",
+          "date": "6/9/2023",
+          "timestamp": 1686268800000,
+          "ground": "Hove",
+          "bat": "1",
+          "sr": "100",
+          "bowl": "2",
+          "econ": "12.75"
+        },
+        {
+          "opp": "Middlesex",
+          "date": "6/8/2023",
+          "timestamp": 1686182400000,
+          "ground": "Lord's",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "0",
+          "econ": "13"
+        },
+        {
+          "opp": "Essex",
+          "date": "6/6/2023",
+          "timestamp": 1686009600000,
+          "ground": "Chelmsford",
+          "bat": "2",
+          "sr": "66.66",
+          "bowl": "0",
+          "econ": "21"
+        },
+        {
+          "opp": "Glamorgan",
+          "date": "6/4/2023",
+          "timestamp": 1685836800000,
+          "ground": "Hove",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "3",
+          "econ": "9.5"
+        },
+        {
+          "opp": "Hampshire",
+          "date": "6/3/2023",
+          "timestamp": 1685750400000,
+          "ground": "Southampton",
+          "bat": "0",
+          "sr": "0",
+          "bowl": "0",
+          "econ": "9.66"
+        },
+        {
+          "opp": "Essex",
+          "date": "6/1/2023",
+          "timestamp": 1685577600000,
+          "ground": "Hove",
+          "bat": "12",
+          "sr": "120",
+          "bowl": "1",
+          "econ": "6.75"
+        },
+        {
+          "opp": "Surrey",
+          "date": "5/28/2023",
+          "timestamp": 1685232000000,
+          "ground": "The Oval",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "1",
+          "econ": "6"
+        },
+        {
+          "opp": "Hampshire",
+          "date": "7/3/2022",
+          "timestamp": 1656806400000,
+          "ground": "Hove",
+          "bat": "1",
+          "sr": "100",
+          "bowl": "0",
+          "econ": "12.33"
+        },
+        {
+          "opp": "Essex",
+          "date": "7/1/2022",
+          "timestamp": 1656633600000,
+          "ground": "Hove",
+          "bat": "2",
+          "sr": "200",
+          "bowl": "1",
+          "econ": "11.5"
+        },
+        {
+          "opp": "Kent",
+          "date": "6/24/2022",
+          "timestamp": 1656028800000,
+          "ground": "Canterbury",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "1",
+          "econ": "9.5"
+        },
+        {
+          "opp": "Surrey",
+          "date": "6/23/2022",
+          "timestamp": 1655942400000,
+          "ground": "Hove",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "1",
+          "econ": "8"
+        },
+        {
+          "opp": "Glamorgan",
+          "date": "6/19/2022",
+          "timestamp": 1655596800000,
+          "ground": "Cardiff",
+          "bat": "2",
+          "sr": "100",
+          "bowl": "0",
+          "econ": "7"
+        },
+        {
+          "opp": "Essex",
+          "date": "6/17/2022",
+          "timestamp": 1655424000000,
+          "ground": "Chelmsford",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "0",
+          "econ": "15.5"
+        },
+        {
+          "opp": "Hampshire",
+          "date": "6/4/2022",
+          "timestamp": 1654300800000,
+          "ground": "Southampton",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "3",
+          "econ": "7.75"
+        },
+        {
+          "opp": "Gloucs",
+          "date": "5/27/2022",
+          "timestamp": 1653609600000,
+          "ground": "Bristol",
+          "bat": "1",
+          "sr": "100",
+          "bowl": "1",
+          "econ": "10.5"
+        },
+        {
+          "opp": "Gloucs",
+          "date": "6/11/2021",
+          "timestamp": 1623369600000,
+          "ground": "Bristol",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "0",
+          "econ": "19"
+        }
+      ]
+    }
+  },
+  "1145534": {
+    "timestamp": 1780035474130,
+    "data": {
+      "last10": [
+        {
+          "opp": "Shaheens",
+          "date": "2/24/2026",
+          "timestamp": 1771871400000,
+          "ground": "Abu Dhabi",
+          "bat": "1",
+          "sr": "100",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Notts",
+          "date": "7/18/2025",
+          "timestamp": 1752777000000,
+          "ground": "Nottingham",
+          "bat": "0",
+          "sr": "0",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Notts",
+          "date": "5/31/2025",
+          "timestamp": 1748629800000,
+          "ground": "Manchester",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Worcs",
+          "date": "5/29/2025",
+          "timestamp": 1748457000000,
+          "ground": "Manchester",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Bears",
+          "date": "6/7/2024",
+          "timestamp": 1717698600000,
+          "ground": "Manchester",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Derbyshire",
+          "date": "6/2/2024",
+          "timestamp": 1717266600000,
+          "ground": "Manchester",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Worcs",
+          "date": "5/31/2024",
+          "timestamp": 1717093800000,
+          "ground": "Worcester",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Durham",
+          "date": "5/30/2024",
+          "timestamp": 1717007400000,
+          "ground": "Manchester",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Northants",
+          "date": "5/24/2023",
+          "timestamp": 1684866600000,
+          "ground": "Northampton",
+          "bat": "1",
+          "sr": "100",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "N S-Chargers",
+          "date": "8/21/2022",
+          "timestamp": 1661020200000,
+          "ground": "Leeds",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Brave",
+          "date": "8/18/2022",
+          "timestamp": 1660761000000,
+          "ground": "Southampton",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Fire",
+          "date": "8/16/2022",
+          "timestamp": 1660588200000,
+          "ground": "Manchester",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Notts",
+          "date": "7/3/2022",
+          "timestamp": 1656786600000,
+          "ground": "Worcester",
+          "bat": "1",
+          "sr": "100",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Lancashire",
+          "date": "7/1/2022",
+          "timestamp": 1656613800000,
+          "ground": "Worcester",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Bears",
+          "date": "6/24/2022",
+          "timestamp": 1656009000000,
+          "ground": "Birmingham",
+          "bat": "7",
+          "sr": "87.5",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Yorkshire",
+          "date": "6/23/2022",
+          "timestamp": 1655922600000,
+          "ground": "Worcester",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Northants",
+          "date": "6/18/2022",
+          "timestamp": 1655490600000,
+          "ground": "Worcester",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Leics",
+          "date": "6/17/2022",
+          "timestamp": 1655404200000,
+          "ground": "Leicester",
+          "bat": "1",
+          "sr": "50",
+          "bowl": "-",
           "econ": "-"
         }
       ]
@@ -74892,6 +75711,323 @@
       ]
     }
   },
+  "1147613": {
+    "timestamp": 1780035476106,
+    "data": {
+      "last10": [
+        {
+          "opp": "Derbyshire",
+          "date": "5/24/2026",
+          "timestamp": 1779561000000,
+          "ground": "Leeds",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Notts",
+          "date": "5/22/2026",
+          "timestamp": 1779388200000,
+          "ground": "Nottingham",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Leics",
+          "date": "7/18/2025",
+          "timestamp": 1752777000000,
+          "ground": "Leicester",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Lancashire",
+          "date": "7/17/2025",
+          "timestamp": 1752690600000,
+          "ground": "Leeds",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Derbyshire",
+          "date": "7/13/2025",
+          "timestamp": 1752345000000,
+          "ground": "Leeds",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Lancashire",
+          "date": "7/11/2025",
+          "timestamp": 1752172200000,
+          "ground": "Manchester",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Derbyshire",
+          "date": "7/6/2025",
+          "timestamp": 1751740200000,
+          "ground": "Chesterfield",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Worcs",
+          "date": "7/4/2025",
+          "timestamp": 1751567400000,
+          "ground": "Leeds",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Durham",
+          "date": "6/20/2025",
+          "timestamp": 1750357800000,
+          "ground": "Chester-le-Street",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Durham",
+          "date": "6/15/2025",
+          "timestamp": 1749925800000,
+          "ground": "York",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Bears",
+          "date": "6/13/2025",
+          "timestamp": 1749753000000,
+          "ground": "Leeds",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Notts",
+          "date": "6/11/2025",
+          "timestamp": 1749580200000,
+          "ground": "Nottingham",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Leics",
+          "date": "6/8/2025",
+          "timestamp": 1749321000000,
+          "ground": "Leeds",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Bears",
+          "date": "6/6/2025",
+          "timestamp": 1749148200000,
+          "ground": "Birmingham",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Worcs",
+          "date": "6/1/2025",
+          "timestamp": 1748716200000,
+          "ground": "Worcester",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Northants",
+          "date": "5/30/2025",
+          "timestamp": 1748543400000,
+          "ground": "Leeds",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Notts",
+          "date": "7/19/2024",
+          "timestamp": 1721327400000,
+          "ground": "Leeds",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Worcs",
+          "date": "7/14/2024",
+          "timestamp": 1720895400000,
+          "ground": "Worcester",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Durham",
+          "date": "7/11/2024",
+          "timestamp": 1720636200000,
+          "ground": "Leeds",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Derbyshire",
+          "date": "7/7/2024",
+          "timestamp": 1720290600000,
+          "ground": "Chesterfield",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Bears",
+          "date": "7/5/2024",
+          "timestamp": 1720117800000,
+          "ground": "Leeds",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Derbyshire",
+          "date": "6/9/2024",
+          "timestamp": 1717871400000,
+          "ground": "Leeds",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Northants",
+          "date": "6/2/2024",
+          "timestamp": 1717266600000,
+          "ground": "Northampton",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Bears",
+          "date": "6/22/2023",
+          "timestamp": 1687372200000,
+          "ground": "Leeds",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Northants",
+          "date": "6/20/2023",
+          "timestamp": 1687199400000,
+          "ground": "Leeds",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Derbyshire",
+          "date": "6/18/2023",
+          "timestamp": 1687026600000,
+          "ground": "Chesterfield",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Leics",
+          "date": "6/16/2023",
+          "timestamp": 1686853800000,
+          "ground": "Leeds",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Worcs",
+          "date": "6/9/2023",
+          "timestamp": 1686249000000,
+          "ground": "Leeds",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Leics",
+          "date": "6/6/2023",
+          "timestamp": 1685989800000,
+          "ground": "Leicester",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Durham",
+          "date": "9/16/2020",
+          "timestamp": 1600194600000,
+          "ground": "Leeds",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Lancashire",
+          "date": "9/14/2020",
+          "timestamp": 1600021800000,
+          "ground": "Leeds",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        }
+      ]
+    }
+  },
   "1150585": {
     "timestamp": 1779976100037,
     "data": {
@@ -75005,6 +76141,1013 @@
     "timestamp": 1779978826089,
     "data": {
       "last10": []
+    }
+  },
+  "1172968": {
+    "timestamp": 1780035483485,
+    "data": {
+      "last10": [
+        {
+          "opp": "Shaheens",
+          "date": "2/24/2026",
+          "timestamp": 1771871400000,
+          "ground": "Abu Dhabi",
+          "bat": "28",
+          "sr": "121.73",
+          "bowl": "0",
+          "econ": "9"
+        },
+        {
+          "opp": "Shaheens",
+          "date": "2/22/2026",
+          "timestamp": 1771698600000,
+          "ground": "Abu Dhabi",
+          "bat": "19",
+          "sr": "111.76",
+          "bowl": "1",
+          "econ": "7.75"
+        },
+        {
+          "opp": "Shaheens",
+          "date": "2/20/2026",
+          "timestamp": 1771525800000,
+          "ground": "Abu Dhabi",
+          "bat": "16",
+          "sr": "114.28",
+          "bowl": "0",
+          "econ": "5.66"
+        },
+        {
+          "opp": "Vipers",
+          "date": "12/30/2025",
+          "timestamp": 1767033000000,
+          "ground": "Abu Dhabi",
+          "bat": "7",
+          "sr": "63.63",
+          "bowl": "0",
+          "econ": "15"
+        },
+        {
+          "opp": "DC",
+          "date": "12/27/2025",
+          "timestamp": 1766773800000,
+          "ground": "Abu Dhabi",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "1",
+          "econ": "8"
+        },
+        {
+          "opp": "Somerset",
+          "date": "9/6/2025",
+          "timestamp": 1757097000000,
+          "ground": "Taunton",
+          "bat": "12",
+          "sr": "200",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Rockets",
+          "date": "8/27/2025",
+          "timestamp": 1756233000000,
+          "ground": "Nottingham",
+          "bat": "26",
+          "sr": "104",
+          "bowl": "0",
+          "econ": "3.6"
+        },
+        {
+          "opp": "Originals",
+          "date": "8/24/2025",
+          "timestamp": 1755973800000,
+          "ground": "Manchester",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Invincibles",
+          "date": "8/12/2025",
+          "timestamp": 1754937000000,
+          "ground": "Birmingham",
+          "bat": "11",
+          "sr": "100",
+          "bowl": "1",
+          "econ": "15.6"
+        },
+        {
+          "opp": "Brave",
+          "date": "8/10/2025",
+          "timestamp": 1754764200000,
+          "ground": "Southampton",
+          "bat": "2",
+          "sr": "66.66",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Rockets",
+          "date": "8/8/2025",
+          "timestamp": 1754591400000,
+          "ground": "Birmingham",
+          "bat": "18",
+          "sr": "180",
+          "bowl": "0",
+          "econ": "8.4"
+        },
+        {
+          "opp": "Derbyshire",
+          "date": "7/18/2025",
+          "timestamp": 1752777000000,
+          "ground": "Derby",
+          "bat": "25",
+          "sr": "312.5",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Northants",
+          "date": "7/13/2025",
+          "timestamp": 1752345000000,
+          "ground": "Birmingham",
+          "bat": "1",
+          "sr": "50",
+          "bowl": "1",
+          "econ": "10"
+        },
+        {
+          "opp": "Worcs",
+          "date": "7/11/2025",
+          "timestamp": 1752172200000,
+          "ground": "Worcester",
+          "bat": "31",
+          "sr": "182.35",
+          "bowl": "0",
+          "econ": "14"
+        },
+        {
+          "opp": "Lancashire",
+          "date": "7/9/2025",
+          "timestamp": 1751999400000,
+          "ground": "Birmingham",
+          "bat": "32",
+          "sr": "266.66",
+          "bowl": "0",
+          "econ": "15"
+        },
+        {
+          "opp": "Durham",
+          "date": "7/6/2025",
+          "timestamp": 1751740200000,
+          "ground": "Chester-le-Street",
+          "bat": "19",
+          "sr": "111.76",
+          "bowl": "1",
+          "econ": "15.5"
+        },
+        {
+          "opp": "Leics",
+          "date": "7/4/2025",
+          "timestamp": 1751567400000,
+          "ground": "Leicester",
+          "bat": "64",
+          "sr": "133.33",
+          "bowl": "1",
+          "econ": "12"
+        },
+        {
+          "opp": "Worcs",
+          "date": "6/20/2025",
+          "timestamp": 1750357800000,
+          "ground": "Birmingham",
+          "bat": "12",
+          "sr": "120",
+          "bowl": "4",
+          "econ": "4.75"
+        },
+        {
+          "opp": "Notts",
+          "date": "6/14/2025",
+          "timestamp": 1749839400000,
+          "ground": "Birmingham",
+          "bat": "53",
+          "sr": "132.5",
+          "bowl": "2",
+          "econ": "11"
+        },
+        {
+          "opp": "Yorkshire",
+          "date": "6/13/2025",
+          "timestamp": 1749753000000,
+          "ground": "Leeds",
+          "bat": "11",
+          "sr": "110",
+          "bowl": "1",
+          "econ": "6.5"
+        },
+        {
+          "opp": "Northants",
+          "date": "6/11/2025",
+          "timestamp": 1749580200000,
+          "ground": "Northampton",
+          "bat": "68",
+          "sr": "161.9",
+          "bowl": "1",
+          "econ": "8"
+        },
+        {
+          "opp": "Derbyshire",
+          "date": "6/8/2025",
+          "timestamp": 1749321000000,
+          "ground": "Birmingham",
+          "bat": "13",
+          "sr": "130",
+          "bowl": "1",
+          "econ": "6.66"
+        },
+        {
+          "opp": "Yorkshire",
+          "date": "6/6/2025",
+          "timestamp": 1749148200000,
+          "ground": "Birmingham",
+          "bat": "13",
+          "sr": "162.5",
+          "bowl": "0",
+          "econ": "8.5"
+        },
+        {
+          "opp": "Vipers",
+          "date": "1/27/2025",
+          "timestamp": 1737916200000,
+          "ground": "Abu Dhabi",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "2",
+          "econ": "8"
+        },
+        {
+          "opp": "Gulf Giants",
+          "date": "1/25/2025",
+          "timestamp": 1737743400000,
+          "ground": "Abu Dhabi",
+          "bat": "5",
+          "sr": "55.55",
+          "bowl": "1",
+          "econ": "10"
+        },
+        {
+          "opp": "KnightRiders",
+          "date": "1/24/2025",
+          "timestamp": 1737657000000,
+          "ground": "Abu Dhabi",
+          "bat": "17",
+          "sr": "65.38",
+          "bowl": "0",
+          "econ": "5"
+        },
+        {
+          "opp": "KnightRiders",
+          "date": "1/21/2025",
+          "timestamp": 1737397800000,
+          "ground": "Abu Dhabi",
+          "bat": "6",
+          "sr": "85.71",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Warriorz",
+          "date": "1/19/2025",
+          "timestamp": 1737225000000,
+          "ground": "Sharjah",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Vipers",
+          "date": "1/16/2025",
+          "timestamp": 1736965800000,
+          "ground": "Dubai (DICS)",
+          "bat": "15",
+          "sr": "107.14",
+          "bowl": "2",
+          "econ": "6.75"
+        },
+        {
+          "opp": "West Indies",
+          "date": "11/16/2024",
+          "timestamp": 1731695400000,
+          "ground": "Gros Islet",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "0",
+          "econ": "12"
+        },
+        {
+          "opp": "West Indies",
+          "date": "11/14/2024",
+          "timestamp": 1731522600000,
+          "ground": "Gros Islet",
+          "bat": "8",
+          "sr": "133.33",
+          "bowl": "0",
+          "econ": "10"
+        },
+        {
+          "opp": "West Indies",
+          "date": "11/10/2024",
+          "timestamp": 1731177000000,
+          "ground": "Bridgetown",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "2",
+          "econ": "7.25"
+        },
+        {
+          "opp": "West Indies",
+          "date": "11/9/2024",
+          "timestamp": 1731090600000,
+          "ground": "Bridgetown",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "0",
+          "econ": "7"
+        },
+        {
+          "opp": "West Indies",
+          "date": "11/6/2024",
+          "timestamp": 1730831400000,
+          "ground": "Bridgetown",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "West Indies",
+          "date": "11/2/2024",
+          "timestamp": 1730485800000,
+          "ground": "North Sound",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "0",
+          "econ": "8.5"
+        },
+        {
+          "opp": "West Indies",
+          "date": "10/31/2024",
+          "timestamp": 1730313000000,
+          "ground": "North Sound",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Gloucs",
+          "date": "9/6/2024",
+          "timestamp": 1725561000000,
+          "ground": "Birmingham",
+          "bat": "10",
+          "sr": "111.11",
+          "bowl": "2",
+          "econ": "6.3"
+        },
+        {
+          "opp": "Brave",
+          "date": "8/17/2024",
+          "timestamp": 1723833000000,
+          "ground": "The Oval",
+          "bat": "2",
+          "sr": "50",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Originals",
+          "date": "8/15/2024",
+          "timestamp": 1723660200000,
+          "ground": "Birmingham",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Rockets",
+          "date": "8/12/2024",
+          "timestamp": 1723401000000,
+          "ground": "Birmingham",
+          "bat": "0",
+          "sr": "0",
+          "bowl": "0",
+          "econ": "6"
+        },
+        {
+          "opp": "Fire",
+          "date": "8/10/2024",
+          "timestamp": 1723228200000,
+          "ground": "Cardiff",
+          "bat": "0",
+          "sr": "0",
+          "bowl": "1",
+          "econ": "9.6"
+        },
+        {
+          "opp": "N S-Chargers",
+          "date": "8/6/2024",
+          "timestamp": 1722882600000,
+          "ground": "Birmingham",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Brave",
+          "date": "8/3/2024",
+          "timestamp": 1722623400000,
+          "ground": "Birmingham",
+          "bat": "0",
+          "sr": "0",
+          "bowl": "0",
+          "econ": "13.8"
+        },
+        {
+          "opp": "Rockets",
+          "date": "7/31/2024",
+          "timestamp": 1722364200000,
+          "ground": "Nottingham",
+          "bat": "11",
+          "sr": "91.66",
+          "bowl": "3",
+          "econ": "3.6"
+        },
+        {
+          "opp": "Spirit",
+          "date": "7/27/2024",
+          "timestamp": 1722018600000,
+          "ground": "Lord's",
+          "bat": "39",
+          "sr": "102.63",
+          "bowl": "0",
+          "econ": "9.6"
+        },
+        {
+          "opp": "Invincibles",
+          "date": "7/23/2024",
+          "timestamp": 1721673000000,
+          "ground": "The Oval",
+          "bat": "1",
+          "sr": "33.33",
+          "bowl": "0",
+          "econ": "10.5"
+        },
+        {
+          "opp": "Leics",
+          "date": "7/19/2024",
+          "timestamp": 1721327400000,
+          "ground": "Birmingham",
+          "bat": "11",
+          "sr": "110",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Northants",
+          "date": "7/18/2024",
+          "timestamp": 1721241000000,
+          "ground": "Northampton",
+          "bat": "0",
+          "sr": "0",
+          "bowl": "1",
+          "econ": "8.5"
+        },
+        {
+          "opp": "Derbyshire",
+          "date": "7/14/2024",
+          "timestamp": 1720895400000,
+          "ground": "Birmingham",
+          "bat": "60",
+          "sr": "136.36",
+          "bowl": "1",
+          "econ": "7.25"
+        },
+        {
+          "opp": "Worcs",
+          "date": "7/12/2024",
+          "timestamp": 1720722600000,
+          "ground": "Birmingham",
+          "bat": "68",
+          "sr": "154.54",
+          "bowl": "1",
+          "econ": "7.25"
+        },
+        {
+          "opp": "Notts",
+          "date": "7/7/2024",
+          "timestamp": 1720290600000,
+          "ground": "Nottingham",
+          "bat": "10",
+          "sr": "166.66",
+          "bowl": "1",
+          "econ": "2"
+        },
+        {
+          "opp": "Yorkshire",
+          "date": "7/5/2024",
+          "timestamp": 1720117800000,
+          "ground": "Leeds",
+          "bat": "21",
+          "sr": "175",
+          "bowl": "1",
+          "econ": "9"
+        },
+        {
+          "opp": "Worcs",
+          "date": "6/21/2024",
+          "timestamp": 1718908200000,
+          "ground": "Worcester",
+          "bat": "0",
+          "sr": "0",
+          "bowl": "1",
+          "econ": "7"
+        },
+        {
+          "opp": "Northants",
+          "date": "6/20/2024",
+          "timestamp": 1718821800000,
+          "ground": "Birmingham",
+          "bat": "43",
+          "sr": "165.38",
+          "bowl": "0",
+          "econ": "6.33"
+        },
+        {
+          "opp": "Derbyshire",
+          "date": "6/16/2024",
+          "timestamp": 1718476200000,
+          "ground": "Derby",
+          "bat": "66",
+          "sr": "124.52",
+          "bowl": "0",
+          "econ": "4"
+        },
+        {
+          "opp": "Yorkshire",
+          "date": "6/14/2024",
+          "timestamp": 1718303400000,
+          "ground": "Birmingham",
+          "bat": "41",
+          "sr": "141.37",
+          "bowl": "1",
+          "econ": "5"
+        },
+        {
+          "opp": "Durham",
+          "date": "6/8/2024",
+          "timestamp": 1717785000000,
+          "ground": "Birmingham",
+          "bat": "35",
+          "sr": "175",
+          "bowl": "2",
+          "econ": "5.75"
+        },
+        {
+          "opp": "Lancashire",
+          "date": "6/7/2024",
+          "timestamp": 1717698600000,
+          "ground": "Manchester",
+          "bat": "11",
+          "sr": "100",
+          "bowl": "0",
+          "econ": "15.5"
+        },
+        {
+          "opp": "Notts",
+          "date": "6/1/2024",
+          "timestamp": 1717180200000,
+          "ground": "Birmingham",
+          "bat": "1",
+          "sr": "50",
+          "bowl": "3",
+          "econ": "6.6"
+        },
+        {
+          "opp": "Durham",
+          "date": "5/31/2024",
+          "timestamp": 1717093800000,
+          "ground": "Chester-le-Street",
+          "bat": "8",
+          "sr": "66.66",
+          "bowl": "1",
+          "econ": "6"
+        },
+        {
+          "opp": "Gladiators",
+          "date": "2/18/2024",
+          "timestamp": 1708194600000,
+          "ground": "Lahore",
+          "bat": "11",
+          "sr": "91.66",
+          "bowl": "0",
+          "econ": "7.33"
+        },
+        {
+          "opp": "DC",
+          "date": "2/10/2024",
+          "timestamp": 1707503400000,
+          "ground": "Abu Dhabi",
+          "bat": "2",
+          "sr": "33.33",
+          "bowl": "2",
+          "econ": "5.5"
+        },
+        {
+          "opp": "Gulf Giants",
+          "date": "2/8/2024",
+          "timestamp": 1707330600000,
+          "ground": "Dubai (DICS)",
+          "bat": "11",
+          "sr": "110",
+          "bowl": "1",
+          "econ": "6"
+        },
+        {
+          "opp": "Brave",
+          "date": "8/16/2023",
+          "timestamp": 1692124200000,
+          "ground": "Southampton",
+          "bat": "11",
+          "sr": "64.7",
+          "bowl": "1",
+          "econ": "1.5"
+        },
+        {
+          "opp": "Invincibles",
+          "date": "8/13/2023",
+          "timestamp": 1691865000000,
+          "ground": "Birmingham",
+          "bat": "15",
+          "sr": "150",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Fire",
+          "date": "8/10/2023",
+          "timestamp": 1691605800000,
+          "ground": "Birmingham",
+          "bat": "10",
+          "sr": "76.92",
+          "bowl": "0",
+          "econ": "14.4"
+        },
+        {
+          "opp": "Originals",
+          "date": "8/7/2023",
+          "timestamp": 1691346600000,
+          "ground": "Manchester",
+          "bat": "5",
+          "sr": "166.66",
+          "bowl": "0",
+          "econ": "6"
+        },
+        {
+          "opp": "N S-Chargers",
+          "date": "8/3/2023",
+          "timestamp": 1691001000000,
+          "ground": "Leeds",
+          "bat": "9",
+          "sr": "150",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Essex",
+          "date": "7/6/2023",
+          "timestamp": 1688581800000,
+          "ground": "Birmingham",
+          "bat": "16",
+          "sr": "133.33",
+          "bowl": "1",
+          "econ": "9"
+        },
+        {
+          "opp": "Durham",
+          "date": "7/2/2023",
+          "timestamp": 1688236200000,
+          "ground": "Birmingham",
+          "bat": "5",
+          "sr": "83.33",
+          "bowl": "2",
+          "econ": "6.92"
+        },
+        {
+          "opp": "Notts",
+          "date": "6/30/2023",
+          "timestamp": 1688063400000,
+          "ground": "Nottingham",
+          "bat": "1",
+          "sr": "50",
+          "bowl": "0",
+          "econ": "6.66"
+        },
+        {
+          "opp": "Worcs",
+          "date": "6/23/2023",
+          "timestamp": 1687458600000,
+          "ground": "Birmingham",
+          "bat": "51",
+          "sr": "204",
+          "bowl": "4",
+          "econ": "10.25"
+        },
+        {
+          "opp": "Yorkshire",
+          "date": "6/22/2023",
+          "timestamp": 1687372200000,
+          "ground": "Leeds",
+          "bat": "6",
+          "sr": "150",
+          "bowl": "4",
+          "econ": "7"
+        },
+        {
+          "opp": "Durham",
+          "date": "6/20/2023",
+          "timestamp": 1687199400000,
+          "ground": "Chester-le-Street",
+          "bat": "2",
+          "sr": "22.22",
+          "bowl": "0",
+          "econ": "9"
+        },
+        {
+          "opp": "Worcs",
+          "date": "6/16/2023",
+          "timestamp": 1686853800000,
+          "ground": "Worcester",
+          "bat": "49",
+          "sr": "175",
+          "bowl": "0",
+          "econ": "8.33"
+        },
+        {
+          "opp": "Northants",
+          "date": "6/9/2023",
+          "timestamp": 1686249000000,
+          "ground": "Birmingham",
+          "bat": "9",
+          "sr": "100",
+          "bowl": "3",
+          "econ": "3.5"
+        },
+        {
+          "opp": "Derbyshire",
+          "date": "6/7/2023",
+          "timestamp": 1686076200000,
+          "ground": "Birmingham",
+          "bat": "26",
+          "sr": "152.94",
+          "bowl": "1",
+          "econ": "8"
+        },
+        {
+          "opp": "Notts",
+          "date": "6/3/2023",
+          "timestamp": 1685730600000,
+          "ground": "Birmingham",
+          "bat": "28",
+          "sr": "155.55",
+          "bowl": "0",
+          "econ": "6"
+        },
+        {
+          "opp": "Derbyshire",
+          "date": "6/2/2023",
+          "timestamp": 1685644200000,
+          "ground": "Derby",
+          "bat": "36",
+          "sr": "109.09",
+          "bowl": "0",
+          "econ": "7.66"
+        },
+        {
+          "opp": "Northants",
+          "date": "5/31/2023",
+          "timestamp": 1685471400000,
+          "ground": "Northampton",
+          "bat": "2",
+          "sr": "66.66",
+          "bowl": "1",
+          "econ": "11.75"
+        },
+        {
+          "opp": "Lancashire",
+          "date": "5/29/2023",
+          "timestamp": 1685298600000,
+          "ground": "Birmingham",
+          "bat": "5",
+          "sr": "55.55",
+          "bowl": "3",
+          "econ": "4.33"
+        },
+        {
+          "opp": "Leics",
+          "date": "5/26/2023",
+          "timestamp": 1685039400000,
+          "ground": "Leicester",
+          "bat": "16",
+          "sr": "160",
+          "bowl": "1",
+          "econ": "7.5"
+        },
+        {
+          "opp": "Yorkshire",
+          "date": "5/20/2023",
+          "timestamp": 1684521000000,
+          "ground": "Birmingham",
+          "bat": "11",
+          "sr": "110",
+          "bowl": "1",
+          "econ": "4.66"
+        },
+        {
+          "opp": "Spirit",
+          "date": "8/30/2022",
+          "timestamp": 1661797800000,
+          "ground": "Lord's",
+          "bat": "2",
+          "sr": "66.66",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Rockets",
+          "date": "8/6/2022",
+          "timestamp": 1659724200000,
+          "ground": "Nottingham",
+          "bat": "2",
+          "sr": "66.66",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Hampshire",
+          "date": "7/7/2022",
+          "timestamp": 1657132200000,
+          "ground": "Birmingham",
+          "bat": "9",
+          "sr": "64.28",
+          "bowl": "1",
+          "econ": "7.75"
+        },
+        {
+          "opp": "Lancashire",
+          "date": "7/3/2022",
+          "timestamp": 1656786600000,
+          "ground": "Manchester",
+          "bat": "41",
+          "sr": "205",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Yorkshire",
+          "date": "7/1/2022",
+          "timestamp": 1656613800000,
+          "ground": "Leeds",
+          "bat": "63",
+          "sr": "252",
+          "bowl": "1",
+          "econ": "7"
+        },
+        {
+          "opp": "Worcs",
+          "date": "6/24/2022",
+          "timestamp": 1656009000000,
+          "ground": "Birmingham",
+          "bat": "53",
+          "sr": "155.88",
+          "bowl": "1",
+          "econ": "4"
+        },
+        {
+          "opp": "Notts",
+          "date": "6/17/2022",
+          "timestamp": 1655404200000,
+          "ground": "Nottingham",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Durham",
+          "date": "6/20/2021",
+          "timestamp": 1624127400000,
+          "ground": "Chester-le-Street",
+          "bat": "1",
+          "sr": "25",
+          "bowl": "1",
+          "econ": "4.75"
+        },
+        {
+          "opp": "Leics",
+          "date": "6/16/2021",
+          "timestamp": 1623781800000,
+          "ground": "Leicester",
+          "bat": "3",
+          "sr": "60",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Northants",
+          "date": "6/15/2021",
+          "timestamp": 1623695400000,
+          "ground": "Northampton",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "1",
+          "econ": "3"
+        },
+        {
+          "opp": "Derbyshire",
+          "date": "6/13/2021",
+          "timestamp": 1623522600000,
+          "ground": "Derby",
+          "bat": "56",
+          "sr": "140",
+          "bowl": "0",
+          "econ": "7"
+        },
+        {
+          "opp": "Notts",
+          "date": "6/11/2021",
+          "timestamp": 1623349800000,
+          "ground": "Nottingham",
+          "bat": "6",
+          "sr": "85.71",
+          "bowl": "0",
+          "econ": "13.5"
+        },
+        {
+          "opp": "Yorkshire",
+          "date": "6/10/2021",
+          "timestamp": 1623263400000,
+          "ground": "Leeds",
+          "bat": "22",
+          "sr": "129.41",
+          "bowl": "0",
+          "econ": "7"
+        },
+        {
+          "opp": "Northants",
+          "date": "9/20/2020",
+          "timestamp": 1600540200000,
+          "ground": "Birmingham",
+          "bat": "58",
+          "sr": "131.81",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Worcs",
+          "date": "9/18/2020",
+          "timestamp": 1600367400000,
+          "ground": "Birmingham",
+          "bat": "40",
+          "sr": "129.03",
+          "bowl": "0",
+          "econ": "13"
+        },
+        {
+          "opp": "Gloucs",
+          "date": "9/2/2020",
+          "timestamp": 1598985000000,
+          "ground": "Birmingham",
+          "bat": "3",
+          "sr": "60",
+          "bowl": "1",
+          "econ": "9"
+        },
+        {
+          "opp": "BAN Under-19",
+          "date": "1/27/2019",
+          "timestamp": 1548527400000,
+          "ground": "Cox's Bazar",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        }
+      ]
     }
   },
   "1175426": {
@@ -77168,6 +79311,223 @@
       ]
     }
   },
+  "1185574": {
+    "timestamp": 1780035474184,
+    "data": {
+      "last10": [
+        {
+          "opp": "Glamorgan",
+          "date": "7/18/2025",
+          "timestamp": 1752777000000,
+          "ground": "Cardiff",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Surrey",
+          "date": "7/16/2025",
+          "timestamp": 1752604200000,
+          "ground": "Lord's",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Kent",
+          "date": "7/13/2025",
+          "timestamp": 1752345000000,
+          "ground": "Canterbury",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Gloucs",
+          "date": "7/11/2025",
+          "timestamp": 1752172200000,
+          "ground": "Northwood",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Hampshire",
+          "date": "7/9/2025",
+          "timestamp": 1751999400000,
+          "ground": "Northwood",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Gloucs",
+          "date": "7/6/2025",
+          "timestamp": 1751740200000,
+          "ground": "Bristol",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Surrey",
+          "date": "6/20/2025",
+          "timestamp": 1750357800000,
+          "ground": "The Oval",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Essex",
+          "date": "6/19/2025",
+          "timestamp": 1750271400000,
+          "ground": "Lord's",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Hampshire",
+          "date": "6/13/2025",
+          "timestamp": 1749753000000,
+          "ground": "Southampton",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Somerset",
+          "date": "6/12/2025",
+          "timestamp": 1749666600000,
+          "ground": "Taunton",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Essex",
+          "date": "6/8/2025",
+          "timestamp": 1749321000000,
+          "ground": "Chelmsford",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Kent",
+          "date": "6/5/2025",
+          "timestamp": 1749061800000,
+          "ground": "Lord's",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Glamorgan",
+          "date": "6/1/2025",
+          "timestamp": 1748716200000,
+          "ground": "Northwood",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Sussex",
+          "date": "5/29/2025",
+          "timestamp": 1748457000000,
+          "ground": "Lord's",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Kent",
+          "date": "7/7/2024",
+          "timestamp": 1720290600000,
+          "ground": "The Oval",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Kent",
+          "date": "7/9/2021",
+          "timestamp": 1625769000000,
+          "ground": "The Oval",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Hampshire",
+          "date": "6/30/2021",
+          "timestamp": 1624991400000,
+          "ground": "Southampton",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Glamorgan",
+          "date": "6/29/2021",
+          "timestamp": 1624905000000,
+          "ground": "Cardiff",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Sussex",
+          "date": "6/27/2021",
+          "timestamp": 1624732200000,
+          "ground": "Hove",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Somerset",
+          "date": "6/23/2021",
+          "timestamp": 1624386600000,
+          "ground": "The Oval",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Essex",
+          "date": "6/21/2021",
+          "timestamp": 1624213800000,
+          "ground": "The Oval",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        }
+      ]
+    }
+  },
   "1187120": {
     "timestamp": 1779976416817,
     "data": {
@@ -79133,6 +81493,12 @@
           "econ": "-"
         }
       ]
+    }
+  },
+  "1195664": {
+    "timestamp": 1780035476711,
+    "data": {
+      "last10": []
     }
   },
   "1195947": {
@@ -83428,13 +85794,13 @@
     }
   },
   "1244751": {
-    "timestamp": 1779978799802,
+    "timestamp": 1780038899955,
     "data": {
       "last10": [
         {
           "opp": "CSK",
           "date": "5/21/2026",
-          "timestamp": 1779301800000,
+          "timestamp": 1779321600000,
           "ground": "Ahmedabad",
           "bat": "-",
           "sr": "-",
@@ -83444,7 +85810,7 @@
         {
           "opp": "KKR",
           "date": "5/16/2026",
-          "timestamp": 1778869800000,
+          "timestamp": 1778889600000,
           "ground": "Eden Gardens",
           "bat": "-",
           "sr": "-",
@@ -83454,7 +85820,7 @@
         {
           "opp": "SRH",
           "date": "5/12/2026",
-          "timestamp": 1778524200000,
+          "timestamp": 1778544000000,
           "ground": "Ahmedabad",
           "bat": "-",
           "sr": "-",
@@ -83464,7 +85830,7 @@
         {
           "opp": "RR",
           "date": "5/9/2026",
-          "timestamp": 1778265000000,
+          "timestamp": 1778284800000,
           "ground": "Jaipur",
           "bat": "-",
           "sr": "-",
@@ -83474,7 +85840,7 @@
         {
           "opp": "Punjab Kings",
           "date": "5/3/2026",
-          "timestamp": 1777746600000,
+          "timestamp": 1777766400000,
           "ground": "Ahmedabad",
           "bat": "8",
           "sr": "160",
@@ -83484,7 +85850,7 @@
         {
           "opp": "RCB",
           "date": "4/30/2026",
-          "timestamp": 1777487400000,
+          "timestamp": 1777507200000,
           "ground": "Ahmedabad",
           "bat": "-",
           "sr": "-",
@@ -83494,7 +85860,7 @@
         {
           "opp": "CSK",
           "date": "4/26/2026",
-          "timestamp": 1777141800000,
+          "timestamp": 1777161600000,
           "ground": "Chennai",
           "bat": "-",
           "sr": "-",
@@ -83504,7 +85870,7 @@
         {
           "opp": "Andhra",
           "date": "12/12/2025",
-          "timestamp": 1765477800000,
+          "timestamp": 1765497600000,
           "ground": "Ambi",
           "bat": "1",
           "sr": "100",
@@ -83514,7 +85880,7 @@
         {
           "opp": "J & K",
           "date": "12/8/2025",
-          "timestamp": 1765132200000,
+          "timestamp": 1765152000000,
           "ground": "Eden Gardens",
           "bat": "12",
           "sr": "171.42",
@@ -83524,7 +85890,7 @@
         {
           "opp": "Chandigarh",
           "date": "12/6/2025",
-          "timestamp": 1764959400000,
+          "timestamp": 1764979200000,
           "ground": "Jadavpur Uni",
           "bat": "-",
           "sr": "-",
@@ -83534,7 +85900,7 @@
         {
           "opp": "Maharashtra",
           "date": "12/4/2025",
-          "timestamp": 1764786600000,
+          "timestamp": 1764806400000,
           "ground": "Eden Gardens",
           "bat": "30",
           "sr": "176.47",
@@ -83544,7 +85910,7 @@
         {
           "opp": "Hyderabad",
           "date": "11/26/2025",
-          "timestamp": 1764095400000,
+          "timestamp": 1764115200000,
           "ground": "Jadavpur Uni",
           "bat": "1",
           "sr": "50",
@@ -83554,7 +85920,7 @@
         {
           "opp": "CSK",
           "date": "5/25/2025",
-          "timestamp": 1748111400000,
+          "timestamp": 1748131200000,
           "ground": "Ahmedabad",
           "bat": "20",
           "sr": "142.85",
@@ -83564,7 +85930,7 @@
         {
           "opp": "LSG",
           "date": "5/22/2025",
-          "timestamp": 1747852200000,
+          "timestamp": 1747872000000,
           "ground": "Ahmedabad",
           "bat": "1",
           "sr": "33.33",
@@ -83574,7 +85940,7 @@
         {
           "opp": "DC",
           "date": "5/18/2025",
-          "timestamp": 1747506600000,
+          "timestamp": 1747526400000,
           "ground": "Delhi",
           "bat": "-",
           "sr": "-",
@@ -83584,7 +85950,7 @@
         {
           "opp": "MI",
           "date": "5/6/2025",
-          "timestamp": 1746469800000,
+          "timestamp": 1746489600000,
           "ground": "Wankhede",
           "bat": "1",
           "sr": "100",
@@ -83594,7 +85960,7 @@
         {
           "opp": "DC",
           "date": "4/19/2025",
-          "timestamp": 1745001000000,
+          "timestamp": 1745020800000,
           "ground": "Ahmedabad",
           "bat": "-",
           "sr": "-",
@@ -83604,7 +85970,7 @@
         {
           "opp": "LSG",
           "date": "4/12/2025",
-          "timestamp": 1744396200000,
+          "timestamp": 1744416000000,
           "ground": "Lucknow",
           "bat": "-",
           "sr": "-",
@@ -83614,7 +85980,7 @@
         {
           "opp": "RR",
           "date": "4/9/2025",
-          "timestamp": 1744137000000,
+          "timestamp": 1744156800000,
           "ground": "Ahmedabad",
           "bat": "0",
           "sr": "-",
@@ -83624,7 +85990,7 @@
         {
           "opp": "RCB",
           "date": "4/2/2025",
-          "timestamp": 1743532200000,
+          "timestamp": 1743552000000,
           "ground": "Bengaluru",
           "bat": "-",
           "sr": "-",
@@ -83634,7 +86000,7 @@
         {
           "opp": "Punjab Kings",
           "date": "3/25/2025",
-          "timestamp": 1742841000000,
+          "timestamp": 1742860800000,
           "ground": "Ahmedabad",
           "bat": "1",
           "sr": "100",
@@ -83644,7 +86010,7 @@
         {
           "opp": "Punjab",
           "date": "11/27/2024",
-          "timestamp": 1732645800000,
+          "timestamp": 1732665600000,
           "ground": "Rajkot",
           "bat": "6",
           "sr": "200",
@@ -83654,7 +86020,7 @@
         {
           "opp": "Meghalaya",
           "date": "11/25/2024",
-          "timestamp": 1732473000000,
+          "timestamp": 1732492800000,
           "ground": "Saurashtra",
           "bat": "9",
           "sr": "225",
@@ -83664,7 +86030,7 @@
         {
           "opp": "Mizoram",
           "date": "11/23/2024",
-          "timestamp": 1732300200000,
+          "timestamp": 1732320000000,
           "ground": "Rajkot",
           "bat": "22",
           "sr": "314.28",
@@ -83674,7 +86040,7 @@
         {
           "opp": "MI",
           "date": "5/17/2024",
-          "timestamp": 1715884200000,
+          "timestamp": 1715904000000,
           "ground": "Wankhede",
           "bat": "0",
           "sr": "0",
@@ -83684,7 +86050,7 @@
         {
           "opp": "DC",
           "date": "5/14/2024",
-          "timestamp": 1715625000000,
+          "timestamp": 1715644800000,
           "ground": "Delhi",
           "bat": "58",
           "sr": "175.75",
@@ -83694,7 +86060,7 @@
         {
           "opp": "KKR",
           "date": "4/14/2024",
-          "timestamp": 1713033000000,
+          "timestamp": 1713052800000,
           "ground": "Eden Gardens",
           "bat": "5",
           "sr": "125",
@@ -83704,7 +86070,7 @@
         {
           "opp": "DC",
           "date": "4/12/2024",
-          "timestamp": 1712860200000,
+          "timestamp": 1712880000000,
           "ground": "Lucknow",
           "bat": "20",
           "sr": "125",
@@ -83714,7 +86080,7 @@
         {
           "opp": "UP",
           "date": "10/27/2023",
-          "timestamp": 1698345000000,
+          "timestamp": 1698364800000,
           "ground": "Dehradun",
           "bat": "5",
           "sr": "250",
@@ -83724,7 +86090,7 @@
         {
           "opp": "Karnataka",
           "date": "10/19/2023",
-          "timestamp": 1697653800000,
+          "timestamp": 1697673600000,
           "ground": "Dehradun",
           "bat": "4",
           "sr": "36.36",
@@ -83734,7 +86100,7 @@
         {
           "opp": "Delhi",
           "date": "10/17/2023",
-          "timestamp": 1697481000000,
+          "timestamp": 1697500800000,
           "ground": "Dehradun",
           "bat": "12",
           "sr": "120",
@@ -83744,7 +86110,7 @@
         {
           "opp": "CSK",
           "date": "5/6/2023",
-          "timestamp": 1683311400000,
+          "timestamp": 1683331200000,
           "ground": "Chennai",
           "bat": "1",
           "sr": "50",
@@ -83754,7 +86120,7 @@
         {
           "opp": "Punjab Kings",
           "date": "5/3/2023",
-          "timestamp": 1683052200000,
+          "timestamp": 1683072000000,
           "ground": "Mohali",
           "bat": "-",
           "sr": "-",
@@ -83764,7 +86130,7 @@
         {
           "opp": "RR",
           "date": "4/30/2023",
-          "timestamp": 1682793000000,
+          "timestamp": 1682812800000,
           "ground": "Wankhede",
           "bat": "-",
           "sr": "-",
@@ -83774,7 +86140,7 @@
         {
           "opp": "DC",
           "date": "4/11/2023",
-          "timestamp": 1681151400000,
+          "timestamp": 1681171200000,
           "ground": "Delhi",
           "bat": "-",
           "sr": "-",
@@ -83784,7 +86150,7 @@
         {
           "opp": "CSK",
           "date": "4/8/2023",
-          "timestamp": 1680892200000,
+          "timestamp": 1680912000000,
           "ground": "Wankhede",
           "bat": "2",
           "sr": "50",
@@ -83794,7 +86160,7 @@
         {
           "opp": "RCB",
           "date": "4/2/2023",
-          "timestamp": 1680373800000,
+          "timestamp": 1680393600000,
           "ground": "Bengaluru",
           "bat": "15",
           "sr": "166.66",
@@ -83806,6 +86172,24 @@
   },
   "1252585": {
     "timestamp": 1779978817669,
+    "data": {
+      "last10": []
+    }
+  },
+  "1255248": {
+    "timestamp": 1780035486346,
+    "data": {
+      "last10": []
+    }
+  },
+  "1262574": {
+    "timestamp": 1780035476729,
+    "data": {
+      "last10": []
+    }
+  },
+  "1264775": {
+    "timestamp": 1780035477633,
     "data": {
       "last10": []
     }
@@ -84507,6 +86891,12 @@
       ]
     }
   },
+  "1268580": {
+    "timestamp": 1780035478843,
+    "data": {
+      "last10": []
+    }
+  },
   "1268602": {
     "timestamp": 1779976102733,
     "data": {
@@ -84612,6 +87002,12 @@
           "econ": "-"
         }
       ]
+    }
+  },
+  "1280097": {
+    "timestamp": 1780035478825,
+    "data": {
+      "last10": []
     }
   },
   "1287033": {
@@ -85317,13 +87713,13 @@
     }
   },
   "1299879": {
-    "timestamp": 1779978799410,
+    "timestamp": 1780038900175,
     "data": {
       "last10": [
         {
           "opp": "MI",
           "date": "4/20/2026",
-          "timestamp": 1776623400000,
+          "timestamp": 1776643200000,
           "ground": "Ahmedabad",
           "bat": "1",
           "sr": "33.33",
@@ -85333,7 +87729,7 @@
         {
           "opp": "KKR",
           "date": "4/17/2026",
-          "timestamp": 1776364200000,
+          "timestamp": 1776384000000,
           "ground": "Ahmedabad",
           "bat": "-",
           "sr": "-",
@@ -85343,7 +87739,7 @@
         {
           "opp": "LSG",
           "date": "4/12/2026",
-          "timestamp": 1775932200000,
+          "timestamp": 1775952000000,
           "ground": "Lucknow",
           "bat": "-",
           "sr": "-",
@@ -85353,7 +87749,7 @@
         {
           "opp": "DC",
           "date": "4/8/2026",
-          "timestamp": 1775586600000,
+          "timestamp": 1775606400000,
           "ground": "Delhi",
           "bat": "-",
           "sr": "-",
@@ -85363,7 +87759,7 @@
         {
           "opp": "RR",
           "date": "4/4/2026",
-          "timestamp": 1775241000000,
+          "timestamp": 1775260800000,
           "ground": "Ahmedabad",
           "bat": "0",
           "sr": "0",
@@ -85373,7 +87769,7 @@
         {
           "opp": "Punjab Kings",
           "date": "3/31/2026",
-          "timestamp": 1774895400000,
+          "timestamp": 1774915200000,
           "ground": "New Chandigarh",
           "bat": "-",
           "sr": "-",
@@ -85383,7 +87779,7 @@
         {
           "opp": "Mumbai",
           "date": "12/16/2025",
-          "timestamp": 1765823400000,
+          "timestamp": 1765843200000,
           "ground": "Pune",
           "bat": "-",
           "sr": "-",
@@ -85393,7 +87789,7 @@
         {
           "opp": "Hyderabad",
           "date": "12/14/2025",
-          "timestamp": 1765650600000,
+          "timestamp": 1765670400000,
           "ground": "Ambi",
           "bat": "10",
           "sr": "250",
@@ -85403,7 +87799,7 @@
         {
           "opp": "Haryana",
           "date": "12/12/2025",
-          "timestamp": 1765477800000,
+          "timestamp": 1765497600000,
           "ground": "Pune",
           "bat": "-",
           "sr": "-",
@@ -85413,7 +87809,7 @@
         {
           "opp": "Jharkhand",
           "date": "12/8/2025",
-          "timestamp": 1765132200000,
+          "timestamp": 1765152000000,
           "ground": "Ahmedabad",
           "bat": "0",
           "sr": "0",
@@ -85423,7 +87819,7 @@
         {
           "opp": "Delhi",
           "date": "12/6/2025",
-          "timestamp": 1764959400000,
+          "timestamp": 1764979200000,
           "ground": "Ahmedabad",
           "bat": "2",
           "sr": "66.66",
@@ -85433,7 +87829,7 @@
         {
           "opp": "Saurashtra",
           "date": "12/4/2025",
-          "timestamp": 1764786600000,
+          "timestamp": 1764806400000,
           "ground": "Ahmedabad",
           "bat": "15",
           "sr": "214.28",
@@ -85443,7 +87839,7 @@
         {
           "opp": "Uttarakhand",
           "date": "12/2/2025",
-          "timestamp": 1764613800000,
+          "timestamp": 1764633600000,
           "ground": "Ahmedabad",
           "bat": "6",
           "sr": "300",
@@ -85453,7 +87849,7 @@
         {
           "opp": "Karnataka",
           "date": "11/30/2025",
-          "timestamp": 1764441000000,
+          "timestamp": 1764460800000,
           "ground": "Ahmedabad",
           "bat": "-",
           "sr": "-",
@@ -85463,7 +87859,7 @@
         {
           "opp": "Tripura",
           "date": "11/28/2025",
-          "timestamp": 1764268200000,
+          "timestamp": 1764288000000,
           "ground": "Ahmedabad",
           "bat": "-",
           "sr": "-",
@@ -85473,7 +87869,7 @@
         {
           "opp": "Tamil Nadu",
           "date": "11/26/2025",
-          "timestamp": 1764095400000,
+          "timestamp": 1764115200000,
           "ground": "Ahmedabad",
           "bat": "-",
           "sr": "-",
@@ -85481,6 +87877,12 @@
           "econ": "10"
         }
       ]
+    }
+  },
+  "1318254": {
+    "timestamp": 1780035479351,
+    "data": {
+      "last10": []
     }
   },
   "1340525": {
@@ -86387,6 +88789,12 @@
       "last10": []
     }
   },
+  "1385804": {
+    "timestamp": 1780035479369,
+    "data": {
+      "last10": []
+    }
+  },
   "1403261": {
     "timestamp": 1779978814785,
     "data": {
@@ -86395,6 +88803,12 @@
   },
   "1408688": {
     "timestamp": 1779978826021,
+    "data": {
+      "last10": []
+    }
+  },
+  "1414819": {
+    "timestamp": 1780035486336,
     "data": {
       "last10": []
     }
@@ -86824,6 +89238,12 @@
           "econ": "6"
         }
       ]
+    }
+  },
+  "1436058": {
+    "timestamp": 1780035480404,
+    "data": {
+      "last10": []
     }
   },
   "1444444": {

@@ -66,7 +66,7 @@ function extractIds(url) {
 async function fetchNextData(url) {
     try {
         console.log(`FETCHING: ${url}`);
-        const r = await axios.get(url, axiosConfig);
+        const r = await axios.get(url, { ...axiosConfig, timeout: 4000 });
         const $ = cheerio.load(r.data);
         const scriptData = $("#__NEXT_DATA__").html();
         if (!scriptData) return null;
@@ -380,7 +380,7 @@ app.get('/api/h2h-match-history', async (req, res) => {
 
     try {
         const url = `https://stats.espncricinfo.com/ci/engine/team/${team1Id}.html?class=6;template=results;type=team;view=results;opposition=${team2Id}`;
-        const r = await axios.get(url, axiosConfig);
+        const r = await axios.get(url, { ...axiosConfig, timeout: 4000 });
         const $ = cheerio.load(r.data);
         
         const matches = [];
@@ -506,7 +506,7 @@ app.get('/api/player-profile', async (req, res) => {
             const url = `https://www.espncricinfo.com/cricketers/${cleanName}-${pid}/matches`;
             console.log(`[Scraper] Trying direct matches scraper: ${url}`);
             
-            const r = await axios.get(url, axiosConfig);
+            const r = await axios.get(url, { ...axiosConfig, timeout: 4000 });
             const $ = cheerio.load(r.data);
             
             // Dynamically detect column indices from table header to prevent shifting issues
@@ -603,11 +603,38 @@ app.get('/api/player-profile', async (req, res) => {
         // ── METHOD 2: Statsguru Fallback (If direct scraper fails or returns empty) ──
         if (!success) {
             console.log(`[Scraper] Launching Statsguru scraper fallback for pid=${pid}`);
-            const fetchSingleLog = async (cls, type, retries = 2, delayMs = 300) => {
+            
+            // Helper function to parse Cricinfo's date format (e.g. "17 Jul 2025") in a completely timezone-independent way
+            const parseCricinfoDate = (dateStr) => {
+                const months = {
+                    jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6,
+                    jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12
+                };
+                const parts = dateStr.trim().split(/\s+/);
+                if (parts.length === 3) {
+                    const day = parseInt(parts[0]);
+                    const monthName = parts[1].toLowerCase().slice(0, 3);
+                    const year = parseInt(parts[2]);
+                    const month = months[monthName] || 1;
+                    if (!isNaN(day) && !isNaN(year)) {
+                        return {
+                            formatted: `${month}/${day}/${year}`,
+                            timestamp: Date.UTC(year, month - 1, day)
+                        };
+                    }
+                }
+                const d = new Date(dateStr);
+                return {
+                    formatted: `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`,
+                    timestamp: d.getTime()
+                };
+            };
+
+            const fetchSingleLog = async (cls, type, retries = 1, delayMs = 300) => {
                 const url = `https://stats.espncricinfo.com/ci/engine/player/${pid}.html?class=${cls};template=results;type=${type};view=match`;
                 for (let attempt = 1; attempt <= retries + 1; attempt++) {
                     try {
-                        const r = await axios.get(url, axiosConfig);
+                        const r = await axios.get(url, { ...axiosConfig, timeout: 4000 });
                         const $ = cheerio.load(r.data);
                         
                         let table = null;
@@ -647,18 +674,16 @@ app.get('/api/player-profile', async (req, res) => {
                             const oppStr = idx.opp !== -1 ? cols[idx.opp] : "";
                             if (!dateStr || dateStr === '0') return;
 
-                            const matchDateObj = new Date(dateStr);
-                            const todayObj = new Date();
-                            todayObj.setHours(0,0,0,0);
-                            if (matchDateObj >= todayObj) return;
+                            const parsedDate = parseCricinfoDate(dateStr);
+                            if (parsedDate.timestamp >= Date.now()) return;
 
-                            const date = new Date(dateStr).toLocaleDateString();
+                            const date = parsedDate.formatted;
                             const key = `${oppStr.replace(/^v\s+/, '').trim()}|${date}`;
                             
                             resObj[key] = {
                                 opp: oppStr.replace(/^v\s+/, '').trim(),
                                 date: date,
-                                timestamp: new Date(dateStr).getTime(),
+                                timestamp: parsedDate.timestamp,
                                 ground: idx.ground !== -1 ? cols[idx.ground] : "",
                                 [type === 'batting' ? 'bat' : 'bowl']: type === 'batting' ? cols[idx.runs] : cols[idx.wkts],
                                 [type === 'batting' ? 'sr' : 'econ']: type === 'batting' ? cols[idx.sr] : cols[idx.econ]
@@ -666,6 +691,10 @@ app.get('/api/player-profile', async (req, res) => {
                         });
                         return resObj;
                     } catch (e) {
+                        const status = e.response ? e.response.status : null;
+                        if (status === 400 || status === 403 || status === 503 || e.message.toLowerCase().includes('timeout') || e.message.toLowerCase().includes('limit')) {
+                            return { _invalidClass: true };
+                        }
                         if (attempt <= retries) {
                             console.warn(`[Scraper Warn] Class ${cls} ${type} failed (Attempt ${attempt}/${retries + 1}): ${e.message}. Retrying in ${delayMs}ms...`);
                             await new Promise(res => setTimeout(res, delayMs));
@@ -688,37 +717,62 @@ app.get('/api/player-profile', async (req, res) => {
                     gender = "M";
                 }
             }
-            const classes = gender === "F" ? [25, 22, 23, 10, 9, 8] : [22, 6, 3, 2, 1, 25, 23, 10, 9, 8];
+            const classes = gender === "F" ? [25, 24, 22, 23, 10, 9, 8] : [3, 6, 2, 9, 1, 4, 10, 8];
 
-            const batPromises = classes.map(cls => fetchSingleLog(cls, 'batting'));
-            const bowlPromises = classes.map(cls => fetchSingleLog(cls, 'bowling'));
-
-            const [batResultsArray, bowlResultsArray] = await Promise.all([
-                Promise.all(batPromises),
-                Promise.all(bowlPromises)
-            ]);
-
+            const skippedClasses = new Set();
             let mergedBat = {};
-            batResultsArray.forEach(res => { mergedBat = { ...mergedBat, ...res }; });
-
             let mergedBowl = {};
-            bowlResultsArray.forEach(res => { mergedBowl = { ...mergedBowl, ...res }; });
+
+            // 1. Fetch batting sequential with staggered delay to bypass WAF completely
+            for (const cls of classes) {
+                if (skippedClasses.has(cls)) continue;
+                const batRes = await fetchSingleLog(cls, 'batting');
+                if (batRes && batRes._invalidClass) {
+                    skippedClasses.add(cls);
+                } else {
+                    mergedBat = { ...mergedBat, ...batRes };
+                }
+                await new Promise(r => setTimeout(r, 150));
+            }
+
+            // 2. Fetch bowling sequential with staggered delay to bypass WAF completely
+            for (const cls of classes) {
+                if (skippedClasses.has(cls)) continue;
+                const bowlRes = await fetchSingleLog(cls, 'bowling');
+                if (bowlRes && bowlRes._invalidClass) {
+                    skippedClasses.add(cls);
+                } else {
+                    mergedBowl = { ...mergedBowl, ...bowlRes };
+                }
+                await new Promise(r => setTimeout(r, 150));
+            }
 
             // Fallback: If no records found at all, try the opposite gender classes
             if (Object.keys(mergedBat).length === 0 && Object.keys(mergedBowl).length === 0) {
                 console.log(`[Scraper] Fallback: No matches found for class ${classes.join(",")}. Trying alternate gender formats.`);
-                const fallbackClasses = gender === "F" ? [22, 6, 3, 2, 1] : [25, 22, 23, 10, 9, 8];
+                const fallbackClasses = gender === "F" ? [3, 6, 2, 9, 1, 4, 10, 8] : [25, 24, 22, 23, 10, 9, 8];
                 
-                const fallBatPromises = fallbackClasses.map(cls => fetchSingleLog(cls, 'batting'));
-                const fallBowlPromises = fallbackClasses.map(cls => fetchSingleLog(cls, 'bowling'));
+                for (const cls of fallbackClasses) {
+                    if (skippedClasses.has(cls)) continue;
+                    const batRes = await fetchSingleLog(cls, 'batting');
+                    if (batRes && batRes._invalidClass) {
+                        skippedClasses.add(cls);
+                    } else {
+                        mergedBat = { ...mergedBat, ...batRes };
+                    }
+                    await new Promise(r => setTimeout(r, 150));
+                }
 
-                const [fallBatResults, fallBowlResults] = await Promise.all([
-                    Promise.all(fallBatPromises),
-                    Promise.all(fallBowlPromises)
-                ]);
-
-                fallBatResults.forEach(res => { mergedBat = { ...mergedBat, ...res }; });
-                fallBowlResults.forEach(res => { mergedBowl = { ...mergedBowl, ...res }; });
+                for (const cls of fallbackClasses) {
+                    if (skippedClasses.has(cls)) continue;
+                    const bowlRes = await fetchSingleLog(cls, 'bowling');
+                    if (bowlRes && bowlRes._invalidClass) {
+                        skippedClasses.add(cls);
+                    } else {
+                        mergedBowl = { ...mergedBowl, ...bowlRes };
+                    }
+                    await new Promise(r => setTimeout(r, 150));
+                }
             }
 
             results = { ...mergedBat };

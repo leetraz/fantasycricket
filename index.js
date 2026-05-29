@@ -427,6 +427,65 @@ try {
 }
 const CACHE_TTL_MS = 12 * 60 * 60 * 1000; // 12 hours caching for absolute WAF stability
 
+// Helper to strip and clean leaked dates or ground values from telemetry statistics
+const cleanTelemetryValue = (val) => {
+    if (!val) return "-";
+    const str = val.toString().trim();
+    if (str === "" || str === "--" || str.toLowerCase() === "undefined" || str.toLowerCase() === "null") return "-";
+    
+    const lower = str.toLowerCase();
+    // Safely reject any strings resembling date formats, grounds, or tournament divisions
+    if (/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\b/i.test(str) || 
+        /\b(202\d)\b/.test(str) || 
+        (str.includes("-") && str.split("-").length >= 3) ||
+        (str.includes("/") && str.split("/").length >= 3) ||
+        lower.includes("invalid date") ||
+        lower.includes("wt20i") ||
+        lower.includes("odi") ||
+        lower.includes("test") ||
+        lower.includes("t20i") ||
+        lower.includes("match")) {
+        return "-";
+    }
+    return str;
+};
+
+// Global sanitizer to format all player profile stats dynamically on each delivery
+const sanitizePlayerProfileData = (data) => {
+    if (!data || !Array.isArray(data.last10)) return data;
+    return {
+        last10: data.last10.map(m => {
+            let cleanedOpp = m.opp || "-";
+            cleanedOpp = cleanedOpp.replace(/^v\s+/, '').trim();
+            if (cleanedOpp.includes(" vs ")) {
+                const parts = cleanedOpp.split(" vs ");
+                const part0Lower = parts[0].toLowerCase();
+                if (part0Lower.includes("sco") || part0Lower.includes("scot") || part0Lower.includes("india") || part0Lower.includes("ind")) {
+                    cleanedOpp = parts[1].trim();
+                } else {
+                    cleanedOpp = parts[0].trim();
+                }
+            }
+
+            let ground = m.ground || "-";
+            if (ground.toLowerCase().includes("wt20i") || ground.toLowerCase().includes("t20i") || ground.toLowerCase().includes("odi") || ground.toLowerCase().includes("test")) {
+                ground = "International";
+            }
+
+            return {
+                opp: cleanedOpp,
+                date: m.date && m.date !== "Invalid Date" ? m.date : "-",
+                timestamp: m.timestamp || 0,
+                ground: ground,
+                bat: cleanTelemetryValue(m.bat),
+                sr: cleanTelemetryValue(m.sr),
+                bowl: cleanTelemetryValue(m.bowl),
+                econ: cleanTelemetryValue(m.econ)
+            };
+        })
+    };
+};
+
 // ── API: Player Profile (Scrape Statsguru batting/bowling log) ──
 app.get('/api/player-profile', async (req, res) => {
     const { pid, name } = req.query;
@@ -434,7 +493,7 @@ app.get('/api/player-profile', async (req, res) => {
 
     const cached = playerCache.get(pid);
     if (cached && (Date.now() - cached.timestamp < CACHE_TTL_MS)) {
-        return res.json(cached.data);
+        return res.json(sanitizePlayerProfileData(cached.data));
     }
 
     try {
@@ -673,7 +732,7 @@ app.get('/api/player-profile', async (req, res) => {
         }
 
         const sorted = Object.values(results).sort((a, b) => b.timestamp - a.timestamp);
-        const responseData = { last10: sorted };
+        const responseData = sanitizePlayerProfileData({ last10: sorted });
         playerCache.set(pid, { timestamp: Date.now(), data: responseData });
         try {
             fs.writeFileSync('player_cache.json', JSON.stringify(Object.fromEntries(playerCache), null, 2));

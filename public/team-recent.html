@@ -812,8 +812,13 @@
                     let text = '';
                     let colorObj = { bg: 'rgba(255,255,255,0.02)', border: 'rgba(255,255,255,0.03)', text: 'rgba(255,255,255,0.15)', shadow: 'none' };
                     
-                    const hasBat = m.bat && m.bat !== '-' && m.bat !== 'DNB' && m.bat !== 'TDNB' && m.bat !== 'absent';
-                    const hasBowl = m.bowl && m.bowl !== '-' && m.bowl !== 'DNB';
+                    const hasBat = m.bat && m.bat !== '-' && m.bat !== 'DNB' && m.bat !== 'TDNB' && m.bat !== 'absent' && 
+                                   !m.bat.toString().includes("-") && !m.bat.toString().includes("/") && 
+                                   !m.bat.toString().toLowerCase().includes("date");
+                    
+                    const hasBowl = m.bowl && m.bowl !== '-' && m.bowl !== 'DNB' && 
+                                    !m.bowl.toString().includes("-") && !m.bowl.toString().includes("/") && 
+                                    !m.bowl.toString().toLowerCase().includes("date");
                     
                     if (hasBat) {
                         const runs = parseInt(m.bat.toString().replace('*', '')) || 0;

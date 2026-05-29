@@ -12819,6 +12819,7 @@
           "timestamp": 1774031400000,
           "ground": "Kingstown",
           "bat": "22",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -12828,6 +12829,7 @@
           "timestamp": 1773858600000,
           "ground": "Kingstown",
           "bat": "28",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -12837,6 +12839,7 @@
           "timestamp": 1772476200000,
           "ground": "St George's",
           "bat": "24",
+          "sr": "-",
           "bowl": "0",
           "econ": "8"
         },
@@ -12846,6 +12849,7 @@
           "timestamp": 1772303400000,
           "ground": "St George's",
           "bat": "14",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -12855,6 +12859,7 @@
           "timestamp": 1772217000000,
           "ground": "St George's",
           "bat": "4",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -12894,6 +12899,7 @@
           "timestamp": 1758047400000,
           "ground": "Providence",
           "bat": "15",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -12903,6 +12909,7 @@
           "timestamp": 1757701800000,
           "ground": "Providence",
           "bat": "39",
+          "sr": "-",
           "bowl": "1",
           "econ": "6"
         },
@@ -12912,6 +12919,7 @@
           "timestamp": 1757183400000,
           "ground": "Providence",
           "bat": "15",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -12921,6 +12929,7 @@
           "timestamp": 1757097000000,
           "ground": "Providence",
           "bat": "45",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -12980,6 +12989,7 @@
           "timestamp": 1747938600000,
           "ground": "Hove",
           "bat": "0",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13039,6 +13049,7 @@
           "timestamp": 1729189800000,
           "ground": "Sharjah",
           "bat": "13",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13048,6 +13059,7 @@
           "timestamp": 1728498600000,
           "ground": "Sharjah",
           "bat": "27",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13057,6 +13069,7 @@
           "timestamp": 1728153000000,
           "ground": "Dubai (DICS)",
           "bat": "4",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13066,6 +13079,7 @@
           "timestamp": 1727980200000,
           "ground": "Dubai (DICS)",
           "bat": "44",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13075,6 +13089,7 @@
           "timestamp": 1724351400000,
           "ground": "Tarouba",
           "bat": "6",
+          "sr": "-",
           "bowl": "0",
           "econ": "6.25"
         },
@@ -13084,6 +13099,7 @@
           "timestamp": 1724178600000,
           "ground": "Tarouba",
           "bat": "38",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13093,6 +13109,7 @@
           "timestamp": 1719513000000,
           "ground": "Hambantota",
           "bat": "33",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13102,6 +13119,7 @@
           "timestamp": 1719340200000,
           "ground": "Hambantota",
           "bat": "28",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13111,6 +13129,7 @@
           "timestamp": 1719167400000,
           "ground": "Hambantota",
           "bat": "11",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13150,6 +13169,7 @@
           "timestamp": 1714069800000,
           "ground": "Karachi",
           "bat": "30",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13219,6 +13239,7 @@
           "timestamp": 1696444200000,
           "ground": "Brisbane",
           "bat": "1",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13228,6 +13249,7 @@
           "timestamp": 1696185000000,
           "ground": "North Sydney",
           "bat": "59",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13237,6 +13259,7 @@
           "timestamp": 1696098600000,
           "ground": "North Sydney",
           "bat": "10",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13246,6 +13269,7 @@
           "timestamp": 1694284200000,
           "ground": "Tarouba",
           "bat": "4",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13255,6 +13279,7 @@
           "timestamp": 1694197800000,
           "ground": "Tarouba",
           "bat": "17",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13264,6 +13289,7 @@
           "timestamp": 1693852200000,
           "ground": "Port of Spain",
           "bat": "32",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13273,6 +13299,7 @@
           "timestamp": 1693679400000,
           "ground": "Bridgetown",
           "bat": "10",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13282,6 +13309,7 @@
           "timestamp": 1693420200000,
           "ground": "Bridgetown",
           "bat": "22",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13291,6 +13319,7 @@
           "timestamp": 1688409000000,
           "ground": "Gros Islet",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13330,6 +13359,7 @@
           "timestamp": 1676399400000,
           "ground": "Cape Town",
           "bat": "42",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13339,6 +13369,7 @@
           "timestamp": 1676053800000,
           "ground": "Paarl",
           "bat": "3",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13378,6 +13409,7 @@
           "timestamp": 1662143400000,
           "ground": "Basseterre",
           "bat": "32",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13387,6 +13419,7 @@
           "timestamp": 1661970600000,
           "ground": "Basseterre",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13546,6 +13579,7 @@
           "timestamp": 1629484200000,
           "ground": "Lord's",
           "bat": "18",
+          "sr": "-",
           "bowl": "0",
           "econ": "7.2"
         },
@@ -13555,6 +13589,7 @@
           "timestamp": 1629052200000,
           "ground": "Southampton",
           "bat": "23",
+          "sr": "-",
           "bowl": "0",
           "econ": "9"
         },
@@ -13564,6 +13599,7 @@
           "timestamp": 1628620200000,
           "ground": "Southampton",
           "bat": "0",
+          "sr": "-",
           "bowl": "1",
           "econ": "6"
         },
@@ -13573,6 +13609,7 @@
           "timestamp": 1628274600000,
           "ground": "Southampton",
           "bat": "0",
+          "sr": "-",
           "bowl": "0",
           "econ": "7.2"
         },
@@ -13582,6 +13619,7 @@
           "timestamp": 1628101800000,
           "ground": "Manchester",
           "bat": "28",
+          "sr": "-",
           "bowl": "0",
           "econ": "7.2"
         },
@@ -13591,6 +13629,7 @@
           "timestamp": 1627756200000,
           "ground": "Lord's",
           "bat": "29",
+          "sr": "-",
           "bowl": "1",
           "econ": "8"
         },
@@ -13600,6 +13639,7 @@
           "timestamp": 1627583400000,
           "ground": "Southampton",
           "bat": "22",
+          "sr": "-",
           "bowl": "0",
           "econ": "13.8"
         },
@@ -13609,6 +13649,7 @@
           "timestamp": 1627324200000,
           "ground": "Cardiff",
           "bat": "17",
+          "sr": "-",
           "bowl": "0",
           "econ": "5.7"
         },
@@ -13618,6 +13659,7 @@
           "timestamp": 1627065000000,
           "ground": "Nottingham",
           "bat": "45",
+          "sr": "-",
           "bowl": "1",
           "econ": "7.8"
         },
@@ -13667,6 +13709,7 @@
           "timestamp": 1625337000000,
           "ground": "North Sound",
           "bat": "43",
+          "sr": "-",
           "bowl": "4",
           "econ": "4.63"
         },
@@ -13676,6 +13719,7 @@
           "timestamp": 1625164200000,
           "ground": "Coolidge",
           "bat": "5",
+          "sr": "-",
           "bowl": "0",
           "econ": "6.66"
         },
@@ -13685,6 +13729,7 @@
           "timestamp": 1624991400000,
           "ground": "North Sound",
           "bat": "11",
+          "sr": "-",
           "bowl": "0",
           "econ": "7.5"
         },
@@ -13694,6 +13739,7 @@
           "timestamp": 1605897000000,
           "ground": "Sydney",
           "bat": "33",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13703,6 +13749,7 @@
           "timestamp": 1605637800000,
           "ground": "Sydney",
           "bat": "16",
+          "sr": "-",
           "bowl": "0",
           "econ": "4.33"
         },
@@ -13712,6 +13759,7 @@
           "timestamp": 1605551400000,
           "ground": "Sydney",
           "bat": "16",
+          "sr": "-",
           "bowl": "1",
           "econ": "3"
         },
@@ -13721,6 +13769,7 @@
           "timestamp": 1605378600000,
           "ground": "Sydney",
           "bat": "4",
+          "sr": "-",
           "bowl": "0",
           "econ": "11"
         },
@@ -13730,6 +13779,7 @@
           "timestamp": 1605292200000,
           "ground": "Sydney",
           "bat": "27",
+          "sr": "-",
           "bowl": "0",
           "econ": "7.5"
         },
@@ -13739,6 +13789,7 @@
           "timestamp": 1604773800000,
           "ground": "North Sydney",
           "bat": "60",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13748,6 +13799,7 @@
           "timestamp": 1604687400000,
           "ground": "North Sydney",
           "bat": "2",
+          "sr": "-",
           "bowl": "0",
           "econ": "6.5"
         },
@@ -13757,6 +13809,7 @@
           "timestamp": 1604341800000,
           "ground": "Sydney",
           "bat": "20",
+          "sr": "-",
           "bowl": "0",
           "econ": "15"
         },
@@ -13766,6 +13819,7 @@
           "timestamp": 1604169000000,
           "ground": "Sydney",
           "bat": "30",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13775,6 +13829,7 @@
           "timestamp": 1604082600000,
           "ground": "Sydney",
           "bat": "18",
+          "sr": "-",
           "bowl": "0",
           "econ": "10"
         },
@@ -13784,6 +13839,7 @@
           "timestamp": 1601404200000,
           "ground": "Derby",
           "bat": "15",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13793,6 +13849,7 @@
           "timestamp": 1601231400000,
           "ground": "Derby",
           "bat": "13",
+          "sr": "-",
           "bowl": "0",
           "econ": "7"
         },
@@ -13802,6 +13859,7 @@
           "timestamp": 1601058600000,
           "ground": "Derby",
           "bat": "14",
+          "sr": "-",
           "bowl": "1",
           "econ": "8.5"
         },
@@ -13811,6 +13869,7 @@
           "timestamp": 1600799400000,
           "ground": "Derby",
           "bat": "28",
+          "sr": "-",
           "bowl": "2",
           "econ": "3"
         },
@@ -13820,6 +13879,7 @@
           "timestamp": 1600626600000,
           "ground": "Derby",
           "bat": "8",
+          "sr": "-",
           "bowl": "2",
           "econ": "8.5"
         },
@@ -13829,6 +13889,7 @@
           "timestamp": 1583001000000,
           "ground": "Sydney",
           "bat": "15",
+          "sr": "-",
           "bowl": "1",
           "econ": "8.33"
         },
@@ -13838,6 +13899,7 @@
           "timestamp": 1582655400000,
           "ground": "Canberra",
           "bat": "43",
+          "sr": "-",
           "bowl": "1",
           "econ": "6"
         },
@@ -13847,6 +13909,7 @@
           "timestamp": 1582309800000,
           "ground": "W.A.C.A",
           "bat": "26",
+          "sr": "-",
           "bowl": "3",
           "econ": "4.33"
         },
@@ -13886,6 +13949,7 @@
           "timestamp": 1571509800000,
           "ground": "Adelaide",
           "bat": "12",
+          "sr": "-",
           "bowl": "0",
           "econ": "8"
         },
@@ -13895,6 +13959,7 @@
           "timestamp": 1571423400000,
           "ground": "Adelaide",
           "bat": "21",
+          "sr": "-",
           "bowl": "3",
           "econ": "6.5"
         },
@@ -13904,6 +13969,7 @@
           "timestamp": 1568745000000,
           "ground": "Bridgetown",
           "bat": "6",
+          "sr": "-",
           "bowl": "0",
           "econ": "11"
         },
@@ -13913,6 +13979,7 @@
           "timestamp": 1568572200000,
           "ground": "Bridgetown",
           "bat": "6",
+          "sr": "-",
           "bowl": "0",
           "econ": "7.5"
         },
@@ -13922,6 +13989,7 @@
           "timestamp": 1568399400000,
           "ground": "Bridgetown",
           "bat": "44",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -13961,6 +14029,7 @@
           "timestamp": 1566239400000,
           "ground": "Bristol",
           "bat": "28",
+          "sr": "-",
           "bowl": "1",
           "econ": "5"
         },
@@ -13970,6 +14039,7 @@
           "timestamp": 1566066600000,
           "ground": "Arundel",
           "bat": "4",
+          "sr": "-",
           "bowl": "3",
           "econ": "3.66"
         },
@@ -13979,6 +14049,7 @@
           "timestamp": 1565807400000,
           "ground": "Hove",
           "bat": "51",
+          "sr": "-",
           "bowl": "2",
           "econ": "5.75"
         },
@@ -13988,6 +14059,7 @@
           "timestamp": 1565461800000,
           "ground": "Southampton",
           "bat": "44",
+          "sr": "-",
           "bowl": "0",
           "econ": "8.5"
         },
@@ -13997,6 +14069,7 @@
           "timestamp": 1565202600000,
           "ground": "Loughborough",
           "bat": "38",
+          "sr": "-",
           "bowl": "1",
           "econ": "7.75"
         },
@@ -14006,6 +14079,7 @@
           "timestamp": 1565029800000,
           "ground": "Liverpool",
           "bat": "40",
+          "sr": "-",
           "bowl": "1",
           "econ": "6.25"
         },
@@ -14015,6 +14089,7 @@
           "timestamp": 1561055400000,
           "ground": "Northampton",
           "bat": "19",
+          "sr": "-",
           "bowl": "0",
           "econ": "10.5"
         },
@@ -14054,6 +14129,7 @@
           "timestamp": 1559068200000,
           "ground": "Dublin",
           "bat": "-",
+          "sr": "-",
           "bowl": "2",
           "econ": "6.33"
         },
@@ -14063,6 +14139,7 @@
           "timestamp": 1558981800000,
           "ground": "Dublin",
           "bat": "2",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -14072,6 +14149,7 @@
           "timestamp": 1558809000000,
           "ground": "Dublin",
           "bat": "75",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -14081,6 +14159,7 @@
           "timestamp": 1557253800000,
           "ground": "Jaipur",
           "bat": "5",
+          "sr": "-",
           "bowl": "0",
           "econ": "12"
         },
@@ -14090,6 +14169,7 @@
           "timestamp": 1557081000000,
           "ground": "Jaipur",
           "bat": "2",
+          "sr": "-",
           "bowl": "0",
           "econ": "9"
         },
@@ -14129,6 +14209,7 @@
           "timestamp": 1547836200000,
           "ground": "Sydney",
           "bat": "17",
+          "sr": "-",
           "bowl": "1",
           "econ": "6.5"
         },
@@ -14138,6 +14219,7 @@
           "timestamp": 1547231400000,
           "ground": "Cairns",
           "bat": "43",
+          "sr": "-",
           "bowl": "1",
           "econ": "5.25"
         },
@@ -14147,6 +14229,7 @@
           "timestamp": 1546885800000,
           "ground": "Sydney",
           "bat": "-",
+          "sr": "-",
           "bowl": "1",
           "econ": "5.5"
         },
@@ -14156,6 +14239,7 @@
           "timestamp": 1546713000000,
           "ground": "Sydney",
           "bat": "6",
+          "sr": "-",
           "bowl": "1",
           "econ": "7"
         },
@@ -14165,6 +14249,7 @@
           "timestamp": 1546626600000,
           "ground": "Sydney",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -14174,6 +14259,7 @@
           "timestamp": 1546367400000,
           "ground": "Sydney",
           "bat": "-",
+          "sr": "-",
           "bowl": "0",
           "econ": "7"
         },
@@ -14183,6 +14269,7 @@
           "timestamp": 1546108200000,
           "ground": "Perth (Lilac Hill)",
           "bat": "19",
+          "sr": "-",
           "bowl": "1",
           "econ": "6.75"
         },
@@ -14192,6 +14279,7 @@
           "timestamp": 1546021800000,
           "ground": "Perth (Lilac Hill)",
           "bat": "24",
+          "sr": "-",
           "bowl": "0",
           "econ": "14.18"
         },
@@ -14201,6 +14289,7 @@
           "timestamp": 1545589800000,
           "ground": "Sydney",
           "bat": "2",
+          "sr": "-",
           "bowl": "1",
           "econ": "7.25"
         },
@@ -14210,6 +14299,7 @@
           "timestamp": 1545330600000,
           "ground": "Canberra",
           "bat": "20",
+          "sr": "-",
           "bowl": "3",
           "econ": "6"
         },
@@ -14219,6 +14309,7 @@
           "timestamp": 1544898600000,
           "ground": "Hobart",
           "bat": "55",
+          "sr": "-",
           "bowl": "2",
           "econ": "8.25"
         },
@@ -14228,6 +14319,7 @@
           "timestamp": 1544812200000,
           "ground": "Hobart",
           "bat": "0",
+          "sr": "-",
           "bowl": "3",
           "econ": "9"
         },
@@ -14237,6 +14329,7 @@
           "timestamp": 1544293800000,
           "ground": "North Sydney",
           "bat": "1",
+          "sr": "-",
           "bowl": "3",
           "econ": "6"
         },
@@ -14246,6 +14339,7 @@
           "timestamp": 1544207400000,
           "ground": "North Sydney",
           "bat": "13",
+          "sr": "-",
           "bowl": "2",
           "econ": "5.33"
         },
@@ -14255,6 +14349,7 @@
           "timestamp": 1543689000000,
           "ground": "Melbourne",
           "bat": "12",
+          "sr": "-",
           "bowl": "0",
           "econ": "4"
         },
@@ -14264,6 +14359,7 @@
           "timestamp": 1542825000000,
           "ground": "North Sound",
           "bat": "16",
+          "sr": "-",
           "bowl": "1",
           "econ": "5"
         },
@@ -14273,6 +14369,7 @@
           "timestamp": 1542479400000,
           "ground": "Gros Islet",
           "bat": "0",
+          "sr": "-",
           "bowl": "1",
           "econ": "6.5"
         },
@@ -14282,6 +14379,7 @@
           "timestamp": 1542306600000,
           "ground": "Gros Islet",
           "bat": "41",
+          "sr": "-",
           "bowl": "1",
           "econ": "7"
         },
@@ -14291,6 +14389,7 @@
           "timestamp": 1542133800000,
           "ground": "Gros Islet",
           "bat": "0",
+          "sr": "-",
           "bowl": "4",
           "econ": "3.27"
         },
@@ -14300,6 +14399,7 @@
           "timestamp": 1541701800000,
           "ground": "Providence",
           "bat": "29",
+          "sr": "-",
           "bowl": "1",
           "econ": "5"
         },
@@ -14309,6 +14409,7 @@
           "timestamp": 1538764200000,
           "ground": "Tarouba",
           "bat": "10",
+          "sr": "-",
           "bowl": "1",
           "econ": "5.25"
         },
@@ -14318,6 +14419,7 @@
           "timestamp": 1538591400000,
           "ground": "Tarouba",
           "bat": "26",
+          "sr": "-",
           "bowl": "1",
           "econ": "4.63"
         },
@@ -14327,6 +14429,7 @@
           "timestamp": 1538073000000,
           "ground": "Tarouba",
           "bat": "35",
+          "sr": "-",
           "bowl": "1",
           "econ": "4"
         },
@@ -14336,6 +14439,7 @@
           "timestamp": 1537727400000,
           "ground": "Bridgetown",
           "bat": "9",
+          "sr": "-",
           "bowl": "3",
           "econ": "4"
         },
@@ -14375,6 +14479,7 @@
           "timestamp": 1535308200000,
           "ground": "Hove",
           "bat": "16",
+          "sr": "-",
           "bowl": "1",
           "econ": "7"
         },
@@ -14384,6 +14489,7 @@
           "timestamp": 1534530600000,
           "ground": "The Oval",
           "bat": "8",
+          "sr": "-",
           "bowl": "1",
           "econ": "10.75"
         },
@@ -14393,6 +14499,7 @@
           "timestamp": 1534271400000,
           "ground": "Birmingham",
           "bat": "18",
+          "sr": "-",
           "bowl": "0",
           "econ": "16"
         },
@@ -14402,6 +14509,7 @@
           "timestamp": 1533925800000,
           "ground": "Bristol",
           "bat": "-",
+          "sr": "-",
           "bowl": "0",
           "econ": "9"
         },
@@ -14411,6 +14519,7 @@
           "timestamp": 1533753000000,
           "ground": "Taunton",
           "bat": "51",
+          "sr": "-",
           "bowl": "2",
           "econ": "6"
         },
@@ -14420,6 +14529,7 @@
           "timestamp": 1533407400000,
           "ground": "Scarborough",
           "bat": "4",
+          "sr": "-",
           "bowl": "0",
           "econ": "9.5"
         },
@@ -14429,6 +14539,7 @@
           "timestamp": 1533234600000,
           "ground": "Manchester",
           "bat": "33",
+          "sr": "-",
           "bowl": "0",
           "econ": "7"
         },
@@ -14438,6 +14549,7 @@
           "timestamp": 1532975400000,
           "ground": "Arundel",
           "bat": "-",
+          "sr": "-",
           "bowl": "1",
           "econ": "4.25"
         },
@@ -14447,6 +14559,7 @@
           "timestamp": 1532802600000,
           "ground": "Taunton",
           "bat": "7",
+          "sr": "-",
           "bowl": "0",
           "econ": "7"
         },
@@ -14456,6 +14569,7 @@
           "timestamp": 1532543400000,
           "ground": "Cheltenham",
           "bat": "6",
+          "sr": "-",
           "bowl": "0",
           "econ": "7.76"
         },
@@ -14465,6 +14579,7 @@
           "timestamp": 1532197800000,
           "ground": "Taunton",
           "bat": "12",
+          "sr": "-",
           "bowl": "1",
           "econ": "7.66"
         },
@@ -14474,6 +14589,7 @@
           "timestamp": 1521916200000,
           "ground": "Hamilton",
           "bat": "42",
+          "sr": "-",
           "bowl": "0",
           "econ": "6"
         },
@@ -14483,6 +14599,7 @@
           "timestamp": 1521484200000,
           "ground": "New Plymouth",
           "bat": "14",
+          "sr": "-",
           "bowl": "0",
           "econ": "4.75"
         },
@@ -14492,6 +14609,7 @@
           "timestamp": 1521138600000,
           "ground": "Mount Maunganui",
           "bat": "1",
+          "sr": "-",
           "bowl": "0",
           "econ": "8.66"
         },
@@ -14501,6 +14619,7 @@
           "timestamp": 1520965800000,
           "ground": "Mount Maunganui",
           "bat": "51",
+          "sr": "-",
           "bowl": "0",
           "econ": "12"
         },
@@ -14540,6 +14659,7 @@
           "timestamp": 1517423400000,
           "ground": "Perth",
           "bat": "7",
+          "sr": "-",
           "bowl": "1",
           "econ": "5.75"
         },
@@ -14549,6 +14669,7 @@
           "timestamp": 1517077800000,
           "ground": "Brisbane",
           "bat": "12",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -14558,6 +14679,7 @@
           "timestamp": 1516991400000,
           "ground": "Brisbane",
           "bat": "24",
+          "sr": "-",
           "bowl": "0",
           "econ": "8.5"
         },
@@ -14567,6 +14689,7 @@
           "timestamp": 1516732200000,
           "ground": "Canberra",
           "bat": "10",
+          "sr": "-",
           "bowl": "2",
           "econ": "3.66"
         },
@@ -14576,6 +14699,7 @@
           "timestamp": 1516473000000,
           "ground": "Wagga Wagga",
           "bat": "2",
+          "sr": "-",
           "bowl": "0",
           "econ": "6.66"
         },
@@ -14585,6 +14709,7 @@
           "timestamp": 1516386600000,
           "ground": "Wagga Wagga",
           "bat": "33",
+          "sr": "-",
           "bowl": "2",
           "econ": "5"
         },
@@ -14594,6 +14719,7 @@
           "timestamp": 1515781800000,
           "ground": "Sydney",
           "bat": "9",
+          "sr": "-",
           "bowl": "0",
           "econ": "12"
         },
@@ -14603,6 +14729,7 @@
           "timestamp": 1515349800000,
           "ground": "W.A.C.A",
           "bat": "31",
+          "sr": "-",
           "bowl": "0",
           "econ": "4"
         },
@@ -14612,6 +14739,7 @@
           "timestamp": 1515263400000,
           "ground": "Perth (Lilac Hill)",
           "bat": "6",
+          "sr": "-",
           "bowl": "1",
           "econ": "7.5"
         },
@@ -14621,6 +14749,7 @@
           "timestamp": 1514658600000,
           "ground": "Launceston",
           "bat": "5",
+          "sr": "-",
           "bowl": "2",
           "econ": "4.87"
         },
@@ -14630,6 +14759,7 @@
           "timestamp": 1514572200000,
           "ground": "Launceston",
           "bat": "10",
+          "sr": "-",
           "bowl": "4",
           "econ": "3.75"
         },
@@ -14639,6 +14769,7 @@
           "timestamp": 1513362600000,
           "ground": "Sydney",
           "bat": "-",
+          "sr": "-",
           "bowl": "0",
           "econ": "8"
         },
@@ -14648,6 +14779,7 @@
           "timestamp": 1513017000000,
           "ground": "Albury",
           "bat": "17",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -14657,6 +14789,7 @@
           "timestamp": 1512844200000,
           "ground": "North Sydney",
           "bat": "1",
+          "sr": "-",
           "bowl": "1",
           "econ": "9"
         },
@@ -14666,6 +14799,7 @@
           "timestamp": 1512757800000,
           "ground": "North Sydney",
           "bat": "1",
+          "sr": "-",
           "bowl": "2",
           "econ": "7.5"
         },
@@ -14675,6 +14809,7 @@
           "timestamp": 1508610600000,
           "ground": "Coolidge",
           "bat": "5",
+          "sr": "-",
           "bowl": "1",
           "econ": "7.33"
         },
@@ -14684,6 +14819,7 @@
           "timestamp": 1508524200000,
           "ground": "Coolidge",
           "bat": "49",
+          "sr": "-",
           "bowl": "0",
           "econ": "4"
         },
@@ -14693,6 +14829,7 @@
           "timestamp": 1508351400000,
           "ground": "Coolidge",
           "bat": "31",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -14732,6 +14869,7 @@
           "timestamp": 1504204200000,
           "ground": "Hove",
           "bat": "37",
+          "sr": "-",
           "bowl": "1",
           "econ": "4.25"
         },
@@ -14741,6 +14879,7 @@
           "timestamp": 1504204200000,
           "ground": "Hove",
           "bat": "30",
+          "sr": "-",
           "bowl": "3",
           "econ": "7"
         },
@@ -14750,6 +14889,7 @@
           "timestamp": 1503685800000,
           "ground": "Bristol",
           "bat": "0",
+          "sr": "-",
           "bowl": "0",
           "econ": "5.5"
         },
@@ -14759,6 +14899,7 @@
           "timestamp": 1503426600000,
           "ground": "The Oval",
           "bat": "4",
+          "sr": "-",
           "bowl": "0",
           "econ": "8.66"
         },
@@ -14768,6 +14909,7 @@
           "timestamp": 1503167400000,
           "ground": "York",
           "bat": "-",
+          "sr": "-",
           "bowl": "0",
           "econ": "4"
         },
@@ -14777,6 +14919,7 @@
           "timestamp": 1502476200000,
           "ground": "Taunton",
           "bat": "34",
+          "sr": "-",
           "bowl": "4",
           "econ": "1.25"
         },
@@ -14786,6 +14929,7 @@
           "timestamp": 1502303400000,
           "ground": "Southampton",
           "bat": "8",
+          "sr": "-",
           "bowl": "1",
           "econ": "1.5"
         },
@@ -14865,6 +15009,7 @@
           "timestamp": 1484937000000,
           "ground": "Perth (Lilac Hill)",
           "bat": "62",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -14874,6 +15019,7 @@
           "timestamp": 1484850600000,
           "ground": "Perth (Lilac Hill)",
           "bat": "0",
+          "sr": "-",
           "bowl": "0",
           "econ": "8"
         },
@@ -14883,6 +15029,7 @@
           "timestamp": 1484505000000,
           "ground": "Hobart",
           "bat": "0",
+          "sr": "-",
           "bowl": "0",
           "econ": "5.66"
         },
@@ -14892,6 +15039,7 @@
           "timestamp": 1484332200000,
           "ground": "Sydney",
           "bat": "68",
+          "sr": "-",
           "bowl": "2",
           "econ": "5"
         },
@@ -14901,6 +15049,7 @@
           "timestamp": 1483554600000,
           "ground": "Launceston",
           "bat": "10",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -14910,6 +15059,7 @@
           "timestamp": 1483381800000,
           "ground": "Sydney",
           "bat": "9",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -14919,6 +15069,7 @@
           "timestamp": 1482863400000,
           "ground": "Sydney",
           "bat": "12",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -14928,6 +15079,7 @@
           "timestamp": 1482777000000,
           "ground": "Sydney",
           "bat": "48",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -14937,6 +15089,7 @@
           "timestamp": 1482690600000,
           "ground": "Sydney",
           "bat": "13",
+          "sr": "-",
           "bowl": "0",
           "econ": "8.5"
         },
@@ -14946,6 +15099,7 @@
           "timestamp": 1481913000000,
           "ground": "Sydney",
           "bat": "6",
+          "sr": "-",
           "bowl": "0",
           "econ": "8"
         },
@@ -14955,6 +15109,7 @@
           "timestamp": 1481567400000,
           "ground": "Albury",
           "bat": "29",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -14964,6 +15119,7 @@
           "timestamp": 1481308200000,
           "ground": "North Sydney",
           "bat": "32",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -14973,6 +15129,7 @@
           "timestamp": 1479753000000,
           "ground": "Vijayawada",
           "bat": "44",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -14982,6 +15139,7 @@
           "timestamp": 1479580200000,
           "ground": "Vijayawada",
           "bat": "47",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -14991,6 +15149,7 @@
           "timestamp": 1479407400000,
           "ground": "Vijayawada",
           "bat": "90",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -15080,6 +15239,7 @@
           "timestamp": 1471717800000,
           "ground": "Chelmsford",
           "bat": "34",
+          "sr": "-",
           "bowl": "3",
           "econ": "7.75"
         },
@@ -15089,6 +15249,7 @@
           "timestamp": 1471717800000,
           "ground": "Chelmsford",
           "bat": "35",
+          "sr": "-",
           "bowl": "0",
           "econ": "6"
         },
@@ -15098,6 +15259,7 @@
           "timestamp": 1471113000000,
           "ground": "Leeds",
           "bat": "45",
+          "sr": "-",
           "bowl": "2",
           "econ": "5"
         },
@@ -15107,6 +15269,7 @@
           "timestamp": 1470940200000,
           "ground": "Taunton",
           "bat": "78",
+          "sr": "-",
           "bowl": "0",
           "econ": "6.66"
         },
@@ -15116,6 +15279,7 @@
           "timestamp": 1470508200000,
           "ground": "Bristol",
           "bat": "74",
+          "sr": "-",
           "bowl": "0",
           "econ": "11"
         },
@@ -15125,6 +15289,7 @@
           "timestamp": 1470335400000,
           "ground": "Loughborough",
           "bat": "9",
+          "sr": "-",
           "bowl": "2",
           "econ": "8.75"
         },
@@ -15134,6 +15299,7 @@
           "timestamp": 1469903400000,
           "ground": "Taunton",
           "bat": "14",
+          "sr": "-",
           "bowl": "4",
           "econ": "3.5"
         },
@@ -15143,6 +15309,7 @@
           "timestamp": 1459621800000,
           "ground": "Eden Gardens",
           "bat": "59",
+          "sr": "-",
           "bowl": "0",
           "econ": "8.66"
         },
@@ -15152,6 +15319,7 @@
           "timestamp": 1459362600000,
           "ground": "Wankhede",
           "bat": "25",
+          "sr": "-",
           "bowl": "3",
           "econ": "6.5"
         },
@@ -15161,6 +15329,7 @@
           "timestamp": 1459017000000,
           "ground": "Mohali",
           "bat": "47",
+          "sr": "-",
           "bowl": "0",
           "econ": "11.5"
         },
@@ -15170,6 +15339,7 @@
           "timestamp": 1458757800000,
           "ground": "Dharamsala",
           "bat": "35",
+          "sr": "-",
           "bowl": "2",
           "econ": "6"
         },
@@ -15179,6 +15349,7 @@
           "timestamp": 1458412200000,
           "ground": "Chennai",
           "bat": "40",
+          "sr": "-",
           "bowl": "3",
           "econ": "4.33"
         },
@@ -15188,6 +15359,7 @@
           "timestamp": 1458066600000,
           "ground": "Chennai",
           "bat": "40",
+          "sr": "-",
           "bowl": "0",
           "econ": "4"
         },
@@ -15197,6 +15369,7 @@
           "timestamp": 1457461800000,
           "ground": "Cape Town",
           "bat": "21",
+          "sr": "-",
           "bowl": "1",
           "econ": "5.75"
         },
@@ -15206,6 +15379,7 @@
           "timestamp": 1457202600000,
           "ground": "Johannesburg",
           "bat": "63",
+          "sr": "-",
           "bowl": "2",
           "econ": "4.25"
         },
@@ -15215,6 +15389,7 @@
           "timestamp": 1457029800000,
           "ground": "Durban",
           "bat": "4",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -15244,6 +15419,7 @@
           "timestamp": 1453573800000,
           "ground": "Melbourne",
           "bat": "27",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -15253,6 +15429,7 @@
           "timestamp": 1453314600000,
           "ground": "Adelaide",
           "bat": "24",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -15262,6 +15439,7 @@
           "timestamp": 1452969000000,
           "ground": "Sydney",
           "bat": "0",
+          "sr": "-",
           "bowl": "0",
           "econ": "7.5"
         },
@@ -15271,6 +15449,7 @@
           "timestamp": 1452882600000,
           "ground": "Sydney",
           "bat": "10",
+          "sr": "-",
           "bowl": "0",
           "econ": "5"
         },
@@ -15280,6 +15459,7 @@
           "timestamp": 1452796200000,
           "ground": "Sydney",
           "bat": "2",
+          "sr": "-",
           "bowl": "2",
           "econ": "6.66"
         },
@@ -15289,6 +15469,7 @@
           "timestamp": 1452277800000,
           "ground": "Melbourne (Docklands)",
           "bat": "7",
+          "sr": "-",
           "bowl": "0",
           "econ": "11"
         },
@@ -15298,6 +15479,7 @@
           "timestamp": 1451759400000,
           "ground": "Hobart",
           "bat": "0",
+          "sr": "-",
           "bowl": "2",
           "econ": "4.66"
         },
@@ -15307,6 +15489,7 @@
           "timestamp": 1451673000000,
           "ground": "Hobart",
           "bat": "0",
+          "sr": "-",
           "bowl": "1",
           "econ": "3"
         },
@@ -15316,6 +15499,7 @@
           "timestamp": 1451673000000,
           "ground": "Hobart",
           "bat": "8",
+          "sr": "-",
           "bowl": "2",
           "econ": "6.75"
         },
@@ -15325,6 +15509,7 @@
           "timestamp": 1451241000000,
           "ground": "W.A.C.A",
           "bat": "57",
+          "sr": "-",
           "bowl": "0",
           "econ": "13.66"
         },
@@ -15334,6 +15519,7 @@
           "timestamp": 1451154600000,
           "ground": "W.A.C.A",
           "bat": "59",
+          "sr": "-",
           "bowl": "1",
           "econ": "5.75"
         },
@@ -15343,6 +15529,7 @@
           "timestamp": 1450549800000,
           "ground": "Brisbane",
           "bat": "11",
+          "sr": "-",
           "bowl": "1",
           "econ": "6"
         },
@@ -15352,6 +15539,7 @@
           "timestamp": 1450549800000,
           "ground": "Brisbane",
           "bat": "43",
+          "sr": "-",
           "bowl": "1",
           "econ": "5.75"
         },
@@ -15361,6 +15549,7 @@
           "timestamp": 1450463400000,
           "ground": "Brisbane",
           "bat": "35",
+          "sr": "-",
           "bowl": "0",
           "econ": "6"
         },
@@ -15370,6 +15559,7 @@
           "timestamp": 1450377000000,
           "ground": "Brisbane",
           "bat": "30",
+          "sr": "-",
           "bowl": "0",
           "econ": "5.33"
         },
@@ -15379,6 +15569,7 @@
           "timestamp": 1449340200000,
           "ground": "Sydney",
           "bat": "59",
+          "sr": "-",
           "bowl": "0",
           "econ": "3"
         },
@@ -15388,6 +15579,7 @@
           "timestamp": 1446316200000,
           "ground": "St George's",
           "bat": "4",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -15397,6 +15589,7 @@
           "timestamp": 1446229800000,
           "ground": "St George's",
           "bat": "48",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -15406,6 +15599,7 @@
           "timestamp": 1446057000000,
           "ground": "St George's",
           "bat": "8",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -15455,6 +15649,7 @@
           "timestamp": 1432578600000,
           "ground": "Colombo (RPS)",
           "bat": "38",
+          "sr": "-",
           "bowl": "0",
           "econ": "4.66"
         },
@@ -15464,6 +15659,7 @@
           "timestamp": 1432492200000,
           "ground": "Colombo (RPS)",
           "bat": "59",
+          "sr": "-",
           "bowl": "2",
           "econ": "5"
         },
@@ -15473,6 +15669,7 @@
           "timestamp": 1432319400000,
           "ground": "Colombo (RPS)",
           "bat": "40",
+          "sr": "-",
           "bowl": "0",
           "econ": "5"
         },
@@ -15552,6 +15749,7 @@
           "timestamp": 1415471400000,
           "ground": "Sydney",
           "bat": "6",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -15561,6 +15759,7 @@
           "timestamp": 1415298600000,
           "ground": "Melbourne",
           "bat": "78",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -15570,6 +15769,7 @@
           "timestamp": 1415125800000,
           "ground": "Adelaide",
           "bat": "19",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -15579,6 +15779,7 @@
           "timestamp": 1414866600000,
           "ground": "North Sydney",
           "bat": "52",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -15588,6 +15789,7 @@
           "timestamp": 1411583400000,
           "ground": "Kingstown",
           "bat": "5",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -15597,6 +15799,7 @@
           "timestamp": 1411410600000,
           "ground": "Kingstown",
           "bat": "43",
+          "sr": "-",
           "bowl": "0",
           "econ": "4.5"
         },
@@ -15646,6 +15849,7 @@
           "timestamp": 1396463400000,
           "ground": "Mirpur",
           "bat": "24",
+          "sr": "-",
           "bowl": "1",
           "econ": "4.75"
         },
@@ -15655,6 +15859,7 @@
           "timestamp": 1396290600000,
           "ground": "Sylhet",
           "bat": "17",
+          "sr": "-",
           "bowl": "0",
           "econ": "6"
         },
@@ -15664,6 +15869,7 @@
           "timestamp": 1395945000000,
           "ground": "Sylhet",
           "bat": "56",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -15673,6 +15879,7 @@
           "timestamp": 1395599400000,
           "ground": "Sylhet",
           "bat": "56",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -15742,6 +15949,7 @@
           "timestamp": 1382725800000,
           "ground": "Bridgetown",
           "bat": "51",
+          "sr": "-",
           "bowl": "1",
           "econ": "2"
         },
@@ -15751,6 +15959,7 @@
           "timestamp": 1382553000000,
           "ground": "Bridgetown",
           "bat": "40",
+          "sr": "-",
           "bowl": "3",
           "econ": "5"
         },
@@ -15760,6 +15969,7 @@
           "timestamp": 1382207400000,
           "ground": "Bridgetown",
           "bat": "24",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -15769,6 +15979,7 @@
           "timestamp": 1382034600000,
           "ground": "Bridgetown",
           "bat": "40",
+          "sr": "-",
           "bowl": "0",
           "econ": "8.75"
         },
@@ -15778,6 +15989,7 @@
           "timestamp": 1381689000000,
           "ground": "Bridgetown",
           "bat": "5",
+          "sr": "-",
           "bowl": "1",
           "econ": "3.5"
         },
@@ -15817,6 +16029,7 @@
           "timestamp": 1362594600000,
           "ground": "Colombo (RPS)",
           "bat": "40",
+          "sr": "-",
           "bowl": "2",
           "econ": "5.5"
         },
@@ -15826,6 +16039,7 @@
           "timestamp": 1362421800000,
           "ground": "Colombo (RPS)",
           "bat": "75",
+          "sr": "-",
           "bowl": "1",
           "econ": "5.5"
         },
@@ -15835,6 +16049,7 @@
           "timestamp": 1362076200000,
           "ground": "Colombo (RPS)",
           "bat": "25",
+          "sr": "-",
           "bowl": "1",
           "econ": "5.25"
         },
@@ -15944,6 +16159,7 @@
           "timestamp": 1358533800000,
           "ground": "Gros Islet",
           "bat": "13",
+          "sr": "-",
           "bowl": "2",
           "econ": "6"
         },
@@ -16003,6 +16219,7 @@
           "timestamp": 1349375400000,
           "ground": "Colombo (RPS)",
           "bat": "3",
+          "sr": "-",
           "bowl": "0",
           "econ": "6.33"
         },
@@ -16012,6 +16229,7 @@
           "timestamp": 1348943400000,
           "ground": "Galle",
           "bat": "33",
+          "sr": "-",
           "bowl": "3",
           "econ": "2.5"
         },
@@ -16021,6 +16239,7 @@
           "timestamp": 1348770600000,
           "ground": "Galle",
           "bat": "3",
+          "sr": "-",
           "bowl": "1",
           "econ": "2"
         },
@@ -16030,6 +16249,7 @@
           "timestamp": 1348597800000,
           "ground": "Galle",
           "bat": "35",
+          "sr": "-",
           "bowl": "2",
           "econ": "7.25"
         },
@@ -16039,6 +16259,7 @@
           "timestamp": 1347733800000,
           "ground": "Arundel",
           "bat": "18",
+          "sr": "-",
           "bowl": "1",
           "econ": "6.25"
         },
@@ -16048,6 +16269,7 @@
           "timestamp": 1347647400000,
           "ground": "Hove",
           "bat": "40",
+          "sr": "-",
           "bowl": "2",
           "econ": "5.75"
         },
@@ -16057,6 +16279,7 @@
           "timestamp": 1347474600000,
           "ground": "Northampton",
           "bat": "4",
+          "sr": "-",
           "bowl": "0",
           "econ": "6.25"
         },
@@ -16066,6 +16289,7 @@
           "timestamp": 1336501800000,
           "ground": "Port of Spain",
           "bat": "25",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -16075,6 +16299,7 @@
           "timestamp": 1336242600000,
           "ground": "Port of Spain",
           "bat": "10",
+          "sr": "-",
           "bowl": "2",
           "econ": "5.33"
         },
@@ -16084,6 +16309,7 @@
           "timestamp": 1335897000000,
           "ground": "Bridgetown",
           "bat": "62",
+          "sr": "-",
           "bowl": "3",
           "econ": "5.75"
         },
@@ -16093,6 +16319,7 @@
           "timestamp": 1335810600000,
           "ground": "Bridgetown",
           "bat": "13",
+          "sr": "-",
           "bowl": "2",
           "econ": "6.33"
         },
@@ -16152,6 +16379,7 @@
           "timestamp": 1330281000000,
           "ground": "Basseterre",
           "bat": "5",
+          "sr": "-",
           "bowl": "1",
           "econ": "5.5"
         },
@@ -16161,6 +16389,7 @@
           "timestamp": 1329935400000,
           "ground": "Roseau",
           "bat": "37",
+          "sr": "-",
           "bowl": "1",
           "econ": "4.5"
         },
@@ -16170,6 +16399,7 @@
           "timestamp": 1329849000000,
           "ground": "Roseau",
           "bat": "5",
+          "sr": "-",
           "bowl": "2",
           "econ": "4"
         },
@@ -16179,6 +16409,7 @@
           "timestamp": 1329589800000,
           "ground": "North Sound",
           "bat": "0",
+          "sr": "-",
           "bowl": "1",
           "econ": "5.25"
         },
@@ -16188,6 +16419,7 @@
           "timestamp": 1329503400000,
           "ground": "North Sound",
           "bat": "54",
+          "sr": "-",
           "bowl": "1",
           "econ": "2.5"
         },
@@ -16237,6 +16469,7 @@
           "timestamp": 1315593000000,
           "ground": "Providence",
           "bat": "48",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -16246,6 +16479,7 @@
           "timestamp": 1315333800000,
           "ground": "St Andrew's",
           "bat": "0",
+          "sr": "-",
           "bowl": "1",
           "econ": "3.33"
         },
@@ -16255,6 +16489,7 @@
           "timestamp": 1315247400000,
           "ground": "St Andrew's",
           "bat": "24",
+          "sr": "-",
           "bowl": "0",
           "econ": "8"
         },
@@ -16304,6 +16539,7 @@
           "timestamp": 1295807400000,
           "ground": "Ahmedabad",
           "bat": "8",
+          "sr": "-",
           "bowl": "1",
           "econ": "6"
         },
@@ -16313,6 +16549,7 @@
           "timestamp": 1295721000000,
           "ground": "Ahmedabad",
           "bat": "21",
+          "sr": "-",
           "bowl": "1",
           "econ": "5.75"
         },
@@ -16322,6 +16559,7 @@
           "timestamp": 1295634600000,
           "ground": "Ahmedabad",
           "bat": "0",
+          "sr": "-",
           "bowl": "1",
           "econ": "4.5"
         },
@@ -16381,6 +16619,7 @@
           "timestamp": 1287167400000,
           "ground": "Potchefstroom (Uni)",
           "bat": "13",
+          "sr": "-",
           "bowl": "1",
           "econ": "4.66"
         },
@@ -16390,6 +16629,7 @@
           "timestamp": 1286994600000,
           "ground": "Potchefstroom (Uni)",
           "bat": "7",
+          "sr": "-",
           "bowl": "1",
           "econ": "2.6"
         },
@@ -16449,6 +16689,7 @@
           "timestamp": 1273775400000,
           "ground": "Gros Islet",
           "bat": "40",
+          "sr": "-",
           "bowl": "0",
           "econ": "5.5"
         },
@@ -16458,6 +16699,7 @@
           "timestamp": 1273343400000,
           "ground": "Basseterre",
           "bat": "58",
+          "sr": "-",
           "bowl": "0",
           "econ": "11.5"
         },
@@ -16467,6 +16709,7 @@
           "timestamp": 1273170600000,
           "ground": "Basseterre",
           "bat": "18",
+          "sr": "-",
           "bowl": "2",
           "econ": "9.25"
         },
@@ -16476,6 +16719,7 @@
           "timestamp": 1272997800000,
           "ground": "Basseterre",
           "bat": "1",
+          "sr": "-",
           "bowl": "0",
           "econ": "4.66"
         },
@@ -16485,6 +16729,7 @@
           "timestamp": 1272047400000,
           "ground": "Cayon",
           "bat": "58",
+          "sr": "-",
           "bowl": "0",
           "econ": "14"
         },
@@ -16494,6 +16739,7 @@
           "timestamp": 1271961000000,
           "ground": "Cayon",
           "bat": "54",
+          "sr": "-",
           "bowl": "1",
           "econ": "5.66"
         },
@@ -16503,6 +16749,7 @@
           "timestamp": 1271788200000,
           "ground": "Cayon",
           "bat": "50",
+          "sr": "-",
           "bowl": "1",
           "econ": "5.75"
         },
@@ -16532,6 +16779,7 @@
           "timestamp": 1257791400000,
           "ground": "Basseterre",
           "bat": "0",
+          "sr": "-",
           "bowl": "2",
           "econ": "3.54"
         },
@@ -16541,6 +16789,7 @@
           "timestamp": 1257705000000,
           "ground": "Basseterre",
           "bat": "15",
+          "sr": "-",
           "bowl": "3",
           "econ": "4"
         },
@@ -16580,6 +16829,7 @@
           "timestamp": 1256495400000,
           "ground": "Cape Town",
           "bat": "14",
+          "sr": "-",
           "bowl": "0",
           "econ": "5.7"
         },
@@ -16589,6 +16839,7 @@
           "timestamp": 1256409000000,
           "ground": "Paarl",
           "bat": "21",
+          "sr": "-",
           "bowl": "2",
           "econ": "5.5"
         },
@@ -16638,6 +16889,7 @@
           "timestamp": 1244917800000,
           "ground": "Taunton",
           "bat": "13",
+          "sr": "-",
           "bowl": "0",
           "econ": "4.75"
         },
@@ -16647,6 +16899,7 @@
           "timestamp": 1244831400000,
           "ground": "Taunton",
           "bat": "58",
+          "sr": "-",
           "bowl": "2",
           "econ": "6.25"
         },
@@ -16656,6 +16909,7 @@
           "timestamp": 1244658600000,
           "ground": "Taunton",
           "bat": "50",
+          "sr": "-",
           "bowl": "1",
           "econ": "7"
         },
@@ -16815,6 +17069,7 @@
           "timestamp": 1214850600000,
           "ground": "Utrecht",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -16834,6 +17089,7 @@
           "timestamp": 1214505000000,
           "ground": "Dublin",
           "bat": "90",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21687,6 +21943,7 @@
           "timestamp": 1777228200000,
           "ground": "Benoni",
           "bat": "22",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21696,6 +21953,7 @@
           "timestamp": 1777055400000,
           "ground": "Johannesburg",
           "bat": "22",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21705,6 +21963,7 @@
           "timestamp": 1776796200000,
           "ground": "Johannesburg",
           "bat": "66",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21714,6 +21973,7 @@
           "timestamp": 1776537000000,
           "ground": "Durban",
           "bat": "12",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21723,6 +21983,7 @@
           "timestamp": 1776364200000,
           "ground": "Durban",
           "bat": "47",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21772,6 +22033,7 @@
           "timestamp": 1771612200000,
           "ground": "Adelaide",
           "bat": "2",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21781,6 +22043,7 @@
           "timestamp": 1771439400000,
           "ground": "Canberra",
           "bat": "36",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21790,6 +22053,7 @@
           "timestamp": 1771093800000,
           "ground": "Sydney",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21799,6 +22063,7 @@
           "timestamp": 1769711400000,
           "ground": "Vadodara",
           "bat": "82",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21808,6 +22073,7 @@
           "timestamp": 1769365800000,
           "ground": "Vadodara",
           "bat": "20",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21817,6 +22083,7 @@
           "timestamp": 1768847400000,
           "ground": "Vadodara",
           "bat": "41",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21826,6 +22093,7 @@
           "timestamp": 1768588200000,
           "ground": "DY Patil",
           "bat": "18",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21835,6 +22103,7 @@
           "timestamp": 1768415400000,
           "ground": "DY Patil",
           "bat": "16",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21844,6 +22113,7 @@
           "timestamp": 1768242600000,
           "ground": "DY Patil",
           "bat": "71",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21853,6 +22123,7 @@
           "timestamp": 1767983400000,
           "ground": "DY Patil",
           "bat": "74",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21862,6 +22133,7 @@
           "timestamp": 1767897000000,
           "ground": "DY Patil",
           "bat": "20",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21871,6 +22143,7 @@
           "timestamp": 1767033000000,
           "ground": "Thiruvananthapuram",
           "bat": "68",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21880,6 +22153,7 @@
           "timestamp": 1766860200000,
           "ground": "Thiruvananthapuram",
           "bat": "16",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21889,6 +22163,7 @@
           "timestamp": 1766687400000,
           "ground": "Thiruvananthapuram",
           "bat": "21",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21898,6 +22173,7 @@
           "timestamp": 1766428200000,
           "ground": "Visakhapatnam",
           "bat": "10",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -21907,6 +22183,7 @@
           "timestamp": 1766255400000,
           "ground": "Visakhapatnam",
           "bat": "15",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22066,6 +22343,7 @@
           "timestamp": 1752258600000,
           "ground": "Birmingham",
           "bat": "15",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22075,6 +22353,7 @@
           "timestamp": 1751999400000,
           "ground": "Manchester",
           "bat": "26",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22084,6 +22363,7 @@
           "timestamp": 1751567400000,
           "ground": "The Oval",
           "bat": "23",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22093,6 +22373,7 @@
           "timestamp": 1751308200000,
           "ground": "Bristol",
           "bat": "1",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22152,6 +22433,7 @@
           "timestamp": 1741977000000,
           "ground": "Brabourne",
           "bat": "66",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22161,6 +22443,7 @@
           "timestamp": 1741804200000,
           "ground": "Brabourne",
           "bat": "36",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22170,6 +22453,7 @@
           "timestamp": 1741631400000,
           "ground": "Brabourne",
           "bat": "20",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22179,6 +22463,7 @@
           "timestamp": 1741545000000,
           "ground": "Brabourne",
           "bat": "54",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22188,6 +22473,7 @@
           "timestamp": 1741199400000,
           "ground": "Lucknow",
           "bat": "4",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22197,6 +22483,7 @@
           "timestamp": 1740681000000,
           "ground": "Bengaluru",
           "bat": "22",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22206,6 +22493,7 @@
           "timestamp": 1740508200000,
           "ground": "Bengaluru",
           "bat": "4",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22215,6 +22503,7 @@
           "timestamp": 1740076200000,
           "ground": "Bengaluru",
           "bat": "50",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22224,6 +22513,7 @@
           "timestamp": 1739817000000,
           "ground": "Vadodara",
           "bat": "4",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22233,6 +22523,7 @@
           "timestamp": 1739557800000,
           "ground": "Vadodara",
           "bat": "42",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22272,6 +22563,7 @@
           "timestamp": 1734201000000,
           "ground": "DY Patil",
           "bat": "13",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22331,6 +22623,7 @@
           "timestamp": 1728757800000,
           "ground": "Sharjah",
           "bat": "54",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22340,6 +22633,7 @@
           "timestamp": 1728412200000,
           "ground": "Dubai (DICS)",
           "bat": "52",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22349,6 +22643,7 @@
           "timestamp": 1728153000000,
           "ground": "Dubai (DICS)",
           "bat": "29",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22358,6 +22653,7 @@
           "timestamp": 1727980200000,
           "ground": "Dubai (DICS)",
           "bat": "15",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22367,6 +22663,7 @@
           "timestamp": 1722105000000,
           "ground": "Dambulla",
           "bat": "11",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22376,6 +22673,7 @@
           "timestamp": 1721932200000,
           "ground": "Dambulla",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22385,6 +22683,7 @@
           "timestamp": 1721500200000,
           "ground": "Dambulla",
           "bat": "66",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22394,6 +22693,7 @@
           "timestamp": 1721327400000,
           "ground": "Dambulla",
           "bat": "5",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22403,6 +22703,7 @@
           "timestamp": 1720463400000,
           "ground": "Chennai",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22412,6 +22713,7 @@
           "timestamp": 1720290600000,
           "ground": "Chennai",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22421,6 +22723,7 @@
           "timestamp": 1720117800000,
           "ground": "Chennai",
           "bat": "35",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22470,6 +22773,7 @@
           "timestamp": 1715193000000,
           "ground": "Sylhet",
           "bat": "30",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22479,6 +22783,7 @@
           "timestamp": 1714933800000,
           "ground": "Sylhet",
           "bat": "39",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22488,6 +22793,7 @@
           "timestamp": 1714588200000,
           "ground": "Sylhet",
           "bat": "6",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22497,6 +22803,7 @@
           "timestamp": 1714415400000,
           "ground": "Sylhet",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22506,6 +22813,7 @@
           "timestamp": 1714242600000,
           "ground": "Sylhet",
           "bat": "30",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22515,6 +22823,7 @@
           "timestamp": 1710441000000,
           "ground": "Delhi",
           "bat": "33",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22524,6 +22833,7 @@
           "timestamp": 1710181800000,
           "ground": "Delhi",
           "bat": "0",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22533,6 +22843,7 @@
           "timestamp": 1709922600000,
           "ground": "Delhi",
           "bat": "95",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22542,6 +22853,7 @@
           "timestamp": 1709749800000,
           "ground": "Delhi",
           "bat": "33",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22551,6 +22863,7 @@
           "timestamp": 1709577000000,
           "ground": "Delhi",
           "bat": "6",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22560,6 +22873,7 @@
           "timestamp": 1708799400000,
           "ground": "Bengaluru",
           "bat": "46",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22569,6 +22883,7 @@
           "timestamp": 1708626600000,
           "ground": "Bengaluru",
           "bat": "55",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22578,6 +22893,7 @@
           "timestamp": 1704738600000,
           "ground": "DY Patil",
           "bat": "3",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22587,6 +22903,7 @@
           "timestamp": 1704565800000,
           "ground": "DY Patil",
           "bat": "6",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22596,6 +22913,7 @@
           "timestamp": 1704393000000,
           "ground": "DY Patil",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22655,6 +22973,7 @@
           "timestamp": 1702146600000,
           "ground": "Wankhede",
           "bat": "6",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22664,6 +22983,7 @@
           "timestamp": 1702060200000,
           "ground": "Wankhede",
           "bat": "9",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22673,6 +22993,7 @@
           "timestamp": 1701801000000,
           "ground": "Wankhede",
           "bat": "26",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22682,6 +23003,7 @@
           "timestamp": 1700850600000,
           "ground": "Melbourne",
           "bat": "1",
+          "sr": "-",
           "bowl": "2",
           "econ": "4.33"
         },
@@ -22691,6 +23013,7 @@
           "timestamp": 1700677800000,
           "ground": "Hobart",
           "bat": "0",
+          "sr": "-",
           "bowl": "0",
           "econ": "9.5"
         },
@@ -22700,6 +23023,7 @@
           "timestamp": 1700332200000,
           "ground": "Melbourne",
           "bat": "1",
+          "sr": "-",
           "bowl": "0",
           "econ": "5"
         },
@@ -22709,6 +23033,7 @@
           "timestamp": 1700159400000,
           "ground": "Brisbane",
           "bat": "22",
+          "sr": "-",
           "bowl": "1",
           "econ": "11"
         },
@@ -22718,6 +23043,7 @@
           "timestamp": 1699727400000,
           "ground": "Melbourne",
           "bat": "37",
+          "sr": "-",
           "bowl": "1",
           "econ": "6"
         },
@@ -22727,6 +23053,7 @@
           "timestamp": 1699641000000,
           "ground": "Melbourne",
           "bat": "10",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22736,6 +23063,7 @@
           "timestamp": 1699381800000,
           "ground": "Adelaide",
           "bat": "45",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22745,6 +23073,7 @@
           "timestamp": 1699122600000,
           "ground": "W.A.C.A",
           "bat": "47",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22754,6 +23083,7 @@
           "timestamp": 1698949800000,
           "ground": "W.A.C.A",
           "bat": "52",
+          "sr": "-",
           "bowl": "0",
           "econ": "9"
         },
@@ -22763,6 +23093,7 @@
           "timestamp": 1698777000000,
           "ground": "Melbourne",
           "bat": "13",
+          "sr": "-",
           "bowl": "2",
           "econ": "8.33"
         },
@@ -22772,6 +23103,7 @@
           "timestamp": 1698431400000,
           "ground": "Melbourne",
           "bat": "8",
+          "sr": "-",
           "bowl": "0",
           "econ": "8"
         },
@@ -22781,6 +23113,7 @@
           "timestamp": 1698258600000,
           "ground": "Sydney",
           "bat": "11",
+          "sr": "-",
           "bowl": "0",
           "econ": "8"
         },
@@ -22790,6 +23123,7 @@
           "timestamp": 1697999400000,
           "ground": "Melbourne",
           "bat": "43",
+          "sr": "-",
           "bowl": "2",
           "econ": "6"
         },
@@ -22799,6 +23133,7 @@
           "timestamp": 1697740200000,
           "ground": "Melbourne",
           "bat": "31",
+          "sr": "-",
           "bowl": "1",
           "econ": "10"
         },
@@ -22808,6 +23143,7 @@
           "timestamp": 1695580200000,
           "ground": "Hangzhou",
           "bat": "2",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22817,6 +23153,7 @@
           "timestamp": 1692556200000,
           "ground": "The Oval",
           "bat": "9",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22826,6 +23163,7 @@
           "timestamp": 1692383400000,
           "ground": "Nottingham",
           "bat": "5",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22835,6 +23173,7 @@
           "timestamp": 1692210600000,
           "ground": "Nottingham",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22844,6 +23183,7 @@
           "timestamp": 1691951400000,
           "ground": "Cardiff",
           "bat": "22",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22853,6 +23193,7 @@
           "timestamp": 1691778600000,
           "ground": "Lord's",
           "bat": "3",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22862,6 +23203,7 @@
           "timestamp": 1691519400000,
           "ground": "Nottingham",
           "bat": "11",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22871,6 +23213,7 @@
           "timestamp": 1690828200000,
           "ground": "Nottingham",
           "bat": "22",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22910,6 +23253,7 @@
           "timestamp": 1689186600000,
           "ground": "Mirpur",
           "bat": "40",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22919,6 +23263,7 @@
           "timestamp": 1689013800000,
           "ground": "Mirpur",
           "bat": "0",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22928,6 +23273,7 @@
           "timestamp": 1688841000000,
           "ground": "Mirpur",
           "bat": "54",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22937,6 +23283,7 @@
           "timestamp": 1679769000000,
           "ground": "Brabourne",
           "bat": "37",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22946,6 +23293,7 @@
           "timestamp": 1679596200000,
           "ground": "DY Patil",
           "bat": "14",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22955,6 +23303,7 @@
           "timestamp": 1679337000000,
           "ground": "DY Patil",
           "bat": "2",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22964,6 +23313,7 @@
           "timestamp": 1679250600000,
           "ground": "DY Patil",
           "bat": "23",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22973,6 +23323,7 @@
           "timestamp": 1679077800000,
           "ground": "DY Patil",
           "bat": "25",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22982,6 +23333,7 @@
           "timestamp": 1678732200000,
           "ground": "Brabourne",
           "bat": "51",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -22991,6 +23343,7 @@
           "timestamp": 1678559400000,
           "ground": "Brabourne",
           "bat": "53",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23000,6 +23353,7 @@
           "timestamp": 1678300200000,
           "ground": "DY Patil",
           "bat": "11",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23009,6 +23363,7 @@
           "timestamp": 1678041000000,
           "ground": "Brabourne",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23018,6 +23373,7 @@
           "timestamp": 1677868200000,
           "ground": "DY Patil",
           "bat": "65",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23027,6 +23383,7 @@
           "timestamp": 1677090600000,
           "ground": "Cape Town",
           "bat": "52",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23036,6 +23393,7 @@
           "timestamp": 1676831400000,
           "ground": "Gqeberha",
           "bat": "13",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23045,6 +23403,7 @@
           "timestamp": 1676658600000,
           "ground": "Gqeberha",
           "bat": "4",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23054,6 +23413,7 @@
           "timestamp": 1676399400000,
           "ground": "Cape Town",
           "bat": "33",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23063,6 +23423,7 @@
           "timestamp": 1676140200000,
           "ground": "Cape Town",
           "bat": "16",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23072,6 +23433,7 @@
           "timestamp": 1675276200000,
           "ground": "East London",
           "bat": "21",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23081,6 +23443,7 @@
           "timestamp": 1675017000000,
           "ground": "East London",
           "bat": "32",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23090,6 +23453,7 @@
           "timestamp": 1674844200000,
           "ground": "East London",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23099,6 +23463,7 @@
           "timestamp": 1674412200000,
           "ground": "East London",
           "bat": "56",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23108,6 +23473,7 @@
           "timestamp": 1671474600000,
           "ground": "Brabourne",
           "bat": "12",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23117,6 +23483,7 @@
           "timestamp": 1671215400000,
           "ground": "Brabourne",
           "bat": "46",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23126,6 +23493,7 @@
           "timestamp": 1670956200000,
           "ground": "Brabourne",
           "bat": "37",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23135,6 +23503,7 @@
           "timestamp": 1670697000000,
           "ground": "DY Patil",
           "bat": "21",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23144,6 +23513,7 @@
           "timestamp": 1670524200000,
           "ground": "DY Patil",
           "bat": "21",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23153,6 +23523,7 @@
           "timestamp": 1665772200000,
           "ground": "Sylhet",
           "bat": "11",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23162,6 +23533,7 @@
           "timestamp": 1665599400000,
           "ground": "Sylhet",
           "bat": "36",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23171,6 +23543,7 @@
           "timestamp": 1665081000000,
           "ground": "Sylhet",
           "bat": "12",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23180,6 +23553,7 @@
           "timestamp": 1664735400000,
           "ground": "Sylhet",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23189,6 +23563,7 @@
           "timestamp": 1664562600000,
           "ground": "Sylhet",
           "bat": "33",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23228,6 +23603,7 @@
           "timestamp": 1663180200000,
           "ground": "Bristol",
           "bat": "5",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23237,6 +23613,7 @@
           "timestamp": 1663007400000,
           "ground": "Derby",
           "bat": "29",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23246,6 +23623,7 @@
           "timestamp": 1662748200000,
           "ground": "Chester-le-Street",
           "bat": "20",
+          "sr": "-",
           "bowl": "0",
           "econ": "17"
         },
@@ -23255,6 +23633,7 @@
           "timestamp": 1659810600000,
           "ground": "Birmingham",
           "bat": "65",
+          "sr": "-",
           "bowl": "0",
           "econ": "17"
         },
@@ -23264,6 +23643,7 @@
           "timestamp": 1659724200000,
           "ground": "Birmingham",
           "bat": "20",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23273,6 +23653,7 @@
           "timestamp": 1659465000000,
           "ground": "Birmingham",
           "bat": "0",
+          "sr": "-",
           "bowl": "1",
           "econ": "2.33"
         },
@@ -23282,6 +23663,7 @@
           "timestamp": 1659205800000,
           "ground": "Birmingham",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23291,6 +23673,7 @@
           "timestamp": 1659033000000,
           "ground": "Birmingham",
           "bat": "52",
+          "sr": "-",
           "bowl": "0",
           "econ": "10"
         },
@@ -23330,6 +23713,7 @@
           "timestamp": 1656268200000,
           "ground": "Dambulla",
           "bat": "39",
+          "sr": "-",
           "bowl": "0",
           "econ": "6.5"
         },
@@ -23339,6 +23723,7 @@
           "timestamp": 1656095400000,
           "ground": "Dambulla",
           "bat": "31",
+          "sr": "-",
           "bowl": "1",
           "econ": "4"
         },
@@ -23348,6 +23733,7 @@
           "timestamp": 1655922600000,
           "ground": "Dambulla",
           "bat": "22",
+          "sr": "-",
           "bowl": "0",
           "econ": "8.5"
         },
@@ -23357,6 +23743,7 @@
           "timestamp": 1653676200000,
           "ground": "Pune",
           "bat": "43",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23366,6 +23753,7 @@
           "timestamp": 1653330600000,
           "ground": "Pune",
           "bat": "71",
+          "sr": "-",
           "bowl": "0",
           "econ": "12"
         },
@@ -23375,6 +23763,7 @@
           "timestamp": 1653244200000,
           "ground": "Pune",
           "bat": "37",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23494,6 +23883,7 @@
           "timestamp": 1644345000000,
           "ground": "Queenstown",
           "bat": "12",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23503,6 +23893,7 @@
           "timestamp": 1637778600000,
           "ground": "Adelaide",
           "bat": "7",
+          "sr": "-",
           "bowl": "0",
           "econ": "7"
         },
@@ -23512,6 +23903,7 @@
           "timestamp": 1637346600000,
           "ground": "Mackay",
           "bat": "-",
+          "sr": "-",
           "bowl": "0",
           "econ": "8.33"
         },
@@ -23521,6 +23913,7 @@
           "timestamp": 1637260200000,
           "ground": "Mackay",
           "bat": "9",
+          "sr": "-",
           "bowl": "2",
           "econ": "9.33"
         },
@@ -23530,6 +23923,7 @@
           "timestamp": 1637087400000,
           "ground": "Mackay",
           "bat": "81",
+          "sr": "-",
           "bowl": "1",
           "econ": "6.75"
         },
@@ -23539,6 +23933,7 @@
           "timestamp": 1636223400000,
           "ground": "Adelaide",
           "bat": "12",
+          "sr": "-",
           "bowl": "3",
           "econ": "5.5"
         },
@@ -23548,6 +23943,7 @@
           "timestamp": 1636137000000,
           "ground": "Adelaide",
           "bat": "65",
+          "sr": "-",
           "bowl": "1",
           "econ": "9.5"
         },
@@ -23557,6 +23953,7 @@
           "timestamp": 1635877800000,
           "ground": "W.A.C.A",
           "bat": "13",
+          "sr": "-",
           "bowl": "1",
           "econ": "10.66"
         },
@@ -23566,6 +23963,7 @@
           "timestamp": 1635618600000,
           "ground": "Perth (Lilac Hill)",
           "bat": "73",
+          "sr": "-",
           "bowl": "2",
           "econ": "7.75"
         },
@@ -23575,6 +23973,7 @@
           "timestamp": 1635532200000,
           "ground": "Perth (Lilac Hill)",
           "bat": "43",
+          "sr": "-",
           "bowl": "0",
           "econ": "6.33"
         },
@@ -23584,6 +23983,7 @@
           "timestamp": 1635273000000,
           "ground": "Hobart",
           "bat": "3",
+          "sr": "-",
           "bowl": "1",
           "econ": "8.75"
         },
@@ -23593,6 +23993,7 @@
           "timestamp": 1635013800000,
           "ground": "Launceston",
           "bat": "35",
+          "sr": "-",
           "bowl": "2",
           "econ": "4.25"
         },
@@ -23602,6 +24003,7 @@
           "timestamp": 1634668200000,
           "ground": "Hobart",
           "bat": "41",
+          "sr": "-",
           "bowl": "1",
           "econ": "7.75"
         },
@@ -23611,6 +24013,7 @@
           "timestamp": 1634322600000,
           "ground": "Hobart",
           "bat": "24",
+          "sr": "-",
           "bowl": "1",
           "econ": "6.66"
         },
@@ -23620,6 +24023,7 @@
           "timestamp": 1633804200000,
           "ground": "Carrara",
           "bat": "13",
+          "sr": "-",
           "bowl": "0",
           "econ": "14"
         },
@@ -23629,6 +24033,7 @@
           "timestamp": 1633717800000,
           "ground": "Carrara",
           "bat": "28",
+          "sr": "-",
           "bowl": "1",
           "econ": "4.5"
         },
@@ -23638,6 +24043,7 @@
           "timestamp": 1633545000000,
           "ground": "Carrara",
           "bat": "12",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23647,6 +24053,7 @@
           "timestamp": 1627669800000,
           "ground": "Cardiff",
           "bat": "26",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23656,6 +24063,7 @@
           "timestamp": 1627151400000,
           "ground": "Manchester",
           "bat": "49",
+          "sr": "-",
           "bowl": "0",
           "econ": "12"
         },
@@ -23665,6 +24073,7 @@
           "timestamp": 1626805800000,
           "ground": "The Oval",
           "bat": "29",
+          "sr": "-",
           "bowl": "0",
           "econ": "12"
         },
@@ -23674,6 +24083,7 @@
           "timestamp": 1626201000000,
           "ground": "Chelmsford",
           "bat": "36",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23683,6 +24093,7 @@
           "timestamp": 1625941800000,
           "ground": "Hove",
           "bat": "31",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23692,6 +24103,7 @@
           "timestamp": 1625769000000,
           "ground": "Northampton",
           "bat": "1",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23791,6 +24203,7 @@
           "timestamp": 1604860200000,
           "ground": "Sharjah",
           "bat": "30",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23800,6 +24213,7 @@
           "timestamp": 1604687400000,
           "ground": "Sharjah",
           "bat": "31",
+          "sr": "-",
           "bowl": "0",
           "econ": "7.5"
         },
@@ -23809,6 +24223,7 @@
           "timestamp": 1604428200000,
           "ground": "Sharjah",
           "bat": "31",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23818,6 +24233,7 @@
           "timestamp": 1583605800000,
           "ground": "Melbourne",
           "bat": "4",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23827,6 +24243,7 @@
           "timestamp": 1582914600000,
           "ground": "Melbourne",
           "bat": "15",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23836,6 +24253,7 @@
           "timestamp": 1582741800000,
           "ground": "Melbourne",
           "bat": "1",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23845,6 +24263,7 @@
           "timestamp": 1582482600000,
           "ground": "W.A.C.A",
           "bat": "8",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23854,6 +24273,7 @@
           "timestamp": 1582223400000,
           "ground": "Sydney",
           "bat": "2",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23863,6 +24283,7 @@
           "timestamp": 1581445800000,
           "ground": "Melbourne",
           "bat": "14",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23872,6 +24293,7 @@
           "timestamp": 1581100200000,
           "ground": "Melbourne",
           "bat": "20",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23881,6 +24303,7 @@
           "timestamp": 1581013800000,
           "ground": "Melbourne",
           "bat": "14",
+          "sr": "-",
           "bowl": "0",
           "econ": "7.5"
         },
@@ -23890,6 +24313,7 @@
           "timestamp": 1580581800000,
           "ground": "Canberra",
           "bat": "28",
+          "sr": "-",
           "bowl": "0",
           "econ": "3"
         },
@@ -23899,6 +24323,7 @@
           "timestamp": 1580409000000,
           "ground": "Canberra",
           "bat": "42",
+          "sr": "-",
           "bowl": "0",
           "econ": "7.66"
         },
@@ -23908,6 +24333,7 @@
           "timestamp": 1573929000000,
           "ground": "Providence",
           "bat": "6",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -23917,6 +24343,7 @@
           "timestamp": 1573669800000,
           "ground": "Providence",
           "bat": "7",
+          "sr": "-",
           "bowl": "1",
           "econ": "5.5"
         },
@@ -23926,6 +24353,7 @@
           "timestamp": 1573324200000,
           "ground": "Gros Islet",
           "bat": "-",
+          "sr": "-",
           "bowl": "0",
           "econ": "6"
         },
@@ -23935,6 +24363,7 @@
           "timestamp": 1573237800000,
           "ground": "Gros Islet",
           "bat": "21",
+          "sr": "-",
           "bowl": "0",
           "econ": "7"
         },
@@ -24004,6 +24433,7 @@
           "timestamp": 1570127400000,
           "ground": "Surat",
           "bat": "1",
+          "sr": "-",
           "bowl": "1",
           "econ": "5"
         },
@@ -24013,6 +24443,7 @@
           "timestamp": 1570041000000,
           "ground": "Surat",
           "bat": "34",
+          "sr": "-",
           "bowl": "1",
           "econ": "4.33"
         },
@@ -24022,6 +24453,7 @@
           "timestamp": 1569868200000,
           "ground": "Surat",
           "bat": "16",
+          "sr": "-",
           "bowl": "0",
           "econ": "7"
         },
@@ -24031,6 +24463,7 @@
           "timestamp": 1569263400000,
           "ground": "Surat",
           "bat": "43",
+          "sr": "-",
           "bowl": "1",
           "econ": "6.66"
         },
@@ -24040,6 +24473,7 @@
           "timestamp": 1566930600000,
           "ground": "Blackpool",
           "bat": "6",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24049,6 +24483,7 @@
           "timestamp": 1566671400000,
           "ground": "Nottingham",
           "bat": "0",
+          "sr": "-",
           "bowl": "0",
           "econ": "9"
         },
@@ -24058,6 +24493,7 @@
           "timestamp": 1566498600000,
           "ground": "Scarborough",
           "bat": "38",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24067,6 +24503,7 @@
           "timestamp": 1566239400000,
           "ground": "Manchester",
           "bat": "7",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24076,6 +24513,7 @@
           "timestamp": 1566066600000,
           "ground": "Chester",
           "bat": "50",
+          "sr": "-",
           "bowl": "0",
           "econ": "6.25"
         },
@@ -24085,6 +24523,7 @@
           "timestamp": 1565807400000,
           "ground": "Hove",
           "bat": "34",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24094,6 +24533,7 @@
           "timestamp": 1565634600000,
           "ground": "Liverpool",
           "bat": "37",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24103,6 +24543,7 @@
           "timestamp": 1565375400000,
           "ground": "Taunton",
           "bat": "30",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24112,6 +24553,7 @@
           "timestamp": 1565202600000,
           "ground": "Guildford",
           "bat": "58",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24121,6 +24563,7 @@
           "timestamp": 1565029800000,
           "ground": "Liverpool",
           "bat": "1",
+          "sr": "-",
           "bowl": "0",
           "econ": "9"
         },
@@ -24130,6 +24573,7 @@
           "timestamp": 1557513000000,
           "ground": "Jaipur",
           "bat": "51",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24139,6 +24583,7 @@
           "timestamp": 1557340200000,
           "ground": "Jaipur",
           "bat": "1",
+          "sr": "-",
           "bowl": "0",
           "econ": "8"
         },
@@ -24148,6 +24593,7 @@
           "timestamp": 1557081000000,
           "ground": "Jaipur",
           "bat": "46",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24157,6 +24603,7 @@
           "timestamp": 1549737000000,
           "ground": "Hamilton",
           "bat": "2",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24166,6 +24613,7 @@
           "timestamp": 1549564200000,
           "ground": "Auckland",
           "bat": "5",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24175,6 +24623,7 @@
           "timestamp": 1549391400000,
           "ground": "Wellington",
           "bat": "17",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24214,6 +24663,7 @@
           "timestamp": 1547231400000,
           "ground": "Cairns",
           "bat": "1",
+          "sr": "-",
           "bowl": "2",
           "econ": "7.66"
         },
@@ -24223,6 +24673,7 @@
           "timestamp": 1546885800000,
           "ground": "Sydney",
           "bat": "10",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24232,6 +24683,7 @@
           "timestamp": 1546713000000,
           "ground": "Sydney",
           "bat": "1",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24241,6 +24693,7 @@
           "timestamp": 1546626600000,
           "ground": "Sydney",
           "bat": "21",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24250,6 +24703,7 @@
           "timestamp": 1546367400000,
           "ground": "Sydney",
           "bat": "0",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24259,6 +24713,7 @@
           "timestamp": 1546108200000,
           "ground": "Perth (Lilac Hill)",
           "bat": "19",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24268,6 +24723,7 @@
           "timestamp": 1546021800000,
           "ground": "Perth (Lilac Hill)",
           "bat": "45",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24277,6 +24733,7 @@
           "timestamp": 1545589800000,
           "ground": "Sydney",
           "bat": "14",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24286,6 +24743,7 @@
           "timestamp": 1545330600000,
           "ground": "Canberra",
           "bat": "13",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24295,6 +24753,7 @@
           "timestamp": 1544898600000,
           "ground": "Hobart",
           "bat": "52",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24304,6 +24763,7 @@
           "timestamp": 1544812200000,
           "ground": "Hobart",
           "bat": "33",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24313,6 +24773,7 @@
           "timestamp": 1544293800000,
           "ground": "North Sydney",
           "bat": "56",
+          "sr": "-",
           "bowl": "1",
           "econ": "8.66"
         },
@@ -24322,6 +24783,7 @@
           "timestamp": 1544207400000,
           "ground": "North Sydney",
           "bat": "45",
+          "sr": "-",
           "bowl": "0",
           "econ": "9.66"
         },
@@ -24331,6 +24793,7 @@
           "timestamp": 1542825000000,
           "ground": "North Sound",
           "bat": "16",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24340,6 +24803,7 @@
           "timestamp": 1542393000000,
           "ground": "Providence",
           "bat": "43",
+          "sr": "-",
           "bowl": "0",
           "econ": "9.5"
         },
@@ -24349,6 +24813,7 @@
           "timestamp": 1542220200000,
           "ground": "Providence",
           "bat": "7",
+          "sr": "-",
           "bowl": "1",
           "econ": "2.5"
         },
@@ -24358,6 +24823,7 @@
           "timestamp": 1541874600000,
           "ground": "Providence",
           "bat": "14",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24367,6 +24833,7 @@
           "timestamp": 1541701800000,
           "ground": "Providence",
           "bat": "103",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24376,6 +24843,7 @@
           "timestamp": 1537813800000,
           "ground": "Katunayake",
           "bat": "63",
+          "sr": "-",
           "bowl": "0",
           "econ": "10"
         },
@@ -24385,6 +24853,7 @@
           "timestamp": 1537727400000,
           "ground": "Colombo (CCC)",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24394,6 +24863,7 @@
           "timestamp": 1537554600000,
           "ground": "Colombo (CCC)",
           "bat": "24",
+          "sr": "-",
           "bowl": "2",
           "econ": "3"
         },
@@ -24403,6 +24873,7 @@
           "timestamp": 1537468200000,
           "ground": "Colombo (Colts)",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24412,6 +24883,7 @@
           "timestamp": 1537295400000,
           "ground": "Katunayake",
           "bat": "0",
+          "sr": "-",
           "bowl": "2",
           "econ": "7.6"
         },
@@ -24451,6 +24923,7 @@
           "timestamp": 1534530600000,
           "ground": "Southampton",
           "bat": "44",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24460,6 +24933,7 @@
           "timestamp": 1534185000000,
           "ground": "Blackpool",
           "bat": "74",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24469,6 +24943,7 @@
           "timestamp": 1533925800000,
           "ground": "Loughborough",
           "bat": "4",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24478,6 +24953,7 @@
           "timestamp": 1533753000000,
           "ground": "Taunton",
           "bat": "8",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24487,6 +24963,7 @@
           "timestamp": 1533580200000,
           "ground": "Manchester",
           "bat": "0",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24496,6 +24973,7 @@
           "timestamp": 1533234600000,
           "ground": "Manchester",
           "bat": "0",
+          "sr": "-",
           "bowl": "0",
           "econ": "7.5"
         },
@@ -24505,6 +24983,7 @@
           "timestamp": 1532975400000,
           "ground": "The Oval",
           "bat": "34",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24514,6 +24993,7 @@
           "timestamp": 1528569000000,
           "ground": "Kuala Lumpur",
           "bat": "56",
+          "sr": "-",
           "bowl": "2",
           "econ": "9.5"
         },
@@ -24523,6 +25003,7 @@
           "timestamp": 1528482600000,
           "ground": "Kuala Lumpur",
           "bat": "34",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24532,6 +25013,7 @@
           "timestamp": 1528309800000,
           "ground": "Kuala Lumpur",
           "bat": "24",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24541,6 +25023,7 @@
           "timestamp": 1528223400000,
           "ground": "Kuala Lumpur",
           "bat": "42",
+          "sr": "-",
           "bowl": "0",
           "econ": "11"
         },
@@ -24550,6 +25033,7 @@
           "timestamp": 1528050600000,
           "ground": "Kuala Lumpur",
           "bat": "27",
+          "sr": "-",
           "bowl": "3",
           "econ": "3.66"
         },
@@ -24559,6 +25043,7 @@
           "timestamp": 1527964200000,
           "ground": "Kuala Lumpur",
           "bat": "32",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24598,6 +25083,7 @@
           "timestamp": 1522261800000,
           "ground": "Brabourne",
           "bat": "20",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24607,6 +25093,7 @@
           "timestamp": 1522002600000,
           "ground": "Brabourne",
           "bat": "33",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24616,6 +25103,7 @@
           "timestamp": 1521916200000,
           "ground": "Brabourne",
           "bat": "30",
+          "sr": "-",
           "bowl": "0",
           "econ": "10"
         },
@@ -24625,6 +25113,7 @@
           "timestamp": 1521657000000,
           "ground": "Brabourne",
           "bat": "13",
+          "sr": "-",
           "bowl": "0",
           "econ": "12"
         },
@@ -24664,6 +25153,7 @@
           "timestamp": 1519410600000,
           "ground": "Cape Town",
           "bat": "27",
+          "sr": "-",
           "bowl": "0",
           "econ": "5"
         },
@@ -24673,6 +25163,7 @@
           "timestamp": 1519151400000,
           "ground": "Centurion",
           "bat": "-",
+          "sr": "-",
           "bowl": "0",
           "econ": "4"
         },
@@ -24682,6 +25173,7 @@
           "timestamp": 1518892200000,
           "ground": "Johannesburg",
           "bat": "48",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24691,6 +25183,7 @@
           "timestamp": 1518719400000,
           "ground": "East London",
           "bat": "7",
+          "sr": "-",
           "bowl": "0",
           "econ": "6"
         },
@@ -24700,6 +25193,7 @@
           "timestamp": 1518460200000,
           "ground": "Potchefstroom",
           "bat": "0",
+          "sr": "-",
           "bowl": "0",
           "econ": "7"
         },
@@ -24739,6 +25233,7 @@
           "timestamp": 1515781800000,
           "ground": "Sydney",
           "bat": "27",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24748,6 +25243,7 @@
           "timestamp": 1515349800000,
           "ground": "W.A.C.A",
           "bat": "1",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24757,6 +25253,7 @@
           "timestamp": 1515263400000,
           "ground": "Perth (Lilac Hill)",
           "bat": "14",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24766,6 +25263,7 @@
           "timestamp": 1514658600000,
           "ground": "Launceston",
           "bat": "24",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24775,6 +25273,7 @@
           "timestamp": 1514572200000,
           "ground": "Launceston",
           "bat": "4",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24784,6 +25283,7 @@
           "timestamp": 1513362600000,
           "ground": "Sydney",
           "bat": "-",
+          "sr": "-",
           "bowl": "0",
           "econ": "8"
         },
@@ -24793,6 +25293,7 @@
           "timestamp": 1513017000000,
           "ground": "Albury",
           "bat": "-",
+          "sr": "-",
           "bowl": "3",
           "econ": "4.5"
         },
@@ -24802,6 +25303,7 @@
           "timestamp": 1512844200000,
           "ground": "North Sydney",
           "bat": "29",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -24811,6 +25313,7 @@
           "timestamp": 1512757800000,
           "ground": "North Sydney",
           "bat": "8",
+          "sr": "-",
           "bowl": "0",
           "econ": "16"
         },
@@ -25020,6 +25523,7 @@
           "timestamp": 1484937000000,
           "ground": "Perth (Lilac Hill)",
           "bat": "16",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25029,6 +25533,7 @@
           "timestamp": 1484850600000,
           "ground": "Perth (Lilac Hill)",
           "bat": "64",
+          "sr": "-",
           "bowl": "0",
           "econ": "13"
         },
@@ -25038,6 +25543,7 @@
           "timestamp": 1484505000000,
           "ground": "Hobart",
           "bat": "6",
+          "sr": "-",
           "bowl": "2",
           "econ": "4.5"
         },
@@ -25047,6 +25553,7 @@
           "timestamp": 1484332200000,
           "ground": "Sydney",
           "bat": "16",
+          "sr": "-",
           "bowl": "0",
           "econ": "11"
         },
@@ -25056,6 +25563,7 @@
           "timestamp": 1483554600000,
           "ground": "Launceston",
           "bat": "32",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25065,6 +25573,7 @@
           "timestamp": 1483381800000,
           "ground": "Sydney",
           "bat": "17",
+          "sr": "-",
           "bowl": "0",
           "econ": "4"
         },
@@ -25074,6 +25583,7 @@
           "timestamp": 1483295400000,
           "ground": "Sydney",
           "bat": "26",
+          "sr": "-",
           "bowl": "0",
           "econ": "6"
         },
@@ -25083,6 +25593,7 @@
           "timestamp": 1482863400000,
           "ground": "Sydney",
           "bat": "18",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25092,6 +25603,7 @@
           "timestamp": 1482777000000,
           "ground": "Sydney",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25101,6 +25613,7 @@
           "timestamp": 1482690600000,
           "ground": "Sydney",
           "bat": "24",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25110,6 +25623,7 @@
           "timestamp": 1481913000000,
           "ground": "Sydney",
           "bat": "0",
+          "sr": "-",
           "bowl": "0",
           "econ": "11"
         },
@@ -25119,6 +25633,7 @@
           "timestamp": 1481567400000,
           "ground": "Albury",
           "bat": "30",
+          "sr": "-",
           "bowl": "4",
           "econ": "6.75"
         },
@@ -25128,6 +25643,7 @@
           "timestamp": 1481308200000,
           "ground": "North Sydney",
           "bat": "47",
+          "sr": "-",
           "bowl": "0",
           "econ": "8"
         },
@@ -25137,6 +25653,7 @@
           "timestamp": 1480789800000,
           "ground": "Bangkok",
           "bat": "5",
+          "sr": "-",
           "bowl": "0",
           "econ": "4"
         },
@@ -25146,6 +25663,7 @@
           "timestamp": 1480530600000,
           "ground": "Bangkok",
           "bat": "10",
+          "sr": "-",
           "bowl": "0",
           "econ": "4"
         },
@@ -25155,6 +25673,7 @@
           "timestamp": 1480357800000,
           "ground": "Bangkok",
           "bat": "26",
+          "sr": "-",
           "bowl": "2",
           "econ": "5.33"
         },
@@ -25164,6 +25683,7 @@
           "timestamp": 1480098600000,
           "ground": "Bangkok",
           "bat": "19",
+          "sr": "-",
           "bowl": "0",
           "econ": "4.33"
         },
@@ -25173,6 +25693,7 @@
           "timestamp": 1479753000000,
           "ground": "Vijayawada",
           "bat": "60",
+          "sr": "-",
           "bowl": "0",
           "econ": "3.66"
         },
@@ -25182,6 +25703,7 @@
           "timestamp": 1479580200000,
           "ground": "Vijayawada",
           "bat": "43",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25191,6 +25713,7 @@
           "timestamp": 1479407400000,
           "ground": "Vijayawada",
           "bat": "68",
+          "sr": "-",
           "bowl": "0",
           "econ": "12"
         },
@@ -25230,6 +25753,7 @@
           "timestamp": 1459017000000,
           "ground": "Mohali",
           "bat": "7",
+          "sr": "-",
           "bowl": "4",
           "econ": "7.66"
         },
@@ -25239,6 +25763,7 @@
           "timestamp": 1458585000000,
           "ground": "Dharamsala",
           "bat": "26",
+          "sr": "-",
           "bowl": "2",
           "econ": "5.5"
         },
@@ -25248,6 +25773,7 @@
           "timestamp": 1458325800000,
           "ground": "Delhi",
           "bat": "16",
+          "sr": "-",
           "bowl": "1",
           "econ": "4.5"
         },
@@ -25257,6 +25783,7 @@
           "timestamp": 1457980200000,
           "ground": "Bengaluru",
           "bat": "40",
+          "sr": "-",
           "bowl": "0",
           "econ": "3"
         },
@@ -25266,6 +25793,7 @@
           "timestamp": 1456079400000,
           "ground": "Ranchi",
           "bat": "36",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25335,6 +25863,7 @@
           "timestamp": 1454178600000,
           "ground": "Sydney",
           "bat": "24",
+          "sr": "-",
           "bowl": "0",
           "econ": "6.5"
         },
@@ -25344,6 +25873,7 @@
           "timestamp": 1454005800000,
           "ground": "Melbourne",
           "bat": "-",
+          "sr": "-",
           "bowl": "1",
           "econ": "2"
         },
@@ -25353,6 +25883,7 @@
           "timestamp": 1453746600000,
           "ground": "Adelaide",
           "bat": "46",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25362,6 +25893,7 @@
           "timestamp": 1436898600000,
           "ground": "Bengaluru",
           "bat": "4",
+          "sr": "-",
           "bowl": "0",
           "econ": "11"
         },
@@ -25371,6 +25903,7 @@
           "timestamp": 1436725800000,
           "ground": "Bengaluru",
           "bat": "30",
+          "sr": "-",
           "bowl": "0",
           "econ": "6.35"
         },
@@ -25380,6 +25913,7 @@
           "timestamp": 1436553000000,
           "ground": "Bengaluru",
           "bat": "15",
+          "sr": "-",
           "bowl": "0",
           "econ": "3.42"
         },
@@ -25439,6 +25973,7 @@
           "timestamp": 1417285800000,
           "ground": "Bengaluru",
           "bat": "9",
+          "sr": "-",
           "bowl": "1",
           "econ": "8"
         },
@@ -25518,6 +26053,7 @@
           "timestamp": 1396290600000,
           "ground": "Sylhet",
           "bat": "-",
+          "sr": "-",
           "bowl": "2",
           "econ": "4"
         },
@@ -25527,6 +26063,7 @@
           "timestamp": 1396117800000,
           "ground": "Sylhet",
           "bat": "77",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25536,6 +26073,7 @@
           "timestamp": 1395772200000,
           "ground": "Sylhet",
           "bat": "0",
+          "sr": "-",
           "bowl": "0",
           "econ": "9"
         },
@@ -25545,6 +26083,7 @@
           "timestamp": 1395599400000,
           "ground": "Sylhet",
           "bat": "17",
+          "sr": "-",
           "bowl": "1",
           "econ": "6"
         },
@@ -25554,6 +26093,7 @@
           "timestamp": 1394649000000,
           "ground": "Cox's Bazar",
           "bat": "6",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25563,6 +26103,7 @@
           "timestamp": 1394476200000,
           "ground": "Cox's Bazar",
           "bat": "2",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25572,6 +26113,7 @@
           "timestamp": 1394303400000,
           "ground": "Cox's Bazar",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25581,6 +26123,7 @@
           "timestamp": 1390847400000,
           "ground": "Visakhapatnam",
           "bat": "2",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25590,6 +26133,7 @@
           "timestamp": 1390674600000,
           "ground": "Vizianagaram",
           "bat": "2",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25599,6 +26143,7 @@
           "timestamp": 1390588200000,
           "ground": "Vizianagaram",
           "bat": "40",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25668,6 +26213,7 @@
           "timestamp": 1365100200000,
           "ground": "Vadodara",
           "bat": "20",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25677,6 +26223,7 @@
           "timestamp": 1365013800000,
           "ground": "Vadodara",
           "bat": "11",
+          "sr": "-",
           "bowl": "0",
           "econ": "7.33"
         },
@@ -25686,6 +26233,7 @@
           "timestamp": 1364841000000,
           "ground": "Vadodara",
           "bat": "3",
+          "sr": "-",
           "bowl": "0",
           "econ": "6"
         },
@@ -25735,6 +26283,7 @@
           "timestamp": 1351621800000,
           "ground": "Guangzhou",
           "bat": "20",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25744,6 +26293,7 @@
           "timestamp": 1351362600000,
           "ground": "Guangzhou",
           "bat": "12",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25753,6 +26303,7 @@
           "timestamp": 1349202600000,
           "ground": "Colombo (NCC)",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25762,6 +26313,7 @@
           "timestamp": 1349029800000,
           "ground": "Galle",
           "bat": "5",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25771,6 +26323,7 @@
           "timestamp": 1348857000000,
           "ground": "Galle",
           "bat": "3",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25780,6 +26333,7 @@
           "timestamp": 1348684200000,
           "ground": "Galle",
           "bat": "18",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25839,6 +26393,7 @@
           "timestamp": 1340821800000,
           "ground": "Chelmsford",
           "bat": "34",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25848,6 +26403,7 @@
           "timestamp": 1340649000000,
           "ground": "Canterbury",
           "bat": "15",
+          "sr": "-",
           "bowl": "0",
           "econ": "9"
         },
@@ -25867,6 +26423,7 @@
           "timestamp": 1332441000000,
           "ground": "Visakhapatnam",
           "bat": "9",
+          "sr": "-",
           "bowl": "1",
           "econ": "6"
         },
@@ -25876,6 +26433,7 @@
           "timestamp": 1332354600000,
           "ground": "Visakhapatnam",
           "bat": "32",
+          "sr": "-",
           "bowl": "0",
           "econ": "5.66"
         },
@@ -25885,6 +26443,7 @@
           "timestamp": 1332268200000,
           "ground": "Visakhapatnam",
           "bat": "4",
+          "sr": "-",
           "bowl": "0",
           "econ": "8"
         },
@@ -25894,6 +26453,7 @@
           "timestamp": 1332095400000,
           "ground": "Visakhapatnam",
           "bat": "9",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25903,6 +26463,7 @@
           "timestamp": 1332009000000,
           "ground": "Visakhapatnam",
           "bat": "57",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25972,6 +26533,7 @@
           "timestamp": 1330281000000,
           "ground": "Basseterre",
           "bat": "36",
+          "sr": "-",
           "bowl": "0",
           "econ": "9"
         },
@@ -25981,6 +26543,7 @@
           "timestamp": 1329935400000,
           "ground": "Roseau",
           "bat": "17",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25990,6 +26553,7 @@
           "timestamp": 1329849000000,
           "ground": "Roseau",
           "bat": "13",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -25999,6 +26563,7 @@
           "timestamp": 1329589800000,
           "ground": "North Sound",
           "bat": "1",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -26008,6 +26573,7 @@
           "timestamp": 1329503400000,
           "ground": "North Sound",
           "bat": "28",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -26057,6 +26623,7 @@
           "timestamp": 1309113000000,
           "ground": "Aldershot",
           "bat": "14",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -26066,6 +26633,7 @@
           "timestamp": 1309026600000,
           "ground": "Taunton",
           "bat": "3",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -26075,6 +26643,7 @@
           "timestamp": 1308940200000,
           "ground": "Bristol",
           "bat": "3",
+          "sr": "-",
           "bowl": "0",
           "econ": "3.66"
         },
@@ -26084,6 +26653,7 @@
           "timestamp": 1308767400000,
           "ground": "Billericay",
           "bat": "41",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -26093,6 +26663,7 @@
           "timestamp": 1295807400000,
           "ground": "Ahmedabad",
           "bat": "22",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -26102,6 +26673,7 @@
           "timestamp": 1295721000000,
           "ground": "Ahmedabad",
           "bat": "33",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -26111,6 +26683,7 @@
           "timestamp": 1295634600000,
           "ground": "Ahmedabad",
           "bat": "20",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -26170,6 +26743,7 @@
           "timestamp": 1273689000000,
           "ground": "Gros Islet",
           "bat": "24",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -26179,6 +26753,7 @@
           "timestamp": 1273429800000,
           "ground": "Basseterre",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -26188,6 +26763,7 @@
           "timestamp": 1273257000000,
           "ground": "Basseterre",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -26197,6 +26773,7 @@
           "timestamp": 1273084200000,
           "ground": "Basseterre",
           "bat": "4",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -26206,6 +26783,7 @@
           "timestamp": 1267986600000,
           "ground": "Mumbai",
           "bat": "30",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -26215,6 +26793,7 @@
           "timestamp": 1267813800000,
           "ground": "Mumbai",
           "bat": "33",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -26224,6 +26803,7 @@
           "timestamp": 1267641000000,
           "ground": "Mumbai",
           "bat": "11",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -26253,6 +26833,7 @@
           "timestamp": 1245263400000,
           "ground": "Nottingham",
           "bat": "0",
+          "sr": "-",
           "bowl": "0",
           "econ": "14"
         },
@@ -26262,6 +26843,7 @@
           "timestamp": 1245004200000,
           "ground": "Taunton",
           "bat": "-",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -26271,6 +26853,7 @@
           "timestamp": 1244831400000,
           "ground": "Taunton",
           "bat": "-",
+          "sr": "-",
           "bowl": "0",
           "econ": "1.5"
         },
@@ -26280,6 +26863,7 @@
           "timestamp": 1244658600000,
           "ground": "Taunton",
           "bat": "8",
+          "sr": "-",
           "bowl": "-",
           "econ": "-"
         },
@@ -66075,22 +66659,22 @@
       "last10": [
         {
           "opp": "Dragons",
-          "date": "Invalid Date",
-          "timestamp": null,
+          "date": "-",
+          "timestamp": 0,
           "ground": "OTHERT20",
           "bat": "16",
           "sr": "-",
-          "bowl": "10-May-2026",
+          "bowl": "-",
           "econ": "-"
         },
         {
           "opp": "IRE Women",
-          "date": "Invalid Date",
-          "timestamp": null,
+          "date": "-",
+          "timestamp": 0,
           "ground": "WT20I # 2648",
           "bat": "27*",
           "sr": "-",
-          "bowl": "26-Jan-2026",
+          "bowl": "-",
           "econ": "-"
         }
       ]
@@ -71432,22 +72016,22 @@
       "last10": [
         {
           "opp": "Typhoons",
-          "date": "Invalid Date",
-          "timestamp": null,
+          "date": "-",
+          "timestamp": 0,
           "ground": "OTHERT20",
           "bat": "45",
           "sr": "-",
-          "bowl": "10-May-2026",
+          "bowl": "-",
           "econ": "-"
         },
         {
           "opp": "IRE Women",
-          "date": "Invalid Date",
-          "timestamp": null,
+          "date": "-",
+          "timestamp": 0,
           "ground": "WT20I # 2627",
           "bat": "10",
           "sr": "-",
-          "bowl": "18-Jan-2026",
+          "bowl": "-",
           "econ": "-"
         }
       ]
@@ -86238,6 +86822,93 @@
           "sr": "50",
           "bowl": "0",
           "econ": "6"
+        }
+      ]
+    }
+  },
+  "1444444": {
+    "timestamp": 1779980477586,
+    "data": {
+      "last10": [
+        {
+          "opp": "Typhoons",
+          "date": "5/25/2026",
+          "timestamp": 1779647400000,
+          "ground": "Wicklow",
+          "bat": "43*",
+          "sr": "-",
+          "bowl": "-",
+          "econ": "-"
+        },
+        {
+          "opp": "Typhoons",
+          "date": "5/24/2026",
+          "timestamp": 1779561000000,
+          "ground": "Wicklow",
+          "bat": "2",
+          "sr": "-",
+          "bowl": "0",
+          "econ": "-"
+        },
+        {
+          "opp": "Typhoons",
+          "date": "5/17/2026",
+          "timestamp": 1778956200000,
+          "ground": "Belfast",
+          "bat": "-",
+          "sr": "-",
+          "bowl": "1",
+          "econ": "-"
+        },
+        {
+          "opp": "Typhoons",
+          "date": "5/10/2026",
+          "timestamp": 1778351400000,
+          "ground": "Wicklow",
+          "bat": "13",
+          "sr": "-",
+          "bowl": "0",
+          "econ": "-"
+        },
+        {
+          "opp": "IRE Women",
+          "date": "9/11/2024",
+          "timestamp": 1725993000000,
+          "ground": "Belfast",
+          "bat": "0",
+          "sr": "-",
+          "bowl": "0",
+          "econ": "-"
+        },
+        {
+          "opp": "IRE Women",
+          "date": "9/9/2024",
+          "timestamp": 1725820200000,
+          "ground": "Belfast",
+          "bat": "1",
+          "sr": "-",
+          "bowl": "1",
+          "econ": "-"
+        },
+        {
+          "opp": "IRE Women",
+          "date": "9/7/2024",
+          "timestamp": 1725647400000,
+          "ground": "Belfast",
+          "bat": "21",
+          "sr": "-",
+          "bowl": "0",
+          "econ": "-"
+        },
+        {
+          "opp": "IRE Women",
+          "date": "8/20/2024",
+          "timestamp": 1724092200000,
+          "ground": "Belfast",
+          "bat": "17",
+          "sr": "-",
+          "bowl": "0",
+          "econ": "-"
         }
       ]
     }

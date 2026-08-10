@@ -3,6 +3,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const { exec } = require('child_process');
 const path = require('path');
+const fs = require('fs');
 
 const openBrowser = (url) => {
     const start = (process.platform == 'darwin' ? 'open' : process.platform == 'win32' ? 'start' : 'xdg-open');
@@ -350,7 +351,39 @@ app.get('/api/h2h-match-history', async (req, res) => {
 });
 
 const playerCache = new Map(); // pid -> { timestamp, data }
-const CACHE_TTL_MS = 30 * 60 * 1000; // 30 minutes
+const CACHE_TTL_MS = 12 * 60 * 60 * 1000; // 12 hours
+const cacheFilePath = path.join(__dirname, 'scratch', 'player_cache.json');
+
+// Initialize playerCache from file on startup
+try {
+    if (fs.existsSync(cacheFilePath)) {
+        const raw = fs.readFileSync(cacheFilePath, 'utf8');
+        const parsed = JSON.parse(raw);
+        for (const [key, val] of Object.entries(parsed)) {
+            playerCache.set(key, val);
+        }
+        console.log(`Loaded ${playerCache.size} player profiles from disk cache.`);
+    }
+} catch (e) {
+    console.error("Failed to load player disk cache:", e);
+}
+
+// Function to save cache to file
+async function saveCacheToDisk() {
+    try {
+        const obj = {};
+        for (const [key, val] of playerCache.entries()) {
+            obj[key] = val;
+        }
+        const scratchDir = path.join(__dirname, 'scratch');
+        if (!fs.existsSync(scratchDir)) {
+            fs.mkdirSync(scratchDir, { recursive: true });
+        }
+        await fs.promises.writeFile(cacheFilePath, JSON.stringify(obj), 'utf8');
+    } catch (e) {
+        console.error("Failed to save player disk cache:", e);
+    }
+}
 
 // ── API: Player Profile (Scrape Statsguru batting/bowling log) ──
 app.get('/api/player-profile', async (req, res) => {
@@ -427,8 +460,10 @@ app.get('/api/player-profile', async (req, res) => {
     };
 
     try {
-        const batData = await fetchLog('batting');
-        const bowlData = await fetchLog('bowling');
+        const [batData, bowlData] = await Promise.all([
+            fetchLog('batting'),
+            fetchLog('bowling')
+        ]);
         
         let merged = { ...batData };
         for (const [key, data] of Object.entries(bowlData)) {
@@ -442,6 +477,7 @@ app.get('/api/player-profile', async (req, res) => {
         const sorted = Object.values(merged).sort((a, b) => b.timestamp - a.timestamp);
         const responseData = { last10: sorted };
         playerCache.set(pid, { timestamp: Date.now(), data: responseData });
+        saveCacheToDisk();
         res.json(responseData);
     } catch (e) {
         res.status(500).json({ error: e.message });

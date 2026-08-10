@@ -26,12 +26,18 @@
             padding: 0;
         }
 
-        body {
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
             background-color: var(--bg-dark);
+        }
+
+        body {
             color: #ffffff;
             font-family: var(--font-main);
-            min-height: 100vh;
-            overflow-x: hidden;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -64,23 +70,19 @@
         }
 
         .container {
-            max-width: 1600px;
+            max-width: 100%;
             margin: 0 auto;
             width: 100%;
-            padding: 1.25rem;
+            padding: clamp(0.4rem, 1.5vw, 1.25rem);
             display: flex;
             flex-direction: column;
             flex-grow: 1;
-            height: 100vh;
-            max-height: 100vh;
+            height: 100%;
+            max-height: 100%;
         }
 
         header {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            flex-shrink: 0;
+            display: none !important;
         }
 
         .header-top {
@@ -96,7 +98,7 @@
             padding: 0.4rem 0.8rem;
             border-radius: 6px;
             font-family: var(--font-main);
-            font-size: 0.8rem;
+            font-size: clamp(0.7rem, 1.2vw, 0.95rem);
             text-transform: uppercase;
             font-weight: 700;
             letter-spacing: 1px;
@@ -113,7 +115,7 @@
         }
 
         h1 {
-            font-size: 1.6rem;
+            font-size: clamp(1.2rem, 3.2vw, 2.2rem);
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
@@ -124,7 +126,7 @@
 
         .subtitle {
             color: rgba(255, 255, 255, 0.4);
-            font-size: 0.85rem;
+            font-size: clamp(0.7rem, 1.6vw, 0.95rem);
             font-weight: 400;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -180,24 +182,19 @@
         }
 
         .players-list-header {
-            display: grid;
-            grid-template-columns: 220px 1fr;
-            gap: 1rem;
-            padding: 0.2rem 0.75rem;
-            margin-bottom: 0.2rem;
-            flex-shrink: 0;
+            display: none !important;
         }
 
         .player-row {
             background: rgba(17, 18, 29, 0.4);
             border: 1px solid var(--glass-border);
-            padding: 0.4rem 0.75rem;
-            border-radius: 8px;
+            padding: clamp(0.2rem, 1vw, 0.6rem) clamp(0.25rem, 1.5vw, 1rem);
+            border-radius: clamp(4px, 1vw, 10px);
             font-family: 'Space Grotesk';
             display: grid;
-            grid-template-columns: 220px 1fr;
+            grid-template-columns: clamp(85px, 18vw, 240px) 1fr;
             align-items: center;
-            gap: 1rem;
+            gap: clamp(0.3rem, 2vw, 1.5rem);
             box-shadow: inset 0 0 10px rgba(0, 242, 255, 0.01);
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -209,21 +206,53 @@
             background: rgba(17, 18, 29, 0.65);
         }
 
+        .player-row span {
+            font-size: clamp(0.6rem, 1.6vw, 1.1rem) !important;
+        }
+
+        /* Dynamic Capsule Visibility based on Viewport Width to prevent overflow */
+        @media (max-width: 1024px) {
+            .capsule-0, .capsule-1 {
+                display: none !important;
+            }
+        }
+        @media (max-width: 768px) {
+            .capsule-2, .capsule-3 {
+                display: none !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .capsule-4 {
+                display: none !important;
+            }
+        }
+
+        /* Scale capsules dynamically based on display size */
+        .player-row > div:last-child span {
+            flex: 1 1 0% !important;
+            min-width: clamp(26px, 3.8vw, 56px) !important;
+            height: clamp(16px, 2.2vw, 32px) !important;
+            font-size: clamp(0.55rem, 1.2vw, 0.95rem) !important;
+            border-radius: clamp(3px, 0.4vw, 6px) !important;
+        }
+
         @media (max-width: 768px) {
             html, body {
-                height: auto !important;
-                max-height: none !important;
-                overflow: auto !important;
-                overflow-x: hidden !important;
+                height: 100% !important;
+                max-height: 100% !important;
+                overflow: hidden !important;
             }
             .players-h2h-list {
-                overflow-y: visible !important;
-                height: auto !important;
+                overflow-y: auto !important;
+                flex-grow: 1 !important;
+                min-height: 0 !important;
             }
             .container {
-                padding: 0.75rem;
-                height: auto;
-                max-height: none;
+                padding: 0.4rem !important;
+                height: 100% !important;
+                max-height: 100% !important;
+                display: flex !important;
+                flex-direction: column !important;
             }
             header {
                 margin-bottom: 0.75rem;
@@ -239,12 +268,27 @@
                 display: none;
             }
             .player-row {
-                grid-template-columns: 1fr;
-                gap: 0.5rem;
-                padding: 0.6rem 0.75rem;
+                grid-template-columns: clamp(85px, 25vw, 120px) 1fr !important;
+                gap: 0.25rem !important;
+                padding: 0.25rem 0.35rem !important;
             }
             .player-row:hover {
                 transform: none;
+            }
+            .player-row span {
+                font-size: clamp(0.6rem, 2.2vw, 0.85rem) !important;
+            }
+            .player-row img {
+                width: clamp(18px, 5vw, 24px) !important;
+                height: clamp(18px, 5vw, 24px) !important;
+            }
+            /* Scale capsules dynamically on mobile */
+            .player-row > div:last-child span {
+                min-width: clamp(26px, 8vw, 38px) !important;
+                height: clamp(16px, 5vw, 22px) !important;
+                font-size: clamp(0.55rem, 1.8vw, 0.8rem) !important;
+                padding: 0 0.15rem !important;
+                border-radius: 3px !important;
             }
             /* Enable smooth horizontal scrolling for capsules on mobile touch screens */
             .player-row > div:last-child {
@@ -254,6 +298,9 @@
                 padding-bottom: 4px;
                 scrollbar-width: thin;
                 scrollbar-color: rgba(0, 242, 255, 0.15) transparent;
+                display: flex;
+                align-items: center;
+                gap: 0.15rem !important;
             }
             .player-row > div:last-child::-webkit-scrollbar {
                 height: 4px;
@@ -388,30 +435,51 @@
                 const progressPercent = document.getElementById('progress-percent');
                 const progressStatus = document.getElementById('progress-status');
 
-                // Step 2: Concurrently fetch player profiles (with slight delay to avoid server hammering)
-                let loadedCount = 0;
+                // Step 2: Concurrently fetch player profiles in parallel (concurrency limit 4)
+                // Pre-create placeholder rows in the correct order to maintain squad order
+                const placeholders = squadPlayers.map(p => {
+                    const div = document.createElement('div');
+                    div.style.marginBottom = '0.35rem';
+                    container.appendChild(div);
+                    return { player: p, element: div };
+                });
 
-                for (let i = 0; i < squadPlayers.length; i++) {
-                    const p = squadPlayers[i];
-                    progressStatus.textContent = `Analyzing ${p.name}... (${i + 1}/${squadPlayers.length})`;
-                    
+                const CONCURRENCY_LIMIT = 4;
+                let loadedCount = 0;
+                
+                async function loadPlayer(item) {
+                    const p = item.player;
+                    progressStatus.textContent = `Analyzing ${p.name}...`;
                     try {
                         const profileRes = await fetch(`/api/player-profile?pid=${p.player_id}&name=${encodeURIComponent(p.name)}`);
                         const profileData = await profileRes.json();
-
                         const overallMatches = profileData.last10 || [];
-                        renderPlayerCard(p, overallMatches, container);
-
+                        renderPlayerCard(p, overallMatches, item.element);
                     } catch (err) {
                         console.error(`Failed to load profile for ${p.name}:`, err);
-                        // Render card with fallback error
-                        renderPlayerCard(p, [], container, true);
+                        renderPlayerCard(p, [], item.element, true);
                     }
-
                     loadedCount++;
                     const percent = Math.round((loadedCount / squadPlayers.length) * 100);
                     progressFill.style.width = `${percent}%`;
                     progressPercent.textContent = `${percent}%`;
+                }
+
+                // Simple concurrent queue
+                const queue = [...placeholders];
+                const activePromises = [];
+                
+                while (queue.length > 0 || activePromises.length > 0) {
+                    while (activePromises.length < CONCURRENCY_LIMIT && queue.length > 0) {
+                        const item = queue.shift();
+                        const promise = loadPlayer(item).then(() => {
+                            activePromises.splice(activePromises.indexOf(promise), 1);
+                        });
+                        activePromises.push(promise);
+                    }
+                    if (activePromises.length > 0) {
+                        await Promise.race(activePromises);
+                    }
                 }
 
                 progressStatus.textContent = "SQUAD ANALYSIS SECURED";
@@ -427,24 +495,10 @@
             }
         }
 
-        function renderPlayerCard(player, matches, parentContainer, isError = false) {
+        function renderPlayerCard(player, matches, row, isError = false) {
             const formattedName = player.name.toUpperCase();
             const avatarUrl = `https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320/lsci/db/PICTURES/CMS/${Math.floor(player.player_id/100)}/${player.player_id}.jpg`;
             const errorAvatarUrl = `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${player.name}&backgroundColor=00f2ff`;
-
-            const row = document.createElement('div');
-            row.style.marginBottom = '0.35rem';
-
-            // Dynamic color coding indicator dot next to name based on Player Role
-            const getRoleColor = (role) => {
-                const r = (role || '').toLowerCase();
-                if (r.includes('bowl')) return 'var(--neon-rose)';
-                if (r.includes('allrounder') || r.includes('all rounder')) return 'var(--neon-purple)';
-                if (r.includes('keeper') || r.includes('wk')) return 'var(--amber)';
-                return 'var(--neon-green)'; // default Batter
-            };
-            const roleColor = getRoleColor(player.role);
-            const roleLight = `<span style="width: 6px; height: 6px; border-radius: 50%; background-color: ${roleColor}; box-shadow: 0 0 6px ${roleColor}; flex-shrink: 0;" title="${player.role}"></span>`;
 
             // Helper to generate chronological neon-graded performance capsules
             const generateCapsules = (matchesList) => {
@@ -455,7 +509,7 @@
                 // Reverse to display oldest-to-newest chronological order, and limit to last 10 matches
                 const chronological = [...matchesList].reverse().slice(-10);
 
-                const perfList = chronological.map(m => {
+                const perfList = chronological.map((m, idx) => {
                     let text = '';
                     let isBatHigh = false;
                     let colorObj = { bg: 'rgba(255,255,255,0.03)', border: 'var(--glass-border)', text: 'rgba(255,255,255,0.85)', shadow: 'none' };
@@ -509,10 +563,10 @@
 
                     const styleString = `background: ${colorObj.bg}; border: 1px solid ${colorObj.border}; color: ${colorObj.text}; box-shadow: ${colorObj.shadow};`;
 
-                    return `<span style="display: inline-flex; align-items: center; justify-content: center; padding: 0 0.4rem; min-width: 44px; height: 26px; border-radius: 6px; font-family: 'Space Grotesk'; font-size: 0.85rem; font-weight: 700; ${styleString}">${text}</span>`;
+                    return `<span class="perf-capsule capsule-${idx}" style="display: inline-flex; align-items: center; justify-content: center; padding: 0 0.4rem; min-width: 44px; height: 26px; border-radius: 6px; font-family: 'Space Grotesk'; font-size: 0.85rem; font-weight: 700; ${styleString}">${text}</span>`;
                 });
 
-                return `<div style="display: flex; align-items: center; gap: 0.3rem; flex-wrap: nowrap; overflow-x: auto; min-width: 0;">${perfList.join(' ')}</div>`;
+                return `<div style="display: flex; align-items: center; gap: 0.3rem; flex-wrap: nowrap; overflow-x: auto; min-width: 0; width: 100%;">${perfList.join(' ')}</div>`;
             };
 
             if (isError) {
@@ -522,7 +576,6 @@
                 row.innerHTML = `
                     <div style="display: flex; align-items: center; gap: 0.75rem; min-width: 0;">
                         <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" style="width: 28px; height: 28px; border-radius: 6px; border: 1.5px solid var(--neon-rose);" alt="${player.name}">
-                        ${roleLight}
                         <span style="color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${player.name}</span>
                     </div>
                     <div style="color: var(--neon-rose); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
@@ -535,15 +588,12 @@
                     <!-- Player Column with Fixed Width 220px -->
                     <div style="display: flex; align-items: center; gap: 0.75rem; min-width: 0;">
                         <img src="${avatarUrl}" onerror="this.src='${errorAvatarUrl}'" style="width: 28px; height: 28px; border-radius: 6px; border: 1.5px solid var(--neon-blue); box-shadow: 0 0 8px rgba(0, 242, 255, 0.1);" alt="${player.name}">
-                        ${roleLight}
                         <span style="color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${player.name}</span>
                     </div>
                     <!-- Column 2: Last 10 Matches -->
                     ${generateCapsules(matches)}
                 `;
             }
-
-            parentContainer.appendChild(row);
         }
 
         // Run initializer

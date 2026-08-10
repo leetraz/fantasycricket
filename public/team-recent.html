@@ -210,22 +210,6 @@
             font-size: clamp(0.6rem, 1.6vw, 1.1rem) !important;
         }
 
-        /* Dynamic Capsule Visibility based on Viewport Width to prevent overflow */
-        @media (max-width: 1024px) {
-            .capsule-0, .capsule-1 {
-                display: none !important;
-            }
-        }
-        @media (max-width: 768px) {
-            .capsule-2, .capsule-3 {
-                display: none !important;
-            }
-        }
-        @media (max-width: 480px) {
-            .capsule-4 {
-                display: none !important;
-            }
-        }
 
         /* Scale capsules dynamically based on display size */
         .player-row > div:last-child span {
@@ -282,10 +266,10 @@
             }
             /* Scale capsules dynamically on mobile */
             .player-row > div:last-child span {
-                min-width: clamp(26px, 8vw, 38px) !important;
-                height: clamp(16px, 5vw, 22px) !important;
-                font-size: clamp(0.55rem, 1.8vw, 0.8rem) !important;
-                padding: 0 0.15rem !important;
+                min-width: clamp(20px, 6vw, 32px) !important;
+                height: clamp(16px, 4.5vw, 20px) !important;
+                font-size: clamp(0.5rem, 1.5vw, 0.75rem) !important;
+                padding: 0 0.1rem !important;
                 border-radius: 3px !important;
             }
             /* Enable smooth horizontal scrolling for capsules on mobile touch screens */

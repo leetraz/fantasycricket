@@ -238,21 +238,19 @@
 
         @media (max-width: 768px) {
             html, body {
-                height: 100% !important;
-                max-height: 100% !important;
-                overflow: hidden !important;
+                height: auto !important;
+                max-height: none !important;
+                overflow: auto !important;
+                overflow-x: hidden !important;
             }
             .players-h2h-list {
-                overflow-y: auto !important;
-                flex-grow: 1 !important;
-                min-height: 0 !important;
+                overflow-y: visible !important;
+                height: auto !important;
             }
             .container {
                 padding: 0.4rem !important;
-                height: 100% !important;
-                max-height: 100% !important;
-                display: flex !important;
-                flex-direction: column !important;
+                height: auto !important;
+                max-height: none !important;
             }
             header {
                 margin-bottom: 0.75rem;

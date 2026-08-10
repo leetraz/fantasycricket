@@ -230,9 +230,11 @@
                 display: none;
             }
             .player-row {
-                grid-template-columns: clamp(85px, 25vw, 120px) 1fr !important;
-                gap: 0.25rem !important;
-                padding: 0.25rem 0.35rem !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 0.45rem !important;
+                padding: 0.45rem 0.6rem !important;
             }
             /* Hide the 2nd and 3rd columns (Ground Matches and Stadium Averages) on mobile */
             .player-row > div:nth-child(2),
@@ -243,19 +245,19 @@
                 transform: none;
             }
             .player-row span {
-                font-size: clamp(0.6rem, 2.2vw, 0.85rem) !important;
+                font-size: 0.85rem !important;
             }
             .player-row img {
-                width: clamp(18px, 5vw, 24px) !important;
-                height: clamp(18px, 5vw, 24px) !important;
+                width: 24px !important;
+                height: 24px !important;
             }
             /* Scale capsules dynamically on mobile */
             .player-row > div:last-child span {
-                min-width: clamp(20px, 6vw, 32px) !important;
-                height: clamp(16px, 4.5vw, 20px) !important;
-                font-size: clamp(0.55rem, 1.5vw, 0.75rem) !important;
-                padding: 0 0.1rem !important;
-                border-radius: 3px !important;
+                min-width: clamp(25px, 8vw, 34px) !important;
+                height: 20px !important;
+                font-size: 0.7rem !important;
+                padding: 0 0.15rem !important;
+                border-radius: 4px !important;
             }
             /* Enable smooth horizontal scrolling for capsules on mobile touch screens */
             .player-row > div:last-child {

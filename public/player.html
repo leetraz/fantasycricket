@@ -734,19 +734,130 @@
             switchTab(initialTab);
         }
 
-        const getCanonicalTeam = (teamName) => {
-            const name = (teamName || '').toUpperCase().trim();
-            if (name.includes("PUNJAB") || name.includes("PBKS") || name.includes("KXIP") || name.includes("KINGS XI")) return "PBKS";
-            if (name.includes("CHENNAI") || name.includes("CSK") || name.includes("SUPER KINGS")) return "CSK";
-            if (name.includes("MUMBAI") || name.includes("MI") || name.includes("INDIANS")) return "MI";
-            if (name.includes("KOLKATA") || name.includes("KKR") || name.includes("KNIGHT RIDERS")) return "KKR";
-            if (name.includes("ROYAL CHALLENGERS") || name.includes("RCB") || name.includes("BANGALORE") || name.includes("BENGALURU")) return "RCB";
-            if (name.includes("DELHI") || name.includes("DC") || name.includes("DAREDEVILS") || name.includes("CAPITALS")) return "DC";
-            if (name.includes("RAJASTHAN") || name.includes("RR") || name.includes("ROYALS")) return "RR";
-            if (name.includes("SUNRISERS") || name.includes("SRH") || name.includes("HYDERABAD") || name.includes("DECCAN") || name.includes("CHARGERS")) return "SRH";
-            if (name.includes("GUJARAT") || name.includes("GT") || name.includes("TITANS")) return "GT";
-            if (name.includes("LUCKNOW") || name.includes("LSG") || name.includes("SUPER GIANTS")) return "LSG";
-            return name;
+        const isMatchOpponent = (oppName, targetName) => {
+            if (!oppName || !targetName) return false;
+            
+            const getCanonical = (name) => {
+                name = name.toUpperCase().trim();
+                if (name.includes("PUNJAB") || name.includes("PBKS") || name.includes("KXIP") || name.includes("KINGS XI")) return "PBKS";
+                if (name.includes("CHENNAI") || name.includes("CSK") || name.includes("SUPER KINGS")) return "CSK";
+                if (name.includes("MUMBAI") || name.includes("MI") || name.includes("INDIANS")) return "MI";
+                if (name.includes("KOLKATA") || name.includes("KKR") || name.includes("KNIGHT RIDERS")) return "KKR";
+                if (name.includes("ROYAL CHALLENGERS") || name.includes("RCB") || name.includes("BANGALORE") || name.includes("BENGALURU")) return "RCB";
+                if (name.includes("DELHI") || name.includes("DC") || name.includes("DAREDEVILS") || name.includes("CAPITALS")) return "DC";
+                if (name.includes("RAJASTHAN") || name.includes("RR") || name.includes("ROYALS")) return "RR";
+                if (name.includes("SUNRISERS") || name.includes("SRH") || name.includes("HYDERABAD") || name.includes("DECCAN") || name.includes("CHARGERS")) return "SRH";
+                if (name.includes("GUJARAT") || name.includes("GT") || name.includes("TITANS")) return "GT";
+                if (name.includes("LUCKNOW") || name.includes("LSG") || name.includes("SUPER GIANTS")) return "LSG";
+                return name;
+            };
+
+            const expandTeamCode = (code) => {
+                if (!code) return "";
+                code = code.toUpperCase().trim();
+                const mapping = {
+                    "MIL-M": "LONDON SPIRIT SPIRIT",
+                    "MIL-W": "LONDON SPIRIT SPIRIT",
+                    "BP-M": "BIRMINGHAM PHOENIX PHOENIX",
+                    "BP-W": "BIRMINGHAM PHOENIX PHOENIX",
+                    "TR-M": "TRENT ROCKETS ROCKETS",
+                    "TR-W": "TRENT ROCKETS ROCKETS",
+                    "SB-M": "SOUTHERN BRAVE BRAVE",
+                    "SB-W": "SOUTHERN BRAVE BRAVE",
+                    "WEF-M": "WELSH FIRE FIRE",
+                    "WEF-W": "WELSH FIRE FIRE",
+                    "MNR-M": "MANCHESTER ORIGINALS ORIGINALS",
+                    "MNR-W": "MANCHESTER ORIGINALS ORIGINALS",
+                    "OVL-M": "OVAL INVINCIBLES INVINCIBLES",
+                    "OVL-W": "OVAL INVINCIBLES INVINCIBLES",
+                    "NOS-M": "NORTHERN SUPERCHARGERS SUPERCHARGERS N S-CHARGERS",
+                    "NOS-W": "NORTHERN SUPERCHARGERS SUPERCHARGERS N S-CHARGERS",
+                    "WARWICKSHIRE": "WARWICKSHIRE BEARS BIRMINGHAM BEARS",
+                    "BIRMINGHAM BEARS": "WARWICKSHIRE BEARS BIRMINGHAM BEARS",
+                    "BEARS": "WARWICKSHIRE BEARS BIRMINGHAM BEARS",
+                    "WORCESTERSHIRE": "WORCESTERSHIRE WORCS RAPIDS",
+                    "WORCS": "WORCESTERSHIRE WORCS RAPIDS",
+                    "RAPIDS": "WORCESTERSHIRE WORCS RAPIDS",
+                    "NORTHAMPTONSHIRE": "NORTHAMPTONSHIRE NORTHANTS STEELBACKS",
+                    "NORTHANTS": "NORTHAMPTONSHIRE NORTHANTS STEELBACKS",
+                    "STEELBACKS": "NORTHAMPTONSHIRE NORTHANTS STEELBACKS",
+                    "LEICESTERSHIRE": "LEICESTERSHIRE LEICS FOXES",
+                    "LEICS": "LEICESTERSHIRE LEICS FOXES",
+                    "FOXES": "LEICESTERSHIRE LEICS FOXES",
+                    "NOTTINGHAMSHIRE": "NOTTINGHAMSHIRE NOTTS OUTLAWS",
+                    "NOTTS": "NOTTINGHAMSHIRE NOTTS OUTLAWS",
+                    "OUTLAWS": "NOTTINGHAMSHIRE NOTTS OUTLAWS",
+                    "GLOUCESTERSHIRE": "GLOUCESTERSHIRE GLOUCS GLOS SHARKS",
+                    "GLOUCS": "GLOUCESTERSHIRE GLOUCS GLOS SHARKS",
+                    "GLOS": "GLOUCESTERSHIRE GLOUCS GLOS SHARKS",
+                    "LANCASHIRE": "LANCASHIRE LANCS LIGHTNING",
+                    "LANCS": "LANCASHIRE LANCS LIGHTNING",
+                    "LIGHTNING": "LANCASHIRE LANCS LIGHTNING",
+                    "DERBYSHIRE": "DERBYSHIRE DERBYS FALCONS",
+                    "DERBYS": "DERBYSHIRE DERBYS FALCONS",
+                    "FALCONS": "DERBYSHIRE DERBYS FALCONS",
+                    "HAMPSHIRE": "HAMPSHIRE HANTS HAWKS",
+                    "HANTS": "HAMPSHIRE HANTS HAWKS",
+                    "HAWKS": "HAMPSHIRE HANTS HAWKS",
+                    "YORKSHIRE": "YORKSHIRE YORKS VIKINGS",
+                    "YORKS": "YORKSHIRE YORKS VIKINGS",
+                    "VIKINGS": "YORKSHIRE YORKS VIKINGS",
+                    "MIDDLESEX": "MIDDLESEX MIDDX",
+                    "MIDDX": "MIDDLESEX MIDDX",
+                    "GLAMORGAN": "GLAMORGAN GLAM",
+                    "GLAM": "GLAMORGAN GLAM",
+                    "SOMERSET": "SOMERSET SOM",
+                    "SOM": "SOMERSET SOM",
+                    "CSK": "CHENNAI SUPER KINGS CHENNAI",
+                    "MI": "MUMBAI INDIANS MUMBAI",
+                    "RCB": "ROYAL CHALLENGERS BENGALURU BANGALORE ROYAL CHALLENGERS",
+                    "SRH": "SUNRISERS HYDERABAD SUNRISERS",
+                    "GT": "GUJARAT TITANS GUJARAT",
+                    "LSG": "LUCKNOW SUPER GIANTS LUCKNOW",
+                    "KKR": "KOLKATA KNIGHT RIDERS KOLKATA",
+                    "RR": "RAJASTHAN ROYALS RAJASTHAN",
+                    "DC": "DELHI CAPITALS DELHI",
+                    "PBKS": "PUNJAB KINGS PUNJAB KINGS XI KXIP"
+                };
+                return mapping[code] || code;
+            };
+
+            const oppCanonical = getCanonical(oppName);
+            const targetCanonical = getCanonical(targetName);
+
+            if (oppCanonical === targetCanonical) return true;
+
+            const clean = (name) => {
+                return name.toUpperCase()
+                           .replace(/^V\s+/, '')
+                           .replace(/^V\b/, '')
+                           .replace(/^VS\b/, '')
+                           .replace(/\bMEN\b/g, '')
+                           .replace(/\bWOMEN\b/g, '')
+                           .replace(/\bTEAM\b/g, '')
+                           .replace(/\bW\b/g, '')
+                           .replace(/\bM\b/g, '')
+                           .replace(/[^A-Z0-9 ]/g, '')
+                           .trim();
+            };
+
+            const oppClean = clean(expandTeamCode(oppName));
+            const targetClean = clean(expandTeamCode(targetName));
+
+            if (oppClean === targetClean) return true;
+            if (oppClean.includes(targetClean) || targetClean.includes(oppClean)) return true;
+
+            if (oppClean.length >= 3 && targetClean.startsWith(oppClean)) return true;
+            if (targetClean.length >= 3 && oppClean.startsWith(targetClean)) return true;
+
+            const oppWords = oppClean.split(/\s+/).filter(w => w.length > 3);
+            const targetWords = targetClean.split(/\s+/).filter(w => w.length > 3);
+
+            for (const w1 of oppWords) {
+                if (targetWords.includes(w1)) return true;
+            }
+
+            return false;
         };
 
         function switchTab(tabType) {
@@ -767,10 +878,8 @@
 
             if (tabType === 'h2h') {
                 if (opponent) {
-                    const targetCanonical = getCanonicalTeam(opponent);
                     matches = matchesList.filter(m => {
-                        const oppClean = (m.opp || '').replace(/^V\s+/, '').replace(/^v\s+/, '').trim();
-                        return getCanonicalTeam(oppClean) === targetCanonical;
+                        return isMatchOpponent(m.opp, opponent);
                     });
                 } else {
                     matches = matchesList;

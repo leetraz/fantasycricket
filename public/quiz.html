@@ -730,15 +730,22 @@
                 </div>
             `;
             
+            // Initialize tab-specific eliminated states
+            record.eliminated = {
+                recent: false,
+                h2h: false,
+                venue: false
+            };
+            
             // Clicking player name/container also triggers eliminate
             row.querySelector('.player-info-container').addEventListener('click', () => {
-                dismissRow(row);
+                dismissRow(record);
             });
             
             // Clicking dismiss button triggers eliminate
             row.querySelector('.dismiss-btn').addEventListener('click', (e) => {
                 e.stopPropagation();
-                dismissRow(row);
+                dismissRow(record);
             });
             
             const capsulesWrapper = row.querySelector('.capsules-wrapper');
@@ -749,10 +756,13 @@
             updateCapsules(record, activeTab);
         }
 
-        function dismissRow(row) {
-            row.classList.add('fade-out');
+        function dismissRow(record) {
+            record.eliminated[activeTab] = true;
+            record.element.classList.add('fade-out');
             setTimeout(() => {
-                row.style.display = 'none';
+                if (record.eliminated[activeTab]) {
+                    record.element.style.display = 'none';
+                }
             }, 300);
         }
 
@@ -850,17 +860,29 @@
 
             playerRecords.forEach(record => {
                 updateCapsules(record, tab);
+                
+                // Toggle visibility independently based on current tab's eliminated state
+                if (record.eliminated[tab]) {
+                    record.element.style.display = 'none';
+                    record.element.classList.add('fade-out');
+                } else {
+                    record.element.style.display = 'flex';
+                    record.element.classList.remove('fade-out');
+                }
             });
         }
 
         // Reset Handler
         document.getElementById('refresh-btn').addEventListener('click', () => {
-            const rows = document.querySelectorAll('.player-row-quiz');
-            rows.forEach(row => {
-                row.style.display = 'flex';
+            playerRecords.forEach(record => {
+                record.eliminated.recent = false;
+                record.eliminated.h2h = false;
+                record.eliminated.venue = false;
+                
+                record.element.style.display = 'flex';
                 // Trigger reflow
-                row.offsetHeight;
-                row.classList.remove('fade-out');
+                record.element.offsetHeight;
+                record.element.classList.remove('fade-out');
             });
         });
 

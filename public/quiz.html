@@ -389,20 +389,61 @@
 
     <script>
         // Resolve canonical team names for consistency
-        const getCanonicalTeam = (name) => {
-            if (!name) return "";
-            name = name.toUpperCase().trim();
-            if (name.includes("CHENNAI") || name.includes("CSK") || name.includes("SUPER KINGS")) return "CSK";
-            if (name.includes("MUMBAI") || name.includes("MI") || name.includes("INDIANS")) return "MI";
-            if (name.includes("ROYAL CHALLENGERS") || name.includes("RCB") || name.includes("BENGALURU")) return "RCB";
-            if (name.includes("SUNRISERS") || name.includes("SRH") || name.includes("HYDERABAD")) return "SRH";
-            if (name.includes("GUJARAT") || name.includes("GT") || name.includes("TITANS")) return "GT";
-            if (name.includes("LUCKNOW") || name.includes("LSG") || name.includes("SUPER GIANTS")) return "LSG";
-            if (name.includes("KOLKATA") || name.includes("KKR") || name.includes("KNIGHT RIDERS")) return "KKR";
-            if (name.includes("RAJASTHAN") || name.includes("RR") || name.includes("ROYALS")) return "RR";
-            if (name.includes("DELHI") || name.includes("DC") || name.includes("CAPITALS")) return "DC";
-            if (name.includes("PUNJAB") || name.includes("PBKS") || name.includes("KINGS")) return "PBKS";
-            return name;
+        // Robust, high-fidelity Loose Canonical Team Matching Logic
+        const isMatchOpponent = (oppName, targetName) => {
+            if (!oppName || !targetName) return false;
+            
+            const getCanonical = (name) => {
+                name = name.toUpperCase().trim();
+                if (name.includes("CHENNAI") || name.includes("CSK") || name.includes("SUPER KINGS")) return "CSK";
+                if (name.includes("MUMBAI") || name.includes("MI") || name.includes("INDIANS")) return "MI";
+                if (name.includes("ROYAL CHALLENGERS") || name.includes("RCB") || name.includes("BENGALURU")) return "RCB";
+                if (name.includes("SUNRISERS") || name.includes("SRH") || name.includes("HYDERABAD")) return "SRH";
+                if (name.includes("GUJARAT") || name.includes("GT") || name.includes("TITANS")) return "GT";
+                if (name.includes("LUCKNOW") || name.includes("LSG") || name.includes("SUPER GIANTS")) return "LSG";
+                if (name.includes("KOLKATA") || name.includes("KKR") || name.includes("KNIGHT RIDERS")) return "KKR";
+                if (name.includes("RAJASTHAN") || name.includes("RR") || name.includes("ROYALS")) return "RR";
+                if (name.includes("DELHI") || name.includes("DC") || name.includes("CAPITALS")) return "DC";
+                if (name.includes("PUNJAB") || name.includes("PBKS") || name.includes("KINGS") || name.includes("KXIP")) return "PBKS";
+                return name;
+            };
+
+            const oppCanonical = getCanonical(oppName);
+            const targetCanonical = getCanonical(targetName);
+
+            if (oppCanonical === targetCanonical) return true;
+
+            const clean = (name) => {
+                return name.toUpperCase()
+                           .replace(/^V\s+/, '')
+                           .replace(/^V\b/, '')
+                           .replace(/^VS\b/, '')
+                           .replace(/\bMEN\b/g, '')
+                           .replace(/\bWOMEN\b/g, '')
+                           .replace(/\bTEAM\b/g, '')
+                           .replace(/\bW\b/g, '')
+                           .replace(/\bM\b/g, '')
+                           .replace(/[^A-Z0-9 ]/g, '')
+                           .trim();
+            };
+
+            const oppClean = clean(oppName);
+            const targetClean = clean(targetName);
+
+            if (oppClean === targetClean) return true;
+            if (oppClean.includes(targetClean) || targetClean.includes(oppClean)) return true;
+
+            if (oppClean.length >= 3 && targetClean.startsWith(oppClean)) return true;
+            if (targetClean.length >= 3 && oppClean.startsWith(targetClean)) return true;
+
+            const oppWords = oppClean.split(/\s+/).filter(w => w.length > 3);
+            const targetWords = targetClean.split(/\s+/).filter(w => w.length > 3);
+
+            for (const w1 of oppWords) {
+                if (targetWords.includes(w1)) return true;
+            }
+
+            return false;
         };
 
         // Parse search query
@@ -465,10 +506,8 @@
                         const recentMatches = matchesList;
 
                         // 2. H2H Matches against target opponent
-                        const targetCanonical = getCanonicalTeam(opponentName);
                         const h2hMatches = matchesList.filter(m => {
-                            const oppClean = m.opp.replace(/^V\s+/, '').replace(/^v\s+/, '').trim();
-                            return getCanonicalTeam(oppClean) === targetCanonical;
+                            return isMatchOpponent(m.opp, opponentName);
                         });
 
                         // 3. Venue Matches

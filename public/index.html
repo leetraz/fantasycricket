@@ -1931,8 +1931,10 @@
         function openSquadQuiz(teamIndex) {
             if (!matchData) return;
             const teamName = matchData.teams[teamIndex];
+            const opponent = matchData.teams.find(t => t !== teamName) || "OPPONENT";
+            const groundName = matchData.groundName || "Eden Gardens";
             const url = document.getElementById('matchUrl').value.trim();
-            const targetUrl = `quiz.html?url=${encodeURIComponent(url)}&teamIdx=${teamIndex}&teamName=${encodeURIComponent(teamName)}`;
+            const targetUrl = `quiz.html?url=${encodeURIComponent(url)}&teamIdx=${teamIndex}&teamName=${encodeURIComponent(teamName)}&opponent=${encodeURIComponent(opponent)}&ground=${encodeURIComponent(groundName)}`;
             window.open(targetUrl, '_blank');
         }
 

@@ -1427,15 +1427,20 @@
         }
 
         async function fetchH2HHistory() {
-            if (!matchData || !matchData.teamsInfo || matchData.teamsInfo.length < 2) return;
+            if (!matchData) return;
             
-            try {
-                const response = await fetch(`/api/h2h-match-history?team1Id=${encodeURIComponent(matchData.teamsInfo[0].id)}&team2Id=${encodeURIComponent(matchData.teamsInfo[1].id)}`);
-                h2hMatches = await response.json();
-                renderH2HMatches();
-            } catch (err) {
-                console.error("Failed to fetch H2H history:", err);
+            h2hMatches = matchData.h2hMatches || [];
+            
+            if (h2hMatches.length === 0 && matchData.teamsInfo && matchData.teamsInfo.length >= 2) {
+                try {
+                    const response = await fetch(`/api/h2h-match-history?team1Id=${encodeURIComponent(matchData.teamsInfo[0].id)}&team2Id=${encodeURIComponent(matchData.teamsInfo[1].id)}`);
+                    h2hMatches = await response.json();
+                } catch (err) {
+                    console.error("Failed to fetch legacy H2H history:", err);
+                }
             }
+            
+            renderH2HMatches();
         }
 
         function renderH2HMatches() {

@@ -274,12 +274,37 @@ app.get('/api/match-data', async (req, res) => {
         const statusText = matchDetail.statusText || data.matchData?.statusText || matchInfo.statusText || data.statusText || "";
         const groundName = matchDetail.ground?.name || data.matchData?.ground?.name || matchInfo.ground?.name || data.groundName || "";
 
+        const rawH2H = data.content?.headToHead?.matches || data.headToHead?.matches || [];
+        const h2hMatches = rawH2H.map(m => {
+            const t1 = m.teams?.[0];
+            const t2 = m.teams?.[1];
+            
+            const team1Name = t1?.team?.name || "Team 1";
+            const team2Name = t2?.team?.name || "Team 2";
+            
+            const score1 = t1?.score || "-";
+            const score2 = t2?.score || "-";
+            
+            const dateObj = new Date(m.startDate);
+            const dateStr = !isNaN(dateObj.getTime()) ? dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : "";
+            
+            return {
+                date: dateStr,
+                title: `${team1Name} vs ${team2Name} (${m.title || "Match"})`,
+                score: `${score1} vs ${score2}`,
+                ground: m.ground?.name || m.ground?.smallName || "Unknown Ground",
+                result: m.statusText || m.status || "Result Pending",
+                url: `https://www.espncricinfo.com/series/match-${m.objectId}/full-scorecard`
+            };
+        });
+
         res.json({
             allPlayers: players,
             teams: teamNames,
             teamsInfo: teamsInfo,
             statusText: statusText,
-            groundName: groundName
+            groundName: groundName,
+            h2hMatches: h2hMatches
         });
     } catch (e) {
         res.status(500).json({ error: e.message });

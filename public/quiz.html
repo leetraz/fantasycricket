@@ -178,13 +178,13 @@
             border-radius: 12px;
             padding: 0.6rem 1rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             user-select: none;
-            gap: 1rem;
+            gap: 1.25rem;
         }
 
         .player-row-quiz:hover {
@@ -202,10 +202,11 @@
         }
 
         .player-info-container {
+            width: 220px;
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             min-width: 0;
-            flex-shrink: 0;
         }
 
         .player-name-text {
@@ -225,31 +226,30 @@
             gap: 0.75rem;
             min-width: 0;
             flex-grow: 1;
-            justify-content: flex-end;
         }
 
         .capsules-wrapper {
             display: flex;
             align-items: center;
-            gap: 0.2rem;
-            flex-wrap: nowrap;
-            overflow-x: auto;
+            gap: 0.35rem;
+            flex-grow: 1;
+            width: 100%;
             min-width: 0;
         }
 
-        /* Scale capsules dynamically */
+        /* Scale capsules dynamically to fill remaining row width evenly */
         .perf-capsule {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 0 0.35rem;
-            min-width: clamp(28px, 6vw, 44px);
             height: 24px;
             border-radius: 5px;
             font-family: 'Space Grotesk', sans-serif;
             font-size: 0.8rem;
             font-weight: 700;
-            flex-shrink: 0;
+            flex: 1 1 0% !important;
+            min-width: 0;
+            text-align: center;
         }
 
         .dismiss-btn {

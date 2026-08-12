@@ -390,6 +390,8 @@ app.get('/api/player-profile', async (req, res) => {
     const { pid, name } = req.query;
     if (!pid) return res.status(400).json({ error: "Missing player ID" });
 
+    res.set('Cache-Control', 'public, max-age=3600');
+
     const cached = playerCache.get(pid);
     if (cached && (Date.now() - cached.timestamp < CACHE_TTL_MS)) {
         return res.json(cached.data);

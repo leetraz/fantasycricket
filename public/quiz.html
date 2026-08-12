@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squad Quiz Mode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: #060814;
+            --card-bg: rgba(10, 12, 30, 0.6);
+            --border: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.06);
+            --text-dim: #8b9bb4;
+            --neon-blue: #00f2fe;
+            --neon-purple: #9d00ff;
+            --neon-pink: #ff0055;
+            --neon-green: #00ff87;
+            --neon-rose: #ff2a6d;
+            --amber: #ff9900;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            background-color: var(--background);
+            color: #ffffff;
+            font-family: 'Space Grotesk', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Cyberpunk Grid Background */
+        .cyber-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: 
+                linear-gradient(rgba(18, 16, 35, 0.8) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(18, 16, 35, 0.8) 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-position: center center;
+            z-index: -2;
+            opacity: 0.4;
+        }
+
+        .neon-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(140px);
+            z-index: -1;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        /* Loading Indicator */
+        #loading-indicator {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar-container {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 0.75rem;
+        }
+
+        #progress-fill {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            animation: pulse-loader 1.5s infinite ease-in-out;
+        }
+
+        @keyframes pulse-loader {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+
+        /* Players List */
+        .players-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            flex-grow: 1;
+        }
+
+        .player-row-quiz {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            user-select: none;
+        }
+
+        .player-row-quiz:hover {
+            border-color: var(--neon-blue);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.12);
+            transform: translateY(-1px);
+        }
+
+        .player-row-quiz.fade-out {
+            opacity: 0;
+            transform: scale(0.95) translateY(-8px);
+            margin-bottom: -50px;
+            pointer-events: none;
+        }
+
+        .player-row-quiz:hover span.close-x {
+            color: var(--neon-rose);
+            opacity: 1;
+        }
+
+        .close-x {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.2);
+            transition: all 0.2s ease;
+            opacity: 0.6;
+        }
+
+        /* Refresh Button */
+        .quiz-refresh-btn {
+            background: linear-gradient(135deg, var(--neon-green), #00ff87) !important;
+            border: none !important;
+            color: #000000 !important;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            padding: 0.8rem 2.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 0 15px rgba(0, 255, 135, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .quiz-refresh-btn:hover {
+            box-shadow: 0 0 25px rgba(0, 255, 135, 0.75);
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .quiz-refresh-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            .player-row-quiz {
+                padding: 0.85rem 1.1rem;
+            }
+            .player-name-text {
+                font-size: 1rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cyber-grid"></div>
+    <div class="neon-glow" style="background: var(--neon-blue); top: -20%; left: -20%;"></div>
+    <div class="neon-glow" style="background: var(--neon-purple); bottom: -20%; right: -20%;"></div>
+
+    <div class="container">
+
+        <header>
+            <h1 id="squad-title">SQUAD QUIZ MODE</h1>
+            <div class="subtitle" id="squad-subtitle">Tap a player's card to temporarily eliminate them. Use the reset button below to restore them.</div>
+        </header>
+
+        <!-- Loading indicator -->
+        <div id="loading-indicator">
+            <span id="progress-status" style="color: var(--neon-blue); font-size: 0.9rem;">Connecting telemetry channels...</span>
+            <div class="progress-bar-container">
+                <div id="progress-fill"></div>
+            </div>
+        </div>
+
+        <!-- Render List Container -->
+        <div class="players-list" id="players-list-container">
+            <!-- Injected dynamically -->
+        </div>
+
+        <!-- Reset Button -->
+        <div style="display: flex; justify-content: center; margin-top: 2.5rem; margin-bottom: 1.5rem;">
+            <button id="refresh-btn" class="quiz-refresh-btn">
+                🔄 Reset Roster
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        // Parse search query
+        const urlParams = new URLSearchParams(window.location.search);
+        const matchUrl = urlParams.get('url');
+        const teamIdx = parseInt(urlParams.get('teamIdx')) || 0;
+        const teamName = urlParams.get('teamName') || 'SQUAD';
+
+        document.getElementById('squad-title').textContent = `${teamName} • QUIZ ROSTER`;
+
+        async function init() {
+            if (!matchUrl) {
+                document.getElementById('progress-status').textContent = "ERROR: NO MATCH URL SUPPLIED";
+                document.getElementById('progress-status').style.color = "var(--neon-rose)";
+                return;
+            }
+
+            try {
+                const res = await fetch(`/api/match-data?url=${encodeURIComponent(matchUrl)}`);
+                const matchData = await res.json();
+                if (matchData.error) throw new Error(matchData.error);
+
+                const activeTeamName = matchData.teams[teamIdx];
+                const squadPlayers = matchData.allPlayers.filter(p => p.team === activeTeamName);
+
+                if (squadPlayers.length === 0) {
+                    throw new Error("No players found in this squad.");
+                }
+
+                // Hide loader
+                document.getElementById('loading-indicator').style.display = 'none';
+
+                const container = document.getElementById('players-list-container');
+                squadPlayers.forEach(player => {
+                    const row = document.createElement('div');
+                    row.className = 'player-row-quiz';
+                    
+                    const roleColor = (player.role || '').toLowerCase().includes('allround') ? 'var(--neon-purple)' :
+                                      (player.role || '').toLowerCase().includes('bowl') ? 'var(--neon-pink)' :
+                                      (player.role || '').toLowerCase().includes('bat') ? 'var(--neon-green)' : 'var(--neon-blue)';
+                    
+                    row.innerHTML = `
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <span class="player-name-text" style="font-size: 1.1rem; font-weight: 700; color: #fff;">${player.name}</span>
+                            <span style="color: ${roleColor}; font-size: 0.75rem; font-weight: 800; border: 1px solid ${roleColor}; padding: 0.15rem 0.4rem; border-radius: 4px; text-transform: uppercase;">${player.role || 'Player'}</span>
+                        </div>
+                        <span class="close-x">✕</span>
+                    `;
+
+                    row.addEventListener('click', () => {
+                        row.classList.add('fade-out');
+                        setTimeout(() => {
+                            row.style.display = 'none';
+                        }, 300);
+                    });
+
+                    container.appendChild(row);
+                });
+
+            } catch (err) {
+                document.getElementById('progress-status').textContent = `ERROR: ${err.message}`;
+                document.getElementById('progress-status').style.color = "var(--neon-rose)";
+            }
+        }
+
+        // Reset Handler
+        document.getElementById('refresh-btn').addEventListener('click', () => {
+            const rows = document.querySelectorAll('.player-row-quiz');
+            rows.forEach(row => {
+                row.style.display = 'flex';
+                // Trigger reflow
+                row.offsetHeight;
+                row.classList.remove('fade-out');
+            });
+        });
+
+        // Run on startup
+        init();
+    </script>
+</body>
+</html>

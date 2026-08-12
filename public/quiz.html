@@ -65,25 +65,25 @@
 
         .container {
             width: 100%;
-            max-width: 900px;
+            max-width: 100% !important;
             margin: 0 auto;
-            padding: 1.5rem 1rem;
+            padding: 0.4rem !important;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
         header {
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             border-bottom: 1px solid var(--border);
-            padding-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
             display: flex;
             flex-direction: column;
-            gap: 0.4rem;
+            gap: 0.25rem;
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: clamp(1.4rem, 4vw, 2rem);
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -94,16 +94,16 @@
 
         .subtitle {
             color: var(--text-dim);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             line-height: 1.4;
         }
 
         /* Cohort Tab Buttons Style */
         .cohort-toolbar {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.4rem;
             width: 100%;
-            margin-bottom: 1.25rem;
+            margin-bottom: 0.75rem;
         }
         
         .cohort-tab-btn {
@@ -112,9 +112,9 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             color: var(--text-dim);
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.85rem;
+            font-size: clamp(0.7rem, 2vw, 0.85rem);
             font-weight: 700;
-            padding: 0.6rem 0.5rem;
+            padding: 0.55rem 0.4rem;
             border-radius: 1.25rem;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -143,9 +143,9 @@
             background: rgba(0, 0, 0, 0.3);
             border: 1px solid var(--glass-border);
             border-radius: 12px;
-            padding: 1.5rem;
+            padding: 1rem;
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .progress-bar-container {
@@ -153,7 +153,7 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 3px;
             overflow: hidden;
-            margin-top: 0.75rem;
+            margin-top: 0.5rem;
         }
 
         #progress-fill {
@@ -168,7 +168,7 @@
         .players-list {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 0.35rem;
             flex-grow: 1;
         }
 
@@ -176,7 +176,7 @@
             background: var(--card-bg);
             border: 1px solid var(--glass-border);
             border-radius: 12px;
-            padding: 0.8rem 1.25rem;
+            padding: 0.6rem 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -201,12 +201,31 @@
             pointer-events: none;
         }
 
-        .player-header-row {
+        .player-info-container {
             display: flex;
             align-items: center;
-            justify-content: space-between;
             min-width: 0;
             flex-shrink: 0;
+        }
+
+        .player-name-text {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .player-data-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            min-width: 0;
+            flex-grow: 1;
+            justify-content: flex-end;
         }
 
         .capsules-wrapper {
@@ -216,8 +235,6 @@
             flex-wrap: nowrap;
             overflow-x: auto;
             min-width: 0;
-            flex-grow: 1;
-            justify-content: flex-end;
         }
 
         /* Scale capsules dynamically */
@@ -235,17 +252,27 @@
             flex-shrink: 0;
         }
 
-        .player-row-quiz:hover span.close-x {
-            color: var(--neon-rose);
-            opacity: 1;
+        .dismiss-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            background: rgba(255, 0, 85, 0.05);
+            border: 1px solid rgba(255, 0, 85, 0.25);
+            color: var(--neon-pink);
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
         }
 
-        .close-x {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.2);
-            transition: all 0.2s ease;
-            opacity: 0.6;
-            margin-left: 0.5rem;
+        .dismiss-btn:hover {
+            background: rgba(255, 0, 85, 0.2);
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 10px rgba(255, 0, 85, 0.4);
+            transform: scale(1.05);
         }
 
         /* Refresh Button */
@@ -278,20 +305,23 @@
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 1.6rem;
-            }
             .player-row-quiz {
                 flex-direction: column !important;
                 align-items: stretch !important;
                 gap: 0.45rem !important;
                 padding: 0.45rem 0.6rem !important;
             }
-            .player-header-row {
+            .player-info-container {
                 width: 100% !important;
             }
-            .capsules-wrapper {
+            .player-data-row {
                 width: 100% !important;
+                justify-content: space-between !important;
+                gap: 0.5rem !important;
+            }
+            .capsules-wrapper {
+                flex-grow: 1 !important;
+                width: 0 !important;
                 justify-content: flex-start !important;
                 overflow-x: auto !important;
                 white-space: nowrap;
@@ -303,6 +333,11 @@
                 font-size: 0.7rem !important;
                 padding: 0 0.15rem !important;
                 border-radius: 4px !important;
+            }
+            .dismiss-btn {
+                width: 28px !important;
+                height: 28px !important;
+                font-size: 0.8rem !important;
             }
         }
     </style>
@@ -317,7 +352,7 @@
 
         <header>
             <h1 id="squad-title">SQUAD QUIZ MODE</h1>
-            <div class="subtitle" id="squad-subtitle">Tap a player's row to eliminate them. Switch tabs to see Recent, H2H, and Venue matches. Use Reset below to restore.</div>
+            <div class="subtitle" id="squad-subtitle">Eliminate players using the dismiss button at the end of the data. Switch tabs to see stats.</div>
         </header>
 
         <!-- Cohort Toolbar tabs -->
@@ -465,7 +500,6 @@
 
                     } catch (err) {
                         console.error(`Failed to load profile for ${p.name}:`, err);
-                        // Render empty fallback on error
                         const record = {
                             player: p,
                             recentMatches: [],
@@ -519,27 +553,25 @@
             row.className = 'player-row-quiz';
             row.setAttribute('data-player-id', p.player_id);
             
-            const roleColor = (p.role || '').toLowerCase().includes('allround') ? 'var(--neon-purple)' :
-                              (p.role || '').toLowerCase().includes('bowl') ? 'var(--neon-pink)' :
-                              (p.role || '').toLowerCase().includes('bat') ? 'var(--neon-green)' : 'var(--neon-blue)';
-            
             row.innerHTML = `
-                <div class="player-header-row">
-                    <div style="display: flex; align-items: center; gap: 0.75rem;">
-                        <span class="player-name-text" style="font-size: 1.1rem; font-weight: 700; color: #fff;">${p.name}</span>
-                        <span class="role-badge" style="color: ${roleColor}; font-size: 0.75rem; font-weight: 800; border: 1px solid ${roleColor}; padding: 0.15rem 0.4rem; border-radius: 4px; text-transform: uppercase;">${p.role || 'Player'}</span>
-                    </div>
-                    <span class="close-x">✕</span>
+                <div class="player-info-container">
+                    <span class="player-name-text">${p.name}</span>
                 </div>
-                <div class="capsules-wrapper"></div>
+                <div class="player-data-row">
+                    <div class="capsules-wrapper"></div>
+                    <button class="dismiss-btn" title="Eliminate Player">✕</button>
+                </div>
             `;
             
-            // Add click-to-hide listener (excluding capsules-wrapper click)
-            row.addEventListener('click', () => {
-                row.classList.add('fade-out');
-                setTimeout(() => {
-                    row.style.display = 'none';
-                }, 300);
+            // Clicking player name/container also triggers eliminate
+            row.querySelector('.player-info-container').addEventListener('click', () => {
+                dismissRow(row);
+            });
+            
+            // Clicking dismiss button triggers eliminate
+            row.querySelector('.dismiss-btn').addEventListener('click', (e) => {
+                e.stopPropagation();
+                dismissRow(row);
             });
             
             const capsulesWrapper = row.querySelector('.capsules-wrapper');
@@ -548,6 +580,13 @@
             });
             
             updateCapsules(record, activeTab);
+        }
+
+        function dismissRow(row) {
+            row.classList.add('fade-out');
+            setTimeout(() => {
+                row.style.display = 'none';
+            }, 300);
         }
 
         function updateCapsules(record, tab) {

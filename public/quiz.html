@@ -408,6 +408,40 @@
                 return name;
             };
 
+            const expandTeamCode = (code) => {
+                if (!code) return "";
+                code = code.toUpperCase().trim();
+                const mapping = {
+                    "MIL-M": "LONDON SPIRIT SPIRIT",
+                    "MIL-W": "LONDON SPIRIT SPIRIT",
+                    "BP-M": "BIRMINGHAM PHOENIX PHOENIX",
+                    "BP-W": "BIRMINGHAM PHOENIX PHOENIX",
+                    "TR-M": "TRENT ROCKETS ROCKETS",
+                    "TR-W": "TRENT ROCKETS ROCKETS",
+                    "SB-M": "SOUTHERN BRAVE BRAVE",
+                    "SB-W": "SOUTHERN BRAVE BRAVE",
+                    "WEF-M": "WELSH FIRE FIRE",
+                    "WEF-W": "WELSH FIRE FIRE",
+                    "MNR-M": "MANCHESTER ORIGINALS ORIGINALS",
+                    "MNR-W": "MANCHESTER ORIGINALS ORIGINALS",
+                    "OVL-M": "OVAL INVINCIBLES INVINCIBLES",
+                    "OVL-W": "OVAL INVINCIBLES INVINCIBLES",
+                    "NOS-M": "NORTHERN SUPERCHARGERS SUPERCHARGERS N S-CHARGERS",
+                    "NOS-W": "NORTHERN SUPERCHARGERS SUPERCHARGERS N S-CHARGERS",
+                    "CSK": "CHENNAI SUPER KINGS",
+                    "MI": "MUMBAI INDIANS",
+                    "RCB": "ROYAL CHALLENGERS BENGALURU BANGALORE",
+                    "SRH": "SUNRISERS HYDERABAD",
+                    "GT": "GUJARAT TITANS",
+                    "LSG": "LUCKNOW SUPER GIANTS",
+                    "KKR": "KOLKATA KNIGHT RIDERS",
+                    "RR": "RAJASTHAN ROYALS",
+                    "DC": "DELHI CAPITALS",
+                    "PBKS": "PUNJAB KINGS"
+                };
+                return mapping[code] || code;
+            };
+
             const oppCanonical = getCanonical(oppName);
             const targetCanonical = getCanonical(targetName);
 
@@ -427,8 +461,8 @@
                            .trim();
             };
 
-            const oppClean = clean(oppName);
-            const targetClean = clean(targetName);
+            const oppClean = clean(expandTeamCode(oppName));
+            const targetClean = clean(expandTeamCode(targetName));
 
             if (oppClean === targetClean) return true;
             if (oppClean.includes(targetClean) || targetClean.includes(oppClean)) return true;
